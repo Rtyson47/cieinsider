@@ -272,6 +272,7 @@
           body: JSON.stringify({
             api_key: KIT_API_KEY,
             email,
+            tags: buildTags(syllabus, examWindow),
             fields: { syllabus, exam_window: examWindow }
           })
         }
@@ -297,13 +298,13 @@
      * Replace each 0 with the real Kit tag ID.
      */
     const TAG_IDS = {
-      '0625':         0,
-      '9702':         0,
-      'both':         0,
-      'may_jun_2026': 0,
-      'oct_nov_2026': 0,
-      'may_jun_2027': 0,
-      'exploring':    0,
+      '0625':         19669519,
+      '9702':         19669522,
+      'both':         19669536,
+      'may_jun_2026': 19669537,
+      'oct_nov_2026': 19669541,
+      'may_jun_2027': 19669543,
+      'exploring':    19669546,
     };
     return [TAG_IDS[syllabus], TAG_IDS[examWindow]].filter(id => id > 0);
   }
