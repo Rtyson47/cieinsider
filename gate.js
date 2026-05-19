@@ -272,7 +272,6 @@
           body: JSON.stringify({
             api_key: KIT_API_KEY,
             email,
-            tags: buildTags(syllabus, examWindow),
             fields: { syllabus, exam_window: examWindow }
           })
         }
