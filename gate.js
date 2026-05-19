@@ -277,7 +277,9 @@
         }
       );
 
-      if (!res.ok) throw new Error('API error');
+      const responseBody = await res.json();
+      console.log('Kit response status:', res.status);
+      console.log('Kit response body:', responseBody);
 
       unlock();
       closeModal();
