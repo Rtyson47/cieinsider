@@ -426,6 +426,21 @@ h1.cie-page-title em {
 }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -449,6 +464,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">The marks most students drop on Paper 3 &mdash; drilled with real experimental contexts and examiner-level answers.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>Cambridge A Level Physics Paper 3: how to answer limitations and improvements questions</h2>
+    <p>In Cambridge A Level Physics 9702, Paper 3 (Advanced Practical Skills) ends each experiment with a question awarding up to four marks for identifying limitations of the method and suggesting corresponding improvements. These marks are widely dropped &mdash; not because candidates don&rsquo;t understand the physics, but because their answers use language the mark scheme rejects. Phrases like &ldquo;do more repeats&rdquo; or &ldquo;use better equipment&rdquo; score zero; a creditable limitation names the specific source of error, and a creditable improvement gives a concrete, feasible solution that addresses it directly.</p>
+    <p>Valid limitations accepted by Cambridge examiners fall into four main categories: <strong>too few readings</strong> (only two or three measurements taken, insufficient to verify a relationship); <strong>difficulty measuring a specific quantity</strong> (naming what is hard to measure and why &mdash; for example, judging the exact moment a pendulum passes its lowest point); <strong>a systematic source of error</strong> (friction at a pivot, parallax when reading a scale, heat loss to surroundings); and <strong>human reaction error</strong> (for timing experiments, naming the specific action that introduces it). A corresponding improvement must address the same limitation: a light gate or fiducial marker for pendulum timing, a second thermometer for ambient temperature, a fixed pointer to eliminate parallax.</p>
+    <p>This trainer presents real past-paper experimental scenarios from 9702 Paper 3 &mdash; mechanics experiments (moments, SHM, collisions), electrical experiments (resistance variation, capacitor discharge), and thermal experiments &mdash; with validated answer cards showing which responses score and which common phrasings receive zero. Use alongside the <a href="/9702/uncertainties/">uncertainties trainer</a> to master the full range of practical assessment skills for Paper 3.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 <div class="topbar">

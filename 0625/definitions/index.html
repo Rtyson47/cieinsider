@@ -743,6 +743,21 @@ h1.cie-page-title em {
 }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -766,6 +781,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">Shuffle, drill, and flag missed items for re-testing. Every definition and formula you need to recall under exam conditions.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>Every Cambridge IGCSE Physics definition and formula you need to recall &mdash; drilled until clean</h2>
+    <p>Definitions and recall of formulae are tested directly in Cambridge IGCSE Physics 0625 across all papers. Questions like &ldquo;define velocity&rdquo;, &ldquo;state what is meant by specific heat capacity&rdquo;, or &ldquo;give the formula for electrical power&rdquo; appear on Paper 1 and Paper 2 every series. The mark scheme requires precise wording: omitting &ldquo;per unit mass&rdquo; from specific heat capacity, or writing &ldquo;rate of change of distance&rdquo; instead of &ldquo;rate of change of displacement&rdquo; for velocity, loses the mark. Examiner reports consistently note that candidates give correct physics but imprecise definitions.</p>
+    <p>This deck covers 120 items from the 2026&ndash;2028 Cambridge IGCSE Physics specification across six topic areas: <strong>General Physics</strong> (speed, velocity, acceleration, force, work, power, pressure); <strong>Thermal Physics</strong> (temperature scales, specific heat capacity, specific latent heat, gas behaviour); <strong>Properties of Waves</strong> (wave speed, amplitude, frequency, reflection, refraction, diffraction); <strong>Electricity and Magnetism</strong> (current, EMF, resistance, Ohm&rsquo;s law, transformer equations); <strong>Atomic Physics</strong> (nucleon number, proton number, isotopes, nuclear equations); and <strong>Space Physics</strong> (stellar evolution, Hubble&rsquo;s law). Core-tier and Extended-tier items are labelled so supplementary candidates can build on the shared foundation.</p>
+    <p>Use shuffle mode to randomise card order and simulate exam conditions. When you answer incorrectly, the card is flagged for a retest cycle &mdash; it stays in the queue until you get it right consistently. Run through the full deck once early in revision to calibrate, then return to missed items in the final week. Complement with the <a href="/0625/tips/">IGCSE examiner tips</a> to understand why specific phrasing matters for each topic.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 <div id="app">

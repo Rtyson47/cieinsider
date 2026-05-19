@@ -778,6 +778,21 @@
   .cie-footer a { color: #3a3127; text-decoration: underline; text-decoration-color: #d8ccb4; }
   .cie-footer a:hover { color: var(--accent); }
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body>
@@ -805,6 +820,18 @@
     <p class="hero-desc">Master absolute and percentage uncertainties, combining rules, and graph-based uncertainty &mdash; the skills Cambridge tests on every practical paper.</p>
   </div>
 </header>
+
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+    <div class="seo-intro-inner">
+      <h2>Cambridge A Level Physics uncertainty rules for Papers 3 and 5 &mdash; reference, combining rules, and drill in one tool</h2>
+      <p>Uncertainty calculations appear on every Cambridge A Level Physics 9702 practical paper. Paper 3 (AS Level) tests absolute uncertainties from scale readings, percentage uncertainties, combining uncertainties when adding or subtracting and when multiplying or dividing, and reading the uncertainty in a gradient from a graph. Paper 5 (A Level) applies the same skills within a full analysis question &mdash; the uncertainty in the gradient is typically derived from the maximum and minimum gradient lines drawn through the error bars, then expressed as a percentage. Examiner reports across multiple series highlight the same recurring errors: omitting the factor of two when using half-range from repeated readings, confusing absolute and percentage forms when combining, and quoting percentage uncertainties to too many significant figures.</p>
+      <p>This tool combines a reference section and a drill. The reference covers what uncertainty means and why every measurement has one, reading instrument uncertainties (ruler, vernier caliper, micrometer, stopwatch, ammeter, voltmeter), the four combining rules (addition/subtraction; multiplication/division; raising to a power; functions), finding gradient uncertainty from maximum and minimum gradient lines, and Cambridge&rsquo;s significant-figure conventions for uncertainty expressions. The drill generates numerical uncertainty problems with step-by-step worked solutions so you can practice the calculation mechanics until they are automatic.</p>
+      <p>Use the reference to build the mental model, then switch to drill once you can work through the combining rules without prompting. Focus particularly on the gradient-uncertainty method and percentage uncertainty combining &mdash; these appear on almost every Paper 5 Q2 and are among the most frequently dropped mark points.</p>
+    </div>
+  </details>
+</section>
 
 <!-- VIEW TABS -->
 <div class="view-tabs">

@@ -411,6 +411,21 @@ h1.cie-page-title em {
 }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -434,6 +449,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">A2-level definitions and formulae &mdash; same drill system, A2 content. Work through until every card is clean.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>Cambridge A2 Level Physics definitions and formulae &mdash; every term tested on Paper 4</h2>
+    <p>Cambridge A Level Physics 9702 Paper 4 (A Level Structured Questions) tests A2-only material alongside some revisited AS content. Definitions form a reliable source of marks: &ldquo;define gravitational field strength&rdquo;, &ldquo;explain what is meant by simple harmonic motion&rdquo;, &ldquo;define the becquerel&rdquo;, and &ldquo;state what is meant by the photoelectric effect&rdquo; appear regularly. The mark scheme is precise: &ldquo;force on a mass&rdquo; is insufficient for gravitational field strength (it must be &ldquo;force per unit mass on a small test mass&rdquo;); omitting the proportionality condition from the SHM definition loses the mark.</p>
+    <p>This deck covers 108 recall items from the A2 component of the 9702 specification (2025&ndash;2027), organised by topic: <strong>Motion in a Circle</strong> (angular velocity, centripetal acceleration, centripetal force); <strong>Gravitational Fields</strong> (gravitational field strength, Newton&rsquo;s law of gravitation, gravitational potential, orbital velocity, escape velocity); <strong>Oscillations</strong> (SHM definition and conditions, angular frequency, period, energy relationships, damping types); <strong>Thermal Physics</strong> (internal energy, first law of thermodynamics, specific heat capacity, ideal gas laws, kinetic theory); <strong>Capacitance</strong> (definition, energy stored, time constant); <strong>Magnetic Fields</strong> (magnetic flux density, tesla, force on current, Hall effect, Faraday&rsquo;s and Lenz&rsquo;s laws); <strong>Alternating Currents</strong> (r.m.s. values, rectification, smoothing); <strong>Quantum Physics</strong> (photon energy, photoelectric effect, de Broglie wavelength, energy levels, line spectra); and <strong>Nuclear Physics</strong> (binding energy, mass defect, nuclear radius, fission, fusion, decay constant, half-life, activity).</p>
+    <p>Use alongside the <a href="/9702/p2/definitions/">Paper 2 (AS) flashcard deck</a> to cover the full 9702 definition list, and the <a href="/9702/uncertainties/">uncertainties trainer</a> for practical paper preparation.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 <div id="app">

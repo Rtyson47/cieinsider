@@ -1177,6 +1177,17 @@
   }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid var(--rule); }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: var(--ink-soft); cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: var(--ink); margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro a { color: var(--accent); }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body>
@@ -1211,6 +1222,18 @@
       <span><strong>25 ranked criticisms</strong> · from 5 years of reports</span>
     </div>
   </header>
+
+  <section class="seo-intro">
+    <details>
+      <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+        <h2>Every mark Cambridge IGCSE Physics Paper 5 examiners penalise &mdash; compiled from five years of examiner reports</h2>
+        <p>Cambridge IGCSE Physics 0625 Paper 5 (Practical Test) is a 40-mark paper sat in 1 hour 15 minutes across two experiments. Marks are awarded for taking and recording measurements with appropriate precision, drawing and interpreting graphs, applying physics reasoning to experimental data, identifying and explaining sources of error, and completing a planning exercise. Unlike written papers, the practical test has strict technique requirements: measurements must be recorded to the correct number of decimal places, best-fit lines must genuinely minimise residuals, and sources of error must be specific to the experiment. Examiner reports note that generic answers &mdash; &ldquo;parallax error&rdquo;, &ldquo;human error&rdquo;, &ldquo;systematic error&rdquo; without further explanation &mdash; rarely score.</p>
+        <p>This guide is built from CIE Examiner Reports 2021&ndash;2025 across all variants (51, 52, 53, 61, 62, 63). The <strong>Rules</strong> tab gives the complete reference for each mark category. <strong>Drill Mode</strong> generates examiner-style questions on the most-tested skill areas. The <strong>Self-Audit</strong> is a checklist to run through after each practice paper, catching the specific items most often missed. <strong>Top 25 Marks Lost</strong> ranks errors by frequency across series, so you know where to focus when revision time is short.</p>
+        <p>Start with the Overview to identify which areas cost the most marks, then read the relevant Rules sections. Before each practice paper, skim the Self-Audit so the criteria are fresh. After the paper, work through the Audit to find what slipped, then drill those areas in Drill Mode. Complement with the <a href="/0625/definitions/">IGCSE Physics definitions flashcards</a> to reinforce the technical vocabulary examiners expect in written answers.</p>
+      </div>
+    </details>
+  </section>
 
   <!-- ============ TABS ============ -->
   <nav class="tabs">

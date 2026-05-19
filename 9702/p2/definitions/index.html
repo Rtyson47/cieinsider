@@ -411,6 +411,21 @@ h1.cie-page-title em {
 }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -434,6 +449,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">AS-level definitions and formulae drilled as flashcards &mdash; shuffle mode, missed-item review, and retest until clean.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>Cambridge AS Level Physics definitions and formulae &mdash; every term tested on Paper 2</h2>
+    <p>Definitions carry reliable marks on Cambridge A Level Physics 9702 Paper 2 (AS Level Structured Questions). Questions like &ldquo;define the pascal&rdquo;, &ldquo;state what is meant by Young modulus&rdquo;, or &ldquo;state Newton&rsquo;s second law in terms of momentum&rdquo; appear every series. The mark scheme requires precise wording: omitting &ldquo;per unit cross-sectional area&rdquo; from the definition of stress, or writing &ldquo;rate of change of distance&rdquo; instead of &ldquo;rate of change of displacement&rdquo; for velocity, loses the mark. Examiner reports consistently note that candidates understand the concepts but fail the definition.</p>
+    <p>This deck covers 121 recall items from the AS-level component of the 9702 specification (2025&ndash;2027), organised by topic: <strong>Physical Quantities</strong> (base units, SI prefixes, scalars and vectors); <strong>Kinematics</strong> (displacement, velocity, acceleration, equations of uniform motion, projectile motion); <strong>Dynamics</strong> (Newton&rsquo;s three laws, linear momentum, impulse, conservation of momentum); <strong>Forces and Pressure</strong> (upthrust, Archimedes&rsquo; principle, torque, equilibrium); <strong>Work, Energy and Power</strong> (work done, gravitational potential energy, kinetic energy, efficiency); <strong>Deformation of Solids</strong> (Hooke&rsquo;s law, Young modulus, stress, strain, elastic limit); <strong>Waves</strong> (progressive and stationary waves, phase difference, coherence, polarisation, refractive index, critical angle); <strong>Superposition</strong> (path difference, interference, diffraction grating equation); <strong>Electricity</strong> (current, potential difference, EMF, resistance, Kirchhoff&rsquo;s laws, resistivity); and <strong>Particle Physics</strong> (quarks, leptons, hadrons, conservation laws).</p>
+    <p>Cards use a shuffle mode and missed-item retest system. Work through the full deck once early in revision, then return to flagged items before the exam. Complements the <a href="/9702/p4/definitions/">Paper 4 (A2) flashcard deck</a> and the <a href="/9702/uncertainties/">uncertainties trainer</a>.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 <div id="app">

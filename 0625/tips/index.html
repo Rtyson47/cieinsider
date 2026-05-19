@@ -382,6 +382,21 @@ h1.cie-page-title em {
 .cie-footer a:hover { color: var(--cie-accent); }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -405,6 +420,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">Distilled from CIE examiner reports across the 0625 syllabus &mdash; the habits and mistakes that come up year after year.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>What Cambridge examiners flag in IGCSE Physics 0625 &mdash; topic by topic</h2>
+    <p>After every examination series, Cambridge publishes examiner reports for IGCSE Physics (syllabus 0625). These reports name specific mistakes that cost candidates marks &mdash; not broad guidance, but precise observations: the phrasing that doesn&rsquo;t score, the graph conventions that get penalised, the calculation errors that appear on every single series. This tool distils those observations into a filterable reference organised by topic.</p>
+    <p>Tips span all six topic areas: <strong>General Physics</strong> (measurement, scalar and vector quantities, kinematics, dynamics, energy and work, pressure); <strong>Thermal Physics</strong> (temperature, specific heat capacity, specific latent heat, gas laws); <strong>Properties of Waves</strong> (transverse and longitudinal waves, light, sound, electromagnetic spectrum); <strong>Electricity and Magnetism</strong> (current, voltage, resistance, series and parallel circuits, electromagnetic induction, transformers); <strong>Atomic Physics</strong> (radioactive decay, half-life, nuclear reactions); and <strong>Space Physics</strong> (solar system, stars, universe). Core and Extended content is flagged separately so you can target supplementary marks without wading through shared material.</p>
+    <p>Recurring examiner observations across recent series: candidates describe effects too vaguely (&ldquo;resistance increases&rdquo; rather than &ldquo;resistance increases because more collisions occur between electrons and ions&rdquo;); copy values from graphs without showing a substitution; omit units on derived quantities; and confuse transverse with longitudinal wave properties. Each tip names the mistake and states exactly what a mark-winning answer looks like instead. Pair with the <a href="/0625/definitions/">0625 definitions flashcard deck</a> and the <a href="/0625/p5/guide/">Paper 5 practical guide</a> to cover theory, vocabulary, and practical skills together.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 <div class="page-wrap">

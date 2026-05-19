@@ -1053,6 +1053,21 @@ h1.cie-page-title em {
 .cie-footer a:hover { color: var(--cie-accent); }
 
 </style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro ul { font-size: 15px; color: #3a3127; line-height: 1.7; padding-left: 20px; margin: 0 0 12px; }
+.seo-intro li { margin-bottom: 4px; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
 <script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
@@ -1076,6 +1091,17 @@ h1.cie-page-title em {
     <p class="cie-page-lede">Train like you&rsquo;ve marked the paper. Question-by-question prompts that push you to think like an examiner before seeing the answer.</p>
   </div>
 </header>
+<section class="seo-intro">
+  <details>
+    <summary>About this tool</summary>
+      <div class="seo-intro-inner">
+    <h2>Train for Cambridge IGCSE Physics Paper 5 by answering like an examiner, not a student</h2>
+    <p>Cambridge IGCSE Physics Paper 5 (Alternative to Practical) is a 40-mark written paper that tests practical skills without a laboratory. Candidates answer four structured questions: a measurement question (reading instruments, calculating derived quantities, estimating uncertainties), a graph question (plotting data, drawing a best-fit line, finding gradients and intercepts), an optics or thermal question (ray tracing or temperature analysis), and a planning question (designing an experiment with variables, method, and sources of error). All six variants &mdash; 51, 52, 53, 61, 62, and 63 &mdash; test the same underlying skills in different experimental contexts.</p>
+    <p>The drill works by presenting each question prompt before revealing the model answer. The crucial step is to formulate your response first &mdash; write it down or say it aloud &mdash; then compare against the mark scheme. This trains the habit that makes the difference at A* and A: anticipating what an examiner needs to see, rather than recognising a good answer after the fact. Common stumbling points include writing the uncertainty as &plusmn; half the smallest division rather than &plusmn; the full smallest division for a metre rule; omitting &ldquo;anomalous point excluded&rdquo; when describing a best-fit line; and failing to give control variables in a planning question.</p>
+    <p>Work through questions sequentially to cover all four question types, or jump to whichever area costs you most marks in practice. Each answer card shows the mark-scheme wording alongside a plain-English explanation of why each phrase is required. See the companion <a href="/0625/p5/guide/">Paper 5 guide</a> for the full reference on rules and ranked mistakes, or <a href="/0625/tips/">IGCSE examiner tips</a> for topic-by-topic observations across all papers.</p>
+  </div>
+  </details>
+</section>
 <main class="cie-tool-stage">
 
 
