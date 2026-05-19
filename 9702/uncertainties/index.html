@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE Insider · 9702 — Uncertainties Trainer</title>
+<meta name="description" content="Master absolute and percentage uncertainties, combining rules, and graph-based uncertainty — the skills Cambridge 9702 tests on every practical paper.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #a83b1f;
+    --accent-deep: #7d2a14;
+    --ink: #1f1a14;
+    --ink-mute: #6b5e4d;
+    --cream: #f5efe4;
+    --cream-warm: #faf6ec;
+    --green: #4a6b3a;
+    --green-soft: #d4dcc4;
+    --gold: #b8893a;
+    --rule-soft: #e6dcc6;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-serif: 'Fraunces', serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+    --shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    --border-radius-md: 4px;
+    --color-background-success: #d4dcc4;
+    --color-text-success: #4a6b3a;
+    --color-background-danger: #ecc8b8;
+    --color-text-danger: #7d2a14;
+    --color-background-warning: #f3e3c2;
+    --color-text-warning: #b8893a;
+    --color-background-info: #ecdcc9;
+    --color-text-info: #a83b1f;
+    --color-border-tertiary: #e6dcc6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── SITE CONTAINER ── */
+  .site-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── TOP BAR (matches dashboard) ── */
+  .nav {
+    padding: 24px 0;
+    border-bottom: 1px solid #d8ccb4;
+    background: var(--cream);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    align-self: center;
+  }
+  .nav-name {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .nav-subtitle {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  @media (max-width: 600px) {
+    .nav-subtitle { display: none; }
+  }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a3127;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #d8ccb4;
+    border-radius: 4px;
+    background: var(--cream-warm);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .nav-back:hover { border-color: #3a3127; color: var(--accent); }
+  .nav-back .nav-back-arrow { transition: transform 0.15s ease; }
+  .nav-back:hover .nav-back-arrow { transform: translateX(-3px); }
+
+  /* ── HERO (matches inner page-hero pattern) ── */
+  .hero {
+    padding: 56px 0 32px;
+    border-bottom: 1px solid #d8ccb4;
+  }
+  .hero-inner { /* uses .site-container width */ }
+  .hero-label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent-deep);
+    font-weight: 500;
+  }
+  .hero-desc {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3a3127;
+    line-height: 1.45;
+    max-width: 680px;
+    margin: 0;
+  }
+
+  /* ── TABS (reference / drill) ── */
+  .view-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule-soft);
+    padding: 0 32px;
+    background: var(--cream);
+  }
+  .view-tab {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-mute);
+    padding: 14px 18px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    transition: color 0.15s;
+    margin-bottom: -1px;
+  }
+  .view-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .view-tab:hover:not(.active) { color: var(--ink); }
+
+  /* ── REFERENCE SECTION ── */
+  #reference-view { display: none; }
+  #reference-view.visible { display: block; }
+  #drill-view { display: none; }
+  #drill-view.visible { display: block; }
+
+  .reference-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+  }
+  .ref-section {
+    margin-bottom: 40px;
+  }
+  .ref-section-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .ref-section-sub {
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .rule-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+  .rule-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .rule-badge {
+    flex-shrink: 0;
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+    margin-top: 2px;
+  }
+  .rule-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .rule-card p {
+    font-size: 0.9rem;
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .rule-formula {
+    background: var(--cream);
+    border: 1px solid var(--rule-soft);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin: 8px 0;
+    line-height: 1.8;
+  }
+  .rule-formula .comment {
+    color: var(--ink-mute);
+    font-style: italic;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+  }
+  .rule-example {
+    background: var(--color-background-success);
+    border-left: 3px solid var(--green);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: var(--color-text-success);
+    margin-top: 10px;
+    font-family: var(--font-mono);
+  }
+  .rule-warning {
+    background: var(--color-background-warning);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: var(--color-text-warning);
+    margin-top: 10px;
+  }
+  .rule-warning strong { font-weight: 600; }
+
+  .ref-divider {
+    height: 1px;
+    background: var(--rule-soft);
+    margin: 36px 0;
+  }
+
+  /* Summary table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin-top: 8px;
+  }
+  .summary-table th {
+    text-align: left;
+    padding: 8px 14px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule-soft);
+    background: var(--cream);
+  }
+  .summary-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table td:first-child { font-weight: 600; color: var(--ink); width: 22%; }
+  .summary-table td:nth-child(2) { font-family: var(--font-mono); font-size: 0.83rem; color: var(--accent-deep); width: 30%; }
+  .summary-table td:nth-child(3) { color: var(--ink-mute); }
+  .summary-table tr:nth-child(even) td { background: rgba(245,239,228,0.5); }
+
+  /* ── DRILL SECTION ── */
+  .drill-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 32px 64px;
+  }
+
+  /* Mode & nav bar */
+  .drill-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .drill-mode-tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--rule-soft);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .mode-btn {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink-mute);
+    padding: 7px 14px;
+    border: none;
+    background: var(--cream-warm);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border-right: 1px solid var(--rule-soft);
+  }
+  .mode-btn:last-child { border-right: none; }
+  .mode-btn.active { background: var(--ink); color: var(--cream-warm); }
+  .mode-btn:hover:not(.active) { background: var(--cream); color: var(--ink); }
+
+  .drill-progress-label {
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .drill-progress-label span { color: var(--ink); font-weight: 600; }
+
+  /* Question nav dots */
+  .q-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .q-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rule-soft);
+    background: var(--cream-warm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-mute);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .q-dot:hover { border-color: var(--accent); color: var(--accent); }
+  .q-dot.active { border-color: var(--accent); background: var(--accent); color: white; }
+  .q-dot.complete { border-color: var(--green); background: var(--green-soft); color: var(--green); }
+  .q-dot.in-progress { border-color: var(--gold); background: var(--color-background-warning); color: var(--gold); }
+
+  /* Skill group header in "by skill" mode */
+  .skill-group-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 16px 0 8px;
+    width: 100%;
+  }
+
+  /* ── QUESTION CARD ── */
+  .trainer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .trainer-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .trainer-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+  }
+  .trainer-count {
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .trainer-progress-bar {
+    height: 3px;
+    background: var(--rule-soft);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .trainer-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .skill-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+  }
+  .skill-label span {
+    color: var(--accent);
+  }
+
+  /* Context card */
+  .context-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-soft);
+  }
+  .context-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .context-text {
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .context-text .qty {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background: var(--cream);
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--rule-soft);
+  }
+
+  /* SVG instrument */
+  .instrument-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0 8px;
+  }
+
+  /* Step cards */
+  .step-card {
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+    background: var(--cream-warm);
+    box-shadow: var(--shadow-soft);
+    transition: opacity 0.2s;
+  }
+  .step-card.locked {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  .step-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 6px;
+  }
+  .step-question {
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+  .step-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .step-input {
+    flex: 1;
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background: #fffaf0;
+    border: 1px solid #d8ccb4;
+    border-radius: var(--border-radius-md);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .step-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(168,59,31,0.1);
+  }
+  .step-input.correct {
+    border-color: var(--green);
+    background: var(--color-background-success);
+  }
+  .step-input.wrong {
+    border-color: var(--accent);
+    background: var(--color-background-danger);
+  }
+  .step-input:disabled {
+    opacity: 0.8;
+    cursor: default;
+  }
+  .check-btn {
+    padding: 8px 18px;
+    background: var(--ink);
+    color: var(--cream-warm);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .check-btn:hover { background: var(--accent-deep); }
+  .check-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .hint-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .hint-link:hover { color: var(--accent); }
+
+  .feedback {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct {
+    background: var(--color-background-success);
+    color: var(--color-text-success);
+    border-left: 3px solid var(--green);
+  }
+  .feedback.wrong {
+    background: var(--color-background-danger);
+    color: var(--color-text-danger);
+    border-left: 3px solid var(--accent);
+  }
+  .feedback.warning {
+    background: var(--color-background-warning);
+    color: var(--color-text-warning);
+    border-left: 3px solid var(--gold);
+  }
+  .feedback.hint {
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+    border-left: 3px solid var(--accent);
+  }
+  .feedback.units-nudge {
+    background: var(--color-background-warning);
+    color: var(--color-text-warning);
+    border-left: 3px solid var(--gold);
+  }
+
+  .next-btn {
+    margin-top: 20px;
+    padding: 10px 24px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: none;
+  }
+  .next-btn.show { display: inline-flex; align-items: center; gap: 8px; }
+  .next-btn:hover { background: var(--accent-deep); }
+
+  /* Worked solution */
+  .worked-solution {
+    display: none;
+    margin-top: 16px;
+    background: var(--cream);
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .worked-solution.show { display: block; }
+  .worked-solution-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .worked-solution p {
+    font-size: 0.875rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .worked-solution .formula {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background: var(--cream-warm);
+    border: 1px solid var(--rule-soft);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    color: var(--ink);
+  }
+
+  /* Complete banner */
+  .complete-banner {
+    display: none;
+    text-align: center;
+    padding: 48px 32px;
+    background: var(--cream-warm);
+    border: 1px solid var(--rule-soft);
+    border-radius: 8px;
+    margin-top: 24px;
+  }
+  .complete-banner.show { display: block; }
+  .complete-banner h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .complete-banner p {
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+  }
+  .restart-btn {
+    padding: 10px 24px;
+    background: var(--ink);
+    color: var(--cream-warm);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .restart-btn:hover { background: var(--accent-deep); }
+
+  /* Difficulty badge */
+  .diff-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 8px;
+  }
+  .diff-easy { background: var(--green-soft); color: var(--green); }
+  .diff-medium { background: var(--color-background-warning); color: var(--gold); }
+  .diff-hard { background: var(--color-background-danger); color: var(--color-text-danger); }
+
+  /* SVG diagrams */
+  svg.instrument { display: block; }
+
+  @media (max-width: 640px) {
+    .site-container { padding: 0 16px; }
+    .hero { padding: 36px 0 24px; }
+    .reference-container, .drill-container { padding: 24px 16px 48px; }
+    .view-tabs { padding: 0 16px; }
+    .step-input-row { flex-direction: column; }
+    .check-btn { width: 100%; }
+  }
+
+  /* ── FOOTER (matches dashboard) ── */
+  .cie-footer {
+    border-top: 1px solid #d8ccb4;
+    padding: 32px 0 56px;
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    background: var(--cream);
+  }
+  .cie-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+  .cie-footer a { color: #3a3127; text-decoration: underline; text-decoration-color: #d8ccb4; }
+  .cie-footer a:hover { color: var(--accent); }
+</style>
+<script src="/gate.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="site-container nav-inner">
+    <a class="nav-brand" href="/">
+      <span class="nav-dot"></span>
+      <span class="nav-name">CIE Insider</span>
+      <span class="nav-subtitle">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="nav-back" href="/">
+      <span class="nav-back-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="site-container hero-inner">
+    <p class="hero-label">9702 · AS &amp; A Level · Papers 3 &amp; 5</p>
+    <h1 class="hero-title">Uncertainties <em>Trainer</em></h1>
+    <p class="hero-desc">Master absolute and percentage uncertainties, combining rules, and graph-based uncertainty &mdash; the skills Cambridge tests on every practical paper.</p>
+  </div>
+</header>
+
+<!-- VIEW TABS -->
+<div class="view-tabs">
+  <button class="view-tab active" onclick="switchView('reference')">📖 Rules &amp; Reference</button>
+  <button class="view-tab" onclick="switchView('drill')">⚡ Drill Practice</button>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     REFERENCE VIEW
+══════════════════════════════════════════════ -->
+<div id="reference-view" class="visible">
+  <div class="reference-container">
+
+    <!-- SECTION 1: What is uncertainty? -->
+    <div class="ref-section">
+      <div class="ref-section-title">What is Uncertainty?</div>
+      <div class="ref-section-sub">The foundation — before combining anything, you must understand what uncertainty means</div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Core Idea</div>
+          <div class="rule-card-title">Every measurement has an uncertainty</div>
+        </div>
+        <p>When you measure something, you cannot be perfectly precise. The <strong>absolute uncertainty</strong> tells you the range within which the true value lies. It always has the same units as the measurement.</p>
+        <div class="rule-formula">
+          measurement = (value ± absolute uncertainty) unit<br>
+          <span class="comment">e.g.  length = (24.5 ± 0.5) mm</span>
+        </div>
+        <p>The <strong>percentage uncertainty</strong> expresses that uncertainty relative to the measurement itself:</p>
+        <div class="rule-formula">
+          % uncertainty = (absolute uncertainty ÷ value) × 100%<br>
+          <span class="comment">e.g.  (0.5 ÷ 24.5) × 100% = 2.0%</span>
+        </div>
+        <div class="rule-warning"><strong>Cambridge convention:</strong> Quote % uncertainties to 1 or 2 significant figures. Never more.</div>
+      </div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <!-- SECTION 2: Reading from instruments -->
+    <div class="ref-section">
+      <div class="ref-section-title">Reading Uncertainty from Instruments</div>
+      <div class="ref-section-sub">How to determine absolute uncertainty from a scale or measuring device</div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule</div>
+          <div class="rule-card-title">Analogue instruments (rulers, thermometers, ammeters)</div>
+        </div>
+        <p>For any analogue scale, the uncertainty is <strong>half the smallest division</strong>.</p>
+        <div class="rule-formula">
+          absolute uncertainty = ½ × smallest division<br>
+          <span class="comment">e.g. ruler with 1 mm divisions → uncertainty = ±0.5 mm</span><br>
+          <span class="comment">e.g. thermometer with 0.2 °C divisions → uncertainty = ±0.1 °C</span>
+        </div>
+        <div class="rule-warning"><strong>For a length measured with a ruler:</strong> you take a reading at each end, so uncertainty in the length = 2 × (½ × smallest division) = ±1 division.</div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule</div>
+          <div class="rule-card-title">Digital instruments</div>
+        </div>
+        <p>The uncertainty is <strong>±1 in the last displayed digit</strong>.</p>
+        <div class="rule-formula">
+          <span class="comment">e.g. voltmeter reads 3.45 V → uncertainty = ±0.01 V</span><br>
+          <span class="comment">e.g. stopwatch reads 12.3 s → uncertainty = ±0.1 s</span>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule</div>
+          <div class="rule-card-title">Vernier callipers &amp; micrometers</div>
+        </div>
+        <div class="rule-formula">
+          Vernier calliper (0.02 mm graduation) → uncertainty = ±0.02 mm<br>
+          Micrometer screw gauge → uncertainty = ±0.005 mm<br>
+          <span class="comment">(Stated precision is taken as the uncertainty)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <!-- SECTION 3: Combining uncertainties -->
+    <div class="ref-section">
+      <div class="ref-section-title">Combining Uncertainties</div>
+      <div class="ref-section-sub">The rules Cambridge tests most frequently — know these cold</div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule 1</div>
+          <div class="rule-card-title">Addition and Subtraction → Add absolute uncertainties</div>
+        </div>
+        <p>If  <code>z = x + y</code>  or  <code>z = x − y</code>:</p>
+        <div class="rule-formula">
+          Δz = Δx + Δy<br>
+          <span class="comment">Always add — never subtract — the absolute uncertainties</span>
+        </div>
+        <div class="rule-example">
+          x = (12.0 ± 0.5) cm,  y = (4.0 ± 0.5) cm<br>
+          z = x − y = 8.0 cm,  Δz = 0.5 + 0.5 = 1.0 cm<br>
+          z = (8.0 ± 1.0) cm
+        </div>
+        <div class="rule-warning"><strong>Key point:</strong> Subtracting two similar values makes the % uncertainty very large — this is why Cambridge often penalises poor experimental design where a small difference between large numbers is taken.</div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule 2</div>
+          <div class="rule-card-title">Multiplication and Division → Add percentage uncertainties</div>
+        </div>
+        <p>If  <code>z = x × y</code>  or  <code>z = x ÷ y</code>:</p>
+        <div class="rule-formula">
+          %Δz = %Δx + %Δy<br>
+          <span class="comment">Convert to % first, add them, convert back if needed</span>
+        </div>
+        <div class="rule-example">
+          V = I × R,  %ΔI = 2%,  %ΔR = 3%<br>
+          %ΔV = 2 + 3 = 5%<br>
+          If V = 6.0 V:  ΔV = 5% × 6.0 = 0.3 V  →  V = (6.0 ± 0.3) V
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule 3</div>
+          <div class="rule-card-title">Powers → Multiply percentage uncertainty by the power</div>
+        </div>
+        <p>If  <code>z = xⁿ</code>:</p>
+        <div class="rule-formula">
+          %Δz = n × %Δx<br>
+          <span class="comment">The power multiplies the % uncertainty — including fractional powers (roots)</span>
+        </div>
+        <div class="rule-example">
+          z = x³,  %Δx = 2%  →  %Δz = 3 × 2% = 6%<br>
+          z = √x = x^(½),  %Δx = 4%  →  %Δz = ½ × 4% = 2%
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Rule 4</div>
+          <div class="rule-card-title">Constants → contribute zero uncertainty</div>
+        </div>
+        <p>Pure numbers and defined constants (π, 2, 4π², etc.) have no uncertainty and do not contribute to the combined uncertainty.</p>
+        <div class="rule-formula">
+          z = 2πr  →  %Δz = %Δr  <span class="comment">(2 and π contribute nothing)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <!-- SECTION 4: Largest source -->
+    <div class="ref-section">
+      <div class="ref-section-title">Identifying the Largest Uncertainty Source</div>
+      <div class="ref-section-sub">A Cambridge favourite — which measurement limits the precision most?</div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Strategy</div>
+          <div class="rule-card-title">Compare percentage contributions</div>
+        </div>
+        <p>Convert each measurement's uncertainty to a percentage, then compare. The largest % uncertainty is the dominant source — improving this instrument would give the biggest gain in precision.</p>
+        <div class="rule-formula">
+          For  z = (x² × y) / w<br>
+          %Δz = 2(%Δx) + %Δy + %Δw<br>
+          <span class="comment">Compare each term — the biggest term dominates</span>
+        </div>
+        <div class="rule-warning"><strong>Note:</strong> Powers amplify — a 2% uncertainty in x becomes 4% in x², so powered terms are often the dominant source even when the raw % uncertainty looks small.</div>
+      </div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <!-- SECTION 5: Graph uncertainties -->
+    <div class="ref-section">
+      <div class="ref-section-title">Uncertainty in Gradient and Intercept</div>
+      <div class="ref-section-sub">Paper 5 — uncertainty from best-fit and worst-acceptable lines</div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">Method</div>
+          <div class="rule-card-title">Best-fit and worst-acceptable lines</div>
+        </div>
+        <p>Draw the <strong>best-fit line</strong> (passing through or near all error bars, or the line of best fit through the points).</p>
+        <p>Draw the <strong>worst-acceptable line</strong> — the steepest or shallowest line that still passes through all error bars (or is consistent with the scatter).</p>
+        <div class="rule-formula">
+          gradient uncertainty = |gradient(best) − gradient(worst)|<br>
+          intercept uncertainty = |intercept(best) − intercept(worst)|
+        </div>
+        <div class="rule-example">
+          m_best = 2.40 cm/s²,  m_worst = 2.10 cm/s²<br>
+          Δm = |2.40 − 2.10| = 0.30 cm/s²<br>
+          gradient = (2.40 ± 0.30) cm/s²
+        </div>
+        <div class="rule-warning"><strong>Always use large triangles</strong> when calculating gradients — at least half the drawn line length. Small triangles amplify reading errors.</div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <div class="rule-badge">% Uncertainty</div>
+          <div class="rule-card-title">Percentage uncertainty in a gradient</div>
+        </div>
+        <div class="rule-formula">
+          % uncertainty in gradient = (Δm / m_best) × 100%<br>
+          <span class="comment">Same formula as for any other quantity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <!-- SUMMARY TABLE -->
+    <div class="ref-section">
+      <div class="ref-section-title">Quick Reference Summary</div>
+      <div class="ref-section-sub">All four combining rules at a glance</div>
+      <div class="rule-card" style="padding: 0; overflow: hidden;">
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Rule</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>z = x + y or x − y</td>
+              <td>Δz = Δx + Δy</td>
+              <td>Add absolute uncertainties</td>
+            </tr>
+            <tr>
+              <td>z = x × y or x / y</td>
+              <td>%Δz = %Δx + %Δy</td>
+              <td>Add percentage uncertainties</td>
+            </tr>
+            <tr>
+              <td>z = xⁿ</td>
+              <td>%Δz = n × %Δx</td>
+              <td>Multiply % by power</td>
+            </tr>
+            <tr>
+              <td>z = √x</td>
+              <td>%Δz = ½ × %Δx</td>
+              <td>Power is ½</td>
+            </tr>
+            <tr>
+              <td>z = constant × x</td>
+              <td>%Δz = %Δx</td>
+              <td>Constants add nothing</td>
+            </tr>
+            <tr>
+              <td>Graph gradient</td>
+              <td>Δm = |m_best − m_worst|</td>
+              <td>Best-line vs worst-line</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     DRILL VIEW
+══════════════════════════════════════════════ -->
+<div id="drill-view">
+  <div class="drill-container">
+
+    <!-- Mode selector + progress -->
+    <div class="drill-controls">
+      <div class="drill-mode-tabs">
+        <button class="mode-btn active" onclick="setMode('difficulty')" id="mode-difficulty">By Difficulty</button>
+        <button class="mode-btn" onclick="setMode('skill')" id="mode-skill">By Skill Area</button>
+      </div>
+      <div class="drill-progress-label">
+        <span id="completed-count">0</span> / <span id="total-count">32</span> complete
+      </div>
+    </div>
+
+    <!-- Question nav -->
+    <div class="q-nav" id="q-nav"></div>
+
+    <!-- Trainer header -->
+    <div class="trainer-header">
+      <div class="trainer-title">
+        Uncertainties trainer
+        <span class="trainer-tag" id="paper-tag">P3 &amp; P5</span>
+      </div>
+      <div class="trainer-count" id="q-counter">1 / 32</div>
+    </div>
+    <div class="trainer-progress-bar">
+      <div class="trainer-progress-fill" id="progress-fill" style="width:3%"></div>
+    </div>
+
+    <!-- Question area -->
+    <div id="question-area"></div>
+
+    <!-- Navigation -->
+    <div style="display:flex; gap:12px; margin-top:24px; align-items:center;">
+      <button class="nav-back" onclick="prevQuestion()" id="prev-btn">← Prev</button>
+      <button class="nav-back" onclick="nextQuestion()" id="next-btn" style="margin-left:auto;">Next →</button>
+    </div>
+
+    <div class="complete-banner" id="complete-banner">
+      <h2>All questions complete 🎉</h2>
+      <p>You've worked through all 32 uncertainties questions.</p>
+      <button class="restart-btn" onclick="restartAll()">Start Over</button>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+// ══════════════════════════════════════════════
+// VIEW SWITCHING
+// ══════════════════════════════════════════════
+function switchView(v) {
+  document.querySelectorAll('.view-tab').forEach((t,i) => {
+    t.classList.toggle('active', (v === 'reference' && i === 0) || (v === 'drill' && i === 1));
+  });
+  document.getElementById('reference-view').classList.toggle('visible', v === 'reference');
+  document.getElementById('drill-view').classList.toggle('visible', v === 'drill');
+  if (v === 'drill') renderNav();
+}
+
+// ══════════════════════════════════════════════
+// QUESTION BANK
+// ══════════════════════════════════════════════
+// Skills: 'reading' | 'convert' | 'add-sub' | 'mul-div' | 'power' | 'largest' | 'graph'
+// Difficulty: 'easy' | 'medium' | 'hard'
+
+const QUESTIONS = [
+  // ── READING FROM INSTRUMENT ──────────────────────────────────────
+  {
+    id: 1, skill: 'reading', difficulty: 'easy',
+    skillLabel: 'Reading from an Instrument',
+    context: `A ruler has graduations every 1 mm. A student measures the length of a piece of wire and reads one end at 0.0 mm and the other at 83.0 mm.`,
+    svgType: 'ruler',
+    svgValue: 83,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in the length measurement? (A length requires two readings.)',
+        answer: ['1', '1 mm', '±1 mm', '±1', '1.0', '1.0 mm', '±1.0 mm'],
+        exact: '±1 mm',
+        unit: 'mm',
+        hint1: 'For an analogue scale, the uncertainty in one reading is ½ × smallest division. A length uses two readings.',
+        hint2: 'Smallest division = 1 mm. Uncertainty per reading = 0.5 mm. Two readings → 0.5 + 0.5 = 1 mm.',
+        worked: 'Uncertainty per reading = ½ × 1 mm = 0.5 mm. Length uses two readings: Δℓ = 0.5 + 0.5 = 1 mm. So ℓ = (83 ± 1) mm.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in the length.',
+        answer: ['1.2%', '1.2', '~1.2%', '1.20%', '1.20'],
+        exact: '1.2%',
+        unit: '%',
+        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
+        hint2: '(1 / 83) × 100% = 1.204...% ≈ 1.2%',
+        worked: '% uncertainty = (1 / 83.0) × 100% = 1.20% ≈ 1.2%',
+      }
+    ]
+  },
+  {
+    id: 2, skill: 'reading', difficulty: 'easy',
+    skillLabel: 'Reading from an Instrument',
+    context: `An analogue ammeter has a scale with divisions every 0.2 A. A student reads the current as 1.4 A.`,
+    svgType: 'ammeter',
+    svgValue: 1.4,
+    svgMax: 3,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in the ammeter reading?',
+        answer: ['0.1', '0.1 A', '±0.1 A', '±0.1'],
+        exact: '±0.1 A',
+        unit: 'A',
+        hint1: 'For an analogue instrument, uncertainty = ½ × smallest division.',
+        hint2: 'Smallest division = 0.2 A. Uncertainty = ½ × 0.2 = 0.1 A.',
+        worked: 'Δ I = ½ × 0.2 A = 0.1 A. So I = (1.4 ± 0.1) A.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in the current.',
+        answer: ['7%', '7.1%', '7.14%', '7', '7.1', '7.14'],
+        exact: '7.1%',
+        unit: '%',
+        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
+        hint2: '(0.1 / 1.4) × 100% = 7.14% ≈ 7.1%',
+        worked: '% uncertainty = (0.1 / 1.4) × 100% = 7.14% ≈ 7.1%',
+      }
+    ]
+  },
+  {
+    id: 3, skill: 'reading', difficulty: 'medium',
+    skillLabel: 'Reading from an Instrument',
+    context: `A thermometer has divisions every 0.5 °C. A student records the temperature of water as 42.5 °C.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in a single temperature reading?',
+        answer: ['0.25', '0.25 °C', '±0.25 °C', '±0.25', '0.3', '0.3 °C'],
+        exact: '±0.25 °C',
+        unit: '°C',
+        hint1: 'For an analogue scale, uncertainty = ½ × smallest division.',
+        hint2: 'Smallest division = 0.5 °C. Uncertainty = ½ × 0.5 = 0.25 °C.',
+        worked: 'Δ T = ½ × 0.5 °C = 0.25 °C. So T = (42.5 ± 0.25) °C.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in this temperature reading.',
+        answer: ['0.59%', '0.6%', '0.59', '0.6'],
+        exact: '0.59%',
+        unit: '%',
+        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
+        hint2: '(0.25 / 42.5) × 100% = 0.588% ≈ 0.59%',
+        worked: '% uncertainty = (0.25 / 42.5) × 100% = 0.588% ≈ 0.59%',
+      }
+    ]
+  },
+  {
+    id: 4, skill: 'reading', difficulty: 'medium',
+    skillLabel: 'Reading from an Instrument',
+    context: `A digital voltmeter displays 5.63 V.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in the voltmeter reading?',
+        answer: ['0.01', '0.01 V', '±0.01 V', '±0.01'],
+        exact: '±0.01 V',
+        unit: 'V',
+        hint1: 'For a digital instrument, the uncertainty is ±1 in the last displayed digit.',
+        hint2: 'Last digit is in the hundredths place (0.01 V), so uncertainty = ±0.01 V.',
+        worked: 'Δ V = 0.01 V (±1 in last digit). So V = (5.63 ± 0.01) V.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty.',
+        answer: ['0.18%', '0.178%', '0.18', '0.2%', '0.2'],
+        exact: '0.18%',
+        unit: '%',
+        hint1: '% uncertainty = (0.01 / 5.63) × 100%',
+        hint2: '(0.01 / 5.63) × 100% = 0.178% ≈ 0.18%',
+        worked: '% uncertainty = (0.01 / 5.63) × 100% = 0.178% ≈ 0.18%',
+      }
+    ]
+  },
+  {
+    id: 5, skill: 'reading', difficulty: 'hard',
+    skillLabel: 'Reading from an Instrument',
+    context: `A vernier calliper (precision ±0.02 mm) measures the diameter of a metal rod as 8.24 mm.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in the diameter?',
+        answer: ['0.02', '0.02 mm', '±0.02 mm', '±0.02'],
+        exact: '±0.02 mm',
+        unit: 'mm',
+        hint1: 'The stated precision of the instrument is taken as the uncertainty.',
+        hint2: 'Precision = 0.02 mm, so Δd = 0.02 mm.',
+        worked: 'For a vernier calliper, uncertainty = stated precision = 0.02 mm.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in the diameter.',
+        answer: ['0.24%', '0.243%', '0.24', '0.2%', '0.2'],
+        exact: '0.24%',
+        unit: '%',
+        hint1: '% uncertainty = (0.02 / 8.24) × 100%',
+        hint2: '(0.02 / 8.24) × 100% = 0.2427% ≈ 0.24%',
+        worked: '% uncertainty = (0.02 / 8.24) × 100% = 0.24%',
+      }
+    ]
+  },
+
+  // ── CONVERTING ABS ↔ % ──────────────────────────────────────────
+  {
+    id: 6, skill: 'convert', difficulty: 'easy',
+    skillLabel: 'Converting: Absolute ↔ Percentage',
+    context: `A mass is measured as (250 ± 5) g.`,
+    steps: [
+      {
+        label: 'STEP 1 — PERCENTAGE UNCERTAINTY',
+        question: 'Convert the absolute uncertainty to a percentage uncertainty.',
+        answer: ['2%', '2.0%', '2', '2.0'],
+        exact: '2%',
+        unit: '%',
+        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
+        hint2: '(5 / 250) × 100% = 2%',
+        worked: '% uncertainty = (5 / 250) × 100% = 2.0%',
+      }
+    ]
+  },
+  {
+    id: 7, skill: 'convert', difficulty: 'easy',
+    skillLabel: 'Converting: Absolute ↔ Percentage',
+    context: `A time period is measured as 1.80 s with a percentage uncertainty of 3%.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'Convert the percentage uncertainty to an absolute uncertainty.',
+        answer: ['0.054', '0.054 s', '±0.054 s', '±0.054', '0.05', '0.05 s', '0.054 s'],
+        exact: '0.054 s',
+        unit: 's',
+        hint1: 'Absolute uncertainty = (% uncertainty / 100) × value.',
+        hint2: '(3 / 100) × 1.80 = 0.054 s',
+        worked: 'Δt = (3% / 100) × 1.80 s = 0.054 s. T = (1.80 ± 0.054) s.',
+      }
+    ]
+  },
+  {
+    id: 8, skill: 'convert', difficulty: 'medium',
+    skillLabel: 'Converting: Absolute ↔ Percentage',
+    context: `A resistance is measured as 470 Ω. The absolute uncertainty is ±15 Ω.`,
+    steps: [
+      {
+        label: 'STEP 1 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in the resistance.',
+        answer: ['3.2%', '3.19%', '3.2', '3.19', '3%'],
+        exact: '3.2%',
+        unit: '%',
+        hint1: '% uncertainty = (Δ R / R) × 100%.',
+        hint2: '(15 / 470) × 100% = 3.19% ≈ 3.2%',
+        worked: '% uncertainty = (15 / 470) × 100% = 3.19% ≈ 3.2%',
+      }
+    ]
+  },
+  {
+    id: 9, skill: 'convert', difficulty: 'medium',
+    skillLabel: 'Converting: Absolute ↔ Percentage',
+    context: `The refractive index of glass is measured as 1.52 with a percentage uncertainty of 1.5%.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'Convert the percentage uncertainty to an absolute uncertainty in the refractive index.',
+        answer: ['0.0228', '0.023', '0.0228', '±0.023', '±0.0228', '0.02'],
+        exact: '0.0228',
+        unit: '',
+        hint1: 'Absolute uncertainty = (% / 100) × value. Refractive index has no units.',
+        hint2: '(1.5 / 100) × 1.52 = 0.0228',
+        worked: 'Δn = (1.5 / 100) × 1.52 = 0.0228. n = 1.52 ± 0.0228 (no units).',
+      }
+    ]
+  },
+
+  // ── ADDITION / SUBTRACTION ──────────────────────────────────────
+  {
+    id: 10, skill: 'add-sub', difficulty: 'easy',
+    skillLabel: 'Combining: Addition & Subtraction',
+    context: `A student measures two lengths: L₁ = (45.0 ± 0.5) cm and L₂ = (12.0 ± 0.5) cm. They calculate the total length L = L₁ + L₂.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN SUM',
+        question: 'What is the absolute uncertainty in the total length L?',
+        answer: ['1', '1 cm', '±1 cm', '±1', '1.0', '1.0 cm'],
+        exact: '±1.0 cm',
+        unit: 'cm',
+        hint1: 'For addition: ΔL = ΔL₁ + ΔL₂.',
+        hint2: 'ΔL = 0.5 + 0.5 = 1.0 cm.',
+        worked: 'ΔL = ΔL₁ + ΔL₂ = 0.5 + 0.5 = 1.0 cm. L = (57.0 ± 1.0) cm.',
+      }
+    ]
+  },
+  {
+    id: 11, skill: 'add-sub', difficulty: 'easy',
+    skillLabel: 'Combining: Addition & Subtraction',
+    context: `Two temperatures are recorded: T₁ = (100.0 ± 0.5) °C and T₂ = (20.0 ± 0.5) °C. The temperature change ΔT = T₁ − T₂.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
+        question: 'What is the absolute uncertainty in ΔT?',
+        answer: ['1', '1 °C', '±1 °C', '±1', '1.0 °C'],
+        exact: '±1.0 °C',
+        unit: '°C',
+        hint1: 'For subtraction: uncertainty adds — ΔT_err = ΔT₁ + ΔT₂.',
+        hint2: 'ΔT_err = 0.5 + 0.5 = 1.0 °C.',
+        worked: 'Uncertainties always add for both + and −. ΔT_err = 0.5 + 0.5 = 1.0 °C. ΔT = (80.0 ± 1.0) °C.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in ΔT.',
+        answer: ['1.25%', '1.3%', '1.25', '1.3'],
+        exact: '1.25%',
+        unit: '%',
+        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
+        hint2: '(1.0 / 80.0) × 100% = 1.25%',
+        worked: '(1.0 / 80.0) × 100% = 1.25%',
+      }
+    ]
+  },
+  {
+    id: 12, skill: 'add-sub', difficulty: 'medium',
+    skillLabel: 'Combining: Addition & Subtraction',
+    context: `A student measures the extension of a spring. Initial length: (12.0 ± 0.1) cm. Final length: (14.5 ± 0.1) cm.`,
+    steps: [
+      {
+        label: 'STEP 1 — EXTENSION AND UNCERTAINTY',
+        question: 'Calculate the extension and its absolute uncertainty.',
+        answer: ['0.2', '0.2 cm', '±0.2 cm', '±0.2'],
+        exact: '±0.2 cm',
+        unit: 'cm',
+        hint1: 'Extension = final − initial. Uncertainty in a subtraction: add the two absolute uncertainties.',
+        hint2: 'Δextension = 0.1 + 0.1 = 0.2 cm. Extension = (2.5 ± 0.2) cm.',
+        worked: 'Extension = 14.5 − 12.0 = 2.5 cm. Δextension = 0.1 + 0.1 = 0.2 cm.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the percentage uncertainty in the extension.',
+        answer: ['8%', '8.0%', '8', '8.0'],
+        exact: '8%',
+        unit: '%',
+        hint1: '% uncertainty = (0.2 / 2.5) × 100%.',
+        hint2: '(0.2 / 2.5) × 100% = 8%',
+        worked: '% uncertainty = (0.2 / 2.5) × 100% = 8.0%',
+      }
+    ]
+  },
+  {
+    id: 13, skill: 'add-sub', difficulty: 'hard',
+    skillLabel: 'Combining: Addition & Subtraction',
+    context: `A student measures the time for 20 oscillations as (28.4 ± 0.2) s. They divide by 20 to find the period T. (Note: dividing by a pure number does not affect % uncertainty.)`,
+    steps: [
+      {
+        label: 'STEP 1 — PERIOD AND UNCERTAINTY',
+        question: 'What is the absolute uncertainty in the period T?',
+        answer: ['0.01', '0.01 s', '±0.01 s', '±0.01'],
+        exact: '±0.01 s',
+        unit: 's',
+        hint1: 'T = total time / 20. A pure number (constant) does not contribute uncertainty, but it scales the absolute uncertainty.',
+        hint2: 'ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.',
+        worked: 'T = 28.4 / 20 = 1.42 s. ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.',
+      },
+      {
+        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
+        question: 'Calculate the % uncertainty in T.',
+        answer: ['0.70%', '0.7%', '0.704%', '0.70', '0.7'],
+        exact: '0.70%',
+        unit: '%',
+        hint1: '% uncertainty = (ΔT / T) × 100%.',
+        hint2: '(0.01 / 1.42) × 100% = 0.704% ≈ 0.70%',
+        worked: '% uncertainty = (0.01 / 1.42) × 100% = 0.704% ≈ 0.70%. Taking multiple oscillations dramatically reduces the % uncertainty — this is why Cambridge always asks students to time 20+ oscillations.',
+      }
+    ]
+  },
+
+  // ── MULTIPLICATION / DIVISION ───────────────────────────────────
+  {
+    id: 14, skill: 'mul-div', difficulty: 'easy',
+    skillLabel: 'Combining: Multiplication & Division',
+    context: `A student calculates voltage using V = IR. Current I = (2.0 ± 0.1) A. Resistance R = (15.0 ± 0.5) Ω.`,
+    steps: [
+      {
+        label: 'STEP 1 — PERCENTAGE UNCERTAINTIES',
+        question: 'Calculate the percentage uncertainty in V. State your answer as a % value.',
+        answer: ['8.3%', '8.33%', '8.3', '8.33', '8%'],
+        exact: '8.3%',
+        unit: '%',
+        hint1: 'For multiplication: % ΔV = % ΔI + % ΔR.',
+        hint2: '% ΔI = (0.1/2.0)×100 = 5%. % ΔR = (0.5/15.0)×100 = 3.33%. Total = 8.33% ≈ 8.3%.',
+        worked: '%ΔI = 5.0%, %ΔR = 3.33%. %ΔV = 5.0 + 3.33 = 8.33% ≈ 8.3%.',
+      },
+      {
+        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN V',
+        question: 'If V = 30.0 V, what is the absolute uncertainty in V?',
+        answer: ['2.5', '2.5 V', '±2.5 V', '±2.5', '2.49', '2.49 V', '2.4 V', '2.4'],
+        exact: '2.5 V',
+        unit: 'V',
+        hint1: 'Absolute uncertainty = (% uncertainty / 100) × value.',
+        hint2: '(8.33 / 100) × 30.0 = 2.5 V.',
+        worked: 'ΔV = (8.33% / 100) × 30.0 V = 2.5 V. V = (30.0 ± 2.5) V.',
+      }
+    ]
+  },
+  {
+    id: 15, skill: 'mul-div', difficulty: 'easy',
+    skillLabel: 'Combining: Multiplication & Division',
+    context: `Density ρ = m / V. Mass m = (125 ± 2) g. Volume V = (50.0 ± 1.5) cm³.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTY IN DENSITY',
+        question: 'Calculate the percentage uncertainty in ρ.',
+        answer: ['4.6%', '4.60%', '4.6', '4.60', '5%'],
+        exact: '4.6%',
+        unit: '%',
+        hint1: 'For division: %Δρ = %Δm + %ΔV.',
+        hint2: '%Δm = (2/125)×100 = 1.6%. %ΔV = (1.5/50.0)×100 = 3.0%. Total = 4.6%.',
+        worked: '%Δm = 1.6%, %ΔV = 3.0%, %Δρ = 1.6 + 3.0 = 4.6%.',
+      },
+      {
+        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN ρ',
+        question: 'ρ = 2.50 g/cm³. What is the absolute uncertainty?',
+        answer: ['0.115', '0.12', '0.115 g/cm³', '0.12 g/cm³', '±0.115', '±0.12', '0.1 g/cm³', '0.1'],
+        exact: '0.115 g/cm³',
+        unit: 'g/cm³',
+        hint1: 'Absolute uncertainty = (% / 100) × value.',
+        hint2: '(4.6 / 100) × 2.50 = 0.115 g/cm³.',
+        worked: 'Δρ = (4.6/100) × 2.50 = 0.115 g/cm³. ρ = (2.50 ± 0.115) g/cm³.',
+      }
+    ]
+  },
+  {
+    id: 16, skill: 'mul-div', difficulty: 'medium',
+    skillLabel: 'Combining: Multiplication & Division',
+    context: `Young modulus E = (F × L) / (A × e), where F = force, L = original length, A = cross-sectional area, e = extension. Percentage uncertainties: F = 2%, L = 0.5%, A = 4%, e = 6%.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTY IN E',
+        question: 'Calculate the total percentage uncertainty in E.',
+        answer: ['12.5%', '12.5', '13%', '12%'],
+        exact: '12.5%',
+        unit: '%',
+        hint1: 'E involves both multiplication and division. Add all percentage uncertainties.',
+        hint2: '%ΔE = %ΔF + %ΔL + %ΔA + %Δe = 2 + 0.5 + 4 + 6 = 12.5%.',
+        worked: 'All terms multiply or divide in E, so: %ΔE = 2 + 0.5 + 4 + 6 = 12.5%.',
+      }
+    ]
+  },
+  {
+    id: 17, skill: 'mul-div', difficulty: 'hard',
+    skillLabel: 'Combining: Multiplication & Division',
+    context: `Refractive index n = sin(θ₁) / sin(θ₂). The angles are measured as θ₁ = (45.0 ± 1.0)° and θ₂ = (28.0 ± 1.0)°. Note: use the actual angle values to find % uncertainties for this question.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTIES IN THE ANGLES',
+        question: 'What are the % uncertainties in θ₁ and θ₂? Give both values separated by a comma.',
+        answer: ['2.2%, 3.6%', '2.2, 3.6', '2.22%, 3.57%', '2.22, 3.57', '2.2% and 3.6%'],
+        exact: '2.2%, 3.6%',
+        unit: '',
+        hint1: '% uncertainty in each angle = (1.0 / angle) × 100%.',
+        hint2: '%(θ₁) = (1/45)×100 = 2.22% ≈ 2.2%. %(θ₂) = (1/28)×100 = 3.57% ≈ 3.6%.',
+        worked: '%Δθ₁ = (1.0/45.0)×100 = 2.22%. %Δθ₂ = (1.0/28.0)×100 = 3.57%.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN n',
+        question: 'Calculate the % uncertainty in the refractive index n.',
+        answer: ['5.8%', '5.79%', '5.8', '5.79', '6%'],
+        exact: '5.8%',
+        unit: '%',
+        hint1: 'For a ratio: %Δn = %Δ(sin θ₁) + %Δ(sin θ₂). For small uncertainties, use the angle % uncertainty as an approximation.',
+        hint2: '%Δn ≈ %Δθ₁ + %Δθ₂ = 2.22 + 3.57 = 5.79% ≈ 5.8%.',
+        worked: 'Treating the angle % uncertainty as the % uncertainty in its sine (Cambridge approximation for small Δθ): %Δn = 2.22 + 3.57 = 5.79% ≈ 5.8%.',
+      }
+    ]
+  },
+
+  // ── POWERS ─────────────────────────────────────────────────────
+  {
+    id: 18, skill: 'power', difficulty: 'easy',
+    skillLabel: 'Powers & Roots',
+    context: `The volume of a sphere is V = (4/3)πr³. The radius r = (5.00 ± 0.05) cm.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTY IN r',
+        question: 'What is the percentage uncertainty in r?',
+        answer: ['1%', '1.0%', '1', '1.0'],
+        exact: '1%',
+        unit: '%',
+        hint1: '% uncertainty = (0.05 / 5.00) × 100%.',
+        hint2: '(0.05 / 5.00) × 100% = 1.0%.',
+        worked: '%Δr = (0.05 / 5.00) × 100% = 1.0%.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN V',
+        question: 'What is the percentage uncertainty in V? (Note: 4/3 and π are constants.)',
+        answer: ['3%', '3.0%', '3', '3.0'],
+        exact: '3%',
+        unit: '%',
+        hint1: 'For V = r³ (ignoring constants): %ΔV = 3 × %Δr.',
+        hint2: '%ΔV = 3 × 1.0% = 3.0%.',
+        worked: 'Constants (4/3 and π) contribute no uncertainty. %ΔV = 3 × %Δr = 3 × 1.0% = 3.0%.',
+      }
+    ]
+  },
+  {
+    id: 19, skill: 'power', difficulty: 'easy',
+    skillLabel: 'Powers & Roots',
+    context: `The period of a simple pendulum T = 2π√(L/g). The length L = (0.800 ± 0.004) m. Take g as exact.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTY IN L',
+        question: 'What is the percentage uncertainty in L?',
+        answer: ['0.5%', '0.5', '0.50%', '0.50'],
+        exact: '0.5%',
+        unit: '%',
+        hint1: '% uncertainty = (0.004 / 0.800) × 100%.',
+        hint2: '(0.004 / 0.800) × 100% = 0.5%.',
+        worked: '%ΔL = (0.004 / 0.800) × 100% = 0.5%.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN T',
+        question: 'What is the percentage uncertainty in T? (Note: 2π is a constant; √ means power of ½.)',
+        answer: ['0.25%', '0.25', '0.3%', '0.3'],
+        exact: '0.25%',
+        unit: '%',
+        hint1: 'T ∝ L^(½), so %ΔT = ½ × %ΔL.',
+        hint2: '%ΔT = ½ × 0.5% = 0.25%.',
+        worked: 'T ∝ √L = L^(½). %ΔT = ½ × %ΔL = ½ × 0.5% = 0.25%.',
+      }
+    ]
+  },
+  {
+    id: 20, skill: 'power', difficulty: 'medium',
+    skillLabel: 'Powers & Roots',
+    context: `Kinetic energy E = ½mv². Mass m = (0.200 ± 0.002) kg. Speed v = (3.0 ± 0.1) m/s.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTIES',
+        question: 'Calculate %Δm and %Δ(v²). Give both values.',
+        answer: ['1% and 6.7%', '1%, 6.7%', '1, 6.7', '1% and 6.67%', '1 and 6.7'],
+        exact: '1% and 6.7%',
+        unit: '%',
+        hint1: '%Δm = (0.002/0.200)×100%. For v²: %Δ(v²) = 2 × %Δv.',
+        hint2: '%Δm = 1%. %Δv = (0.1/3.0)×100 = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.',
+        worked: '%Δm = 1.0%. %Δv = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN E',
+        question: 'Calculate the total % uncertainty in E.',
+        answer: ['7.7%', '7.67%', '7.7', '7.67', '8%'],
+        exact: '7.7%',
+        unit: '%',
+        hint1: '%ΔE = %Δm + %Δ(v²). The ½ is a constant.',
+        hint2: '%ΔE = 1.0 + 6.67 = 7.67% ≈ 7.7%.',
+        worked: '%ΔE = %Δm + %Δ(v²) = 1.0 + 6.67 = 7.67% ≈ 7.7%.',
+      }
+    ]
+  },
+  {
+    id: 21, skill: 'power', difficulty: 'hard',
+    skillLabel: 'Powers & Roots',
+    context: `The speed of sound is found using v = fλ. Frequency f = (512 ± 5) Hz. Wavelength λ = (0.680 ± 0.010) m.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTY IN v',
+        question: 'Calculate the percentage uncertainty in v.',
+        answer: ['2.45%', '2.4%', '2.5%', '2.45', '2.4', '2.5'],
+        exact: '2.45%',
+        unit: '%',
+        hint1: 'v = f × λ, so %Δv = %Δf + %Δλ.',
+        hint2: '%Δf = (5/512)×100 = 0.977%. %Δλ = (0.010/0.680)×100 = 1.47%. Total = 2.45%.',
+        worked: '%Δf = 0.977%, %Δλ = 1.47%, %Δv = 0.977 + 1.47 = 2.45%.',
+      },
+      {
+        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN v',
+        question: 'v = 348.2 m/s. What is the absolute uncertainty in v?',
+        answer: ['8.5', '8.5 m/s', '±8.5', '±8.5 m/s', '8.53', '8.53 m/s', '8 m/s', '8'],
+        exact: '8.5 m/s',
+        unit: 'm/s',
+        hint1: 'Absolute uncertainty = (% / 100) × v.',
+        hint2: '(2.45 / 100) × 348.2 = 8.53 ≈ 8.5 m/s.',
+        worked: 'Δv = (2.45/100) × 348.2 = 8.53 m/s ≈ 8.5 m/s.',
+      }
+    ]
+  },
+  {
+    id: 22, skill: 'power', difficulty: 'hard',
+    skillLabel: 'Powers & Roots',
+    context: `Specific heat capacity: c = Q / (mΔT). Q = energy supplied = (4500 ± 50) J. m = (0.500 ± 0.005) kg. ΔT = (18.0 ± 0.5) °C.`,
+    steps: [
+      {
+        label: 'STEP 1 — ALL % UNCERTAINTIES',
+        question: 'Calculate %ΔQ, %Δm, and %ΔT. Give all three values.',
+        answer: ['1.1%, 1.0%, 2.8%', '1.11%, 1.0%, 2.78%', '1.1, 1.0, 2.8'],
+        exact: '1.1%, 1.0%, 2.8%',
+        unit: '%',
+        hint1: '%ΔQ = (50/4500)×100%. %Δm = (0.005/0.500)×100%. %ΔT = (0.5/18.0)×100%.',
+        hint2: '%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.',
+        worked: '%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN c',
+        question: 'Calculate the total % uncertainty in c.',
+        answer: ['4.9%', '4.89%', '4.9', '4.89', '5%'],
+        exact: '4.9%',
+        unit: '%',
+        hint1: '%Δc = %ΔQ + %Δm + %ΔT.',
+        hint2: '1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.',
+        worked: '%Δc = %ΔQ + %Δm + %ΔT = 1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.',
+      }
+    ]
+  },
+
+  // ── LARGEST SOURCE ─────────────────────────────────────────────
+  {
+    id: 23, skill: 'largest', difficulty: 'easy',
+    skillLabel: 'Identifying the Largest Uncertainty Source',
+    context: `Power P = IV. Current I = (0.50 ± 0.05) A (% uncertainty = 10%). Voltage V = (12.0 ± 0.2) V (% uncertainty = 1.7%).`,
+    steps: [
+      {
+        label: 'STEP 1 — DOMINANT SOURCE',
+        question: 'Which measurement contributes the largest uncertainty to P, and what is the total % uncertainty in P?',
+        answer: ['current, 11.7%', 'current; 11.7%', 'I, 11.7%', 'current 11.7%', 'I; 11.7%', 'current, 12%'],
+        exact: 'current; 11.7%',
+        unit: '',
+        hint1: 'Compare the % uncertainties: %ΔI vs %ΔV. The dominant source is the larger one.',
+        hint2: '%ΔI = 10%, %ΔV = 1.7%. Current dominates. Total %ΔP = 10 + 1.7 = 11.7%.',
+        worked: 'Current has %ΔI = 10%, far larger than %ΔV = 1.7%. Current is the dominant source. %ΔP = 11.7%.',
+      }
+    ]
+  },
+  {
+    id: 24, skill: 'largest', difficulty: 'medium',
+    skillLabel: 'Identifying the Largest Uncertainty Source',
+    context: `Resistivity ρ = RA/L, where R = (15.0 ± 0.3) Ω, A = (2.5 × 10⁻⁷ ± 1.0 × 10⁻⁸) m², L = (1.200 ± 0.002) m.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTIES IN EACH QUANTITY',
+        question: 'Calculate the % uncertainty in each of R, A and L.',
+        answer: ['2%, 4%, 0.17%', '2.0%, 4.0%, 0.17%', '2, 4, 0.17', '2%, 4%, 0.2%'],
+        exact: '2%, 4%, 0.17%',
+        unit: '%',
+        hint1: 'Apply % uncertainty = (abs uncertainty / value) × 100% to each.',
+        hint2: '%ΔR = 2.0%, %ΔA = 4.0%, %ΔL = 0.167%.',
+        worked: '%ΔR = (0.3/15.0)×100 = 2.0%. %ΔA = (1.0×10⁻⁸/2.5×10⁻⁷)×100 = 4.0%. %ΔL = (0.002/1.200)×100 = 0.167%.',
+      },
+      {
+        label: 'STEP 2 — DOMINANT SOURCE & TOTAL',
+        question: 'Which is the dominant source of uncertainty? What is the total % uncertainty in ρ?',
+        answer: ['A, 6.17%', 'area, 6.17%', 'A; 6.17%', 'A, 6.2%', 'area, 6.2%', 'A 6.2%'],
+        exact: 'A; 6.2%',
+        unit: '%',
+        hint1: 'A has the largest % uncertainty. Total = %ΔR + %ΔA + %ΔL.',
+        hint2: 'Total = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%. A is dominant.',
+        worked: 'A dominates with 4.0%. Total %Δρ = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%.',
+      }
+    ]
+  },
+  {
+    id: 25, skill: 'largest', difficulty: 'medium',
+    skillLabel: 'Identifying the Largest Uncertainty Source',
+    context: `Terminal velocity v of a ball bearing: v = (2r²g(ρ−ρ_f)) / (9η), where r = radius (% uncertainty 3%), g = exact, ρ = density (% uncertainty 1.5%), ρ_f = fluid density (% uncertainty 2%), η = viscosity (% uncertainty 4%).`,
+    steps: [
+      {
+        label: 'STEP 1 — CONTRIBUTIONS TO % UNCERTAINTY IN v',
+        question: 'What is the contribution of r² to the % uncertainty in v?',
+        answer: ['6%', '6.0%', '6'],
+        exact: '6%',
+        unit: '%',
+        hint1: 'r² is a power of 2. %Δ(r²) = 2 × %Δr.',
+        hint2: '2 × 3% = 6%.',
+        worked: '%Δ(r²) = 2 × 3% = 6%.',
+      },
+      {
+        label: 'STEP 2 — DOMINANT SOURCE',
+        question: 'Which single source contributes the largest % uncertainty to v?',
+        answer: ['r', 'r²', 'radius', 'r squared', 'r (6%)'],
+        exact: 'r² (radius)',
+        unit: '',
+        hint1: 'Compare each contribution: r² = 6%, ρ−ρ_f (approximate separately), η = 4%.',
+        hint2: 'r² contributes 6%, η contributes 4%. r² is the dominant source.',
+        worked: 'r² contributes 6%, η contributes 4%. The radius (through the r² term) is the dominant source of uncertainty.',
+      }
+    ]
+  },
+  {
+    id: 26, skill: 'largest', difficulty: 'hard',
+    skillLabel: 'Identifying the Largest Uncertainty Source',
+    context: `A student measures g using g = 4π²L/T². L = (1.000 ± 0.005) m. T = (2.006 ± 0.012) s.`,
+    steps: [
+      {
+        label: 'STEP 1 — % UNCERTAINTIES',
+        question: 'Calculate %ΔL and the contribution of T² to the % uncertainty.',
+        answer: ['0.5% and 1.2%', '0.5%, 1.2%', '0.5 and 1.2', '0.5%, 1.20%'],
+        exact: '0.5% and 1.2%',
+        unit: '%',
+        hint1: '%ΔL = (0.005/1.000)×100%. For T²: contribution = 2 × %ΔT.',
+        hint2: '%ΔL = 0.5%. %ΔT = (0.012/2.006)×100 = 0.598%. 2 × 0.598 = 1.196% ≈ 1.2%.',
+        worked: '%ΔL = 0.5%. %ΔT = 0.598%. T² contribution = 2 × 0.598 = 1.196% ≈ 1.2%.',
+      },
+      {
+        label: 'STEP 2 — TOTAL & DOMINANT SOURCE',
+        question: 'What is the total % uncertainty in g, and which is the dominant source?',
+        answer: ['1.7%, T', '1.7% T', '1.70%, T²', '1.7%; T', '1.7% and T'],
+        exact: '1.7%; T is dominant',
+        unit: '%',
+        hint1: '%Δg = %ΔL + 2×%ΔT. Compare the two contributions.',
+        hint2: '%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2% vs L contributing 0.5%, so T dominates.',
+        worked: '%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2%, L contributes 0.5%. T is the dominant source.',
+      }
+    ]
+  },
+
+  // ── GRAPH GRADIENT / INTERCEPT ──────────────────────────────────
+  {
+    id: 27, skill: 'graph', difficulty: 'easy',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A student draws a graph of F vs x (extension). The best-fit line has gradient 25.0 N/m. The steepest acceptable line has gradient 27.5 N/m and the shallowest has gradient 22.5 N/m.`,
+    svgType: 'graph',
+    svgData: { bestGrad: 25.0, worstGrad: 27.5, worstGrad2: 22.5, xLabel: 'x / m', yLabel: 'F / N', title: 'Force vs Extension' },
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
+        question: 'Calculate the absolute uncertainty in the gradient.',
+        answer: ['2.5', '2.5 N/m', '±2.5', '±2.5 N/m'],
+        exact: '±2.5 N/m',
+        unit: 'N/m',
+        hint1: 'Uncertainty = |gradient(best) − gradient(worst)|.',
+        hint2: 'Take the larger difference: |25.0 − 22.5| = 2.5 N/m or |27.5 − 25.0| = 2.5 N/m.',
+        worked: 'Uncertainty in gradient = |25.0 − 22.5| = 2.5 N/m. (or |27.5 − 25.0| = 2.5 N/m). Gradient = (25.0 ± 2.5) N/m.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
+        question: 'Calculate the percentage uncertainty in the gradient.',
+        answer: ['10%', '10.0%', '10'],
+        exact: '10%',
+        unit: '%',
+        hint1: '% uncertainty = (2.5 / 25.0) × 100%.',
+        hint2: '(2.5 / 25.0) × 100% = 10%.',
+        worked: '% uncertainty = (2.5 / 25.0) × 100% = 10%.',
+      }
+    ]
+  },
+  {
+    id: 28, skill: 'graph', difficulty: 'medium',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A graph of ln(I) vs time t gives a best-fit gradient of −0.0350 s⁻¹. The steepest worst-case line gives −0.0380 s⁻¹ and the shallowest gives −0.0325 s⁻¹.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
+        question: 'Calculate the absolute uncertainty in the gradient. Take the larger of the two possible differences.',
+        answer: ['0.0030', '0.003', '0.003 s⁻¹', '0.0030 s⁻¹', '±0.003', '±0.003 s⁻¹', '±0.0030 s⁻¹'],
+        exact: '0.0030 s⁻¹',
+        unit: 's⁻¹',
+        hint1: 'Compare |best − worst1| and |best − worst2|, take the larger.',
+        hint2: '|−0.0350 − (−0.0380)| = 0.0030. |−0.0350 − (−0.0325)| = 0.0025. Larger = 0.0030.',
+        worked: 'Difference 1: |−0.0350 + 0.0380| = 0.0030. Difference 2: |−0.0350 + 0.0325| = 0.0025. Take larger: Δm = 0.0030 s⁻¹.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
+        question: 'Calculate the % uncertainty in the gradient.',
+        answer: ['8.6%', '8.57%', '8.6', '8.57', '9%'],
+        exact: '8.6%',
+        unit: '%',
+        hint1: '% uncertainty = (0.0030 / 0.0350) × 100%.',
+        hint2: '(0.003 / 0.035) × 100% = 8.57% ≈ 8.6%.',
+        worked: '% uncertainty = (0.0030 / 0.0350) × 100% = 8.57% ≈ 8.6%.',
+      }
+    ]
+  },
+  {
+    id: 29, skill: 'graph', difficulty: 'medium',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A graph of V (y-axis) against I (x-axis) gives: best-fit intercept = 6.00 V. Worst-line intercepts: 5.60 V and 6.40 V.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN INTERCEPT',
+        question: 'Calculate the absolute uncertainty in the y-intercept.',
+        answer: ['0.40', '0.40 V', '0.4', '0.4 V', '±0.40 V', '±0.4 V'],
+        exact: '±0.40 V',
+        unit: 'V',
+        hint1: 'Uncertainty = |intercept(best) − intercept(worst)|.',
+        hint2: '|6.00 − 5.60| = 0.40 V. Both worst-lines give 0.40 V difference.',
+        worked: 'Δintercept = |6.00 − 5.60| = 0.40 V. EMF = (6.00 ± 0.40) V.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN INTERCEPT',
+        question: 'Calculate the % uncertainty in the intercept (EMF).',
+        answer: ['6.7%', '6.67%', '6.7', '6.67', '7%'],
+        exact: '6.7%',
+        unit: '%',
+        hint1: '% uncertainty = (0.40 / 6.00) × 100%.',
+        hint2: '(0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.',
+        worked: '% uncertainty = (0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.',
+      }
+    ]
+  },
+  {
+    id: 30, skill: 'graph', difficulty: 'hard',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A student plots T² (y-axis, s²) vs L (x-axis, m) to find g. The best-fit gradient = 4.03 s²/m. Worst-case gradients: 3.89 s²/m and 4.19 s²/m.`,
+    steps: [
+      {
+        label: 'STEP 1 — GRADIENT UNCERTAINTY',
+        question: 'Calculate the absolute and % uncertainty in the gradient.',
+        answer: ['0.16 s²/m, 4.0%', '0.16, 4.0%', '±0.16 s²/m, 4.0%', '0.16 s²/m and 4.0%'],
+        exact: '0.16 s²/m; 4.0%',
+        unit: '',
+        hint1: '|4.03 − 3.89| = 0.14. |4.03 − 4.19| = 0.16. Take the larger. Then % = (Δm/m)×100.',
+        hint2: 'Δm = 0.16 s²/m. % = (0.16/4.03)×100 = 3.97% ≈ 4.0%.',
+        worked: 'Largest difference: |4.03 − 4.19| = 0.16 s²/m. % uncertainty = (0.16/4.03)×100 = 3.97% ≈ 4.0%.',
+      },
+      {
+        label: 'STEP 2 — VALUE AND UNCERTAINTY OF g',
+        question: 'T² = (4π²/g)L, so g = 4π²/gradient. Using gradient = (4.03 ± 4.0%), calculate g and its absolute uncertainty.',
+        answer: ['9.79 m/s², 0.39 m/s²', '9.79, 0.39', '9.8 m/s², 0.4 m/s²', '9.79 m/s² ± 0.39', '9.8 ± 0.4 m/s²'],
+        exact: '9.79 m/s²; ±0.39 m/s²',
+        unit: 'm/s²',
+        hint1: 'g = 4π²/4.03. Then %Δg = %Δ(gradient) = 4.0%. Δg = (4.0/100) × g.',
+        hint2: 'g = 39.478/4.03 = 9.797 ≈ 9.80 m/s². Δg = 0.040 × 9.80 = 0.39 m/s².',
+        worked: 'g = 4π²/4.03 = 9.797 m/s². %Δg = %Δm = 4.0% (since g ∝ 1/m). Δg = 0.040 × 9.797 = 0.39 m/s². g = (9.80 ± 0.39) m/s².',
+      }
+    ]
+  },
+  {
+    id: 31, skill: 'graph', difficulty: 'hard',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A straight-line graph of ln(N) vs t gives: best-fit gradient = −0.0693 s⁻¹ and best-fit intercept = 8.52. Worst-case gradient = −0.0750 s⁻¹ and worst-case intercept = 8.70.`,
+    steps: [
+      {
+        label: 'STEP 1 — UNCERTAINTIES IN BOTH GRADIENT AND INTERCEPT',
+        question: 'Calculate the absolute uncertainty in the gradient and in the intercept.',
+        answer: ['0.0057 s⁻¹, 0.18', '0.0057, 0.18', '±0.0057 s⁻¹ and ±0.18', '0.006 s⁻¹, 0.18'],
+        exact: '0.0057 s⁻¹; 0.18',
+        unit: '',
+        hint1: 'Δ gradient = |−0.0693 − (−0.0750)|. Δ intercept = |8.52 − 8.70|.',
+        hint2: 'Δ gradient = 0.0057 s⁻¹. Δ intercept = 0.18.',
+        worked: 'Δm = |−0.0693 + 0.0750| = 0.0057 s⁻¹. Δc = |8.52 − 8.70| = 0.18.',
+      },
+      {
+        label: 'STEP 2 — HALF-LIFE AND ITS UNCERTAINTY',
+        question: 'Half-life t₁/₂ = −ln(2)/gradient = −0.693/gradient. If t₁/₂ = 10.0 s and %Δ(gradient) = 8.2%, state the absolute uncertainty in t₁/₂.',
+        answer: ['0.82 s', '0.82', '±0.82 s', '±0.82', '0.8 s', '0.8'],
+        exact: '0.82 s',
+        unit: 's',
+        hint1: 'Since t₁/₂ = constant / gradient, %Δt₁/₂ = %Δgradient = 8.2%.',
+        hint2: 'Δt₁/₂ = (8.2/100) × 10.0 = 0.82 s.',
+        worked: 't₁/₂ ∝ 1/gradient, so %Δt₁/₂ = %Δm = 8.2%. Δt₁/₂ = 0.082 × 10.0 = 0.82 s.',
+      }
+    ]
+  },
+  {
+    id: 32, skill: 'graph', difficulty: 'hard',
+    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
+    context: `A P5 question: a student plots I (y-axis, A) vs V (x-axis, V) for a thermistor. Best-fit gradient = −0.0420 A/V. Worst lines give gradients of −0.0380 A/V and −0.0455 A/V.`,
+    steps: [
+      {
+        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
+        question: 'Calculate the absolute uncertainty in the gradient. Take the larger difference.',
+        answer: ['0.0035', '0.0035 A/V', '±0.0035 A/V', '±0.0035', '0.004 A/V', '0.004'],
+        exact: '0.0035 A/V',
+        unit: 'A/V',
+        hint1: 'Compare both differences: |−0.0420 − (−0.0380)| and |−0.0420 − (−0.0455)|.',
+        hint2: 'Diff 1: 0.0040. Diff 2: 0.0035. Larger is 0.0040... wait: |−0.0420+0.0380|=0.0040, |−0.0420+0.0455|=0.0035. Take 0.0040.',
+        worked: '|−0.0420 − (−0.0380)| = 0.0040. |−0.0420 − (−0.0455)| = 0.0035. Largest difference = 0.0040 A/V. However Cambridge may accept 0.0035—check both carefully with your own triangle readings.',
+      },
+      {
+        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
+        question: 'Using Δm = 0.0040 A/V, calculate the % uncertainty in the gradient.',
+        answer: ['9.5%', '9.52%', '9.5', '9.52', '10%'],
+        exact: '9.5%',
+        unit: '%',
+        hint1: '% uncertainty = (Δm / |m_best|) × 100%.',
+        hint2: '(0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.',
+        worked: '% uncertainty = (0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.',
+      }
+    ]
+  }
+];
+
+// ══════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════
+let currentQ = 0;
+let currentMode = 'difficulty'; // 'difficulty' | 'skill'
+let questionOrder = []; // indices into QUESTIONS array
+let qState = {}; // keyed by QUESTIONS id: { stepStates: [{tries, done}], done }
+
+const SKILLS_ORDER = ['reading','convert','add-sub','mul-div','power','largest','graph'];
+const SKILL_LABELS = {
+  'reading': 'Reading from an Instrument',
+  'convert': 'Converting Abs ↔ %',
+  'add-sub': 'Addition & Subtraction',
+  'mul-div': 'Multiplication & Division',
+  'power': 'Powers & Roots',
+  'largest': 'Largest Uncertainty Source',
+  'graph': 'Graph Gradient & Intercept'
+};
+
+function initState() {
+  qState = {};
+  QUESTIONS.forEach(q => {
+    qState[q.id] = {
+      done: false,
+      stepStates: q.steps.map(() => ({ tries: 0, done: false, showedHint1: false, showedHint2: false }))
+    };
+  });
+}
+
+function buildOrder(mode) {
+  if (mode === 'difficulty') {
+    const order = ['easy','medium','hard'];
+    const sorted = [...QUESTIONS].sort((a,b) => order.indexOf(a.difficulty) - order.indexOf(b.difficulty));
+    return sorted.map(q => QUESTIONS.indexOf(q));
+  } else {
+    const sorted = [...QUESTIONS].sort((a,b) => SKILLS_ORDER.indexOf(a.skill) - SKILLS_ORDER.indexOf(b.skill));
+    return sorted.map(q => QUESTIONS.indexOf(q));
+  }
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('mode-difficulty').classList.toggle('active', mode === 'difficulty');
+  document.getElementById('mode-skill').classList.toggle('active', mode === 'skill');
+  questionOrder = buildOrder(mode);
+  currentQ = 0;
+  renderNav();
+  renderQuestion();
+}
+
+// ══════════════════════════════════════════════
+// NAV DOTS
+// ══════════════════════════════════════════════
+function renderNav() {
+  const nav = document.getElementById('q-nav');
+  nav.innerHTML = '';
+
+  if (currentMode === 'skill') {
+    let lastSkill = null;
+    questionOrder.forEach((qIdx, pos) => {
+      const q = QUESTIONS[qIdx];
+      if (q.skill !== lastSkill) {
+        const lbl = document.createElement('div');
+        lbl.className = 'skill-group-label';
+        lbl.textContent = SKILL_LABELS[q.skill];
+        nav.appendChild(lbl);
+        lastSkill = q.skill;
+      }
+      nav.appendChild(makeDot(pos, q));
+    });
+  } else {
+    questionOrder.forEach((qIdx, pos) => {
+      const q = QUESTIONS[qIdx];
+      nav.appendChild(makeDot(pos, q));
+    });
+  }
+}
+
+function makeDot(pos, q) {
+  const st = qState[q.id];
+  const dot = document.createElement('button');
+  dot.className = 'q-dot';
+  if (pos === currentQ) dot.classList.add('active');
+  else if (st.done) dot.classList.add('complete');
+  else if (st.stepStates.some(s => s.tries > 0)) dot.classList.add('in-progress');
+  dot.textContent = pos + 1;
+  dot.title = q.skillLabel + ' · ' + q.difficulty;
+  dot.onclick = () => { currentQ = pos; renderNav(); renderQuestion(); };
+  return dot;
+}
+
+// ══════════════════════════════════════════════
+// QUESTION RENDERER
+// ══════════════════════════════════════════════
+function renderQuestion() {
+  const qIdx = questionOrder[currentQ];
+  const q = QUESTIONS[qIdx];
+  const st = qState[q.id];
+  const total = QUESTIONS.length;
+
+  document.getElementById('q-counter').textContent = `${currentQ + 1} / ${total}`;
+  document.getElementById('paper-tag').textContent = q.skill === 'graph' ? 'P5' : 'P3 & P5';
+  const completedCount = Object.values(qState).filter(s => s.done).length;
+  document.getElementById('completed-count').textContent = completedCount;
+  document.getElementById('progress-fill').style.width = `${Math.max(3, (completedCount/total)*100)}%`;
+  document.getElementById('prev-btn').style.opacity = currentQ === 0 ? '0.4' : '1';
+  document.getElementById('next-btn').style.opacity = currentQ === total - 1 ? '0.4' : '1';
+
+  const area = document.getElementById('question-area');
+  let html = `<div class="skill-label">Skill: <span>${q.skillLabel}</span> <span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span></div>`;
+
+  // Context card
+  html += `<div class="context-card"><div class="context-label">Question Context</div><div class="context-text">${q.context}</div></div>`;
+
+  // SVG if applicable
+  if (q.svgType === 'ruler') {
+    html += `<div class="instrument-wrap">${buildRulerSVG(q.svgValue)}</div>`;
+  } else if (q.svgType === 'ammeter') {
+    html += `<div class="instrument-wrap">${buildAmmeterSVG(q.svgValue, q.svgMax)}</div>`;
+  } else if (q.svgType === 'graph') {
+    html += `<div class="instrument-wrap">${buildGraphSVG(q.svgData)}</div>`;
+  }
+
+  // Steps
+  q.steps.forEach((step, si) => {
+    const sst = st.stepStates[si];
+    const locked = si > 0 && !st.stepStates[si - 1].done;
+    const isDone = sst.done;
+    html += `<div class="step-card${locked ? ' locked' : ''}" id="step-${q.id}-${si}">
+      <div class="step-label">${step.label}</div>
+      <div class="step-question">${step.question}</div>
+      <div class="step-input-row">
+        <input class="step-input${isDone ? ' correct' : ''}" id="inp-${q.id}-${si}"
+          type="text" placeholder="your answer…"
+          value="${isDone ? (step.exact || '') : ''}"
+          ${isDone ? 'disabled' : ''}
+          onkeydown="if(event.key==='Enter') checkStep(${q.id},${si})"
+        >
+        <button class="check-btn" id="btn-${q.id}-${si}" onclick="checkStep(${q.id},${si})" ${isDone ? 'disabled' : ''}>Check</button>
+      </div>
+      <span class="hint-link" id="hint-link-${q.id}-${si}" onclick="showHint(${q.id},${si})" style="${isDone ? 'display:none' : ''}">Show hint</span>
+      <div class="feedback" id="fb-${q.id}-${si}"></div>
+      <div class="worked-solution${isDone ? ' show' : ''}" id="ws-${q.id}-${si}">
+        <div class="worked-solution-title">✓ Worked Solution</div>
+        <div class="formula">${step.worked}</div>
+      </div>
+    </div>`;
+  });
+
+  // Next question button
+  if (st.done) {
+    html += `<button class="next-btn show" onclick="nextQuestion()">Next Question →</button>`;
+  }
+
+  area.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════
+// CHECKING LOGIC
+// ══════════════════════════════════════════════
+function normalise(s) {
+  return s.trim().toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/[±]/g, '')
+    .replace(/°/g, '')
+    .replace(/\u00b2/g, '2')
+    .replace(/\u00b3/g, '3')
+    .replace(/\u207b/g, '-');
+}
+
+function isCorrect(userAnswer, step) {
+  const norm = normalise(userAnswer);
+  return step.answer.some(a => normalise(a) === norm);
+}
+
+function isValueCorrectButNoUnit(userAnswer, step) {
+  if (!step.unit || step.unit === '' || step.unit === '%') return false;
+  const norm = normalise(userAnswer);
+  // check if value matches any answer stripped of unit
+  return step.answer.some(a => {
+    const strippedAnswer = normalise(a).replace(normalise(step.unit), '').trim();
+    return strippedAnswer === norm || strippedAnswer === norm.replace('%','').trim();
+  });
+}
+
+function isApproxCorrect(userAnswer, step) {
+  // Check if value is within ±1 in last significant figure
+  const numUser = parseFloat(userAnswer.replace(/[^0-9.\-]/g,''));
+  if (isNaN(numUser)) return false;
+  return step.answer.some(a => {
+    const numA = parseFloat(a.replace(/[^0-9.\-]/g,''));
+    if (isNaN(numA)) return false;
+    // Get decimal places of answer
+    const dp = (a.match(/\.(\d+)/)||['',''])[1].length;
+    const tolerance = Math.pow(10, -dp);
+    return Math.abs(numUser - numA) <= tolerance && Math.abs(numUser - numA) > 0;
+  });
+}
+
+function checkStep(qId, si) {
+  const q = QUESTIONS.find(x => x.id === qId);
+  const step = q.steps[si];
+  const st = qState[qId];
+  const sst = st.stepStates[si];
+  if (sst.done) return;
+
+  const inp = document.getElementById(`inp-${qId}-${si}`);
+  const fb = document.getElementById(`fb-${qId}-${si}`);
+  const ws = document.getElementById(`ws-${qId}-${si}`);
+  const userAnswer = inp.value;
+
+  if (!userAnswer.trim()) return;
+
+  if (isCorrect(userAnswer, step)) {
+    // Correct!
+    sst.done = true;
+    inp.classList.add('correct');
+    inp.disabled = true;
+    document.getElementById(`btn-${qId}-${si}`).disabled = true;
+    document.getElementById(`hint-link-${qId}-${si}`).style.display = 'none';
+    ws.classList.add('show');
+    fb.className = 'feedback correct show';
+    fb.textContent = '✓ Correct!';
+    CIEGate.track('drill_answer');
+    // Check if all steps done
+    if (st.stepStates.every(s => s.done)) {
+      st.done = true;
+      const area = document.getElementById('question-area');
+      const existing = area.querySelector('.next-btn');
+      if (!existing) {
+        const btn = document.createElement('button');
+        btn.className = 'next-btn show';
+        btn.textContent = 'Next Question →';
+        btn.onclick = nextQuestion;
+        area.appendChild(btn);
+      }
+    }
+    // Unlock next step
+    if (si + 1 < q.steps.length) {
+      const nextCard = document.getElementById(`step-${qId}-${si+1}`);
+      if (nextCard) nextCard.classList.remove('locked');
+    }
+    renderNav();
+    updateProgress();
+    return;
+  }
+
+  // Check for correct value but missing units
+  if (isValueCorrectButNoUnit(userAnswer, step)) {
+    fb.className = 'feedback units-nudge show';
+    fb.textContent = `⚠ Almost! Your value looks right — don't forget to include the units (${step.unit}).`;
+    return;
+  }
+
+  // Check for approximately correct (rounding issue)
+  if (isApproxCorrect(userAnswer, step)) {
+    fb.className = 'feedback warning show';
+    fb.textContent = `⚠ Close, but not quite right — watch your rounding. Carry more decimal places through your working and only round your final answer. Try again.`;
+    inp.classList.add('wrong');
+    setTimeout(() => inp.classList.remove('wrong'), 800);
+    return;
+  }
+
+  // Wrong
+  sst.tries++;
+  inp.classList.add('wrong');
+  setTimeout(() => inp.classList.remove('wrong'), 600);
+
+  if (sst.tries >= 2) {
+    // Show hint 2 / reveal answer
+    fb.className = 'feedback hint show';
+    fb.textContent = `Hint: ${step.hint2}`;
+    sst.showedHint2 = true;
+  } else {
+    fb.className = 'feedback wrong show';
+    fb.textContent = `✗ Not quite. Try again.`;
+  }
+}
+
+function showHint(qId, si) {
+  const q = QUESTIONS.find(x => x.id === qId);
+  const step = q.steps[si];
+  const sst = qState[qId].stepStates[si];
+  const fb = document.getElementById(`fb-${qId}-${si}`);
+  if (!sst.showedHint1) {
+    fb.className = 'feedback hint show';
+    fb.textContent = `Hint: ${step.hint1}`;
+    sst.showedHint1 = true;
+  } else {
+    fb.className = 'feedback hint show';
+    fb.textContent = `Hint: ${step.hint2}`;
+    sst.showedHint2 = true;
+  }
+}
+
+function updateProgress() {
+  const completedCount = Object.values(qState).filter(s => s.done).length;
+  document.getElementById('completed-count').textContent = completedCount;
+  const total = QUESTIONS.length;
+  document.getElementById('progress-fill').style.width = `${Math.max(3, (completedCount/total)*100)}%`;
+  if (completedCount === total) {
+    document.getElementById('complete-banner').classList.add('show');
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) { currentQ--; renderNav(); renderQuestion(); }
+}
+function nextQuestion() {
+  if (currentQ < QUESTIONS.length - 1) { currentQ++; renderNav(); renderQuestion(); window.scrollTo({top: 400, behavior: 'smooth'}); }
+}
+function restartAll() {
+  initState();
+  currentQ = 0;
+  document.getElementById('complete-banner').classList.remove('show');
+  renderNav();
+  renderQuestion();
+}
+
+// ══════════════════════════════════════════════
+// SVG INSTRUMENTS
+// ══════════════════════════════════════════════
+function buildRulerSVG(value) {
+  const W = 500, H = 70;
+  const startX = 30, endX = 470;
+  const rulerY = 35;
+  const totalMm = 100;
+  const pxPerMm = (endX - startX) / totalMm;
+  const markerX = startX + value * pxPerMm;
+
+  let ticks = '';
+  for (let mm = 0; mm <= totalMm; mm++) {
+    const x = startX + mm * pxPerMm;
+    if (mm % 10 === 0) {
+      ticks += `<line x1="${x}" y1="${rulerY-16}" x2="${x}" y2="${rulerY+4}" stroke="#1f1a14" stroke-width="1.5"/>`;
+      ticks += `<text x="${x}" y="${rulerY-20}" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6b5e4d">${mm}</text>`;
+    } else if (mm % 5 === 0) {
+      ticks += `<line x1="${x}" y1="${rulerY-10}" x2="${x}" y2="${rulerY+4}" stroke="#1f1a14" stroke-width="1"/>`;
+    } else {
+      ticks += `<line x1="${x}" y1="${rulerY-6}" x2="${x}" y2="${rulerY+4}" stroke="#6b5e4d" stroke-width="0.8"/>`;
+    }
+  }
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" class="instrument">
+    <rect x="${startX}" y="${rulerY}" width="${endX-startX}" height="20" rx="2" fill="#faf6ec" stroke="#d8ccb4" stroke-width="1.2"/>
+    ${ticks}
+    <text x="${startX}" y="${rulerY+30}" font-family="Inter,sans-serif" font-size="8" fill="#6b5e4d">0</text>
+    <text x="${endX}" y="${rulerY+30}" font-family="Inter,sans-serif" font-size="8" fill="#6b5e4d">100 mm</text>
+    <line x1="${markerX}" y1="${rulerY-24}" x2="${markerX}" y2="${rulerY}" stroke="#a83b1f" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <polygon points="${markerX-4},${rulerY-26} ${markerX+4},${rulerY-26} ${markerX},${rulerY-20}" fill="#a83b1f"/>
+    <text x="${markerX}" y="${rulerY-30}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#a83b1f">${value} mm</text>
+  </svg>`;
+}
+
+function buildAmmeterSVG(value, maxVal) {
+  const W = 260, H = 160;
+  const cx = 130, cy = 110, r = 75;
+  const minAngle = 210, maxAngle = -30; // degrees, clockwise from left
+  const fraction = value / maxVal;
+  const angle = (minAngle + (maxAngle - minAngle) * fraction) * Math.PI / 180;
+  const needleX = cx + (r - 12) * Math.cos(angle);
+  const needleY = cy + (r - 12) * Math.sin(angle);
+
+  let ticks = '';
+  const numTicks = maxVal / 0.2; // divisions
+  for (let i = 0; i <= numTicks; i++) {
+    const frac = i / numTicks;
+    const a = (minAngle + (maxAngle - minAngle) * frac) * Math.PI / 180;
+    const major = i % 5 === 0;
+    const innerR = major ? r - 14 : r - 10;
+    const outerR = r;
+    ticks += `<line x1="${cx + innerR * Math.cos(a)}" y1="${cy + innerR * Math.sin(a)}"
+      x2="${cx + outerR * Math.cos(a)}" y2="${cy + outerR * Math.sin(a)}"
+      stroke="#1f1a14" stroke-width="${major ? 1.5 : 0.8}"/>`;
+    if (major) {
+      const labelR = r - 22;
+      const val = (i * 0.2).toFixed(1);
+      ticks += `<text x="${cx + labelR * Math.cos(a)}" y="${cy + labelR * Math.sin(a) + 3}" text-anchor="middle"
+        font-family="Inter,sans-serif" font-size="9" fill="#6b5e4d">${val}</text>`;
+    }
+  }
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" class="instrument">
+    <circle cx="${cx}" cy="${cy}" r="${r+6}" fill="#faf6ec" stroke="#d8ccb4" stroke-width="1.5"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#e6dcc6" stroke-width="0.8"/>
+    ${ticks}
+    <line x1="${cx}" y1="${cy}" x2="${needleX}" y2="${needleY}" stroke="#a83b1f" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="5" fill="#1f1a14"/>
+    <text x="${cx}" y="${cy + 18}" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#1f1a14">A</text>
+    <text x="${cx}" y="${H - 6}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#a83b1f">${value} A</text>
+  </svg>`;
+}
+
+function buildGraphSVG(data) {
+  const W = 400, H = 280;
+  const pad = { top: 30, right: 20, bottom: 40, left: 50 };
+  const gW = W - pad.left - pad.right;
+  const gH = H - pad.top - pad.bottom;
+
+  // Simple illustrative graph with best-fit and worst lines
+  const x1 = pad.left, x2 = pad.left + gW;
+  const y1 = pad.top + gH, y2 = pad.top;
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" class="instrument">
+    <rect x="${pad.left}" y="${pad.top}" width="${gW}" height="${gH}" fill="#faf6ec" stroke="#d8ccb4" stroke-width="1"/>
+    <!-- Grid lines -->
+    ${[0.25,0.5,0.75].map(f => `
+      <line x1="${pad.left}" y1="${pad.top + gH * f}" x2="${pad.left + gW}" y2="${pad.top + gH * f}" stroke="#e6dcc6" stroke-width="0.6" stroke-dasharray="4,4"/>
+      <line x1="${pad.left + gW * f}" y1="${pad.top}" x2="${pad.left + gW * f}" y2="${pad.top + gH}" stroke="#e6dcc6" stroke-width="0.6" stroke-dasharray="4,4"/>
+    `).join('')}
+    <!-- Data points with error bars -->
+    ${[[0.1,0.82],[0.25,0.76],[0.45,0.68],[0.6,0.60],[0.75,0.52],[0.9,0.45]].map(([xf,yf]) => {
+      const px = pad.left + xf * gW;
+      const py = pad.top + (1-yf) * gH;
+      const eb = 6;
+      return `<line x1="${px}" y1="${py-eb}" x2="${px}" y2="${py+eb}" stroke="#6b5e4d" stroke-width="1.2"/>
+        <line x1="${px-3}" y1="${py-eb}" x2="${px+3}" y2="${py-eb}" stroke="#6b5e4d" stroke-width="1.2"/>
+        <line x1="${px-3}" y1="${py+eb}" x2="${px+3}" y2="${py+eb}" stroke="#6b5e4d" stroke-width="1.2"/>
+        <circle cx="${px}" cy="${py}" r="3" fill="#1f1a14"/>`;
+    }).join('')}
+    <!-- Best fit line -->
+    <line x1="${pad.left + 0.05*gW}" y1="${pad.top + 0.17*gH}" x2="${pad.left + 0.95*gW}" y2="${pad.top + 0.83*gH}" stroke="#1f1a14" stroke-width="1.8"/>
+    <!-- Worst lines -->
+    <line x1="${pad.left + 0.05*gW}" y1="${pad.top + 0.10*gH}" x2="${pad.left + 0.95*gW}" y2="${pad.top + 0.78*gH}" stroke="#a83b1f" stroke-width="1.2" stroke-dasharray="6,4"/>
+    <line x1="${pad.left + 0.05*gW}" y1="${pad.top + 0.23*gH}" x2="${pad.left + 0.95*gW}" y2="${pad.top + 0.90*gH}" stroke="#a83b1f" stroke-width="1.2" stroke-dasharray="6,4"/>
+    <!-- Axes -->
+    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${pad.top + gH}" stroke="#1f1a14" stroke-width="1.5"/>
+    <line x1="${pad.left}" y1="${pad.top + gH}" x2="${pad.left + gW}" y2="${pad.top + gH}" stroke="#1f1a14" stroke-width="1.5"/>
+    <!-- Labels -->
+    <text x="${pad.left + gW/2}" y="${H - 6}" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#1f1a14">${data.xLabel || 'x'}</text>
+    <text x="12" y="${pad.top + gH/2}" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#1f1a14" transform="rotate(-90, 12, ${pad.top + gH/2})">${data.yLabel || 'y'}</text>
+    <!-- Legend -->
+    <line x1="${pad.left + gW - 100}" y1="${pad.top + 12}" x2="${pad.left + gW - 80}" y2="${pad.top + 12}" stroke="#1f1a14" stroke-width="1.8"/>
+    <text x="${pad.left + gW - 76}" y="${pad.top + 15}" font-family="Inter,sans-serif" font-size="9" fill="#1f1a14">best fit</text>
+    <line x1="${pad.left + gW - 100}" y1="${pad.top + 24}" x2="${pad.left + gW - 80}" y2="${pad.top + 24}" stroke="#a83b1f" stroke-width="1.2" stroke-dasharray="5,3"/>
+    <text x="${pad.left + gW - 76}" y="${pad.top + 27}" font-family="Inter,sans-serif" font-size="9" fill="#a83b1f">worst lines</text>
+  </svg>`;
+}
+
+// ══════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════
+initState();
+questionOrder = buildOrder('difficulty');
+document.getElementById('total-count').textContent = QUESTIONS.length;
+
+// Start on reference view, but pre-build drill state
+renderNav();
+</script>
+
+<!-- FOOTER (matches dashboard) -->
+<footer class="cie-footer">
+  <div class="site-container cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: #3a3127;">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+
+</body>
+</html>

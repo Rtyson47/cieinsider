@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9702 Paper 2 — Definitions & Formulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--surface:#141720;--surface2:#1c2030;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);--text:#e8eaf0;--muted:#6b7280;--accent:#7ee8a2;--accent-dim:rgba(126,232,162,0.12);--accent2:#60a5fa;--accent2-dim:rgba(96,165,250,0.12);--danger:#f87171;--danger-dim:rgba(248,113,113,0.12);--warn:#fbbf24;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-40%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(126,232,162,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(96,165,250,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+#app{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem;min-height:100vh}
+.header{margin-bottom:2rem;animation:fadeUp 0.4s ease both}
+.header-eyebrow{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem}
+.header-title{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.header-sub{font-size:13px;color:var(--muted);margin-top:0.25rem}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0.75rem;animation:fadeUp 0.4s 0.05s ease both}
+.filter-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:5px 12px;border-radius:4px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.filter-btn:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+.filter-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.filter-btn.active-blue{background:var(--accent2-dim);border-color:var(--accent2);color:var(--accent2)}
+.filter-divider{width:1px;background:var(--border2);align-self:stretch;margin:2px 4px}
+.topic-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.25rem;animation:fadeUp 0.4s 0.1s ease both}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center}
+.stat-n{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--text);display:block}
+.stat-n.g{color:var(--accent)}.stat-n.r{color:var(--danger)}
+.stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;display:block}
+.progress-wrap{height:2px;background:rgba(255,255,255,0.06);border-radius:1px;margin-bottom:1.5rem;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 0.4s cubic-bezier(.4,0,.2,1);width:0%}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem;animation:fadeUp 0.4s 0.15s ease both;transition:border-color 0.2s}
+.card:hover{border-color:var(--border2)}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.card-topic{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.08em}
+.card-badge{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:4px;letter-spacing:0.06em;text-transform:uppercase}
+.badge-def{background:var(--accent2-dim);color:var(--accent2);border:1px solid rgba(96,165,250,0.2)}
+.badge-form{background:rgba(251,191,36,0.1);color:var(--warn);border:1px solid rgba(251,191,36,0.2)}
+.question-text{font-size:18px;font-weight:500;color:var(--text);line-height:1.5;margin-bottom:1.5rem;letter-spacing:-0.01em;min-height:60px}
+.answer-box{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:none;animation:slideDown 0.2s ease both}
+.answer-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.answer-text{font-size:15px;color:var(--text);line-height:1.65;font-weight:300;white-space:pre-line}
+.actions{display:flex;gap:8px}
+.btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:11px 20px;border-radius:8px;cursor:pointer;transition:all 0.15s;border:1px solid;flex:1;text-align:center}
+.btn-reveal{background:transparent;border-color:var(--border2);color:var(--text)}
+.btn-reveal:hover{background:var(--surface2);border-color:rgba(255,255,255,0.25)}
+.btn-got{background:var(--accent-dim);border-color:rgba(126,232,162,0.3);color:var(--accent)}
+.btn-got:hover{background:rgba(126,232,162,0.2)}
+.btn-missed{background:var(--danger-dim);border-color:rgba(248,113,113,0.3);color:var(--danger)}
+.btn-missed:hover{background:rgba(248,113,113,0.2)}
+.btn-action{background:transparent;border-color:var(--border2);color:var(--muted)}
+.btn-action:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
+.kbd-hint{text-align:center;margin-top:1rem;font-family:var(--mono);font-size:11px;color:rgba(107,114,128,0.6);letter-spacing:0.06em}
+kbd{display:inline-block;padding:1px 6px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;font-size:10px;font-family:var(--mono);color:var(--muted);background:var(--surface)}
+.end-screen{text-align:center;padding:2rem 1rem;animation:fadeUp 0.4s ease both}
+.end-pct{font-family:var(--mono);font-size:72px;font-weight:300;letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem}
+.end-pct.great{color:var(--accent)}.end-pct.ok{color:var(--warn)}.end-pct.poor{color:var(--danger)}
+.end-label{font-size:14px;color:var(--muted);margin-bottom:2rem}
+.breakdown-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:480px;margin:0 auto 2rem;text-align:left}
+.breakdown-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.breakdown-topic{font-size:12px;color:var(--text);font-weight:500;margin-bottom:2px}
+.breakdown-score{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.breakdown-score .hit{color:var(--accent)}
+.end-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.end-actions .btn{flex:unset;min-width:140px}
+.hidden{display:none!important}
+/* Review screen */
+.review-screen{animation:fadeUp 0.4s ease both}
+.review-header{text-align:center;margin-bottom:1.75rem}
+.review-title{font-family:var(--mono);font-size:13px;color:var(--danger);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem}
+.review-subtitle{font-size:14px;color:var(--muted)}
+.review-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
+.review-item{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--danger);border-radius:8px;padding:1rem 1.25rem}
+.review-q{font-size:14px;color:var(--muted);margin-bottom:0.5rem;font-weight:500}
+.review-a{font-size:15px;color:var(--text);line-height:1.65;font-weight:300;white-space:pre-line}
+.review-a-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem}
+.review-actions{display:flex;gap:8px;justify-content:center;padding-bottom:1rem}
+.review-actions .btn{flex:unset;min-width:160px}
+/* Retest mode badge */
+.retest-banner{background:var(--danger-dim);border:1px solid rgba(248,113,113,0.25);border-radius:8px;padding:8px 14px;margin-bottom:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--danger);letter-spacing:0.08em;animation:fadeUp 0.3s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){.stats-row{grid-template-columns:repeat(2,1fr)}.breakdown-grid{grid-template-columns:1fr}.question-text{font-size:16px}.end-pct{font-size:56px}}
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === remap dark navy palette → cream === */
+:root {
+  --bg: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule-soft) !important;
+  --border-h: var(--cie-rule) !important;
+  --border2: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important;
+  --text-s: var(--cie-ink-soft) !important;
+  --text-t: var(--cie-ink-mute) !important;
+  --muted: var(--cie-ink-mute) !important;
+  --acc: var(--cie-accent) !important;
+  --acc-bg: rgba(168,59,31,0.10) !important;
+  --acc-b: var(--cie-accent-soft) !important;
+  --accent: var(--cie-accent) !important;
+  --accent-dim: rgba(168,59,31,0.10) !important;
+  --accent2: var(--cie-gold) !important;
+  --accent2-dim: rgba(184,137,58,0.12) !important;
+  --green: var(--cie-green) !important;
+  --red: var(--cie-accent-deep) !important;
+  --amber: var(--cie-gold) !important;
+  --warn: var(--cie-gold) !important;
+  --danger: var(--cie-accent-deep) !important;
+  --danger-dim: rgba(125,42,20,0.10) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">9702 · AS &amp; A Level · Paper 2</p>
+    <h1 class="cie-page-title">Definitions &amp; Formulae <em>Flashcards</em></h1>
+    <p class="cie-page-lede">AS-level definitions and formulae drilled as flashcards &mdash; shuffle mode, missed-item review, and retest until clean.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+<div id="app">
+  <div class="header">
+    <div class="header-eyebrow">Cambridge 9702 · Paper 2 · AS Level · 2025–2027</div>
+    <div class="header-title">Definitions &amp; Formulae</div>
+    <div class="header-sub" id="deck-info">121 items · all topics</div>
+  </div>
+  <div class="filter-bar" id="section-filters">
+    <button class="filter-btn active" data-sec="all" onclick="setSec(this,'all')">All</button>
+    <button class="filter-btn" data-sec="def" onclick="setSec(this,'def')">Definitions</button>
+    <button class="filter-btn" data-sec="form" onclick="setSec(this,'form')">Formulae</button>
+    <div class="filter-divider"></div>
+    <button class="filter-btn active-blue" onclick="shuffleDeck()">&#8644; Shuffle</button>
+    <button class="filter-btn" onclick="resetSession()">&#8635; Reset</button>
+  </div>
+  <div class="topic-row" id="topic-filters"></div>
+  <div class="stats-row">
+    <div class="stat-box"><span class="stat-n" id="s-total">0</span><span class="stat-l">total</span></div>
+    <div class="stat-box"><span class="stat-n" id="s-done">0</span><span class="stat-l">done</span></div>
+    <div class="stat-box"><span class="stat-n g" id="s-got">0</span><span class="stat-l">got it</span></div>
+    <div class="stat-box"><span class="stat-n r" id="s-missed">0</span><span class="stat-l">missed</span></div>
+  </div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress"></div></div>
+  <div id="quiz-area">
+    <div class="card">
+      <div class="card-meta"><span class="card-topic" id="card-topic"></span><span class="card-badge" id="card-badge"></span></div>
+      <div class="question-text" id="question"></div>
+      <div class="answer-box" id="answer-box"><div class="answer-label">mark scheme answer</div><div class="answer-text" id="answer"></div></div>
+      <div class="actions" id="actions-before"><button class="btn btn-reveal" onclick="reveal()">Show answer</button></div>
+      <div class="actions hidden" id="actions-after">
+        <button class="btn btn-missed" onclick="mark(false)">&#x2715; Missed</button>
+        <button class="btn btn-got" onclick="mark(true)">&#x2713; Got it</button>
+      </div>
+    </div>
+    <div class="kbd-hint"><kbd>Space</kbd> reveal &nbsp;&nbsp; <kbd>&larr;</kbd> missed &nbsp;&nbsp; <kbd>&rarr;</kbd> got it</div>
+  </div>
+  <!-- Review wrong answers screen -->
+  <div id="review-screen" class="hidden review-screen">
+    <div class="review-header">
+      <div class="review-title">&#x2715; Missed items</div>
+      <div class="review-subtitle" id="review-subtitle"></div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+    <div class="review-actions">
+      <button class="btn btn-missed" onclick="startRetest()">Start retest &#8594;</button>
+    </div>
+  </div>
+
+  <!-- Retest mode banner (shown inside quiz-area during retest) -->
+  <div id="retest-banner" class="retest-banner hidden">
+    &#8635; RETEST &nbsp;&middot;&nbsp; <span id="retest-label"></span>
+  </div>
+
+  <div id="end-screen" class="hidden">
+    <div class="end-pct" id="end-pct"></div>
+    <div class="end-label" id="end-label"></div>
+    <div class="breakdown-grid" id="breakdown"></div>
+    <div class="end-actions">
+      <button class="btn btn-missed" id="btn-review" onclick="showReview()">Review missed</button>
+      <button class="btn btn-action" onclick="resetSession()">Start over</button>
+    </div>
+  </div>
+</div>
+<script>
+const ALL=[
+  {s:"def",t:"Measurement",q:"Define: Scalar",a:"Quantity with magnitude only"},
+  {s:"def",t:"Measurement",q:"Define: Vector",a:"Quantity with both magnitude and direction"},
+  {s:"def",t:"Measurement",q:"Define: Random error",a:"Unpredictable variation about a mean; reduced by repeating and averaging"},
+  {s:"def",t:"Measurement",q:"Define: Systematic error",a:"Consistent error in one direction; cannot be reduced by repeating measurements"},
+  {s:"def",t:"Measurement",q:"Define: Precision",a:"Results clustered closely together / small range of values"},
+  {s:"def",t:"Measurement",q:"Define: Accuracy",a:"Result close to the true / accepted value"},
+  {s:"def",t:"Measurement",q:"Define: Uncertainty",a:"Range of values within which the true value is expected to lie"},
+  {s:"def",t:"Kinematics",q:"Define: Displacement",a:"Distance moved in a specified direction"},
+  {s:"def",t:"Kinematics",q:"Define: Speed",a:"Distance travelled per unit time"},
+  {s:"def",t:"Kinematics",q:"Define: Velocity",a:"Rate of change of displacement"},
+  {s:"def",t:"Kinematics",q:"Define: Acceleration",a:"Rate of change of velocity"},
+  {s:"def",t:"Kinematics",q:"Define: Free fall",a:"Motion under gravity alone (no air resistance / other forces)"},
+  {s:"def",t:"Dynamics",q:"Define: Linear momentum",a:"Product of mass and velocity"},
+  {s:"def",t:"Dynamics",q:"State: Newton\u2019s first law",a:"A body remains at rest or continues with constant velocity unless acted on by a resultant force"},
+  {s:"def",t:"Dynamics",q:"State: Newton\u2019s second law",a:"The resultant force on a body is proportional to its rate of change of momentum (and acts in the same direction)"},
+  {s:"def",t:"Dynamics",q:"State: Newton\u2019s third law",a:"When body A exerts a force on body B, body B exerts an equal and opposite force on body A (of the same type)"},
+  {s:"def",t:"Dynamics",q:"Define: Impulse",a:"Product of force and the time for which it acts; equal to change in momentum"},
+  {s:"def",t:"Dynamics",q:"State: Principle of conservation of momentum",a:"The total momentum of a system remains constant provided no external resultant force acts on it"},
+  {s:"def",t:"Dynamics",q:"Define: Elastic collision",a:"Collision in which total kinetic energy is conserved"},
+  {s:"def",t:"Dynamics",q:"Define: Inelastic collision",a:"Collision in which total kinetic energy is not conserved (momentum is still conserved)"},
+  {s:"def",t:"Forces",q:"Define: Density",a:"Mass per unit volume"},
+  {s:"def",t:"Forces",q:"Define: Pressure",a:"Force per unit area (acting perpendicularly to the surface)"},
+  {s:"def",t:"Forces",q:"Define: Torque of a couple",a:"Product of one of the forces and the perpendicular distance between the forces"},
+  {s:"def",t:"Forces",q:"State: Principle of moments",a:"For a body in equilibrium, the sum of clockwise moments about any point equals the sum of anticlockwise moments about the same point"},
+  {s:"def",t:"Forces",q:"Define: Centre of gravity",a:"Point at which the entire weight of the body may be considered to act"},
+  {s:"def",t:"Forces",q:"State: Conditions for equilibrium (both)",a:"Resultant force is zero AND resultant torque / moment about any point is zero"},
+  {s:"def",t:"Work & Energy",q:"Define: Work done",a:"Product of force and displacement in the direction of the force"},
+  {s:"def",t:"Work & Energy",q:"Define: Power",a:"Work done per unit time / rate of energy transfer"},
+  {s:"def",t:"Work & Energy",q:"State: Principle of conservation of energy",a:"Energy cannot be created or destroyed; it can only be converted from one form to another"},
+  {s:"def",t:"Work & Energy",q:"Define: Efficiency",a:"Ratio of useful energy output to total energy input (expressed as a fraction or percentage)"},
+  {s:"def",t:"Work & Energy",q:"Define: Gravitational potential energy",a:"Energy stored in a body by virtue of its position in a gravitational field"},
+  {s:"def",t:"Work & Energy",q:"Define: Kinetic energy",a:"Energy a body has by virtue of its motion"},
+  {s:"def",t:"Deformation",q:"Define: Tensile stress",a:"Force per unit cross-sectional area"},
+  {s:"def",t:"Deformation",q:"Define: Tensile strain",a:"Extension per unit original length"},
+  {s:"def",t:"Deformation",q:"Define: Young modulus",a:"Tensile stress divided by tensile strain (within the limit of proportionality)"},
+  {s:"def",t:"Deformation",q:"State: Hooke\u2019s law",a:"Extension is proportional to the applied force provided the limit of proportionality is not exceeded"},
+  {s:"def",t:"Deformation",q:"Define: Elastic deformation",a:"Deformation from which the material returns to its original shape when the load is removed"},
+  {s:"def",t:"Deformation",q:"Define: Plastic deformation",a:"Deformation which is permanent; material does not return to its original shape when the load is removed"},
+  {s:"def",t:"Deformation",q:"Define: Elastic limit",a:"The maximum force / stress beyond which the material does not return to its original length when the load is removed"},
+  {s:"def",t:"Deformation",q:"Define: Limit of proportionality",a:"Point beyond which extension is no longer proportional to the applied force"},
+  {s:"def",t:"Waves",q:"Define: Displacement (waves)",a:"Distance and direction of a particle from its equilibrium position"},
+  {s:"def",t:"Waves",q:"Define: Amplitude",a:"Maximum displacement from equilibrium"},
+  {s:"def",t:"Waves",q:"Define: Period",a:"Time for one complete oscillation"},
+  {s:"def",t:"Waves",q:"Define: Frequency",a:"Number of complete oscillations per unit time"},
+  {s:"def",t:"Waves",q:"Define: Wavelength",a:"Minimum distance between two points in phase on a wave / distance between adjacent crests"},
+  {s:"def",t:"Waves",q:"Define: Phase difference",a:"Fraction of a cycle by which one wave leads or lags another; measured in degrees or radians"},
+  {s:"def",t:"Waves",q:"Define: Wave speed",a:"Distance travelled by a wavefront per unit time"},
+  {s:"def",t:"Waves",q:"Define: Intensity",a:"Power transmitted per unit area perpendicular to the direction of wave travel"},
+  {s:"def",t:"Waves",q:"Define: Transverse wave",a:"Oscillations perpendicular to the direction of energy transfer"},
+  {s:"def",t:"Waves",q:"Define: Longitudinal wave",a:"Oscillations parallel to the direction of energy transfer"},
+  {s:"def",t:"Waves",q:"Define: Polarisation",a:"Restriction of transverse wave oscillations to one plane"},
+  {s:"def",t:"Superposition",q:"State: Principle of superposition",a:"When two or more waves meet, the resultant displacement is the vector sum of the individual displacements"},
+  {s:"def",t:"Superposition",q:"Define: Coherence",a:"Constant phase difference (and same frequency) between two sources"},
+  {s:"def",t:"Superposition",q:"Define: Interference",a:"Superposition of waves from two coherent sources"},
+  {s:"def",t:"Superposition",q:"Define: Constructive interference",a:"Superposition resulting in larger amplitude; path difference = n\u03bb"},
+  {s:"def",t:"Superposition",q:"Define: Destructive interference",a:"Superposition resulting in reduced / zero amplitude; path difference = (n + \u00bd)\u03bb"},
+  {s:"def",t:"Superposition",q:"Define: Diffraction",a:"Spreading of a wave as it passes through a gap or around an obstacle"},
+  {s:"def",t:"Superposition",q:"Define: Standing wave",a:"Wave pattern formed by superposition of two waves of the same frequency and amplitude travelling in opposite directions"},
+  {s:"def",t:"Superposition",q:"Define: Node",a:"Point of minimum / zero displacement on a standing wave"},
+  {s:"def",t:"Superposition",q:"Define: Antinode",a:"Point of maximum amplitude on a standing wave"},
+  {s:"def",t:"Electricity",q:"Define: Electric current",a:"Rate of flow of charge"},
+  {s:"def",t:"Electricity",q:"Define: Potential difference",a:"Work done per unit charge moved between two points"},
+  {s:"def",t:"Electricity",q:"Define: Resistance",a:"Ratio of potential difference across a component to the current through it: R = V/I"},
+  {s:"def",t:"Electricity",q:"State: Ohm\u2019s law",a:"Current is directly proportional to potential difference provided temperature (and other physical conditions) remain constant"},
+  {s:"def",t:"Electricity",q:"Define: Resistivity",a:"Property of a material relating resistance to dimensions: R = \u03c1L/A"},
+  {s:"def",t:"Electricity",q:"Define: Electromotive force (e.m.f.)",a:"Energy transferred per unit charge by the source (from other forms to electrical)"},
+  {s:"def",t:"Electricity",q:"Define: Internal resistance",a:"Resistance to current flow within the source itself"},
+  {s:"def",t:"D.C. Circuits",q:"State: Kirchhoff\u2019s first law",a:"The sum of currents entering a junction equals the sum of currents leaving it (conservation of charge)"},
+  {s:"def",t:"D.C. Circuits",q:"State: Kirchhoff\u2019s second law",a:"The sum of the e.m.f.s around a closed loop equals the sum of the p.d.s around the same loop (conservation of energy)"},
+  {s:"def",t:"D.C. Circuits",q:"Define: Terminal potential difference",a:"Potential difference across the terminals of a source when current is flowing; equal to e.m.f. minus the lost volts (V = \u03b5 \u2212 Ir)"},
+  {s:"def",t:"Particle physics",q:"Define: Nucleon number A (mass number)",a:"Total number of protons and neutrons in the nucleus"},
+  {s:"def",t:"Particle physics",q:"Define: Proton number Z (atomic number)",a:"Number of protons in the nucleus"},
+  {s:"def",t:"Particle physics",q:"Define: Isotopes",a:"Atoms of the same element with the same proton number but different nucleon numbers (different numbers of neutrons)"},
+  {s:"def",t:"Particle physics",q:"Describe: Alpha particle (\u03b1)",a:"Helium nucleus: 2 protons and 2 neutrons; relative charge +2, relative mass 4"},
+  {s:"def",t:"Particle physics",q:"Describe: Beta-minus particle (\u03b2\u207b)",a:"Fast-moving electron; relative charge \u22121, negligible mass"},
+  {s:"def",t:"Particle physics",q:"Describe: Beta-plus particle (\u03b2\u207a)",a:"Fast-moving positron; relative charge +1, negligible mass"},
+  {s:"def",t:"Particle physics",q:"Describe: Gamma radiation (\u03b3)",a:"High-frequency electromagnetic radiation from nucleus; no charge, no mass"},
+  {s:"def",t:"Particle physics",q:"Define: Antiparticle",a:"Particle with the same mass but opposite charge to its corresponding particle"},
+  {s:"def",t:"Particle physics",q:"Define: Quark (name all 6 flavours)",a:"Fundamental particle; six flavours: up (u), down (d), strange (s), charm (c), top (t), bottom (b)"},
+  {s:"def",t:"Particle physics",q:"State: Quark charges (up, down, strange, charm, top, bottom)",a:"up: +\u2154e  |  down: \u2212\u2153e  |  strange: \u2212\u2153e  |  charm: +\u2154e  |  top: +\u2154e  |  bottom: \u2212\u2153e"},
+  {s:"def",t:"Particle physics",q:"State: Proton quark composition",a:"uud  (two up quarks, one down quark)"},
+  {s:"def",t:"Particle physics",q:"State: Neutron quark composition",a:"udd  (one up quark, two down quarks)"},
+  {s:"def",t:"Particle physics",q:"Define: Hadron",a:"Particle made of quarks; either a baryon (3 quarks) or a meson (quark + antiquark)"},
+  {s:"def",t:"Particle physics",q:"Define: Lepton",a:"Fundamental particle not made of quarks; e.g. electron, neutrino"},
+  {s:"form",t:"Dynamics",q:"Formula: Linear momentum",a:"p = mv"},
+  {s:"form",t:"Dynamics",q:"Formula: Impulse",a:"J = F\u0394t = \u0394p"},
+  {s:"form",t:"Dynamics",q:"Formula: Weight",a:"W = mg"},
+  {s:"form",t:"Dynamics",q:"Formula: F = ma (Newton\u2019s 2nd law)",a:"F = ma"},
+  {s:"form",t:"Forces",q:"Formula: Density",a:"\u03c1 = m/V"},
+  {s:"form",t:"Forces",q:"Formula: Pressure",a:"p = F/A"},
+  {s:"form",t:"Forces",q:"Formula: Pressure in a fluid",a:"\u0394p = \u03c1g\u0394h"},
+  {s:"form",t:"Forces",q:"Formula: Upthrust (Archimedes\u2019 principle)",a:"F = \u03c1gV"},
+  {s:"form",t:"Forces",q:"Formula: Torque of a couple",a:"T = Fd"},
+  {s:"form",t:"Work & Energy",q:"Formula: Work done",a:"W = Fd\u202fcos\u03b8"},
+  {s:"form",t:"Work & Energy",q:"Formula: Power (from force and velocity)",a:"P = Fv"},
+  {s:"form",t:"Work & Energy",q:"Formula: Efficiency",a:"\u03b7 = (useful output energy / total input energy) \u00d7 100%"},
+  {s:"form",t:"Work & Energy",q:"Formula: Gravitational potential energy",a:"\u0394Ep = mg\u0394h"},
+  {s:"form",t:"Work & Energy",q:"Formula: Kinetic energy",a:"Ek = \u00bdmv\u00b2"},
+  {s:"form",t:"Deformation",q:"Formula: Hooke\u2019s law",a:"F = kx"},
+  {s:"form",t:"Deformation",q:"Formula: Spring constant",a:"k = F/x"},
+  {s:"form",t:"Deformation",q:"Formula: Elastic potential energy (spring)",a:"E = \u00bdFx = \u00bdkx\u00b2"},
+  {s:"form",t:"Deformation",q:"Formula: Tensile stress",a:"\u03c3 = F/A"},
+  {s:"form",t:"Deformation",q:"Formula: Tensile strain",a:"\u03b5 = x/L"},
+  {s:"form",t:"Deformation",q:"Formula: Young modulus",a:"E = \u03c3/\u03b5 = FL/(Ax)"},
+  {s:"form",t:"Waves",q:"Formula: Wave equation",a:"v = f\u03bb"},
+  {s:"form",t:"Waves",q:"Formula: Intensity",a:"I = P/A"},
+  {s:"form",t:"Waves",q:"Formula: Intensity and amplitude relationship",a:"I \u221d A\u00b2"},
+  {s:"form",t:"Superposition",q:"Formula: Double-slit fringe spacing (\u03bb = ax/D form)",a:"\u03bb = ax/D"},
+  {s:"form",t:"Superposition",q:"Formula: Diffraction grating equation",a:"d\u202fsin\u03b8 = n\u03bb"},
+  {s:"form",t:"Waves",q:"Formula: Doppler effect (moving source)",a:"f\u2080 = f\u209bv\u202f/\u202f(v \u00b1 v\u209b)"},
+  {s:"form",t:"Waves",q:"Formula: Malus\u2019s law",a:"I = I\u2080\u202fcos\u00b2\u03b8"},
+  {s:"form",t:"Electricity",q:"Formula: Electric charge",a:"Q = It"},
+  {s:"form",t:"Electricity",q:"Formula: Drift velocity",a:"I = Anvq"},
+  {s:"form",t:"Electricity",q:"Formula: Potential difference",a:"V = W/Q"},
+  {s:"form",t:"Electricity",q:"Formula: Resistance",a:"R = V/I"},
+  {s:"form",t:"Electricity",q:"Formula: Resistivity",a:"R = \u03c1L/A"},
+  {s:"form",t:"Electricity",q:"Formula: Electrical power (all 3 forms)",a:"P = VI = I\u00b2R = V\u00b2/R"},
+  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in series",a:"R = R\u2081 + R\u2082 + \u2026"},
+  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in parallel",a:"1/R = 1/R\u2081 + 1/R\u2082 + \u2026"},
+  {s:"form",t:"D.C. Circuits",q:"Formula: E.m.f. and terminal p.d.",a:"\u03b5 = V + Ir   or   \u03b5 = I(R + r)"},
+  {s:"form",t:"D.C. Circuits",q:"Formula: Potential divider output voltage",a:"V\u2092\u1d58\u209c = R\u2082\u202f/\u202f(R\u2081 + R\u2082) \u00d7 V\u1d62\u2099"},
+];
+
+const TOPICS=[...new Set(ALL.map(i=>i.t))];
+let activeSec='all',activeTopic='all',deck=[],idx=0,results={got:0,missed:0},missedItems=[],revealed=false,isRetest=false,retestRound=1;
+
+function buildTopicButtons(){
+  const wrap=document.getElementById('topic-filters');wrap.innerHTML='';
+  const a=mkBtn('All topics',true,()=>setTopic(a,'all'));a.dataset.topic='all';wrap.appendChild(a);
+  TOPICS.forEach(t=>{const b=mkBtn(t,false,()=>setTopic(b,t));b.dataset.topic=t;wrap.appendChild(b);});
+}
+function mkBtn(l,active,fn){const b=document.createElement('button');b.className='filter-btn'+(active?' active':'');b.textContent=l;b.onclick=fn;return b;}
+function setSec(el,sec){activeSec=sec;document.querySelectorAll('#section-filters .filter-btn[data-sec]').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));buildDeck();}
+function setTopic(el,t){activeTopic=t;document.querySelectorAll('#topic-filters .filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.topic===t));buildDeck();}
+
+function hideAll(){
+  document.getElementById('quiz-area').classList.add('hidden');
+  document.getElementById('end-screen').classList.add('hidden');
+  document.getElementById('review-screen').classList.add('hidden');
+  document.getElementById('retest-banner').classList.add('hidden');
+}
+
+function buildDeck(){
+  isRetest=false;retestRound=1;
+  deck=ALL.filter(i=>(activeSec==='all'||i.s===activeSec)&&(activeTopic==='all'||i.t===activeTopic));
+  idx=0;results={got:0,missed:0};missedItems=[];updateStats();showCard();
+}
+function shuffleDeck(){buildDeck();for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}showCard();}
+function resetSession(){buildDeck();}
+
+function showCard(){
+  hideAll();
+  document.getElementById('quiz-area').classList.remove('hidden');
+  if(isRetest)document.getElementById('retest-banner').classList.remove('hidden');
+  if(idx>=deck.length){showEnd();return;}
+  revealed=false;
+  const item=deck[idx];
+  document.getElementById('card-topic').textContent=item.t;
+  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':'formula';badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
+  document.getElementById('question').textContent=item.q;document.getElementById('answer').textContent=item.a;
+  document.getElementById('answer-box').style.display='none';
+  document.getElementById('actions-before').classList.remove('hidden');
+  document.getElementById('actions-after').classList.add('hidden');
+  updateStats();
+}
+
+function reveal(){if(revealed)return;revealed=true;CIEGate.track('drill_answer');document.getElementById('answer-box').style.display='block';document.getElementById('actions-before').classList.add('hidden');document.getElementById('actions-after').classList.remove('hidden');}
+function mark(got){if(got){results.got++;}else{results.missed++;missedItems.push(deck[idx]);}idx++;updateStats();showCard();}
+
+function updateStats(){
+  const done=results.got+results.missed;
+  document.getElementById('s-total').textContent=deck.length;document.getElementById('s-done').textContent=done;document.getElementById('s-got').textContent=results.got;document.getElementById('s-missed').textContent=results.missed;
+  document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
+  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+(activeTopic==='all'?'all topics':activeTopic)+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
+  if(isRetest)info+=' \u00b7 retest '+retestRound;
+  document.getElementById('deck-info').textContent=info;
+  if(isRetest)document.getElementById('retest-label').textContent=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 round '+retestRound;
+}
+
+function showEnd(){
+  hideAll();
+  document.getElementById('end-screen').classList.remove('hidden');
+  const pct=deck.length?Math.round((results.got/deck.length)*100):0;
+  const el=document.getElementById('end-pct');el.textContent=pct+'%';el.className='end-pct '+(pct>=80?'great':pct>=60?'ok':'poor');
+  const label=isRetest?'Retest round '+retestRound+' \u00b7 ':'';
+  document.getElementById('end-label').textContent=label+results.got+' correct out of '+deck.length;
+  const tm={};deck.forEach(i=>{if(!tm[i.t])tm[i.t]={got:0,total:0};tm[i.t].total++;});deck.forEach(i=>{if(!missedItems.includes(i))tm[i.t].got++;});
+  document.getElementById('breakdown').innerHTML=Object.entries(tm).map(([t,sc])=>`<div class="breakdown-item"><div class="breakdown-topic">${t}</div><div class="breakdown-score"><span class="hit">${sc.got}</span> / ${sc.total}</div></div>`).join('');
+  document.getElementById('btn-review').style.display=missedItems.length?'':'none';
+  document.getElementById('progress').style.width='100%';
+}
+
+function showReview(){
+  hideAll();
+  const screen=document.getElementById('review-screen');
+  screen.classList.remove('hidden');
+  document.getElementById('review-subtitle').textContent=missedItems.length+' item'+(missedItems.length!==1?'s':'')+' to review before retesting';
+  document.getElementById('review-list').innerHTML=missedItems.map(item=>`
+    <div class="review-item">
+      <div class="review-q">${item.q}</div>
+      <div class="review-a-label">correct answer</div>
+      <div class="review-a">${item.a}</div>
+    </div>`).join('');
+}
+
+function startRetest(){
+  isRetest=true;retestRound++;
+  deck=[...missedItems];
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  idx=0;results={got:0,missed:0};missedItems=[];
+  updateStats();showCard();
+}
+
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;
+  if(e.key===' '){e.preventDefault();if(!revealed)reveal();}
+  if(e.key==='ArrowRight'&&revealed)mark(true);
+  if(e.key==='ArrowLeft'&&revealed)mark(false);
+});
+buildTopicButtons();buildDeck();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

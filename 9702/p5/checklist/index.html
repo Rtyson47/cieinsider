@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE Insider — Paper 5 Interactive Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-mid: #1a2d5a;
+    --navy-light: #243a72;
+    --gold: #C9A84C;
+    --gold-light: #e8c76a;
+    --gold-pale: rgba(201,168,76,0.12);
+    --cream: #F5F0E8;
+    --text: #1a1a2e;
+    --text-muted: #5a6080;
+    --white: #ffffff;
+    --green: #2d8a5e;
+    --green-bg: rgba(45,138,94,0.1);
+    --red: #c0392b;
+    --surface: #f8f6f2;
+    --border: rgba(13,27,62,0.1);
+    --shadow: 0 2px 12px rgba(13,27,62,0.08);
+    --shadow-lg: 0 8px 32px rgba(13,27,62,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .brand-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
+  .brand-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+  .progress-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .progress-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .progress-track {
+    width: 120px;
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  /* INTRO CARD */
+  .intro-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .intro-card h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .intro-card h1 span { color: var(--gold); }
+  .intro-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  .stats-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .stat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* CONTROLS */
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
+  .btn-outline {
+    background: white;
+    color: var(--navy);
+    border: 1.5px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--navy); transform: translateY(-1px); }
+  .btn-danger {
+    background: rgba(192,57,43,0.1);
+    color: var(--red);
+    border: 1.5px solid rgba(192,57,43,0.2);
+  }
+  .btn-danger:hover { background: rgba(192,57,43,0.18); }
+  .spacer { flex: 1; }
+
+  /* SECTION */
+  .section {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .section.complete { border-color: rgba(45,138,94,0.4); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    background: white;
+    transition: background 0.15s;
+  }
+  .section-header:hover { background: #fafafa; }
+  .section.complete .section-header { background: rgba(45,138,94,0.04); }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section.complete .section-icon { background: var(--green); }
+
+  .section-meta { flex: 1; min-width: 0; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+  }
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .section-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .mini-progress {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .section.complete .mini-progress { color: var(--green); font-weight: 600; }
+  .chevron {
+    color: var(--text-muted);
+    transition: transform 0.25s ease;
+    font-size: 14px;
+  }
+  .section.open .chevron { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    border-top: 1px solid var(--border);
+  }
+  .section.open .section-body { display: block; }
+
+  /* SUBSECTION */
+  .subsection {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .subsection:last-child { border-bottom: none; }
+  .subsection-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subsection-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-pale);
+  }
+
+  /* CHECKLIST ITEMS */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+  .item:hover { background: rgba(13,27,62,0.03); }
+  .item.checked { background: var(--green-bg); }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid rgba(13,27,62,0.25);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    background: white;
+  }
+  .item.checked .checkbox {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .checkmark {
+    display: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .item.checked .checkmark { display: block; }
+
+  .item-text {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .item.checked .item-text {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(45,138,94,0.5);
+  }
+
+  .item-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--navy);
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  /* EXAMINER ALERT */
+  .examiner-note {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 8px 12px 4px;
+    font-size: 12.5px;
+    color: var(--text);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .examiner-note .label {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  /* FREQUENCY TABLE */
+  .freq-table {
+    padding: 16px 20px;
+  }
+  .freq-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .freq-item:hover { background: rgba(13,27,62,0.03); }
+  .freq-rank {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .freq-bar-wrap { width: 80px; flex-shrink: 0; }
+  .freq-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--navy);
+    opacity: 0.7;
+  }
+  .freq-item.critical .freq-bar { background: var(--red); opacity: 1; }
+  .freq-item.high .freq-bar { background: var(--gold); opacity: 1; }
+  .freq-desc { flex: 1; color: var(--text); }
+  .freq-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .freq-item.critical .freq-count { color: var(--red); font-weight: 600; }
+
+  /* COMPLETE BANNER */
+  .complete-banner {
+    display: none;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: center;
+    color: white;
+    margin-top: 24px;
+  }
+  .complete-banner.show { display: block; animation: fadeIn 0.5s ease; }
+  .complete-banner h2 { font-size: 22px; margin-bottom: 8px; color: var(--gold); }
+  .complete-banner p { color: rgba(255,255,255,0.75); font-size: 14px; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .progress-bar-wrap { width: 100%; }
+    .progress-track { flex: 1; }
+    .intro-card { padding: 20px; }
+    .stats-row { gap: 10px; }
+    .main { padding: 20px 14px 48px; }
+  }
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === harmonise navy/gold checklist to cream === */
+:root {
+  --cream: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --text: var(--cie-ink) !important;
+  --text-muted: var(--cie-ink-mute) !important;
+  --border: var(--cie-rule) !important;
+  --shadow: var(--cie-shadow-soft) !important;
+  --shadow-lg: var(--cie-shadow) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">9702 · AS &amp; A Level · Paper 5</p>
+    <h1 class="cie-page-title">Planning &amp; Analysis <em>Checklist</em></h1>
+    <p class="cie-page-lede">Self-assessment across variables, diagram, measurement, graph, gradient, and intercept &mdash; with ranked common mistakes from 15 series.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-name">CIE Insider</span>
+      <span class="brand-divider"></span>
+      <span class="brand-title">Paper 5 — Examiner Checklist</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <span class="progress-text" id="progressText">0 / 0</span>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="intro-card">
+    <h1>Paper 5 <span>Self-Assessment Checklist</span></h1>
+    <p>Grounded in 15 series of CIE Examiner Reports (2021–2025). Use this after every practice paper — tick what you got right, chase down what you missed.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-num" id="totalChecked">0</span>
+        <span class="stat-label">Ticked</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15</span>
+        <span class="stat-label">Series</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">30</span>
+        <span class="stat-label">Marks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">18</span>
+        <span class="stat-label">Key Errors</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-outline" onclick="expandAll()">Expand All</button>
+    <button class="btn btn-outline" onclick="collapseAll()">Collapse All</button>
+    <div class="spacer"></div>
+    <button class="btn btn-danger" onclick="resetAll()">Reset Checklist</button>
+  </div>
+
+  <!-- SECTION 1: PLANNING -->
+  <div class="section" id="sec-planning">
+    <div class="section-header" onclick="toggleSection('planning')">
+      <div class="section-icon">📐</div>
+      <div class="section-meta">
+        <span class="section-title">Question 1 — Planning</span>
+        <span class="section-subtitle">Variables · Diagram · Measurement · Graph · Safety · Additional Detail</span>
+      </div>
+      <div class="section-progress">
+        <span class="mini-progress" id="prog-planning">0/10</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="section-body" id="body-planning">
+
+      <div class="subsection">
+        <div class="subsection-title">Variables</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Independent variable: named using the symbol from the question, unit given, method of variation stated</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Dependent variable: named using the symbol from the question, unit given, instrument named</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Control variables: at least two named using symbols — written as "[variable] will be kept constant by [specific method]", never just "control"</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="examiner-note">
+        <span class="label">Examiner</span>
+        <span>Never write "control [variable]". Always write "[variable] will be kept constant by [specific method]". The method is the mark.</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Diagram</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Diagram shows a workable experiment with key measurements labelled</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">If electrical: circuit symbols correct — voltmeter in parallel, ammeter in series, ohmmeter in separate circuit, oscilloscope in parallel, switch included</div>
+          <span class="item-tag">8/15 ▲</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Measurement</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Instrument named, specific quantity stated, method described (e.g. "repeat in different directions, find mean")</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Instrument is appropriate for the scale of measurement (micrometer only if measurement is in mm range, not for large lengths)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Graph & Relationship</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Both axes stated explicitly with quantities and units — not just "y = mx + c"</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Contains "relationship is valid if", "straight line", AND correct statement about origin (through origin only if c = 0 after rearranging)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Constant is the subject of an equation linking it to the gradient or intercept (not just "use the gradient to find K")</div>
+          <span class="item-tag">14/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Safety & Additional Detail</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Safety: specific to this experiment — states hazard, precaution, and why it reduces risk. Not generic lab rules.</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Additional detail: specific to this experiment, not generic. Uncertainty reduction explained by method, not just stated.</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: ANALYSIS -->
+  <div class="section" id="sec-analysis">
+    <div class="section-header" onclick="toggleSection('analysis')">
+      <div class="section-icon">📊</div>
+      <div class="section-meta">
+        <span class="section-title">Question 2 — Analysis</span>
+        <span class="section-subtitle">Straight-line · Table · Graph · Gradient · Intercept · Constants</span>
+      </div>
+      <div class="section-progress">
+        <span class="mini-progress" id="prog-analysis">0/18</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="section-body" id="body-analysis">
+
+      <div class="subsection">
+        <div class="subsection-title">2(a) — Rearranging into y = mx + c</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Equation fully rearranged into y = mx + c form, simplified (e.g. A/uA → 1/u)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Negative sign included if present in the y-intercept</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">y, x, m and c are explicitly identified — examiners need to see the connection to the graph</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(b) — Results Table</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Calculated values: same number of significant figures as raw data, or one more</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Log/ln quantities: number of DECIMAL PLACES matches significant figures in original quantity (digit before decimal point not counted)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Uncertainties: correct combining rule used — add absolutes for +/−, add percentages for ×/÷, multiply % by |n| for powers</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">ln/lg uncertainty: max-min method used, NOT the percentage method</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Repeated readings: absolute uncertainty = (max − min) / 2, not the full range</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="examiner-note">
+        <span class="label">Examiner</span>
+        <span>For log uncertainties: Δ(ln V) = ΔV/V. Do not apply the percentage method. The most common wrong answer comes from incorrectly assuming the percentage uncertainty in ln(V) equals the percentage uncertainty in V.</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(c)(i) — Plotting</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Points plotted within half a small square; plotted point diameter less than half a small square (no large blobs)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Error bars on every plotted point — symmetrical about each point, correct length, clear end caps</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Scale: points fill more than half the grid in both directions; no awkward scales (e.g. 1:3, 1:7)</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Axis labels: both axes include quantity AND unit in format "velocity v / m s⁻¹"</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(c)(ii) — Lines</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Best-fit line: balanced about the data — roughly equal points above and below. Does NOT join the top point to the bottom point.</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Worst acceptable line: passes through ALL error bars (through the bar, not near the point). Steepest or shallowest possible. Both lines labelled.</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(c)(iii) — Gradient</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Triangle covers more than half the drawn line; coordinates chosen on grid lines, NOT plotted data points</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">gradient = Δy / Δx (NOT Δx / Δy); unit stated as y-unit ÷ x-unit; powers of ten from axis labels included</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Gradient uncertainty: coordinates from WORST ACCEPTABLE LINE stated, its gradient calculated, uncertainty = |gradient(best) − gradient(worst)| shown</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(c)(iv) — y-Intercept</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">y-intercept calculated via y = mx + c substitution — NOT read directly from a false origin</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Intercept uncertainty: use gradient of WORST ACCEPTABLE LINE to calculate its intercept. Show: Δc = |c(best) − c(worst)|</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">2(d) — Extracting Physical Constants</div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Gradient and/or intercept substituted explicitly — NOT data values from the table</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">Powers of ten from axis labels included in calculation; final answer has correct unit and correct power of ten</div>
+          <span class="item-tag">15/15</span>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="checkbox"><span class="checkmark">✓</span></div>
+          <div class="item-text">ln vs lg distinguished correctly: 10^(intercept) for lg axes; e^(intercept) for ln axes</div>
+          <span class="item-tag">15/15</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: FREQUENCY TABLE -->
+  <div class="section" id="sec-freq">
+    <div class="section-header" onclick="toggleSection('freq')">
+      <div class="section-icon">📋</div>
+      <div class="section-meta">
+        <span class="section-title">The 18 Recurring Criticisms</span>
+        <span class="section-subtitle">Ranked by frequency across 15 series of examiner reports</span>
+      </div>
+      <div class="section-progress">
+        <span class="mini-progress" id="prog-freq">Reference</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="section-body" id="body-freq">
+      <div class="freq-table">
+
+        <div class="freq-item critical">
+          <span class="freq-rank">1</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Uncertainty: incorrect combining rules (absolute vs percentage, conversion between them)</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">2</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Gradient: small triangle, or reading from data points not the line</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">3</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Worst acceptable line: not passing through all error bars, or gradient not calculated from it</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">4</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Best-fit line: joining top to bottom point, or not balanced about the data</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">5</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Error bars: not symmetrical, incorrect length, or missing</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">6</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Graph: false origin error on y-intercept, or incorrect assumption line passes through origin</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">7</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Significant figures in calculated column: not matching raw data precision</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">8</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Rearranging equation into straight-line form: algebra errors, wrong form, missing negative sign</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">9</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Gradient/intercept: not used to extract physical constant (data substitution used instead)</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">10</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Control of variables: "keep constant" without stating how, or just writing "control"</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">11</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Measurement: vague instrument description, wrong instrument for scale of measurement</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">12</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Planning: vague responses, textbook rules, not specific to this experiment</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">13</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">"Relationship is valid if" + "straight" language missing from graph confirmation</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">14</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Gradient uncertainty: working not shown, coordinates from worst acceptable line not stated</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">15</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Units and powers of ten: missing or wrong on final numerical answers</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item critical">
+          <span class="freq-rank">16</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:100%"></div></div>
+          <span class="freq-desc">Practical experience: plans that could not work in a laboratory</span>
+          <span class="freq-count">15/15</span>
+        </div>
+        <div class="freq-item high">
+          <span class="freq-rank">17</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:93%"></div></div>
+          <span class="freq-desc">How to extract constant from graph: constant not made the subject of the equation</span>
+          <span class="freq-count">14/15</span>
+        </div>
+        <div class="freq-item high">
+          <span class="freq-rank">18▲</span>
+          <div class="freq-bar-wrap"><div class="freq-bar" style="width:53%"></div></div>
+          <span class="freq-desc">Circuit diagrams: unworkable, components incorrectly placed — INTENSIFYING from 2023</span>
+          <span class="freq-count">8/15</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>✓ Checklist Complete</h2>
+    <p>Every item ticked. You're applying examiner-level thinking. Now go check your actual answers match this standard.</p>
+  </div>
+</main>
+
+<script>
+  const sections = {
+    planning: { items: 12 },
+    analysis: { items: 18 },
+    freq: { items: 0 }
+  };
+
+  function toggleItem(el) {
+    el.classList.toggle('checked');
+    updateProgress();
+  }
+
+  function toggleSection(id) {
+    const sec = document.getElementById('sec-' + id);
+    sec.classList.toggle('open');
+  }
+
+  function expandAll() {
+    document.querySelectorAll('.section').forEach(s => s.classList.add('open'));
+  }
+
+  function collapseAll() {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('open'));
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all ticks? This cannot be undone.')) return;
+    document.querySelectorAll('.item.checked').forEach(el => el.classList.remove('checked'));
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const allItems = document.querySelectorAll('#sec-planning .item, #sec-analysis .item');
+    const checkedItems = document.querySelectorAll('#sec-planning .item.checked, #sec-analysis .item.checked');
+    const total = allItems.length;
+    const checked = checkedItems.length;
+
+    // Header progress
+    document.getElementById('progressText').textContent = checked + ' / ' + total;
+    document.getElementById('progressFill').style.width = (total ? (checked / total * 100) : 0) + '%';
+    document.getElementById('totalChecked').textContent = checked;
+
+    // Section mini-progress
+    ['planning', 'analysis'].forEach(id => {
+      const sec = document.getElementById('sec-' + id);
+      const sItems = sec.querySelectorAll('.item');
+      const sChecked = sec.querySelectorAll('.item.checked');
+      const el = document.getElementById('prog-' + id);
+      el.textContent = sChecked.length + '/' + sItems.length;
+      if (sChecked.length === sItems.length && sItems.length > 0) {
+        sec.classList.add('complete');
+      } else {
+        sec.classList.remove('complete');
+      }
+    });
+
+    // Complete banner
+    const banner = document.getElementById('completeBanner');
+    if (checked === total && total > 0) {
+      banner.classList.add('show');
+    } else {
+      banner.classList.remove('show');
+    }
+  }
+
+  // Init
+  updateProgress();
+
+  // Open first section by default
+  document.getElementById('sec-planning').classList.add('open');
+</script>
+
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();CIEGate.watchBrowse();</script>
+</body>
+</html>

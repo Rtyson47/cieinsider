@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE Insider — MCQ Trainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a1f26;
+    --panel-2: #232930;
+    --panel-3: #2d343c;
+    --ink: #e8e6e3;
+    --ink-dim: #9aa0a6;
+    --ink-faint: #5f6772;
+    --accent: #d4a574;
+    --accent-deep: #b8884a;
+    --accent-glow: rgba(212, 165, 116, 0.15);
+    --correct: #4ade80;
+    --correct-bg: rgba(74, 222, 128, 0.12);
+    --wrong: #f87171;
+    --wrong-bg: rgba(248, 113, 113, 0.12);
+    --warn: #fbbf24;
+    --warn-bg: rgba(251, 191, 36, 0.12);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --font-display: 'Crimson Pro', Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--ink);
+    height: 100vh;
+    overflow: hidden;
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  .header {
+    height: 56px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 14px;
+    background: var(--panel);
+  }
+
+  .brand {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .brand-mark { color: var(--accent); font-style: italic; }
+
+  .paper-picker {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    cursor: pointer;
+    max-width: 360px;
+    outline: none;
+  }
+
+  .paper-picker:hover { border-color: var(--border-strong); }
+  .paper-picker:focus { border-color: var(--accent); }
+
+  .paper-picker optgroup {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .paper-picker option { color: var(--ink); }
+
+  .header-spacer { flex: 1; }
+
+  .mode-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--ink-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .mode-pill:hover { border-color: var(--border-strong); }
+
+  .mode-pill.exam-mode {
+    background: rgba(248, 113, 113, 0.08);
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+
+  .mode-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .timer {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--ink-dim);
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--panel-2);
+    min-width: 78px;
+    text-align: center;
+  }
+
+  .timer.active { color: var(--accent); border-color: var(--accent-deep); }
+  .timer.warning { color: var(--warn); border-color: var(--warn); }
+  .timer.expired { color: var(--wrong); border-color: var(--wrong); }
+
+  .header-btn {
+    padding: 7px 14px;
+    background: transparent;
+    color: var(--ink-dim);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-sans);
+  }
+
+  .header-btn:hover { color: var(--ink); border-color: var(--border-strong); }
+
+  .header-btn.primary {
+    background: var(--accent);
+    color: #1a1209;
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+
+  .header-btn.primary:hover { background: var(--accent-deep); }
+
+  /* LAYOUT */
+  .workspace {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    height: calc(100vh - 56px);
+  }
+
+  /* PDF PANE */
+  .pdf-pane {
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pdf-pane iframe,
+  .pdf-pane embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .pdf-fallback {
+    padding: 60px 40px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pdf-fallback h3 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .pdf-fallback code {
+    background: var(--panel-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+
+  /* ANSWER PANE */
+  .answer-pane {
+    background: var(--panel);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .answer-header {
+    padding: 14px 20px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--panel);
+    z-index: 10;
+  }
+
+  .answer-header h2 {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--ink-dim);
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--panel-2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.2s;
+    width: 0%;
+  }
+
+  .question-grid {
+    padding: 10px 12px;
+    flex: 1;
+  }
+
+  .question-row {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 4px;
+    border-radius: 5px;
+    transition: background 0.1s;
+  }
+
+  .question-row:hover { background: var(--panel-2); }
+
+  .q-num {
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    text-align: right;
+    padding-right: 4px;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+
+  .opt {
+    height: 26px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-dim);
+    font-size: 11px;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt:hover {
+    border-color: var(--border-strong);
+    color: var(--ink);
+  }
+
+  .opt.selected {
+    background: var(--accent);
+    color: #1a1209;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
+  .opt.correct-answer {
+    border-color: var(--correct);
+    background: var(--correct-bg);
+    color: var(--correct);
+  }
+
+  .opt.wrong-pick {
+    border-color: var(--wrong);
+    background: var(--wrong-bg);
+    color: var(--wrong);
+    text-decoration: line-through;
+  }
+
+  .opt.correct-pick {
+    background: var(--correct);
+    color: #0d1a10;
+    border-color: var(--correct);
+    font-weight: 600;
+  }
+
+  .question-row.has-explanation .q-num::after {
+    content: '•';
+    color: var(--accent);
+    margin-left: 3px;
+  }
+
+  /* SUBMIT BAR */
+  .submit-bar {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--panel);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+  }
+
+  .submit-bar .answered-count {
+    font-size: 12px;
+    color: var(--ink-dim);
+    flex: 1;
+  }
+
+  .btn-submit {
+    padding: 8px 18px;
+    background: var(--accent);
+    color: #1a1209;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-submit:not(:disabled):hover { background: var(--accent-deep); }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 25, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .modal-backdrop.show { display: flex; }
+
+  .modal {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 560px;
+    width: 100%;
+    padding: 32px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .modal h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .modal-subtitle {
+    color: var(--ink-dim);
+    font-size: 14px;
+    margin: 0 0 24px;
+    line-height: 1.5;
+  }
+
+  /* EXAM MODE WARNING */
+  .exam-warning {
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid var(--wrong);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+  }
+
+  .exam-warning-title {
+    color: var(--wrong);
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .exam-warning ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* RESULTS */
+  .score-display { text-align: center; margin-bottom: 28px; }
+
+  .score-label {
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  .score-value {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .score-pct {
+    font-size: 15px;
+    color: var(--ink-dim);
+    margin-top: 8px;
+  }
+
+  .grade-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+
+  .topic-breakdown {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .topic-breakdown h3 {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  .topic-row {
+    display: grid;
+    grid-template-columns: 1fr 110px 50px;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 13px;
+  }
+
+  .topic-name { color: var(--ink); }
+
+  .topic-bar {
+    height: 4px;
+    background: var(--panel-2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .topic-bar-fill { height: 100%; background: var(--correct); }
+  .topic-bar-fill.low { background: var(--wrong); }
+  .topic-bar-fill.mid { background: var(--warn); }
+
+  .topic-score {
+    font-size: 12px;
+    color: var(--ink-dim);
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  /* EXPLANATION DRAWER */
+  .explanation {
+    background: var(--panel-2);
+    border-left: 2px solid var(--accent);
+    margin: 4px 4px 6px 32px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    display: none;
+  }
+
+  .explanation.show { display: block; }
+
+  .explanation-label {
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  /* SCROLLBARS */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--panel); }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+</style>
+<script src="/gate.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">CIE <span class="brand-mark">Insider</span></div>
+
+  <select class="paper-picker" id="paperPicker">
+    <option value="">Loading papers…</option>
+  </select>
+
+  <div class="header-spacer"></div>
+
+  <div class="mode-pill" id="modePill">
+    <div class="mode-pill-dot"></div>
+    <span id="modeLabel">Practice mode</span>
+  </div>
+
+  <div class="timer" id="timer">--:--</div>
+  <button class="header-btn" id="btnTimer">Start timer</button>
+  <button class="header-btn" id="btnReset">Reset</button>
+</div>
+
+<div class="workspace">
+
+  <div class="pdf-pane">
+    <embed id="pdfEmbed" src="" type="application/pdf">
+    <div class="pdf-fallback" id="pdfFallback" style="display:none;">
+      <h3>Paper PDF</h3>
+      <p>Place the PDF at the expected path and reload.</p>
+      <p>Expected: <code id="expectedPath"></code></p>
+      <p style="margin-top:20px; font-size:13px; color:var(--ink-faint);">
+        In local file:// mode some browsers block PDF embedding.<br>
+        Run via a local server or deploy to GitHub Pages.
+      </p>
+    </div>
+  </div>
+
+  <div class="answer-pane">
+    <div class="answer-header">
+      <h2>Your answers</h2>
+      <div class="progress-row">
+        <span id="progressText">Loading…</span>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+    <div class="question-grid" id="questionGrid"></div>
+    <div class="submit-bar">
+      <span class="answered-count" id="answeredCount">—</span>
+      <button class="btn-submit" id="btnSubmit" disabled>Mark paper</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXAM MODE CONFIRMATION -->
+<div class="modal-backdrop" id="examModeModal">
+  <div class="modal">
+    <h2>Exam conditions mode</h2>
+    <p class="modal-subtitle">Switch on for a faithful exam-room experience.</p>
+
+    <div class="exam-warning">
+      <div class="exam-warning-title">When this mode is on:</div>
+      <ul>
+        <li>Timer starts immediately and cannot be paused</li>
+        <li>Paper auto-submits when the timer hits zero</li>
+        <li>You cannot view explanations until after submission</li>
+        <li>Your attempt is logged as an exam-conditions result</li>
+      </ul>
+    </div>
+
+    <p style="font-size:13px; color:var(--ink-dim); margin: 0 0 24px; line-height:1.6;">
+      Use this when you want to practise pacing for the real exam. For normal
+      revision, stay in Practice mode — you can pause the timer and revisit at your own speed.
+    </p>
+
+    <div class="modal-actions">
+      <button class="header-btn" id="btnCancelExam">Stay in practice</button>
+      <button class="header-btn primary" id="btnStartExam">Start exam mode</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="modal-backdrop" id="resultsModal">
+  <div class="modal">
+    <div class="score-display">
+      <div class="score-label">Your score</div>
+      <div class="score-value"><span id="scoreNum">0</span> / <span id="scoreTotal">40</span></div>
+      <div class="score-pct" id="scorePct">0%</div>
+      <div class="grade-tag" id="gradeTag" style="display:none;"></div>
+    </div>
+
+    <div class="topic-breakdown">
+      <h3>Performance by topic</h3>
+      <div id="topicBreakdown"></div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="header-btn" id="btnReview">Review wrong answers</button>
+      <button class="header-btn primary" id="btnClose">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// =============================================================================
+// CIE INSIDER — MCQ TRAINER v2
+// Self-contained app. Loads paper data from /papers/ directory.
+// =============================================================================
+
+const State = {
+  // Data
+  paperIndex: null,
+  syllabusCache: {},
+  paper: null,
+  syllabus: null,
+
+  // User state
+  answers: [],
+  submitted: false,
+
+  // Timer
+  timerSeconds: 0,
+  timerRunning: false,
+  timerInterval: null,
+  initialDuration: 0,
+
+  // Mode
+  examMode: false  // false = practice, true = exam conditions
+};
+
+// =============================================================================
+// BOOT
+// =============================================================================
+async function boot() {
+  bindGlobalControls();
+
+  try {
+    const res = await fetch('papers/index.json');
+    if (!res.ok) throw new Error('index missing');
+    State.paperIndex = await res.json();
+    populatePicker();
+
+    // Priority: URL ?paper=<id>  >  last-used (localStorage)  >  first paper in registry
+    const urlPaper = new URLSearchParams(window.location.search).get('paper');
+    const lastPaper = localStorage.getItem('cieinsider_last_paper');
+    const firstId = getFirstPaperId();
+    const loadId =
+      (urlPaper && paperExists(urlPaper)) ? urlPaper :
+      (lastPaper && paperExists(lastPaper)) ? lastPaper :
+      firstId;
+    if (loadId) await loadPaper(loadId);
+  } catch (err) {
+    console.error('Boot error:', err);
+    document.getElementById('progressText').textContent = 'Could not load paper index';
+  }
+}
+
+function getFirstPaperId() {
+  for (const code in State.paperIndex.syllabi) {
+    const papers = State.paperIndex.syllabi[code].papers;
+    if (papers.length) return papers[0].id;
+  }
+  return null;
+}
+
+function paperExists(id) {
+  for (const code in State.paperIndex.syllabi) {
+    if (State.paperIndex.syllabi[code].papers.some(p => p.id === id)) return true;
+  }
+  return false;
+}
+
+function populatePicker() {
+  const picker = document.getElementById('paperPicker');
+  picker.innerHTML = '';
+  for (const code in State.paperIndex.syllabi) {
+    const syl = State.paperIndex.syllabi[code];
+    const grp = document.createElement('optgroup');
+    grp.label = `${syl.code} — ${syl.name}`;
+    syl.papers.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = p.label;
+      grp.appendChild(opt);
+    });
+    picker.appendChild(grp);
+  }
+}
+
+// =============================================================================
+// LOAD PAPER
+// =============================================================================
+async function loadPaper(paperId) {
+  // Find which syllabus
+  let syllabusCode = null;
+  for (const code in State.paperIndex.syllabi) {
+    if (State.paperIndex.syllabi[code].papers.some(p => p.id === paperId)) {
+      syllabusCode = code;
+      break;
+    }
+  }
+  if (!syllabusCode) return;
+
+  // Load paper file
+  try {
+    const res = await fetch(`papers/${syllabusCode}/${paperId}.json`);
+    if (!res.ok) throw new Error('paper not found');
+    State.paper = await res.json();
+  } catch (err) {
+    console.error('Failed to load paper:', err);
+    alert('Could not load paper file. Check that it exists at the expected path.');
+    return;
+  }
+
+  // Load syllabus taxonomy
+  if (!State.syllabusCache[syllabusCode]) {
+    const res = await fetch(`papers/${syllabusCode}/syllabus.json`);
+    State.syllabusCache[syllabusCode] = await res.json();
+  }
+  State.syllabus = State.syllabusCache[syllabusCode];
+
+  // Reset state
+  State.answers = new Array(State.paper.questionCount).fill(null);
+  State.submitted = false;
+  State.initialDuration = State.paper.duration * 60;
+  State.timerSeconds = State.initialDuration;
+  stopTimer();
+
+  localStorage.setItem('cieinsider_last_paper', paperId);
+  document.getElementById('paperPicker').value = paperId;
+
+  // PDF
+  const embed = document.getElementById('pdfEmbed');
+  const fallback = document.getElementById('pdfFallback');
+  if (State.paper.pdfPath) {
+    embed.src = State.paper.pdfPath;
+    embed.style.display = 'block';
+    fallback.style.display = 'none';
+    document.getElementById('expectedPath').textContent = State.paper.pdfPath;
+    // If embed fails to load anything, show fallback after a beat
+    setTimeout(() => {
+      if (embed.offsetHeight < 100) {
+        embed.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }, 1500);
+  } else {
+    embed.style.display = 'none';
+    fallback.style.display = 'block';
+  }
+
+  buildAnswerGrid();
+  renderTimer();
+  updateProgress();
+  loadAttempt();
+  document.getElementById('btnSubmit').style.display = '';
+}
+
+// =============================================================================
+// ANSWER GRID
+// =============================================================================
+function buildAnswerGrid() {
+  const grid = document.getElementById('questionGrid');
+  grid.innerHTML = '';
+
+  State.paper.questions.forEach((q, i) => {
+    const row = document.createElement('div');
+    row.className = 'question-row';
+    row.dataset.q = q.n;
+    row.innerHTML = `
+      <div class="q-num">${q.n}</div>
+      <div class="options">
+        ${['A','B','C','D'].map(l =>
+          `<button class="opt" data-q="${q.n}" data-letter="${l}">${l}</button>`
+        ).join('')}
+      </div>
+    `;
+    grid.appendChild(row);
+
+    if (q.explanation) {
+      const exp = document.createElement('div');
+      exp.className = 'explanation';
+      exp.id = `exp-${q.n}`;
+      exp.innerHTML = `
+        <div class="explanation-label">Examiner's note</div>
+        <div class="explanation-body">${q.explanation}</div>
+      `;
+      grid.appendChild(exp);
+    }
+  });
+
+  if (!grid._bound) {
+    grid.addEventListener('click', handleGridClick);
+    grid._bound = true;
+  }
+}
+
+function handleGridClick(e) {
+  const btn = e.target.closest('.opt');
+  if (!btn) return;
+
+  if (State.submitted) {
+    const qNum = parseInt(btn.dataset.q);
+    toggleExplanation(qNum);
+    return;
+  }
+
+  // In exam mode you can change answers up until submission, but
+  // you can't view explanations
+  const qIdx = parseInt(btn.dataset.q) - 1;
+  const letter = btn.dataset.letter;
+  const wasNull = State.answers[qIdx] == null;
+  State.answers[qIdx] = State.answers[qIdx] === letter ? null : letter;
+  if (wasNull && State.answers[qIdx] !== null) CIEGate.track('drill_answer');
+  renderAnswers();
+  updateProgress();
+  saveAttempt();
+}
+
+function renderAnswers() {
+  document.querySelectorAll('.opt').forEach(btn => {
+    const qIdx = parseInt(btn.dataset.q) - 1;
+    const letter = btn.dataset.letter;
+    btn.classList.toggle('selected', State.answers[qIdx] === letter);
+  });
+}
+
+function updateProgress() {
+  const answered = State.answers.filter(a => a !== null).length;
+  const total = State.paper.questionCount;
+  const unanswered = total - answered;
+  document.getElementById('progressText').textContent = `${answered} of ${total}`;
+  document.getElementById('progressFill').style.width = `${(answered / total) * 100}%`;
+  document.getElementById('answeredCount').textContent =
+    unanswered === 0 ? 'All answered' : `${unanswered} unanswered`;
+  document.getElementById('btnSubmit').disabled = answered === 0 || State.submitted;
+}
+
+// =============================================================================
+// MARKING
+// =============================================================================
+function markPaper(autoSubmit = false) {
+  State.submitted = true;
+  stopTimer();
+
+  let correct = 0;
+  const topicStats = {};
+
+  State.paper.questions.forEach((q, i) => {
+    const userAns = State.answers[i];
+    const correctAns = q.answer;
+    const topic = q.topic;
+    const isCorrect = userAns !== null && userAns === correctAns;
+    if (isCorrect) correct++;
+
+    if (!topicStats[topic]) topicStats[topic] = { correct: 0, total: 0 };
+    topicStats[topic].total++;
+    if (isCorrect) topicStats[topic].correct++;
+
+    document.querySelectorAll(`.opt[data-q="${q.n}"]`).forEach(btn => {
+      const l = btn.dataset.letter;
+      btn.classList.remove('selected');
+      if (correctAns === null) return; // no markscheme yet
+      if (l === correctAns && l === userAns) btn.classList.add('correct-pick');
+      else if (l === correctAns) btn.classList.add('correct-answer');
+      else if (l === userAns) btn.classList.add('wrong-pick');
+    });
+
+    if (q.explanation && !isCorrect) {
+      document.querySelector(`.question-row[data-q="${q.n}"]`)?.classList.add('has-explanation');
+    }
+  });
+
+  showResults(correct, topicStats, autoSubmit);
+  document.getElementById('btnSubmit').style.display = 'none';
+  document.getElementById('answeredCount').textContent =
+    `Scored ${correct}/${State.paper.questionCount} — click any question for the examiner's note`;
+
+  // History
+  const history = JSON.parse(localStorage.getItem('cieinsider_history') || '[]');
+  history.push({
+    paper: State.paper.id,
+    score: correct,
+    total: State.paper.questionCount,
+    date: new Date().toISOString(),
+    examMode: State.examMode,
+    autoSubmitted: autoSubmit,
+    topicStats
+  });
+  localStorage.setItem('cieinsider_history', JSON.stringify(history));
+}
+
+function showResults(correct, topicStats, autoSubmit) {
+  document.getElementById('scoreNum').textContent = correct;
+  document.getElementById('scoreTotal').textContent = State.paper.questionCount;
+  const pct = Math.round((correct / State.paper.questionCount) * 100);
+  document.getElementById('scorePct').textContent =
+    `${pct}%${autoSubmit ? ' — time expired' : ''}`;
+
+  const tag = document.getElementById('gradeTag');
+  if (State.examMode) {
+    tag.style.display = 'inline-block';
+    tag.textContent = 'Exam conditions';
+  } else {
+    tag.style.display = 'none';
+  }
+
+  const breakdown = document.getElementById('topicBreakdown');
+  breakdown.innerHTML = '';
+
+  // Order topics by syllabus taxonomy
+  const orderedTopicIds = State.syllabus.topics.map(t => t.id);
+  const topicNameMap = {};
+  State.syllabus.topics.forEach(t => { topicNameMap[t.id] = t.name; });
+
+  orderedTopicIds.forEach(tid => {
+    const s = topicStats[tid];
+    if (!s) return;
+    const p = s.correct / s.total;
+    const cls = p < 0.5 ? 'low' : p < 0.75 ? 'mid' : '';
+    const row = document.createElement('div');
+    row.className = 'topic-row';
+    row.innerHTML = `
+      <div class="topic-name">${topicNameMap[tid] || tid}</div>
+      <div class="topic-bar"><div class="topic-bar-fill ${cls}" style="width:${p*100}%"></div></div>
+      <div class="topic-score">${s.correct}/${s.total}</div>
+    `;
+    breakdown.appendChild(row);
+  });
+
+  document.getElementById('resultsModal').classList.add('show');
+}
+
+function toggleExplanation(qNum) {
+  document.getElementById(`exp-${qNum}`)?.classList.toggle('show');
+}
+
+// =============================================================================
+// TIMER
+// =============================================================================
+function startTimer() {
+  if (State.timerRunning || State.submitted) return;
+  State.timerRunning = true;
+  document.getElementById('btnTimer').textContent =
+    State.examMode ? 'Running…' : 'Pause';
+  document.getElementById('btnTimer').disabled = State.examMode;
+  document.getElementById('timer').classList.add('active');
+
+  State.timerInterval = setInterval(() => {
+    State.timerSeconds--;
+    renderTimer();
+
+    if (State.timerSeconds <= 0) {
+      State.timerSeconds = 0;
+      stopTimer();
+      const timerEl = document.getElementById('timer');
+      timerEl.classList.remove('active', 'warning');
+      timerEl.classList.add('expired');
+      timerEl.textContent = '00:00';
+
+      if (State.examMode) {
+        // Exam mode: auto-submit
+        markPaper(true);
+      }
+      // Practice mode: just stop, do nothing else
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(State.timerInterval);
+  State.timerRunning = false;
+  const btn = document.getElementById('btnTimer');
+  btn.disabled = false;
+  if (State.timerSeconds === 0) btn.textContent = 'Time up';
+  else if (State.timerSeconds === State.initialDuration) btn.textContent = 'Start timer';
+  else btn.textContent = 'Resume';
+}
+
+function renderTimer() {
+  const m = Math.floor(State.timerSeconds / 60);
+  const s = State.timerSeconds % 60;
+  document.getElementById('timer').textContent =
+    `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  const t = document.getElementById('timer');
+  t.classList.toggle('warning', State.timerSeconds > 0 && State.timerSeconds < 300);
+}
+
+// =============================================================================
+// MODE TOGGLE
+// =============================================================================
+function setMode(exam) {
+  State.examMode = exam;
+  const pill = document.getElementById('modePill');
+  const label = document.getElementById('modeLabel');
+  pill.classList.toggle('exam-mode', exam);
+  label.textContent = exam ? 'Exam conditions' : 'Practice mode';
+}
+
+// =============================================================================
+// PERSISTENCE
+// =============================================================================
+function saveAttempt() {
+  if (!State.paper || State.submitted) return;
+  localStorage.setItem(`cieinsider_attempt_${State.paper.id}`, JSON.stringify({
+    answers: State.answers,
+    timerSeconds: State.timerSeconds,
+    examMode: State.examMode
+  }));
+}
+
+function loadAttempt() {
+  if (!State.paper) return;
+  const saved = localStorage.getItem(`cieinsider_attempt_${State.paper.id}`);
+  if (!saved) return;
+  try {
+    const data = JSON.parse(saved);
+    State.answers = data.answers;
+    State.timerSeconds = data.timerSeconds || State.initialDuration;
+    renderAnswers();
+    renderTimer();
+    updateProgress();
+  } catch (e) {}
+}
+
+// =============================================================================
+// CONTROLS
+// =============================================================================
+function bindGlobalControls() {
+  document.getElementById('paperPicker').addEventListener('change', e => {
+    if (e.target.value) loadPaper(e.target.value);
+  });
+
+  document.getElementById('btnSubmit').addEventListener('click', () => markPaper(false));
+
+  document.getElementById('btnTimer').addEventListener('click', () => {
+    if (State.timerRunning) stopTimer();
+    else startTimer();
+  });
+
+  document.getElementById('btnReset').addEventListener('click', () => {
+    if (!State.paper) return;
+    if (!confirm('Clear all answers and restart this paper?')) return;
+    localStorage.removeItem(`cieinsider_attempt_${State.paper.id}`);
+    loadPaper(State.paper.id);
+  });
+
+  document.getElementById('modePill').addEventListener('click', () => {
+    if (State.examMode) {
+      // Currently in exam mode → switch back to practice
+      setMode(false);
+      stopTimer();
+      State.timerSeconds = State.initialDuration;
+      renderTimer();
+    } else {
+      // Currently in practice → show exam mode confirmation
+      document.getElementById('examModeModal').classList.add('show');
+    }
+  });
+
+  document.getElementById('btnCancelExam').addEventListener('click', () => {
+    document.getElementById('examModeModal').classList.remove('show');
+  });
+
+  document.getElementById('btnStartExam').addEventListener('click', () => {
+    document.getElementById('examModeModal').classList.remove('show');
+    setMode(true);
+    // Reset and start timer immediately
+    State.timerSeconds = State.initialDuration;
+    renderTimer();
+    startTimer();
+  });
+
+  document.getElementById('btnClose').addEventListener('click', () => {
+    document.getElementById('resultsModal').classList.remove('show');
+  });
+
+  document.getElementById('btnReview').addEventListener('click', () => {
+    document.getElementById('resultsModal').classList.remove('show');
+    State.paper.questions.forEach((q, i) => {
+      const ans = State.answers[i];
+      if (ans && ans !== q.answer && q.explanation) {
+        document.getElementById(`exp-${q.n}`)?.classList.add('show');
+      }
+    });
+  });
+}
+
+boot();
+</script>
+
+</body>
+</html>

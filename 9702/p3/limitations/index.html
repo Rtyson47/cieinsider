@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE 9702 Paper 3 — Limitations & Improvements Trainer v8</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0f1117; --surface:#181c26; --surface2:#1f2435;
+    --border:rgba(255,255,255,0.08); --border-h:rgba(255,255,255,0.18);
+    --text:#e8eaf0; --text-s:#8892a4; --text-t:#505870;
+    --acc:#4f8ef7; --acc-bg:rgba(79,142,247,0.1); --acc-b:rgba(79,142,247,0.35);
+    --green:#3ecf8e; --red:#f56565; --amber:#f6ad55;
+    --r:8px; --rl:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;min-height:100vh;}
+  .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .tb-brand{display:flex;align-items:center;gap:10px;}
+  .tb-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--acc-bg);color:var(--acc);border:1px solid var(--acc-b);border-radius:4px;padding:2px 8px;letter-spacing:.05em;}
+  .tb-title{font-size:14px;font-weight:500;}
+  .tb-sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-t);}
+  .container{max-width:940px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+  .exp-tabs{display:flex;gap:6px;margin-bottom:1.75rem;flex-wrap:wrap;}
+  .exp-tab{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border);background:transparent;color:var(--text-s);cursor:pointer;transition:all .15s;letter-spacing:.02em;}
+  .exp-tab:hover{border-color:var(--border-h);color:var(--text);}
+  .exp-tab.active{border-color:var(--acc-b);background:var(--acc-bg);color:var(--acc);}
+  .exp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:1.5rem;overflow:hidden;}
+  .ec-head{padding:1.25rem 1.5rem;}
+  .ec-title{font-size:17px;font-weight:500;margin-bottom:4px;}
+  .ec-meta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-t);margin-bottom:10px;letter-spacing:.03em;}
+  .ec-summary{font-size:13.5px;color:var(--text-s);line-height:1.7;}
+  .expand-btn{margin-top:10px;font-size:12px;color:var(--text-t);background:none;border:none;cursor:pointer;padding:0;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;display:flex;align-items:center;gap:6px;transition:color .15s;}
+  .expand-btn:hover{color:var(--text-s);}
+  .ec-detail{border-top:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .dh3{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-t);margin-bottom:8px;margin-top:14px;}
+  .dh3:first-child{margin-top:0;}
+  .dp{font-size:13px;color:var(--text-s);line-height:1.7;margin-bottom:6px;}
+  .dul{font-size:13px;color:var(--text-s);line-height:1.7;padding-left:1.2rem;}
+  .dul li{margin-bottom:4px;}
+  .flaws-panel{margin-top:14px;background:rgba(79,142,247,.06);border:1px solid var(--acc-b);border-radius:var(--r);padding:12px 14px;}
+  .flaws-panel .dh3{color:var(--acc);margin-top:0;}
+  .flaws-panel .dp{color:rgba(200,215,255,.75);}
+  .ph-header{margin-bottom:1rem;}
+  .ph-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-t);margin-bottom:6px;}
+  .ph-title{font-size:15px;font-weight:500;margin-bottom:4px;}
+  .ph-sub{font-size:12.5px;color:var(--text-s);line-height:1.5;}
+  .counter{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-t);margin:10px 0;}
+  .counter span{color:var(--acc);}
+  .lim-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.5rem;}
+  .lim-chip{padding:11px 14px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);font-size:13px;color:var(--text-s);cursor:pointer;line-height:1.55;user-select:none;display:flex;align-items:flex-start;gap:10px;transition:border-color .15s,background .15s,color .15s;}
+  .lim-chip:hover{border-color:var(--border-h);color:var(--text);}
+  .lim-chip.selected{border-color:var(--acc-b);background:var(--acc-bg);color:var(--text);}
+  .lim-chip.selected .lnum{background:var(--acc);color:#fff;}
+  .lnum{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--surface2);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-t);margin-top:1px;}
+  .warn-box{background:rgba(246,173,85,.07);border:1px solid rgba(246,173,85,.3);border-radius:var(--r);padding:10px 14px;margin-bottom:1.25rem;font-size:12.5px;color:var(--amber);line-height:1.5;}
+  .imp-pool{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:12px;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:8px;min-height:56px;}
+  .pool-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-t);letter-spacing:.06em;text-transform:uppercase;width:100%;margin-bottom:2px;}
+  .imp-chip{padding:8px 12px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);font-size:12.5px;color:var(--text-s);cursor:grab;line-height:1.45;user-select:none;transition:border-color .15s,color .15s;}
+  .imp-chip:hover{border-color:var(--border-h);color:var(--text);}
+  .imp-chip.dragging{opacity:.25;}
+  .imp-chip.used{display:none;}
+  .match-area{margin-bottom:1.25rem;}
+  .match-pair{display:grid;grid-template-columns:1fr 28px 1fr;align-items:start;gap:8px;margin-bottom:8px;}
+  .match-lim{padding:11px 14px;border-radius:var(--r);background:var(--acc-bg);border:1px solid var(--acc-b);font-size:12.5px;color:rgba(200,215,255,.8);line-height:1.55;display:flex;gap:8px;align-items:flex-start;}
+  .match-lim.distractor{background:rgba(246,173,85,.07);border-color:rgba(246,173,85,.3);color:rgba(246,220,160,.8);}
+  .match-arrow{text-align:center;color:var(--text-t);font-size:16px;padding-top:11px;}
+  .match-drop{padding:11px 14px;border-radius:var(--r);border:1px dashed var(--border-h);background:var(--surface2);font-size:12.5px;color:var(--text-t);line-height:1.55;min-height:46px;transition:border-color .12s,background .12s;}
+  .match-drop.drag-over{border-color:var(--acc);background:var(--acc-bg);border-style:solid;}
+  .match-drop.filled{border-style:solid;border-color:var(--border-h);background:var(--surface);color:var(--text-s);}
+  .action-row{display:flex;gap:8px;margin-bottom:1rem;align-items:center;}
+  .btn-p{padding:9px 22px;border-radius:var(--r);border:1px solid var(--acc-b);background:var(--acc-bg);font-size:13px;color:var(--acc);cursor:pointer;font-weight:500;font-family:'IBM Plex Sans',sans-serif;transition:background .15s;}
+  .btn-p:hover{background:rgba(79,142,247,.18);}
+  .btn-p:disabled{opacity:.35;cursor:not-allowed;}
+  .btn-s{padding:9px 22px;border-radius:var(--r);border:1px solid var(--border);background:transparent;font-size:13px;color:var(--text-s);cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:border-color .15s,color .15s;}
+  .btn-s:hover{border-color:var(--border-h);color:var(--text);}
+  .min-note{font-size:12px;color:var(--text-t);font-family:'IBM Plex Mono',monospace;}
+  .score-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:20px;}
+  .score-num{font-family:'IBM Plex Mono',monospace;font-size:42px;font-weight:500;line-height:1;}
+  .score-den{font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--text-t);}
+  .score-bd{font-size:12.5px;color:var(--text-s);line-height:1.8;}
+  .fb-st{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-t);margin:1.25rem 0 8px;}
+  .fb-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:8px;}
+  .fb-row{font-size:13px;line-height:1.6;display:flex;gap:8px;align-items:flex-start;}
+  .fb-icon{min-width:16px;font-size:13px;margin-top:1px;}
+  .fb-ok{color:var(--green);}
+  .fb-bad{color:var(--red);}
+  .fb-miss{color:var(--amber);}
+  .fb-div{height:1px;background:var(--border);margin:8px 0;}
+  .fb-det{font-size:11.5px;color:var(--text-t);margin-top:4px;padding-left:24px;line-height:1.6;font-style:italic;}
+  .fb-ms{font-size:11.5px;color:var(--amber);margin-top:4px;padding-left:24px;line-height:1.6;}
+  .fb-ex{font-size:11px;color:var(--text-t);margin-top:3px;padding-left:24px;line-height:1.6;}
+  @media(max-width:620px){
+    .lim-grid{grid-template-columns:1fr;}
+    .match-pair{grid-template-columns:1fr;}
+    .match-arrow{display:none;}
+    .container{padding:1rem 1rem 3rem;}
+    .topbar{padding:0 1rem;}
+  }
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === remap dark navy palette → cream === */
+:root {
+  --bg: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule-soft) !important;
+  --border-h: var(--cie-rule) !important;
+  --border2: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important;
+  --text-s: var(--cie-ink-soft) !important;
+  --text-t: var(--cie-ink-mute) !important;
+  --muted: var(--cie-ink-mute) !important;
+  --acc: var(--cie-accent) !important;
+  --acc-bg: rgba(168,59,31,0.10) !important;
+  --acc-b: var(--cie-accent-soft) !important;
+  --accent: var(--cie-accent) !important;
+  --accent-dim: rgba(168,59,31,0.10) !important;
+  --accent2: var(--cie-gold) !important;
+  --accent2-dim: rgba(184,137,58,0.12) !important;
+  --green: var(--cie-green) !important;
+  --red: var(--cie-accent-deep) !important;
+  --amber: var(--cie-gold) !important;
+  --warn: var(--cie-gold) !important;
+  --danger: var(--cie-accent-deep) !important;
+  --danger-dim: rgba(125,42,20,0.10) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">9702 · AS &amp; A Level · Paper 3</p>
+    <h1 class="cie-page-title">Limitations &amp; Improvements <em>Trainer</em></h1>
+    <p class="cie-page-lede">The marks most students drop on Paper 3 &mdash; drilled with real experimental contexts and examiner-level answers.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+<div class="topbar">
+  <div class="tb-brand"><span class="tb-tag">9702</span><span class="tb-title">Paper 3 Trainer</span></div>
+  <span class="tb-sub">Limitations &amp; Improvements · v8</span>
+</div>
+<div class="container">
+  <div class="exp-tabs" id="expTabs"></div>
+  <div id="mainContent"></div>
+</div>
+<script>
+const EXP = [
+{
+  id:"w20_35_q2", label:"W20/35 Q2", title:"Equilibrium of an L-shaped card", paper:"9702/35 · Oct/Nov 2020",
+  summary:"An L-shaped card is suspended from a paper clip hooked over a horizontal pin. The paper clip position is adjusted until the top edge of the card is exactly horizontal. The distance d from the paper clip centre to the right-hand edge is measured. Repeated after cutting card to halve dimension q. Only two readings taken to test a proposed relationship.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A pin is fixed horizontally in a cork held in a clamp stand. A paper clip is hooked over the pin and clipped to the upper edge of an L-shaped card. The card hangs freely."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Measure dimensions p, q and w of the card to the nearest mm.","Adjust the paper clip until the top edge of the card is horizontal.","Measure d — the distance from the centre of the paper clip to the right-hand edge of the card.","Estimate the percentage uncertainty in d.","Remove card, cut so that q is halved, reattach and repeat.","Calculate k from (w – d) = k[1 + (2q / p+q)] for both readings and compare."]}
+  ],
+  flaws:"Only two readings taken — far too few to establish a relationship. The paper clip is large and imprecise, making it hard to locate its centre. Judging 'horizontal' by eye introduces systematic error. Touching the card to measure d disturbs equilibrium. Card is flexible and may bend; corners may not be exactly 90°. The paper clip may not grip reliably.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to judge when the top edge of the card is exactly horizontal."},
+    {id:"C",text:"Difficult to locate the centre of the paper clip accurately — clip too wide / clip not vertical / skewed."},
+    {id:"D",text:"Difficulty with the attachment — paper clip does not grip the card / card tends to fall."},
+    {id:"E",text:"Difficult to measure d without disturbing the equilibrium — touching the card moves it."},
+    {id:"F",text:"Card bends easily / corners of card may not be at right angles."}
+  ],
+  dist:[
+    {id:"D1",text:"The ruler used to measure d may not be accurate enough."},
+    {id:"D2",text:"There may be air currents in the room affecting the card."},
+    {id:"D3",text:"The card may not hang perfectly vertically."},
+    {id:"D4",text:"The pin may not be exactly horizontal."},
+    {id:"D5",text:"It is difficult to cut the card accurately in half."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Use a spirit level to check when the top edge is horizontal.",cor:"B"},
+    {id:"IC",text:"Use calipers to measure the width of the paper clip and locate its centre.",cor:"C"},
+    {id:"ID",text:"Push a pin through a hole in the card / add adhesive to secure the clip to the card.",cor:"D"},
+    {id:"IE",text:"Clamp the ruler in position before measuring / mark position on card then remove and measure on bench.",cor:"E"},
+    {id:"IF",text:"Use a named rigid material (e.g. acrylic) / use a set square to check corners.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
+    {id:"IX2",text:"Use a spirit level.",cor:null,note:"Incomplete — must state what is being checked as horizontal."},
+    {id:"IX3",text:"Use a more accurate ruler to measure d.",cor:null,note:"Does not address the disturbance to equilibrium."},
+    {id:"IX4",text:"Be more careful when adjusting the paper clip position.",cor:null,note:"Too vague — no specific method given."},
+    {id:"IX5",text:"Use a more rigid material for the card.",cor:null,note:"Incomplete — a named material is required (e.g. acrylic sheet)."}
+  ]
+},
+{
+  id:"m22_33_q2", label:"M22/33 Q2", title:"Clay sphere on a spring — oscillation", paper:"9702/33 · Feb/Mar 2022",
+  summary:"A ball of clay is rolled into a sphere and pressed onto the lower coils of a vertically clamped spring. Diameter d is measured and time period T of vertical oscillations recorded. Number of coils covered by clay (n) varied between two values. Only two sets of readings taken to test a proposed relationship involving constant k.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A spring is clamped vertically. A ball of clay is rolled into a sphere by hand and pressed onto the lower coils. The sphere hangs and can be set oscillating vertically."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Roll clay into a sphere. Measure diameter d at several points with repeats.","Set n = 1 (clay covers one coil). Displace and release. Measure time for at least 5 oscillations; calculate T.","Reshape clay to cover more coils (n = 2 or 3). Repeat measurements of d and T.","Calculate k for both readings using the suggested relationship and compare."]}
+  ],
+  flaws:"Only two k values cannot validate a relationship. Rolling clay into a perfect sphere is extremely difficult — diameter varies at different points. Time period is short, making it hard to count oscillations and judge the start/end of each one. Clay covers some coils and the joint between coils, making n ambiguous. Horizontal motion contaminates the vertical oscillation.",
+  valid:[
+    {id:"A",text:"Only two k values — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to roll the clay into a perfect sphere — diameter varies at different points across the sphere."},
+    {id:"C",text:"Parallax error when measuring the diameter d of the clay sphere."},
+    {id:"D",text:"Clay covers some coils as well as the joint — difficult to determine the exact value of n."},
+    {id:"E",text:"Difficult to judge the start and/or end of an oscillation accurately."},
+    {id:"F",text:"Time period is short — difficult to count the oscillations accurately."}
+  ],
+  dist:[
+    {id:"D1",text:"The spring may not obey Hooke's law over the full range used."},
+    {id:"D2",text:"The clamp stand may vibrate, affecting the oscillation."},
+    {id:"D3",text:"The mass of the clay changes slightly each time it is reshaped."},
+    {id:"D4",text:"There is friction between the clay and the spring coils."},
+    {id:"D5",text:"It is difficult to keep the clay at the same temperature between readings."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Measure d at several different orientations and calculate the average diameter.",cor:"B"},
+    {id:"IC",text:"Use calipers to measure d / measure between two flat parallel blocks.",cor:"C"},
+    {id:"ID",text:"Use a denser/different material or improved mounting to prevent clay covering coils.",cor:"D"},
+    {id:"IE",text:"Use a fiducial marker placed at the centre (equilibrium position) of the oscillation.",cor:"E"},
+    {id:"IF",text:"Use video recording with a timer in view, then review footage frame by frame.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
+    {id:"IX2",text:"Measure the diameter more carefully.",cor:null,note:"Too vague — does not specify measuring at multiple orientations."},
+    {id:"IX3",text:"Use a fiducial marker.",cor:null,note:"Incomplete — must specify it is placed at the centre/equilibrium position."},
+    {id:"IX4",text:"Use a more accurate stopwatch.",cor:null,note:"Does not address the difficulty of counting short-period oscillations."},
+    {id:"IX5",text:"Use calipers.",cor:null,note:"Incomplete — must state what is being measured or why calipers help (parallax)."}
+  ]
+},
+{
+  id:"m23_33_q2", label:"M23/33 Q2", title:"Sugar solution — refractive index via lens", paper:"9702/33 · Feb/Mar 2023",
+  summary:"A torch shines through a converging lens submerged in sugar solution inside a transparent container. The distance u from torch to lens and v from lens to screen are measured to find focal length f, then refractive index n. Two different sugar concentrations (0.18 and 0.33) give two values of k to test a proposed relationship. Only two readings are taken.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A transparent container holds sugar solution. A lens is positioned in the container. A torch is placed in front of the container and a screen behind it. The torch is moved until the sharpest possible image of the LEDs appears on the screen."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Set v ≈ 40 cm. Record v and find u₀ (torch position for sharpest image without solution)","Pour Sugar Concentration 0.18 into container until lens is just covered.","Adjust torch position until sharpest image is obtained. Measure u and v.","Calculate f = vu/(v+u) then n = 0.553f / (1 + 0.333f).","Pour solution back. Repeat with Sugar Concentration 0.33.","Calculate k = (n – 1.31)/C for both concentrations and compare."]}
+  ],
+  flaws:"Only two k values cannot validate a relationship. It is difficult to judge when the image is at its sharpest. The torch is handheld and difficult to keep in line with the lens axis. Parallax error arises when measuring u or v, and it is difficult to define the exact lens position. The second solution may be diluted by traces of the first remaining on the lens or container. The LEDs are not at the front of the torch, introducing systematic error in u.",
+  valid:[
+    {id:"A",text:"Only two k values — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to judge when the image of the LEDs is at its sharpest."},
+    {id:"C",text:"Difficult to hold the torch in line with the lens axis — torch not mounted."},
+    {id:"D",text:"Parallax error when measuring u or v / difficult to decide the exact position of the lens."},
+    {id:"E",text:"Second solution may be diluted by traces of the first solution remaining on the lens or container."},
+    {id:"F",text:"LEDs are not at the front of the torch — introduces a systematic error in u."}
+  ],
+  dist:[
+    {id:"D1",text:"The lens may move slightly when the solution is poured in."},
+    {id:"D2",text:"The screen may not be exactly perpendicular to the axis of the lens."},
+    {id:"D3",text:"The sugar solution may not be perfectly transparent."},
+    {id:"D4",text:"The room may not be dark enough to see the image clearly."},
+    {id:"D5",text:"The temperature of the solution affects its refractive index."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Use screens around the image area / carry out in a darkened room to reduce stray light and make judging sharpness easier.",cor:"B"},
+    {id:"IC",text:"Mount the torch on a block or stand / use an optical bench to keep torch aligned.",cor:"C"},
+    {id:"ID",text:"Use a set square next to ruler as pointer / mark lens position on container to reduce parallax.",cor:"D"},
+    {id:"IE",text:"Clean the lens and container between readings / use a new container for the second solution.",cor:"E"},
+    {id:"IF",text:"Remove the glass from the front of the torch so LEDs are at the front.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
+    {id:"IX2",text:"Use a darkened room.",cor:null,note:"Incomplete — must explain this helps judge image sharpness."},
+    {id:"IX3",text:"Use a ruler more carefully to measure u.",cor:null,note:"Too vague — does not address parallax or the difficulty of locating the lens position."},
+    {id:"IX4",text:"Wash the container between readings.",cor:null,note:"Incomplete — must also mention cleaning the lens, or the improvement is insufficient."},
+    {id:"IX5",text:"Mount the torch on a stand.",cor:null,note:"Incomplete — must specify this keeps the torch aligned with the lens axis."}
+  ]
+},
+{
+  id:"m20_33_q2", label:"M20/33 Q2", title:"Compass deflection in a solenoid coil", paper:"9702/33 · Feb/Mar 2020",
+  summary:"A compass is placed inside a plastic channel wound with wire to form a solenoid-like coil. When current I flows, the compass deflects through angle θ. The wire is re-wound in a different configuration (adjacent grooves instead of every other groove) to give a second reading. Only two readings are taken to test the relationship tanθ = B/k.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A length of wire is wound through every other groove of a plastic channel to form a coil. A compass is placed inside at the centre. The channel is rotated until the compass arrow is perpendicular to the channel before current flows."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Count and record N (number of turns). Measure L (distance between first and last turns).","Close the switch. Measure deflection angle θ and ammeter reading I. Open the switch.","Estimate percentage uncertainty in θ.","Calculate B = μ₀(N−1)I / L. Calculate k = B / tanθ.","Disconnect, re-wind wire in adjacent grooves (every groove). Repeat all measurements.","Compare the two k values to test the suggested relationship."]}
+  ],
+  flaws:"Only two readings cannot validate a relationship. The ammeter reading is unsteady, making it difficult to determine I accurately. Parallax error arises when reading the compass angle θ. The percentage uncertainty in θ is large because angles are small. Re-winding the wire is difficult — wires may touch or the wire may be kinked. The channel may move on the bench, changing the orientation.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to determine I accurately — ammeter reading is not steady."},
+    {id:"C",text:"Parallax error when measuring the deflection angle θ on the compass."},
+    {id:"D",text:"Large percentage uncertainty in θ because the angle is small."},
+    {id:"E",text:"Difficult to re-wind and fix the wire — wires may touch / wire is kinked."},
+    {id:"F",text:"Channel moves on the bench, changing the orientation of the compass relative to the coil."}
+  ],
+  dist:[
+    {id:"D1",text:"The compass needle may not settle completely between readings."},
+    {id:"D2",text:"The resistance of the wire changes as it heats up."},
+    {id:"D3",text:"The Earth's magnetic field may affect the compass reading."},
+    {id:"D4",text:"It is difficult to count the number of turns of wire accurately."},
+    {id:"D5",text:"The crocodile clips may not make good electrical contact."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Clean the crocodile clips / contacts to ensure steady current / use a more stable power supply.",cor:"B"},
+    {id:"IC",text:"Measure change of angle by turning channel on bench / photograph compass and measure angle / use angle markings at 'before' and 'after' positions.",cor:"C"},
+    {id:"ID",text:"Use a larger current / voltage to increase the deflection angle and reduce percentage uncertainty.",cor:"D"},
+    {id:"IE",text:"Use two ready-wound channels (one for each winding configuration) / use new wire to avoid kinking.",cor:"E"},
+    {id:"IF",text:"Fix / tape the channel to the bench to prevent it moving.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
+    {id:"IX2",text:"Use a more accurate ammeter.",cor:null,note:"Does not address the unsteady reading — the issue is fluctuation, not instrument precision."},
+    {id:"IX3",text:"Measure the angle more carefully.",cor:null,note:"Too vague — must specify a method to overcome parallax (e.g. photograph, angle markings)."},
+    {id:"IX4",text:"Use a larger current.",cor:null,note:"Incomplete — must state this increases θ and therefore reduces the percentage uncertainty."},
+    {id:"IX5",text:"Tape the channel to the bench.",cor:null,note:"Incomplete — must state this prevents the channel from moving / changing orientation."}
+  ]
+},
+{
+  id:"w22_34_q2", label:"W22/34 Q2", title:"Force on a magnet in a coil", paper:"9702/34 · Oct/Nov 2022",
+  summary:"A small magnet is attached to a nut hanging from a spring pointer. The deflection of the pointer (dm) caused by the magnet's weight is measured. A coil of wire is positioned around the magnet and current I passed through it, pulling the magnet down further. The pointer height H is recorded at two different currents (~0.3 A and ~0.7 A) to calculate a constant k via S(h – H) = kI. Only two readings are taken.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A spring pointer is clamped to a stand. A nut hangs from the end of the spring pointer. A small magnet is attached to the nut, causing a downward deflection dm = h₀ – h. A coil is positioned so that the magnet hangs just above the coil inside a tube."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Measure h₀ (pointer height, no magnet). Attach magnet and measure h. Calculate dm = h₀ – h. Estimate % uncertainty in dm.","Calculate spring stiffness proxy S = mg/dm.","Connect coil to power supply via variable resistor and ammeter. Set I ≈ 0.3 A. Measure pointer height H and record I.","Repeat at I ≈ 0.7 A. Second H should be smaller than first.","Calculate k = S(h – H)/I for both readings and compare within 20% to test relationship."]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"S(h – H) = kI, where S = mg/dm is the spring constant proxy, h is height with magnet only, H is height with magnet and current, and I is the current."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"The core problem is that only two (I, H) readings are taken — too few to validate any relationship. The pointer oscillates when the switch is closed, making H hard to read. The pointer is thick and the ruler is hand-held, creating difficulty measuring height. The change (h – H) is very small, so uncertainties are proportionally large. The current fluctuates. The magnet may touch the tube wall."}
+  ],
+  flaws:"Only two readings taken — cannot draw a valid conclusion. Pointer oscillates when current flows, making H difficult to read. Difficult to measure height accurately — pointer is thick, ruler moves. Change in height (h – H) is very small so percentage uncertainty is large. Current/ammeter reading fluctuates. Magnet may hit the side of the tube.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Pointer oscillates when current flows — difficult to read a steady value of H."},
+    {id:"C",text:"Difficult to measure the height of the pointer accurately — pointer is thick / ruler not vertical / ruler moves."},
+    {id:"D",text:"Change in height (h – H) is very small, so the percentage uncertainty in (h – H) is large."},
+    {id:"E",text:"Current/ammeter reading fluctuates — difficult to record a reliable value of I."},
+    {id:"F",text:"Magnet hits the side of the tube during measurement."}
+  ],
+  dist:[
+    {id:"D1",text:"The mass of the magnet is difficult to measure accurately."},
+    {id:"D2",text:"The spring may not obey Hooke's law over the deflection range used."},
+    {id:"D3",text:"The coil may heat up and change resistance during the experiment."},
+    {id:"D4",text:"It is difficult to ensure the pointer is exactly horizontal before taking readings."},
+    {id:"D5",text:"Parallax error when reading the ammeter scale."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings at different currents and plot a graph of H against I (or calculate more k values and compare).",cor:"A"},
+    {id:"IB",text:"Take a video with a scale/ruler in view to estimate the mean position, or use a wind shield / damping to reduce oscillation.",cor:"B"},
+    {id:"IC",text:"Use a pointed/thinner pointer or pin, or clamp the ruler to prevent it moving.",cor:"C"},
+    {id:"ID",text:"Use a heavier magnet, a less stiff spring, or a longer spring to increase the deflection and reduce percentage uncertainty.",cor:"D"},
+    {id:"IE",text:"Clean the connections/crocodile clips (e.g. with wire wool) or use soldered connections to stabilise the current.",cor:"E"},
+    {id:"IF",text:"Use a wider tube so the magnet does not touch the sides.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
+    {id:"IX2",text:"Use a more accurate ammeter.",cor:null,note:"Does not address the fluctuating reading — the issue is instability, not instrument precision."},
+    {id:"IX3",text:"Use a pointer with a sharp tip.",cor:null,note:"Incomplete — must state this makes it easier to measure the height accurately."},
+    {id:"IX4",text:"Use a larger current.",cor:null,note:"Does not directly address the small (h – H) issue; a stiffer spring or heavier magnet is more targeted."},
+    {id:"IX5",text:"Use a wider tube.",cor:null,note:"Incomplete — must state this prevents the magnet from touching the sides."}
+  ]
+},
+{
+  id:"s23_34_q2", label:"S23/34 Q2", title:"Thermal expansion of plastic pipe", paper:"9702/34 · May/Jun 2023",
+  summary:"A plastic pipe is suspended vertically on a wooden rod pivoting on a pin, with a mass hanger at the bottom. The rod's height x₁ above the bench is measured at room temperature T₀. Boiling water is poured into a measuring cylinder to heat the pipe; the rod drops to x₂ as the pipe expands. The change (x₁ – x₂) and water temperature T are recorded. Repeated with a shorter pipe. Only two readings taken to test k(x₁ – x₂) = L(T – T₀).",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"Two plastic pipes are provided, each with string loops at each end. The longer pipe is hung vertically from a horizontal wooden rod (pivoting on a pin through a cork/clamp). A mass hanger rests at the bottom. The end of the rod on the other side of the pivot indicates height x₁."},
+    {t:"h3",v:"Procedure"},{t:"list",v:["Measure pipe length L and record room temperature T₀.","Record x₁ (rod height at room temperature).","Pour boiling water into the measuring cylinder to cover the pipe. Record water temperature T.","As the pipe expands, the end of the rod drops — measure new height x₂.","Calculate (x₁ – x₂). Estimate percentage uncertainty.","Repeat with the shorter pipe. Calculate k = L(T – T₀)/(x₁ – x₂) for both. Compare within 20%."]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"k(x₁ – x₂) = L(T – T₀), where L is pipe length, T is water temperature, T₀ is room temperature, and (x₁ – x₂) is the downward movement of the rod end."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The rod/rule is difficult to hold steady, making x values hard to measure. The change (x₁ – x₂) is small so percentage uncertainty is large. The water temperature T varies with position in the measuring cylinder and drops rapidly, so x₂ and T cannot be measured simultaneously. Room temperature T₀ may change during the experiment. The curved pipe makes L difficult to measure accurately. The string may change length when wet."}
+  ],
+  flaws:"Only two readings taken — cannot draw a valid conclusion. Difficult to measure x (rod height) because the rod moves/rule not vertical. (x₁ – x₂) is small so large percentage uncertainty. Difficult to measure T accurately — temperature varies with position in cylinder, or T decreases rapidly before x₂ can be measured. Room temperature T₀ may change during the experiment. Difficult to measure L because the pipe is curved. String changes length when wet.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to measure x (rod height) accurately — rod moves / ruler not vertical / ruler moves."},
+    {id:"C",text:"(x₁ – x₂) is small, so the percentage uncertainty in (x₁ – x₂) is large."},
+    {id:"D",text:"Difficult to measure T accurately — temperature varies with position in the measuring cylinder, or T decreases rapidly so x₂ and T cannot be measured at the same time."},
+    {id:"E",text:"Room temperature T₀ may change during the experiment."},
+    {id:"F",text:"Difficult to measure L because the pipe is curved / the pipe does not expand uniformly / difficult to measure the distance between the string attachment holes."},
+    {id:"G",text:"String changes length when wet, affecting the measurement."}
+  ],
+  dist:[
+    {id:"D1",text:"The boiling water may not be at exactly 100 °C."},
+    {id:"D2",text:"It is difficult to pour the boiling water without disturbing the apparatus."},
+    {id:"D3",text:"The mass hanger may swing during the measurement."},
+    {id:"D4",text:"Heat loss from the water to the air means the pipe is not uniformly heated."},
+    {id:"D5",text:"The measuring cylinder may not be positioned directly under the pipe."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings with pipes of different lengths and plot a graph (or calculate more k values and compare).",cor:"A"},
+    {id:"IB",text:"Clamp the ruler in position / use a plumb line to ensure the ruler is vertical.",cor:"B"},
+    {id:"IC",text:"Use a longer pipe / rod to increase (x₁ – x₂) and reduce the percentage uncertainty.",cor:"C"},
+    {id:"ID",text:"Use a stirrer for the water / clamp the thermometer in the water / use a thermostatically controlled water bath.",cor:"D"},
+    {id:"IE",text:"Measure T₀ just before the water is added so that any change in room temperature is accounted for.",cor:"E"},
+    {id:"IF",text:"Use a tape measure or string and ruler to measure L along the pipe, or define L as the distance between the holes where the string is attached.",cor:"F"},
+    {id:"IG",text:"Use a waterproof string such as nylon, plastic-coated wire, or metal wire.",cor:"G"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
+    {id:"IX2",text:"Use a more accurate thermometer.",cor:null,note:"Does not address the temperature varying with position or the timing problem."},
+    {id:"IX3",text:"Use a longer pipe.",cor:null,note:"Incomplete — must explain this increases (x₁ – x₂) and therefore reduces the percentage uncertainty."},
+    {id:"IX4",text:"Measure T₀ at the start.",cor:null,note:"Incomplete — must state this is done just before the water is added, to account for any drift in room temperature."},
+    {id:"IX5",text:"Use waterproof string.",cor:null,note:"Incomplete — must name a specific waterproof material (e.g. nylon, metal wire)."}
+  ]
+},
+{
+  id:"s25_35_q2", label:"S25/35 Q2", title:"Centre of gravity shift in a suspended cardboard sheet", paper:"9702/35 · May/Jun 2025",
+  summary:"Two cardboard sheets (A and B) are hung from a nail through holes in their corners. A plumb line marks the vertical through each hole; the crossing point gives the centre of gravity P (without added mass). Adhesive putty plus two 10 g masses (total m) are attached at distance x from the top edge, shifting the centre of gravity to Q. The displacement y between P and Q is measured. Sheet B repeats with m = 10 g and x ≈ 5 cm. Two values of k are calculated via y²/m² = k/xt. Only two readings are taken.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A cardboard sheet hangs freely from a nail passed through a hole in one corner. A plumb line over the same nail marks the vertical. The process is repeated from the second hole. The two plumb lines cross at the original centre of gravity P."},
+    {t:"h3",v:"Procedure"},{t:"list",v:[
+      "Measure sheet thickness t with a micrometer.",
+      "Make holes in two corners of sheet A. Hang from each hole in turn; draw a plumb line each time. The crossing point is the original centre of gravity P.",
+      "Attach adhesive putty and two 10 g masses (total mass m) at distance x ≈ 10 cm from the top edge.",
+      "Repeat the plumb-line process to find the new centre of gravity Q. Measure y = distance PQ.",
+      "Estimate percentage uncertainty in y.",
+      "Repeat with sheet B using m = 10 g and x ≈ 5 cm. Calculate k = y²·x·t / m² for both readings and compare within 20%."
+    ]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"y²/m² = k/(xt), where y is the displacement of the centre of gravity, m is the added mass, x is the distance from the top edge to the mass, and t is the sheet thickness."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. Drawing lines along the plumb line is difficult because the card is hanging and may move during drawing; the rule may not be vertical. The mass of the putty is not included in m, introducing a systematic error. Measuring x to the centre of the mass is difficult to judge because the mass covers the mark on the card. Locating the centre of gravity accurately is difficult because the string may be too thick or the nail too thick, meaning the card does not swing freely."}
+  ],
+  flaws:"Only two readings — cannot draw a valid conclusion. Difficult to draw the plumb-line on the card while it is hanging — card or string moves when drawing / card not vertical. Mass of putty not included in m. Difficult to measure x accurately — judging centre of mass / mass covers the mark. Difficult to locate centre of gravity accurately — string too thick / card sticks on nail / nail too thick.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to draw a line along the plumb line with a reason — card is hanging / card or string moves when drawing / card not vertical."},
+    {id:"C",text:"Mass of putty is not taken into account in m — introduces a systematic error."},
+    {id:"D",text:"Difficult to measure x accurately — hard to judge the centre of the mass / the mass covers up the mark made for x."},
+    {id:"E",text:"Difficult to locate the centre of gravity accurately — string too thick / card sticks on nail / nail is too thick so card does not swing freely."}
+  ],
+  dist:[
+    {id:"D1",text:"The sheet may not be perfectly rectangular, making x difficult to define."},
+    {id:"D2",text:"The plumb line may be affected by draughts in the room, making the line inaccurate."},
+    {id:"D3",text:"The two cardboard sheets may have different densities, affecting the results."},
+    {id:"D4",text:"Parallax error when measuring y between points P and Q."},
+    {id:"D5",text:"The nail hole may stretch with use, changing the position from which the card hangs."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings (different values of x or different masses) and plot a graph, or calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Take the card off the nail, lay it flat on the bench and draw the line there / clamp a rule vertically alongside the string to draw the line accurately.",cor:"B"},
+    {id:"IC",text:"Measure the mass of the putty and add it to m, or use a specified lighter adhesive such as tape or glue instead of putty.",cor:"C"},
+    {id:"ID",text:"Measure x to both the near and far side of the mass and average, or define x to a fixed reference mark on the card.",cor:"D"},
+    {id:"IE",text:"Use thinner string / a thinner nail / a pin, or enlarge and smooth the hole so the card swings freely.",cor:"E"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
+    {id:"IX2",text:"Use a spirit level to check the card is vertical.",cor:null,note:"Does not address the core difficulty of drawing on a hanging card — the card should be taken down and placed flat."},
+    {id:"IX3",text:"Use a more accurate ruler to measure y.",cor:null,note:"Too vague — does not address the specific difficulty of locating the centre of gravity accurately."},
+    {id:"IX4",text:"Weigh the putty.",cor:null,note:"Incomplete — must state that the putty mass is added to m (or that a lighter adhesive replaces putty)."},
+    {id:"IX5",text:"Use a pin instead of a nail.",cor:null,note:"Incomplete — must explain this allows the card to swing freely, reducing friction at the pivot."}
+  ]
+}
+,
+{
+  id:"s23_31_q2", label:"S23/31 Q2", title:"Oscillations of a wooden strip and pendulum", paper:"9702/31 · May/Jun 2023",
+  summary:"A wooden strip with two holes (G and H) is balanced on a pivot. When hung from a nail through hole G (then H), the strip oscillates like a physical pendulum. A simple pendulum is adjusted until its period matches the strip's. The distance a (hole to pivot) and pendulum length l are measured. The relationship (l – a) = C/a is tested with only two readings — one for each hole.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A wooden strip is placed on a pivot and balanced. A nail through hole G (or H) is clamped horizontally. The strip hangs and is pulled slightly then released to oscillate. A simple pendulum is set up next to it."},
+    {t:"h3",v:"Procedure"},{t:"list",v:[
+      "Balance the strip on a pivot; measure a = distance from G to the pivot.",
+      "Hang strip from nail through G; measure time t for 10 oscillations.",
+      "Set up a pendulum and adjust length l until its period matches t.",
+      "Record l; calculate (l – a). Estimate percentage uncertainty in (l – a).",
+      "Repeat the entire procedure using hole H.",
+      "Calculate C = a(l – a) for both readings; compare within 5%. Calculate g using the formula provided."
+    ]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"(l – a) = C/a, where l is the pendulum length giving the same period as the strip, a is the distance from the hole to the balance point, and C is a constant related to the moment of inertia of the strip."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. Synchronising the two oscillations to judge when t (strip) equals t (pendulum) is very difficult. Measuring a is tricky because the pivot is a point and the strip moves on it; the strip may move during measurement. Measuring l involves parallax when locating the centre of the bob. The times for holes G and H may be very close together, giving little variation in the data. The strip may oscillate in more than one plane, or may wobble on the nail."}
+  ],
+  flaws:"Only two readings taken — cannot draw a valid conclusion. Hard to ensure the pendulum period equals the strip period. Hard to measure a — strip moves on pivot. Hard to measure l — parallax/bob moves when touched. Hard to measure t — judging start and end of oscillation. Times for G and H are close/small difference. Difficult to balance the strip.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to ensure the pendulum period equals the strip period — hard to judge when they oscillate together."},
+    {id:"C",text:"Difficult to measure a — the strip moves on the pivot / finding the centre of the hole / strip moves when the ruler touches it."},
+    {id:"D",text:"Difficult to measure l — parallax error when locating the centre of the bob / bob moves when touched by the ruler / ruler moves."},
+    {id:"E",text:"Difficult to measure t — hard to judge the start/end of a complete oscillation / strip wobbles or oscillates in different planes."},
+    {id:"F",text:"Times for holes G and H are very close together — small difference makes comparison unreliable."}
+  ],
+  dist:[
+    {id:"D1",text:"The nail may not be perfectly horizontal, causing the strip to hang at an angle."},
+    {id:"D2",text:"Air resistance affects the oscillation and damps it quickly."},
+    {id:"D3",text:"The wooden strip may not have uniform density, affecting the balance point."},
+    {id:"D4",text:"The stopwatch reaction time introduces error in t."},
+    {id:"D5",text:"The length of the string used for the pendulum may stretch over time."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings (different holes or additional masses) and plot a graph / calculate more C values and compare.",cor:"A"},
+    {id:"IB",text:"Use two stands so that the strip and pendulum can be released simultaneously / use a video with a timer in view and review frame by frame.",cor:"B"},
+    {id:"IC",text:"Draw a scale on the strip / mark the pivot position on both sides of the strip / roughen the lower surface to prevent slipping.",cor:"C"},
+    {id:"ID",text:"Use a rule with pointers / clamp the ruler in position / measure the diameter of the bob and halve it to find the radius.",cor:"D"},
+    {id:"IE",text:"Use a fiducial marker placed at the centre/equilibrium position of the oscillation / use video recording with a timer in view.",cor:"E"},
+    {id:"IF",text:"Place the holes further apart so that t values for G and H differ more.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more C values."},
+    {id:"IX2",text:"Use a more accurate stopwatch.",cor:null,note:"Does not address the difficulty of judging the start/end of an oscillation."},
+    {id:"IX3",text:"Use a plumb line to check the nail is horizontal.",cor:null,note:"Nail orientation is not a mark-scheme limitation for this experiment."},
+    {id:"IX4",text:"Use a video camera.",cor:null,note:"Incomplete — must specify what is being measured (e.g. timing oscillations) and how (e.g. timer in view, frame-by-frame review)."},
+    {id:"IX5",text:"Measure l from the top of the bob.",cor:null,note:"Does not address parallax or the bob moving when touched — and measuring from the top rather than the centre is less accurate."}
+  ]
+},
+{
+  id:"s24_31_q2", label:"S24/31 Q2", title:"Torsional oscillations of a rod with masses", paper:"9702/31 · May/Jun 2024",
+  summary:"A thin rod has a copper wire wrapped around its centre and is suspended horizontally by a rubber band. Two slotted masses (one on each end) are placed symmetrically at distance a from the wire. The rod is rotated 90° and released, oscillating torsionally. Period T is measured. The arrangement is repeated with different masses (50 g then 10 g), giving a different a and T. Two values of k are calculated from T² = k(S + a²m). Only two readings taken.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A rod of length L and mass M has S = ML²/12 calculated. Copper wire is wrapped three times around the rod's centre and the wire is hooked onto a rubber band (clamped above). Two slotted masses at distance a from the wire are held with adhesive putty. The rod is rotated 90° in the horizontal plane and released."},
+    {t:"h3",v:"Procedure"},{t:"list",v:[
+      "Measure L and M; calculate S = ML²/12.",
+      "Place 50 g masses ≈ 3 cm apart; record m and a.",
+      "Estimate percentage uncertainty in a.",
+      "Rotate rod 90° and release; measure period T from at least two timings of ≥ 3 oscillations.",
+      "Repeat with 10 g masses ≈ 9 cm apart; record new m and a.",
+      "Calculate k = T²/(S + a²m) for both readings; compare within 10%."
+    ]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"T² = k(S + a²m), where T is the period, S = ML²/12 is the rotational inertia of the bare rod, m is the mass on one end, a is the distance from each mass to the wire, and k is a constant related to the torsional stiffness."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The masses are not exactly parallel to each other, making it hard to judge a (the distance from the centre of each mass to the wire). The rod oscillates in other planes (vertically or sideways) as well as torsionally. The 90° release angle is difficult to judge consistently. The wire may move in the clip during oscillation, altering the effective length and hence the stiffness. The adhesive putty mass is not included in m; its mass on each side may differ. Judging the start/end of an oscillation is difficult."}
+  ],
+  flaws:"Only two readings — cannot draw a valid conclusion. Hard to measure a — masses not parallel / masses too wide / parallax. Oscillations occur in other planes (vertical/sideways). Difficult to judge start/end of oscillation. Wire or masses move on rod during oscillation. Putty mass not taken into account / different on each side. Hard to judge/set the 90° release angle consistently.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to measure a — masses not parallel to each other / masses too wide / hard to judge the centre of each mass / parallax error / rod not straight."},
+    {id:"C",text:"Oscillations occur in planes other than torsional — vertical or side-to-side oscillations contaminate the period measurement."},
+    {id:"D",text:"Difficult to measure T — hard to judge the start and/or end of an oscillation / amplitude decreases quickly / oscillations are heavily damped."},
+    {id:"E",text:"Wire or masses move on the rod during oscillation / rod is unbalanced or difficult to make horizontal / difficult to position wire at the centre of rod."},
+    {id:"F",text:"Mass of adhesive putty not taken into account in m / putty mass different on each side of the rod."},
+    {id:"G",text:"Difficult to set or judge the 90° release angle consistently each time."}
+  ],
+  dist:[
+    {id:"D1",text:"The rubber band may stretch and change stiffness during the experiment."},
+    {id:"D2",text:"Air currents in the room affect the oscillation."},
+    {id:"D3",text:"The wire is not uniform, so the torsional stiffness varies along its length."},
+    {id:"D4",text:"Parallax error when reading the length L of the rod."},
+    {id:"D5",text:"The slotted masses may not have exactly the stated mass."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings at different values of L or m and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Use thinner masses / use calipers to measure a / take readings from both sides of each mass and average.",cor:"B"},
+    {id:"IC",text:"Ensure the rod is released gently and exactly horizontally / use a guide to constrain the rod to the horizontal plane.",cor:"C"},
+    {id:"ID",text:"Use a fiducial marker placed at the equilibrium position / use video recording with a timer in view and review frame by frame.",cor:"D"},
+    {id:"IE",text:"Make a notch or groove in the rod to locate the wire / glue or tape the wire to the rod to prevent it moving.",cor:"E"},
+    {id:"IF",text:"Measure the mass of the adhesive putty and add it to m / measure the putty mass on each side separately and correct m accordingly.",cor:"F"},
+    {id:"IG",text:"Use a clamped protractor or set square to set the 90° release angle / use a marker or pointer to indicate the initial position.",cor:"G"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
+    {id:"IX2",text:"Use a more accurate ruler.",cor:null,note:"Does not address the specific difficulty of locating the centre of the masses or parallax when they are not parallel."},
+    {id:"IX3",text:"Use a fiducial marker.",cor:null,note:"Incomplete — must state it is placed at the centre/equilibrium position of the oscillation."},
+    {id:"IX4",text:"Use a protractor to set the angle.",cor:null,note:"Incomplete — must specify the protractor is clamped in position, or that a pointer/marker is used to indicate the initial angle."},
+    {id:"IX5",text:"Weigh the putty.",cor:null,note:"Incomplete — must state the measured putty mass is added to m (or measured separately on each side)."}
+  ]
+},
+{
+  id:"s25_32_q2", label:"S25/32 Q2", title:"Torsional oscillations of a rubber cord", paper:"9702/32 · May/Jun 2025",
+  summary:"A wire with a clip and two slotted masses is suspended from a rubber cord. The separation between the mass centres (B) is measured. The cord diameter d, cord length L between clips, and torsional oscillation period T are recorded. The experiment is repeated with a shorter cord. Two k values are calculated from T² = B²L/(kd⁴) and compared within 20%. Only two readings are taken.",
+  fullText:[
+    {t:"h3",v:"Setup"},{t:"p",v:"A rubber cord is gripped between two clips. The upper clip is fixed in a clamp; the lower clip holds a wire with two slotted masses. The assembly can be twisted and released to oscillate torsionally."},
+    {t:"h3",v:"Procedure"},{t:"list",v:[
+      "Measure B = distance between the centres of the two slotted masses. Estimate percentage uncertainty in B.",
+      "Select the longer cord. Measure diameter d and length L between the clips.",
+      "Rotate the lower clip ≈ 180° and release; measure period T from at least two timings.",
+      "Repeat with the shorter cord, recording new d, L and T.",
+      "Calculate k = B²L/(T²d⁴) for both readings; compare within 20%."
+    ]},
+    {t:"h3",v:"Key relationship"},{t:"p",v:"T² = B²L/(kd⁴), where T is the period, B is the mass separation, L is the cord length, d is the cord diameter, and k is a constant related to the shear modulus of the rubber."},
+    {t:"h3",v:"Examiner analysis of flaws"},
+    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The mass separation B is difficult to measure because the masses may not be parallel to each other and B changes when the clip and masses are suspended. The cord length L is hard to measure accurately because of parallax or because the rubber cord moves when touched by the ruler. The cord diameter d is difficult to measure because the calipers' jaws compress the soft rubber. The oscillations die away quickly (heavily damped), making it hard to count complete oscillations or judge the start/end. Additional oscillation modes (vertical, side-to-side) contaminate the period. Attaching the cord to the centre of the lower clip is difficult to achieve consistently."}
+  ],
+  flaws:"Only two readings — cannot draw a valid conclusion. Hard to measure B — masses not parallel / B changes when suspended. Hard to measure L — parallax / cord moves when touched. Hard to measure d — calipers compress rubber. Hard to measure T — oscillations die away quickly / multi-mode oscillations. Difficult to attach cord to centre of lower clip consistently.",
+  valid:[
+    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
+    {id:"B",text:"Difficult to measure B — masses not parallel to each other / B changes when the clip and masses are suspended."},
+    {id:"C",text:"Difficult to measure L — parallax error / rubber cord moves when touched by the ruler / clip moves when touched."},
+    {id:"D",text:"Difficult to measure d — jaws of calipers compress the soft rubber cord, giving an underestimate."},
+    {id:"E",text:"Difficult to measure T — oscillations die away (damp) very quickly / hard to judge the start and/or end of an oscillation."},
+    {id:"F",text:"Oscillations occur in more than one mode — vertical or side-to-side oscillations / rubber cord not attached at the centre of the lower clip."}
+  ],
+  dist:[
+    {id:"D1",text:"The rubber cord may not be exactly circular in cross-section, making d difficult to define."},
+    {id:"D2",text:"The slotted masses may not have exactly the stated mass."},
+    {id:"D3",text:"The temperature of the rubber cord affects its elastic properties, altering k."},
+    {id:"D4",text:"Parallax error when reading the ammeter."},
+    {id:"D5",text:"The upper clip may slip in the clamp, shortening L during oscillation."}
+  ],
+  imp:[
+    {id:"IA",text:"Take more readings (different cord lengths or diameters) and plot a graph / calculate more k values and compare.",cor:"A"},
+    {id:"IB",text:"Measure B from the left (or right) edge of one mass to the same edge of the other / measure B when the clip is suspended.",cor:"B"},
+    {id:"IC",text:"Clamp the rule in position to measure L / use pointers attached to the rule or edges of the clips to reduce parallax.",cor:"C"},
+    {id:"ID",text:"Use a micrometer to measure d / use a travelling microscope (non-contact) to measure d.",cor:"D"},
+    {id:"IE",text:"Twist the masses through a larger angle before releasing to increase amplitude and period / use a fiducial marker at the equilibrium position / record the oscillation with a timer in view and review frame by frame.",cor:"E"},
+    {id:"IF",text:"Mark the centre of the lower clip before attaching the cord / use a marker or pointer to ensure the cord is at the midpoint / ensure the cord is attached symmetrically.",cor:"F"},
+    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
+    {id:"IX2",text:"Use a more accurate ruler.",cor:null,note:"Does not address the parallax or the cord moving when touched — clamping the ruler is the targeted improvement."},
+    {id:"IX3",text:"Use calipers to measure d.",cor:null,note:"Calipers are the instrument causing the problem — the improvement must specify a non-compressing method such as a micrometer or travelling microscope."},
+    {id:"IX4",text:"Use a video camera.",cor:null,note:"Incomplete — must state a timer is in view and that the footage is reviewed frame by frame, or specify a fiducial marker at the equilibrium point."},
+    {id:"IX5",text:"Twist to a larger angle.",cor:null,note:"Incomplete — must explain this increases the amplitude so oscillations last longer / are easier to count, or reduces the effect of damping."}
+  ]
+}
+];
+
+let S={expIdx:0,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};
+const e=()=>EXP[S.expIdx];
+const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+const buildOpts=ex=>{
+  const v=ex.valid.map(l=>({id:l.id,text:l.text,isValid:true}));
+  const d=ex.dist.map(d=>({id:d.id,text:d.text,isValid:false}));
+  return shuffle([...v,...d]);
+};
+
+function render(){
+  const ex=e();
+  if(!S.limOpts) S.limOpts=buildOpts(ex);
+  document.getElementById("expTabs").innerHTML=EXP.map((x,i)=>
+    `<button class="exp-tab ${i===S.expIdx?'active':''}" onclick="selExp(${i})">${x.label}</button>`
+  ).join("");
+  let h="";
+
+  // experiment card
+  h+=`<div class="exp-card"><div class="ec-head">
+    <div class="ec-title">${ex.title}</div>
+    <div class="ec-meta">${ex.paper}</div>
+    <div class="ec-summary">${ex.summary}</div>
+    <button class="expand-btn" onclick="togFull()">${S.showFull?'▲ hide':'▼ show'} full question detail</button>
+  </div>`;
+  if(S.showFull){
+    h+=`<div class="ec-detail">`;
+    for(const b of ex.fullText){
+      if(b.t==="h3") h+=`<div class="dh3">${b.v}</div>`;
+      else if(b.t==="p") h+=`<div class="dp">${b.v}</div>`;
+      else if(b.t==="list") h+=`<ul class="dul">${b.v.map(i=>`<li>${i}</li>`).join("")}</ul>`;
+    }
+    if(S.phase==="done") h+=`<div class="flaws-panel"><div class="dh3">Examiner analysis — flaws in this method</div><div class="dp">${ex.flaws}</div></div>`;
+    h+=`</div>`;
+  }
+  h+=`</div>`;
+
+  if(S.phase==="select"){
+    const sel=S.selLims.length;
+    h+=`<div class="ph-header">
+      <div class="ph-badge">Step 1 — identify limitations</div>
+      <div class="ph-title">Select all limitations that apply to this experiment</div>
+      <div class="ph-sub">Identify every flaw you can find in the method. Select at least 4 to continue. Some options are too vague, too generic, or don't apply to this specific setup.</div>
+    </div>
+    <div class="counter">Selected: <span>${sel}</span>&nbsp;&nbsp;(minimum 4 to continue)</div>
+    <div class="lim-grid">`;
+    S.limOpts.forEach((o,idx)=>{
+      const isSel=S.selLims.includes(o.id);
+      h+=`<div class="lim-chip ${isSel?'selected':''}" onclick="togLim('${o.id}')">
+        <span class="lnum">${idx+1}</span><span>${o.text}</span>
+      </div>`;
+    });
+    h+=`</div><div class="action-row">
+      <button class="btn-p" ${sel>=4?'':'disabled'} onclick="goMatch()">Continue to matching →</button>
+      ${sel<4?`<span class="min-note">select at least 4 to continue</span>`:''}
+    </div>`;
+
+  } else if(S.phase==="match"){
+    const validSel=S.selLims.filter(id=>ex.valid.some(l=>l.id===id));
+    const distSel=S.selLims.filter(id=>!ex.valid.some(l=>l.id===id));
+    const usedIds=Object.values(S.drops).filter(Boolean);
+    const allDropped=S.selLims.every(id=>S.drops[id]);
+
+    h+=`<div class="ph-header">
+      <div class="ph-badge">Step 2 — match improvements</div>
+      <div class="ph-title">Match an improvement to each limitation you selected</div>
+      <div class="ph-sub">Drag from the pool below. Watch out — some improvements are too vague or missing a key detail.</div>
+    </div>`;
+
+    if(distSel.length>0){
+      h+=`<div class="warn-box">⚠ Some of your selected limitations may not be on the mark scheme. They are shown below in amber — you can still try to match them, but review carefully after submitting.</div>`;
+    }
+
+    h+=`<div class="imp-pool" id="impPool" ondragover="event.preventDefault()" ondrop="dropPool(event)">
+      <span class="pool-label">drag from here</span>`;
+    for(const imp of shuffle(ex.imp)){
+      h+=`<div class="imp-chip ${usedIds.includes(imp.id)?'used':''}" draggable="true" data-id="${imp.id}"
+        ondragstart="dStart(event,'${imp.id}')" ondragend="dEnd()">${imp.text}</div>`;
+    }
+    h+=`</div><div class="match-area">`;
+    for(const limId of S.selLims){
+      const allLims=[...ex.valid.map(l=>({id:l.id,text:l.text})),...ex.dist.map(d=>({id:d.id,text:d.text}))];
+      const lim=allLims.find(l=>l.id===limId);
+      const limText=lim?lim.text:limId;
+      const isDistractor=!ex.valid.some(l=>l.id===limId);
+      const droppedId=S.drops[limId];
+      const droppedImp=droppedId?ex.imp.find(i=>i.id===droppedId):null;
+      h+=`<div class="match-pair">
+        <div class="match-lim ${isDistractor?'distractor':''}">
+          <span style="font-size:11px;color:${isDistractor?'var(--amber)':'var(--acc)'};padding-top:2px;flex-shrink:0">▸</span>
+          <span>${limText}</span>
+        </div>
+        <div class="match-arrow">→</div>
+        <div class="match-drop ${droppedImp?'filled':''}" id="drop_${limId}"
+          ondragover="dOver(event,'${limId}')" ondragleave="dLeave(event,'${limId}')" ondrop="dropOn(event,'${limId}')">
+          ${droppedImp?droppedImp.text:'<span style="font-size:12px">drop improvement here</span>'}
+        </div>
+      </div>`;
+    }
+    h+=`</div><div class="action-row">
+      <button class="btn-s" onclick="backSel()">← back</button>
+      ${allDropped?`<button class="btn-p" onclick="doSubmit()">Submit for marking</button>`:''}
+    </div>`;
+
+  } else if(S.phase==="done"){
+    const validSel=S.selLims.filter(id=>ex.valid.some(l=>l.id===id));
+    const distSel=S.selLims.filter(id=>!ex.valid.some(l=>l.id===id));
+    const missed=ex.valid.filter(l=>!S.selLims.includes(l.id));
+    let limScore=validSel.length, impScore=0;
+    const matchRes=[];
+    for(const limId of S.selLims){
+      const droppedId=S.drops[limId];
+      const droppedImp=droppedId?ex.imp.find(i=>i.id===droppedId):null;
+      const isValid=ex.valid.some(l=>l.id===limId);
+      const impOk=!!(droppedImp&&droppedImp.cor===limId);
+      if(isValid&&impOk) impScore++;
+      matchRes.push({limId,droppedImp,impOk,isValid});
+    }
+    const total=limScore+impScore;
+    const maxS=validSel.length*2;
+    const sc=total===maxS?'var(--green)':total>=maxS*0.6?'var(--amber)':'var(--red)';
+    h+=`<div class="score-box">
+      <div><span class="score-num" style="color:${sc}">${total}</span><span class="score-den">/${maxS}</span></div>
+      <div class="score-bd">
+        ${limScore}/${ex.valid.length} valid limitations identified<br>
+        ${impScore}/${validSel.length} improvements correctly matched<br>
+        ${distSel.length>0?`${distSel.length} non-mark-scheme option${distSel.length>1?'s':''} selected`:'no distractors selected ✓'}
+      </div>
+    </div>`;
+
+    if(matchRes.filter(r=>r.isValid).length>0){
+      h+=`<div class="fb-st">Your valid selections</div>`;
+      for(const r of matchRes.filter(r=>r.isValid)){
+        const lim=ex.valid.find(l=>l.id===r.limId);
+        const cp=ex.imp.find(i=>i.cor===r.limId);
+        h+=`<div class="fb-item">
+          <div class="fb-row fb-ok"><span class="fb-icon">✓</span><span><strong>Limitation:</strong> ${lim.text}</span></div>
+          <div class="fb-div"></div>
+          <div class="fb-row ${r.impOk?'fb-ok':'fb-bad'}">
+            <span class="fb-icon">${r.impOk?'✓':'✗'}</span>
+            <span><strong>Improvement:</strong> ${r.droppedImp?r.droppedImp.text:'(none matched)'}</span>
+          </div>
+          ${!r.impOk&&r.droppedImp&&r.droppedImp.note?`<div class="fb-det">Why this doesn't score: ${r.droppedImp.note}</div>`:''}
+          ${!r.impOk&&cp?`<div class="fb-ms">Mark scheme: ${cp.text}</div>`:''}
+          ${r.impOk&&cp&&cp.examinerNote?`<div class="fb-ex">Examiner note: ${cp.examinerNote}</div>`:''}
+        </div>`;
+      }
+    }
+    if(matchRes.filter(r=>!r.isValid).length>0){
+      h+=`<div class="fb-st">Incorrectly selected — not on the mark scheme</div>`;
+      for(const r of matchRes.filter(r=>!r.isValid)){
+        const dist=ex.dist.find(d=>d.id===r.limId);
+        h+=`<div class="fb-item">
+          <div class="fb-row fb-bad"><span class="fb-icon">✗</span><span>${dist?dist.text:r.limId}</span></div>
+          <div class="fb-det">This does not appear as a valid limitation for this experiment on the mark scheme.</div>
+        </div>`;
+      }
+    }
+    if(missed.length>0){
+      h+=`<div class="fb-st">Valid limitations you missed (no score penalty)</div>`;
+      for(const lim of missed){
+        const cp=ex.imp.find(i=>i.cor===lim.id);
+        h+=`<div class="fb-item">
+          <div class="fb-row fb-miss"><span class="fb-icon">○</span><span>${lim.text}</span></div>
+          ${cp?`<div class="fb-ms" style="color:var(--text-t)">Paired improvement: ${cp.text}</div>`:''}
+        </div>`;
+      }
+    }
+    h+=`<div class="action-row" style="margin-top:1.25rem">
+      <button class="btn-p" onclick="doReset()">Try again</button>
+      <button class="btn-s" onclick="nextExp()">Next experiment →</button>
+    </div>
+    <div style="font-size:12px;color:var(--text-t);margin-top:8px;font-family:'IBM Plex Mono',monospace;">expand "full question detail" above to see the examiner analysis of flaws in this method</div>`;
+  }
+
+  document.getElementById("mainContent").innerHTML=h;
+}
+
+function selExp(i){S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
+function togFull(){S.showFull=!S.showFull;render();}
+function togLim(id){
+  if(S.phase==="done") return;
+  const idx=S.selLims.indexOf(id);
+  if(idx>=0) S.selLims.splice(idx,1); else S.selLims.push(id);
+  render();
+}
+function goMatch(){if(S.selLims.length<4)return;S.phase="match";S.drops={};render();}
+function backSel(){S.phase="select";render();}
+function dStart(e,id){S.dragImp=id;setTimeout(()=>{const el=document.querySelector(`[data-id="${id}"]`);if(el)el.classList.add("dragging");},0);}
+function dEnd(){document.querySelectorAll(".imp-chip").forEach(el=>el.classList.remove("dragging"));}
+function dOver(e,id){e.preventDefault();document.getElementById("drop_"+id)?.classList.add("drag-over");}
+function dLeave(e,id){document.getElementById("drop_"+id)?.classList.remove("drag-over");}
+function dropOn(e,limId){
+  e.preventDefault();if(!S.dragImp)return;
+  const prev=Object.entries(S.drops).find(([k,v])=>v===S.dragImp);
+  if(prev)delete S.drops[prev[0]];
+  S.drops[limId]=S.dragImp;S.dragImp=null;render();
+}
+function dropPool(e){
+  e.preventDefault();if(!S.dragImp)return;
+  const prev=Object.entries(S.drops).find(([k,v])=>v===S.dragImp);
+  if(prev)delete S.drops[prev[0]];
+  S.dragImp=null;render();
+}
+function doSubmit(){S.phase="done";CIEGate.track('spotter_answer');render();}
+function doReset(){S={expIdx:S.expIdx,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
+function nextExp(){const i=(S.expIdx+1)%EXP.length;S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
+render();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

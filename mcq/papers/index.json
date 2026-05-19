@@ -1,0 +1,58 @@
+{
+  "syllabi": {
+    "0625": {
+      "name": "IGCSE Physics",
+      "code": "0625",
+      "papers": [
+        {
+          "id": "0625_w25_qp_11",
+          "label": "Oct/Nov 2025 — Paper 1 Variant 1 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2025",
+          "duration": 45
+        },
+        {
+          "id": "0625_w25_qp_21",
+          "label": "Oct/Nov 2025 — Paper 2 Variant 1 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2025",
+          "duration": 45
+        },
+        {
+          "id": "0625_m24_qp_12",
+          "label": "March 2024 — Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "March 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_m24_qp_22",
+          "label": "March 2024 — Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "March 2024",
+          "duration": 45
+        }
+      ]
+    },
+    "9702": {
+      "name": "A Level Physics",
+      "code": "9702",
+      "papers": [
+        {
+          "id": "9702_w25_qp_11",
+          "label": "Oct/Nov 2025 — Paper 1 Variant 1 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2025",
+          "duration": 75
+        },
+        {
+          "id": "9702_m24_qp_12",
+          "label": "March 2024 — Paper 1 Variant 2 (AS)",
+          "paperType": "AS",
+          "session": "March 2024",
+          "duration": 75
+        }
+      ]
+    }
+  }
+}

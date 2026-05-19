@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE Insider · 9702 Paper 5 — Linearisation Trainer (Q2)</title>
+<meta name="description" content="Drill the log-linearisation and straight-line graph marks that 9702 Paper 5 Question 2 tests every series — 18 relationships, step-by-step feedback, and worked sketches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     SITE-WIDE TOKENS (matched to CIE Insider dashboard)
+     ============================================================ */
+  :root {
+    --cream: #f5efe4;
+    --cream-deep: #ede4d2;
+    --cream-warm: #faf6ec;
+    --ink: #1f1a14;
+    --ink-soft: #3a3127;
+    --ink-mute: #6b5e4d;
+    --rule: #d8ccb4;
+    --rule-soft: #e6dcc6;
+    --accent: #a83b1f;
+    --accent-deep: #7d2a14;
+    --accent-soft: #e8b89f;
+    --gold: #b8893a;
+    --green: #4a6b3a;
+    --green-soft: #d4dcc4;
+    --shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    --shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+
+    /* ----- Trainer-internal aliases mapped onto site tokens ----- */
+    --color-background-primary: var(--cream-warm);
+    --color-background-secondary: var(--cream-deep);
+    --color-background-tertiary: var(--cream);
+    --color-background-info: #ecdcc9;
+    --color-background-success: var(--green-soft);
+    --color-background-warning: #f3e3c2;
+    --color-background-danger: #ecc8b8;
+    --color-text-primary: var(--ink);
+    --color-text-secondary: var(--ink-soft);
+    --color-text-tertiary: var(--ink-mute);
+    --color-text-info: var(--accent);
+    --color-text-success: var(--green);
+    --color-text-warning: var(--gold);
+    --color-text-danger: var(--accent-deep);
+    --color-border-tertiary: var(--rule-soft);
+    --color-border-secondary: var(--rule);
+    --color-border-primary: var(--ink-mute);
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --border-radius-md: 4px;
+    --border-radius-lg: 6px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    background-image:
+      radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+      radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .site-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ TOP BAR ============ */
+  .topbar { padding: 24px 0; border-bottom: 1px solid var(--rule); }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
+  .wordmark .mark { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; align-self: center; }
+  .wordmark .name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    .wordmark .tag { display: none; }
+  }
+  .back-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--cream-warm);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .back-link:hover { border-color: var(--ink-soft); color: var(--accent); }
+  .back-link .arrow { transition: transform 0.15s ease; }
+  .back-link:hover .arrow { transform: translateX(-3px); }
+
+  /* ============ PAGE HEADER ============ */
+  header.page-hero { padding: 56px 0 32px; border-bottom: 1px solid var(--rule); }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h1.page-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: clamp(32px, 4vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  h1.page-title em { font-style: italic; font-weight: 500; color: var(--accent-deep); }
+  .page-lede {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 680px;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ============ TRAINER WRAPPER ============ */
+  main.trainer-stage { padding: 40px 0 64px; position: relative; z-index: 2; }
+
+  /* ============================================================
+     TRAINER STYLES (original; now reading from the aliased site
+     tokens above so palette stays in family)
+     ============================================================ */
+  .trainer { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  .trainer .t-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 8px; }
+  .trainer .t-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--cream-deep);
+    color: var(--accent-deep);
+    font-weight: 500;
+    border: 1px solid var(--rule);
+    letter-spacing: 0.04em;
+  }
+  .counter { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-mute); }
+  .rel-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-soft);
+  }
+  .rel-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: .5rem;
+  }
+  .rel-formula {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    font-family: var(--font-mono);
+  }
+  .steps { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1rem; }
+  .step {
+    background: var(--cream-warm);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-soft);
+  }
+  .step-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: .5rem;
+    font-weight: 700;
+  }
+  .step-q { font-size: 14.5px; color: var(--ink-soft); margin-bottom: .65rem; line-height: 1.5; }
+  .step-input-row { display: flex; gap: 8px; align-items: center; }
+  .step-input-row input {
+    flex: 1;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--rule);
+    background: #fffaf0;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .step-input-row input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(168,59,31,0.12); }
+  .check-btn {
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--ink-soft);
+    background: var(--ink);
+    color: var(--cream-warm);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .check-btn:hover { background: var(--ink-soft); }
+  .feedback {
+    margin-top: .5rem;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+    display: none;
+  }
+  .feedback.correct { background: var(--green-soft); color: var(--green); display: block; border: 1px solid rgba(74,107,58,0.25); }
+  .feedback.wrong { background: #ecc8b8; color: var(--accent-deep); display: block; border: 1px solid var(--accent-soft); }
+  .feedback.hint { background: #f3e3c2; color: var(--gold); display: block; border: 1px solid rgba(184,137,58,0.3); }
+  .hint-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-mute);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    margin-top: .5rem;
+    padding: 0;
+    font-weight: 500;
+  }
+  .hint-btn:hover { color: var(--accent); text-decoration-color: var(--accent-soft); }
+  .solved-reveal {
+    display: none;
+    background: var(--green-soft);
+    border: 1px solid rgba(74,107,58,0.25);
+    border-radius: var(--border-radius-md);
+    padding: .75rem 1rem;
+    margin-top: .5rem;
+  }
+  .solved-reveal.show { display: block; }
+  .solved-reveal .sol-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: .3rem;
+  }
+  .solved-reveal .sol-val { font-family: var(--font-mono); font-size: 14px; color: var(--ink); line-height: 1.5; }
+  .graph-panel {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    display: none;
+    box-shadow: var(--shadow-soft);
+  }
+  .graph-panel.show { display: block; }
+  .graph-panel h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 .75rem;
+  }
+  .graph-wrap { display: flex; justify-content: center; }
+  .nav-row { display: flex; gap: 8px; justify-content: flex-end; margin-top: .5rem; }
+  .nav-btn {
+    padding: 8px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--rule);
+    background: var(--cream-warm);
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .nav-btn:hover { border-color: var(--ink-soft); background: var(--cream-deep); }
+  .nav-btn.primary {
+    background: var(--accent);
+    color: var(--cream-warm);
+    border-color: var(--accent);
+  }
+  .nav-btn.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+  .progress-bar { height: 3px; background: var(--rule-soft); border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; }
+  .progress-fill { height: 3px; background: var(--accent); border-radius: 2px; transition: width .3s; }
+  .complete-msg {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--ink-soft);
+  }
+  .complete-msg .check {
+    font-size: 36px;
+    margin-bottom: 1rem;
+    color: var(--green);
+  }
+  .complete-msg .head {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: .5rem;
+  }
+  .complete-msg .sub { font-size: 14px; color: var(--ink-mute); margin-bottom: 1.5rem; }
+  .step.locked { opacity: .45; pointer-events: none; }
+  .step.done .step-input-row input { border-color: var(--green); background: rgba(212,220,196,0.4); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 56px;
+    margin-top: 64px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    position: relative;
+    z-index: 2;
+  }
+  footer .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer .disclaimer { max-width: 600px; line-height: 1.5; }
+  footer a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
+  footer a:hover { color: var(--accent); }
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="site-container topbar-inner">
+    <a class="wordmark" href="/">
+      <span class="mark"></span>
+      <span class="name">CIE Insider</span>
+      <span class="tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="back-link" href="/">
+      <span class="arrow">←</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+
+<header class="page-hero">
+  <div class="site-container">
+    <div class="eyebrow">9702 · Paper 5 · Question 2</div>
+    <h1 class="page-title">Linearisation <em>Trainer</em></h1>
+    <p class="page-lede">Drill the log-linearisation and straight-line graph marks that Q2 tests every series — 18 relationships, step-by-step feedback, and worked sketches.</p>
+  </div>
+</header>
+
+<main class="trainer-stage">
+  <div class="trainer">
+    <div class="t-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="t-title">Linearisation trainer</span>
+        <span class="badge">P5 · Q2</span>
+      </div>
+      <span class="counter" id="counter">1 / 18</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog" style="width:5.5%"></div></div>
+    <div id="main"></div>
+  </div>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="site-container foot-inner">
+    <div class="disclaimer">
+      <strong style="color: var(--ink-soft);">CIE Insider</strong> · Not affiliated with or endorsed by Cambridge International Examinations. "Cambridge", "CIE", and syllabus codes are referenced for navigation only.
+    </div>
+    <div>
+      © <span id="year"></span> CIE Insider
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const DB = [
+  { id:1, form:"y = ax^n", linear:"log y = n log x + log a", xaxis:"log x", yaxis:"log y", gradient:"n", intercept:"log a", gradMeaning:"the power n", intMeaning:"log of the constant a", hints:["Take log of both sides","Use log(AB) = log A + log B","log(x^n) = n log x"] },
+  { id:2, form:"y = ae^(bx)", linear:"ln y = bx + ln a", xaxis:"x", yaxis:"ln y", gradient:"b", intercept:"ln a", gradMeaning:"the constant b", intMeaning:"ln of the constant a", hints:["Take ln of both sides","ln(e^bx) = bx","ln(ab) = ln a + ln b"] },
+  { id:3, form:"y = ab^x", linear:"log y = x log b + log a", xaxis:"x", yaxis:"log y", gradient:"log b", intercept:"log a", gradMeaning:"log of the base b", intMeaning:"log of the constant a", hints:["Take log of both sides","log(b^x) = x log b","log(ab^x) = log a + x log b"] },
+  { id:4, form:"y = a/x^n  (i.e. y = ax^–n)", linear:"log y = –n log x + log a", xaxis:"log x", yaxis:"log y", gradient:"–n", intercept:"log a", gradMeaning:"negative of the power, –n", intMeaning:"log of the constant a", hints:["Rewrite as y = ax^(–n)","Take log of both sides","gradient will be negative"] },
+  { id:5, form:"y = a√x  (i.e. y = ax^(1/2))", linear:"log y = (1/2) log x + log a", xaxis:"log x", yaxis:"log y", gradient:"1/2", intercept:"log a", gradMeaning:"1/2", intMeaning:"log of the constant a", hints:["Write √x as x^(1/2)","Take log of both sides","log(x^(1/2)) = (1/2) log x"] },
+  { id:6, form:"y = a·x^(1/3)", linear:"log y = (1/3) log x + log a", xaxis:"log x", yaxis:"log y", gradient:"1/3", intercept:"log a", gradMeaning:"1/3", intMeaning:"log of the constant a", hints:["This is a power law with n = 1/3","Take log both sides","log(x^(1/3)) = (1/3) log x"] },
+  { id:7, form:"y = a·e^(–bx)", linear:"ln y = –bx + ln a", xaxis:"x", yaxis:"ln y", gradient:"–b", intercept:"ln a", gradMeaning:"–b (negative, so line has negative gradient)", intMeaning:"ln of the constant a", hints:["Take ln of both sides","ln(e^(–bx)) = –bx","gradient is negative here"] },
+  { id:8, form:"T = a·L^n  (period vs length)", linear:"log T = n log L + log a", xaxis:"log L", yaxis:"log T", gradient:"n", intercept:"log a", gradMeaning:"the power n", intMeaning:"log of the constant a", hints:["Same structure as y = ax^n","Take log of both sides","T plays the role of y, L plays the role of x"] },
+  { id:9, form:"v = u + at  (linear already — practice recognising it)", linear:"v = at + u", xaxis:"t", yaxis:"v", gradient:"a", intercept:"u", gradMeaning:"acceleration a", intMeaning:"initial velocity u", hints:["This is already linear!","No log needed","Compare to y = mx + c"] },
+  { id:10, form:"PV^γ = k  (gas law)", linear:"log P = –γ log V + log k", xaxis:"log V", yaxis:"log P", gradient:"–γ", intercept:"log k", gradMeaning:"–γ (negative of the adiabatic index)", intMeaning:"log of the constant k", hints:["Rearrange to P = k·V^(–γ)","Now take log of both sides","This is a power law with n = –γ"] },
+  { id:11, form:"y = a + bx^2", linear:"y = b(x^2) + a", xaxis:"x^2", yaxis:"y", gradient:"b", intercept:"a", gradMeaning:"the coefficient b", intMeaning:"the constant a", hints:["No log needed here","Plot y against x^2","Compare y = mx + c with m = b, c = a"] },
+  { id:12, form:"y = a + b/x", linear:"y = b(1/x) + a", xaxis:"1/x", yaxis:"y", gradient:"b", intercept:"a", gradMeaning:"the coefficient b", intMeaning:"the constant a", hints:["No log needed","Plot y against 1/x","1/x plays the role of the x-axis variable"] },
+  { id:13, form:"y = ax^2 + bx  (divide by x)", linear:"y/x = ax + b", xaxis:"x", yaxis:"y/x", gradient:"a", intercept:"b", gradMeaning:"the coefficient a", intMeaning:"the coefficient b", hints:["Divide both sides by x","y/x = ax + b","Plot y/x against x"] },
+  { id:14, form:"1/y = a + bx", linear:"1/y = bx + a", xaxis:"x", yaxis:"1/y", gradient:"b", intercept:"a", gradMeaning:"the coefficient b", intMeaning:"the constant a", hints:["Already almost linear","Plot 1/y against x","Compare with y = mx + c"] },
+  { id:15, form:"y = ae^(bx²)", linear:"ln y = bx^2 + ln a", xaxis:"x^2", yaxis:"ln y", gradient:"b", intercept:"ln a", gradMeaning:"the constant b", intMeaning:"ln of the constant a", hints:["Take ln of both sides first","ln(e^(bx²)) = bx²","Plot ln y against x^2"] },
+  { id:16, form:"s = ut + (1/2)at^2  (divide by t)", linear:"s/t = (a/2)t + u", xaxis:"t", yaxis:"s/t", gradient:"a/2", intercept:"u", gradMeaning:"half the acceleration, a/2", intMeaning:"initial velocity u", hints:["Divide both sides by t","s/t = u + (a/2)t","Plot s/t against t"] },
+  { id:17, form:"y = a·10^(bx)", linear:"log y = bx + log a", xaxis:"x", yaxis:"log y", gradient:"b", intercept:"log a", gradMeaning:"the constant b", intMeaning:"log of the constant a", hints:["Take log (base 10) of both sides","log(10^(bx)) = bx","log(a·10^(bx)) = log a + bx"] },
+  { id:18, form:"R = R₀e^(–E/kT)  (Arrhenius-type)", linear:"ln R = –(E/k)·(1/T) + ln R₀", xaxis:"1/T", yaxis:"ln R", gradient:"–E/k", intercept:"ln R₀", gradMeaning:"–E/k (negative ratio of activation energy to Boltzmann constant)", intMeaning:"ln of the pre-exponential factor R₀", hints:["Take ln of both sides","ln(e^(–E/kT)) = –E/kT","Rearrange: –E/kT = –(E/k)·(1/T), so plot against 1/T"] }
+];
+
+const EQUIV = {
+  1:["log y = n log x + log a","log y = log a + n log x","log(y) = n·log(x) + log(a)","log y = log(a) + n·log(x)"],
+  2:["ln y = bx + ln a","ln y = ln a + bx","ln(y) = bx + ln(a)","ln(y) = ln(a) + bx"],
+  3:["log y = x log b + log a","log y = log a + x log b","log(y) = x·log(b) + log(a)","log y = log(a) + x·log(b)"],
+  4:["log y = -n log x + log a","log y = log a - n log x","log y = –n log x + log a","log(y) = –n log(x) + log(a)"],
+  5:["log y = (1/2) log x + log a","log y = log a + (1/2) log x","log(y) = 0.5 log(x) + log(a)","log y = 0.5 log x + log a"],
+  6:["log y = (1/3) log x + log a","log y = log a + (1/3) log x"],
+  7:["ln y = -bx + ln a","ln y = ln a - bx","ln y = –bx + ln a","ln(y) = –bx + ln(a)"],
+  8:["log t = n log l + log a","log(t) = n log(l) + log(a)","log t = log a + n log l"],
+  9:["v = at + u","v = u + at"],
+  10:["log p = -γ log v + log k","log p = –γ log v + log k","log(p) = –γ log(v) + log(k)","log p = log k - γ log v"],
+  11:["y = b(x^2) + a","y = bx^2 + a","y = a + bx^2","y = a + b(x^2)"],
+  12:["y = b(1/x) + a","y = b/x + a","y = a + b/x","y = a + b(1/x)"],
+  13:["y/x = ax + b","y/x = bx + a"],
+  14:["1/y = bx + a","1/y = a + bx","1/y = ax + b"],
+  15:["ln y = bx^2 + ln a","ln y = ln a + bx^2","ln(y) = b(x^2) + ln(a)"],
+  16:["s/t = (a/2)t + u","s/t = u + (a/2)t","s/t = at/2 + u"],
+  17:["log y = bx + log a","log y = log a + bx","log(y) = bx + log(a)"],
+  18:["ln r = -(e/k)(1/t) + ln r₀","ln r = –(e/k)·(1/t) + ln r₀","ln(r) = –(e/k)(1/t) + ln(r0)","ln r = ln r₀ - (e/k)(1/t)"]
+};
+
+function norm(s){
+  return s.toLowerCase()
+    .replace(/\s+/g,"")
+    .replace(/[·×*]/g,"")
+    .replace(/–|—/g,"-")
+    .replace(/r₀/g,"r0")
+    .replace(/γ/g,"y");
+}
+
+function checkLinear(input, idx){
+  const n = norm(input);
+  const rel = DB[idx];
+  const alts = EQUIV[rel.id] || [rel.linear];
+  return alts.some(a => norm(a) === n);
+}
+
+function checkAxis(input, correct){
+  return norm(input) === norm(correct);
+}
+
+function checkGrad(input, correct){
+  const alt = {
+    "n":["n"],"b":["b"],"log b":["log b","logb","log(b)"],
+    "-n":["–n","-n","−n"],"1/2":["1/2","0.5","½"],"1/3":["1/3"],
+    "-b":["–b","-b","−b"],"a":["a"],"-γ":["–γ","-γ","–y","-y"],
+    "a/2":["a/2","a over 2"],"log a":["log a","loga","log(a)"],
+    "-e/k":["–e/k","-e/k","–(e/k)","-(e/k)"]
+  };
+  const n = norm(input), nc = norm(correct);
+  const known = alt[correct] || [correct];
+  return known.map(norm).includes(n) || n === nc;
+}
+
+function drawGraph(rel, containerId){
+  const c = document.getElementById(containerId);
+  if(!c) return;
+  const W=280, H=200, pad=48;
+  const isNeg = rel.gradient.startsWith("–") || rel.gradient.startsWith("-");
+  c.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    <defs><marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="var(--ink-mute)"/>
+    </marker></defs>
+    <line x1="${pad}" y1="${H-pad}" x2="${W-20}" y2="${H-pad}" stroke="var(--ink-mute)" stroke-width="1.2" marker-end="url(#ah)"/>
+    <line x1="${pad}" y1="${H-pad}" x2="${pad}" y2="20" stroke="var(--ink-mute)" stroke-width="1.2" marker-end="url(#ah)"/>
+    ${isNeg
+      ? `<line x1="${pad+20}" y1="30" x2="${W-40}" y2="${H-pad-20}" stroke="var(--accent)" stroke-width="2"/>`
+      : `<line x1="${pad+20}" y1="${H-pad-20}" x2="${W-40}" y2="30" stroke="var(--accent)" stroke-width="2"/>`
+    }
+    <text x="${W/2+10}" y="${H-8}" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="'JetBrains Mono', monospace">${rel.xaxis}</text>
+    <text x="${pad-10}" y="${H/2}" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="'JetBrains Mono', monospace" transform="rotate(-90,${pad-10},${H/2})">${rel.yaxis}</text>
+    <text x="${W-42}" y="${isNeg ? H-pad-14 : 44}" text-anchor="start" font-size="11" fill="var(--accent)" font-family="'JetBrains Mono', monospace">gradient = ${rel.gradient}</text>
+    <text x="${pad+6}" y="${isNeg ? 26 : H-pad-24}" font-size="11" fill="var(--ink-mute)" font-family="'JetBrains Mono', monospace">intercept = ${rel.intercept}</text>
+  </svg>`;
+}
+
+let current = 0;
+let stepStatus = [];
+let hintCounts = [];
+
+function initStep(idx){ stepStatus=[false,false,false,false]; hintCounts=[0,0,0,0]; render(idx); }
+
+function render(idx){
+  const rel = DB[idx];
+  const total = DB.length;
+  document.getElementById("counter").textContent = `${idx+1} / ${total}`;
+  document.getElementById("prog").style.width = `${((idx+1)/total)*100}%`;
+  const allDone = stepStatus.every(Boolean);
+  document.getElementById("main").innerHTML = `
+    <div class="rel-card">
+      <div class="rel-label">Non-linear relationship</div>
+      <div class="rel-formula">${rel.form}</div>
+    </div>
+    <div class="steps">
+      ${renderStep(0,"Step 1 — write the linearised form","Write the equation in the form: Y = mX + c (using logs or rearrangement)",rel,idx)}
+      ${renderStep(1,"Step 2 — x-axis","What would you plot on the x-axis?",rel,idx)}
+      ${renderStep(2,"Step 3 — y-axis","What would you plot on the y-axis?",rel,idx)}
+      ${renderStep(3,"Step 4 — gradient and intercept","State what the gradient represents. Then what the y-intercept represents.",rel,idx)}
+    </div>
+    <div class="graph-panel${allDone?" show":""}" id="graphpanel">
+      <h3>Linearised graph sketch</h3>
+      <div class="graph-wrap" id="graphsvg"></div>
+    </div>
+    <div class="nav-row" style="margin-top:.5rem">
+      ${idx>0?`<button class="nav-btn" onclick="go(${idx-1})">Back</button>`:""}
+      ${idx<total-1?`<button class="nav-btn primary" onclick="go(${idx+1})">Next</button>`:`<button class="nav-btn primary" onclick="showComplete()">Finish</button>`}
+    </div>`;
+  if(allDone) drawGraph(rel,"graphsvg");
+}
+
+function renderStep(n,label,question,rel,idx){
+  const done=stepStatus[n], locked=n>0&&!stepStatus[n-1];
+  const placeholders=["e.g. log y = n log x + log a","e.g. log x","e.g. log y","gradient = ..., intercept = ..."];
+  return `<div class="step${done?" done":""}${locked?" locked":""}" id="step${n}">
+    <div class="step-label">${label}</div>
+    <div class="step-q">${question}</div>
+    <div class="step-input-row">
+      <input type="text" id="inp${n}" placeholder="${placeholders[n]}" value="${done?getVal(n,rel):""}"${done?" disabled":""} onkeydown="if(event.key==='Enter') checkStep(${n},${idx})">
+      ${done?`<span style="font-size:18px;color:var(--green)">✓</span>`:`<button class="check-btn" onclick="checkStep(${n},${idx})">Check</button>`}
+    </div>
+    <div class="feedback" id="fb${n}"></div>
+    ${!done?`<button class="hint-btn" onclick="showHint(${n},${idx})">Show hint</button>`:""}
+    ${done?renderSolved(n,rel):""}
+  </div>`;
+}
+
+function getVal(n,rel){
+  if(n===0) return rel.linear;
+  if(n===1) return rel.xaxis;
+  if(n===2) return rel.yaxis;
+  if(n===3) return `gradient = ${rel.gradient}, intercept = ${rel.intercept}`;
+  return "";
+}
+
+function renderSolved(n,rel){
+  const data=[
+    {label:"Linearised form",val:rel.linear},
+    {label:"x-axis",val:rel.xaxis},
+    {label:"y-axis",val:rel.yaxis},
+    {label:"Gradient / intercept",val:`Gradient = ${rel.gradient} → represents ${rel.gradMeaning}. Intercept = ${rel.intercept} → represents ${rel.intMeaning}.`}
+  ];
+  return `<div class="solved-reveal show"><div class="sol-label">${data[n].label}</div><div class="sol-val">${data[n].val}</div></div>`;
+}
+
+function checkStep(n,idx){
+  const rel=DB[idx], inp=document.getElementById(`inp${n}`), fb=document.getElementById(`fb${n}`), val=inp.value.trim();
+  if(!val){fb.className="feedback wrong";fb.textContent="Please enter an answer first.";return}
+  let correct=false;
+  if(n===0) correct=checkLinear(val,idx);
+  if(n===1) correct=checkAxis(val,rel.xaxis);
+  if(n===2) correct=checkAxis(val,rel.yaxis);
+  if(n===3){ const gOk=checkGrad(val,rel.gradient)||norm(val).includes(norm(rel.gradient)); const iOk=norm(val).includes(norm(rel.intercept)); correct=gOk&&iOk; }
+  if(correct){
+    fb.className="feedback correct"; fb.textContent="Correct!";
+    stepStatus[n]=true; CIEGate.track('drill_answer'); setTimeout(()=>render(idx),600);
+  } else {
+    hintCounts[n]=(hintCounts[n]||0)+1;
+    if(hintCounts[n]>=2){ fb.className="feedback hint"; fb.textContent="Hint: "+(rel.hints[n]||rel.hints[rel.hints.length-1]); }
+    else { fb.className="feedback wrong"; fb.textContent="Not quite. Try again, or use the hint below."; }
+  }
+}
+
+function showHint(n,idx){
+  const rel=DB[idx], fb=document.getElementById(`fb${n}`);
+  fb.className="feedback hint"; fb.textContent="Hint: "+(rel.hints[Math.min(n,rel.hints.length-1)]);
+}
+
+function go(idx){ current=idx; stepStatus=[false,false,false,false]; hintCounts=[0,0,0,0]; render(idx); }
+
+function showComplete(){
+  document.getElementById("main").innerHTML=`<div class="complete-msg">
+    <div class="check">✓</div>
+    <div class="head">All 18 relationships complete</div>
+    <div class="sub">Great work — you've practised every common P5 Q2 linearisation type.</div>
+    <button class="nav-btn" onclick="go(0)">Start again</button>
+  </div>`;
+}
+
+initStep(0);
+</script>
+</body>
+</html>

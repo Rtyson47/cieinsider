@@ -1,0 +1,164 @@
+{
+  "syllabusCode": "0625",
+  "name": "IGCSE Physics",
+  "topics": [
+    {
+      "id": "motion",
+      "name": "Motion",
+      "subtopics": [
+        { "id": "distance_speed", "name": "Distance, speed, velocity" },
+        { "id": "acceleration", "name": "Acceleration" },
+        { "id": "graphs_motion", "name": "Motion graphs" },
+        { "id": "free_fall", "name": "Free fall and air resistance" }
+      ]
+    },
+    {
+      "id": "forces",
+      "name": "Forces",
+      "subtopics": [
+        { "id": "resultant_force", "name": "Resultant force" },
+        { "id": "newtons_laws", "name": "Newton's laws" },
+        { "id": "weight_mass", "name": "Weight and mass" },
+        { "id": "friction", "name": "Friction" },
+        { "id": "moments", "name": "Moments and equilibrium" },
+        { "id": "centre_gravity", "name": "Centre of gravity" },
+        { "id": "circular_motion", "name": "Circular motion" }
+      ]
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "subtopics": [
+        { "id": "momentum_basic", "name": "Momentum and impulse" },
+        { "id": "conservation", "name": "Conservation of momentum" }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy, work, power",
+      "subtopics": [
+        { "id": "energy_stores", "name": "Energy stores and transfers" },
+        { "id": "ke_pe", "name": "Kinetic and gravitational PE" },
+        { "id": "work_done", "name": "Work done" },
+        { "id": "power", "name": "Power" },
+        { "id": "efficiency", "name": "Efficiency" },
+        { "id": "energy_resources", "name": "Energy resources" }
+      ]
+    },
+    {
+      "id": "pressure",
+      "name": "Pressure",
+      "subtopics": [
+        { "id": "pressure_solids", "name": "Pressure in solids" },
+        { "id": "pressure_fluids", "name": "Pressure in fluids" },
+        { "id": "manometer", "name": "Manometers and barometers" }
+      ]
+    },
+    {
+      "id": "thermal_matter",
+      "name": "Matter and thermal physics",
+      "subtopics": [
+        { "id": "states_matter", "name": "States of matter" },
+        { "id": "kinetic_theory", "name": "Kinetic particle model" },
+        { "id": "gas_laws", "name": "Gas pressure and temperature" },
+        { "id": "thermal_expansion", "name": "Thermal expansion" },
+        { "id": "specific_heat", "name": "Specific heat capacity" },
+        { "id": "latent_heat", "name": "Latent heat" },
+        { "id": "evaporation", "name": "Evaporation and boiling" },
+        { "id": "heat_transfer", "name": "Conduction, convection, radiation" }
+      ]
+    },
+    {
+      "id": "waves_general",
+      "name": "General wave properties",
+      "subtopics": [
+        { "id": "wave_basics", "name": "Wavelength, frequency, speed" },
+        { "id": "transverse_longitudinal", "name": "Transverse and longitudinal" },
+        { "id": "reflection_refraction", "name": "Reflection and refraction" },
+        { "id": "diffraction", "name": "Diffraction" }
+      ]
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "subtopics": [
+        { "id": "reflection_light", "name": "Reflection of light" },
+        { "id": "refraction_light", "name": "Refraction and critical angle" },
+        { "id": "lenses", "name": "Thin lenses" },
+        { "id": "dispersion", "name": "Dispersion" },
+        { "id": "em_spectrum", "name": "Electromagnetic spectrum" }
+      ]
+    },
+    {
+      "id": "sound",
+      "name": "Sound",
+      "subtopics": [
+        { "id": "sound_waves", "name": "Sound wave properties" },
+        { "id": "speed_sound", "name": "Speed of sound" },
+        { "id": "ultrasound", "name": "Ultrasound" }
+      ]
+    },
+    {
+      "id": "electricity_basics",
+      "name": "Electricity",
+      "subtopics": [
+        { "id": "static", "name": "Static electricity" },
+        { "id": "current", "name": "Electric current" },
+        { "id": "voltage_pd", "name": "Voltage and potential difference" },
+        { "id": "resistance", "name": "Resistance" },
+        { "id": "ohms_law", "name": "Ohm's law and I-V graphs" }
+      ]
+    },
+    {
+      "id": "circuits",
+      "name": "Circuits",
+      "subtopics": [
+        { "id": "series_parallel", "name": "Series and parallel" },
+        { "id": "circuit_calc", "name": "Circuit calculations" },
+        { "id": "circuit_symbols", "name": "Circuit symbols and diagrams" },
+        { "id": "domestic", "name": "Domestic circuits and safety" },
+        { "id": "power_electrical", "name": "Electrical power and energy" }
+      ]
+    },
+    {
+      "id": "magnetism",
+      "name": "Magnetism",
+      "subtopics": [
+        { "id": "magnetic_materials", "name": "Magnetic materials" },
+        { "id": "magnetic_fields", "name": "Magnetic fields" },
+        { "id": "electromagnets", "name": "Electromagnets" },
+        { "id": "motor_effect", "name": "Force on current-carrying conductor" }
+      ]
+    },
+    {
+      "id": "em_induction",
+      "name": "Electromagnetic induction",
+      "subtopics": [
+        { "id": "induction", "name": "Induced EMF" },
+        { "id": "generators", "name": "Generators" },
+        { "id": "transformers", "name": "Transformers" }
+      ]
+    },
+    {
+      "id": "atomic",
+      "name": "Atomic and nuclear physics",
+      "subtopics": [
+        { "id": "atomic_model", "name": "Atomic model" },
+        { "id": "isotopes", "name": "Isotopes" },
+        { "id": "radioactivity", "name": "Radioactive decay" },
+        { "id": "half_life", "name": "Half-life" },
+        { "id": "safety_uses", "name": "Safety and uses" }
+      ]
+    },
+    {
+      "id": "space",
+      "name": "Space physics",
+      "subtopics": [
+        { "id": "solar_system", "name": "Solar system" },
+        { "id": "orbits", "name": "Orbits" },
+        { "id": "stars_galaxies", "name": "Stars and galaxies" },
+        { "id": "universe", "name": "Universe and Big Bang" }
+      ]
+    }
+  ]
+}

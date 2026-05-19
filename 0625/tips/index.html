@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examiner Tips — CIE IGCSE Physics 0625</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF7F0; --cream-dark: #F0EBE0; --ink: #2C2416; --ink-muted: #6B5E4A;
+    --ink-faint: #A89880; --amber: #C8860A; --amber-light: #FEF3DB; --amber-border: #F0C460;
+    --star-on: #D4A017; --star-off: #C9BBA8; --border: rgba(44,36,22,0.12);
+    --border-hover: rgba(44,36,22,0.25); --tag-bg: #EDE7DA; --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; padding: 2rem 1rem 4rem; }
+  .page-wrap { max-width: 780px; margin: 0 auto; }
+  .header { background: var(--ink); padding: 1.75rem 2rem 1.5rem; border-radius: 14px; margin-bottom: 1.25rem; }
+  .header-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--amber-border); margin-bottom: 5px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; color: #FAF7F0; line-height: 1.2; margin-bottom: 1rem; }
+  .header-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.85rem; }
+  .stat-pill { font-size: 13px; color: rgba(250,247,240,0.55); }
+  .stat-pill strong { color: var(--amber-border); font-weight: 500; }
+  .controls { display: flex; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+  .search-wrap { flex: 1; min-width: 200px; position: relative; }
+  .search-wrap input { width: 100%; background: var(--white); border: 0.5px solid var(--border); border-radius: 9px; padding: 9px 14px 9px 36px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); outline: none; transition: border-color 0.15s; }
+  .search-wrap input:focus { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(200,134,10,0.1); }
+  .search-wrap input::placeholder { color: var(--ink-faint); }
+  .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint); font-size: 16px; pointer-events: none; }
+  .filter-btn { padding: 9px 15px; border: 0.5px solid var(--border); border-radius: 9px; background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 13.5px; color: var(--ink-muted); cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.15s; white-space: nowrap; }
+  .filter-btn:hover { border-color: var(--amber); color: var(--ink); }
+  .filter-btn.active { background: var(--amber-light); border-color: var(--amber-border); color: var(--amber); }
+  .starred-panel { background: var(--amber-light); border: 0.5px solid var(--amber-border); border-radius: 11px; margin-bottom: 1rem; overflow: hidden; }
+  .starred-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; cursor: pointer; gap: 10px; user-select: none; }
+  .starred-panel-title { font-family: 'Fraunces', serif; font-size: 14.5px; font-weight: 500; color: var(--amber); display: flex; align-items: center; gap: 8px; }
+  .starred-panel-body { display: none; border-top: 0.5px solid var(--amber-border); }
+  .starred-panel.open .starred-panel-body { display: block; }
+  .starred-empty { padding: 14px 16px; font-size: 13.5px; color: var(--ink-faint); font-style: italic; }
+  .starred-tip { display: flex; align-items: flex-start; gap: 12px; padding: 11px 16px; border-bottom: 0.5px solid var(--amber-border); background: rgba(255,255,255,0.45); }
+  .starred-tip:last-child { border-bottom: none; }
+  .starred-tip-meta { flex: 1; }
+  .starred-tip-label { font-size: 10.5px; color: var(--amber); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 3px; }
+  .starred-tip-text { font-size: 13.5px; line-height: 1.65; color: var(--ink); }
+  .unstar-btn { flex-shrink: 0; background: none; border: none; cursor: pointer; font-size: 15px; color: var(--star-on); padding: 2px; margin-top: 2px; transition: transform 0.1s; }
+  .unstar-btn:hover { transform: scale(1.15); }
+  .topic-block { border: 0.5px solid var(--border); border-radius: 11px; background: var(--white); margin-bottom: 9px; overflow: hidden; transition: border-color 0.15s; }
+  .topic-block:hover { border-color: var(--border-hover); }
+  .topic-header { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; cursor: pointer; user-select: none; gap: 12px; }
+  .topic-header-left { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+  .topic-number { font-family: 'Fraunces', serif; font-size: 14px; color: var(--amber); font-weight: 500; flex-shrink: 0; min-width: 18px; }
+  .topic-name { font-family: 'Fraunces', serif; font-size: 15.5px; font-weight: 500; color: var(--ink); flex: 1; min-width: 0; }
+  .topic-count { font-size: 12px; color: var(--ink-faint); flex-shrink: 0; background: var(--tag-bg); padding: 3px 9px; border-radius: 20px; }
+  .topic-chevron { font-size: 15px; color: var(--ink-faint); flex-shrink: 0; transition: transform 0.2s; }
+  .topic-block.open .topic-chevron { transform: rotate(180deg); }
+  .subtopic-list { display: none; border-top: 0.5px solid var(--border); }
+  .topic-block.open .subtopic-list { display: block; }
+  .subtopic-section { border-bottom: 0.5px solid var(--border); }
+  .subtopic-section:last-child { border-bottom: none; }
+  .subtopic-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; cursor: pointer; background: var(--cream); gap: 10px; user-select: none; transition: background 0.1s; }
+  .subtopic-header:hover { background: var(--cream-dark); }
+  .subtopic-name { font-size: 13px; font-weight: 500; color: var(--ink-muted); flex: 1; }
+  .subtopic-chevron { font-size: 13px; color: var(--ink-faint); transition: transform 0.2s; flex-shrink: 0; }
+  .subtopic-section.open .subtopic-chevron { transform: rotate(180deg); }
+  .tips-list { display: none; }
+  .subtopic-section.open .tips-list { display: block; }
+  .tip-item { display: flex; align-items: flex-start; gap: 11px; padding: 12px 18px; border-top: 0.5px solid var(--border); background: var(--white); transition: background 0.1s; }
+  .tip-item:hover { background: var(--cream); }
+  .tip-item.highlighted { background: var(--amber-light); }
+  .tip-item.highlighted:hover { background: #fdefc5; }
+  .star-btn { flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 0 2px; font-size: 16px; color: var(--star-off); transition: color 0.15s, transform 0.1s; line-height: 1; margin-top: 2px; }
+  .star-btn:hover { transform: scale(1.2); color: var(--star-on); }
+  .star-btn.starred { color: var(--star-on); }
+  .tip-text { font-size: 14px; line-height: 1.7; color: var(--ink); flex: 1; }
+  .tip-tag { display: inline-block; font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; background: var(--amber-light); color: var(--amber); border: 0.5px solid var(--amber-border); border-radius: 4px; padding: 1px 7px; margin-right: 7px; vertical-align: 1px; white-space: nowrap; }
+  .no-results { text-align: center; padding: 3rem 1rem; color: var(--ink-faint); font-size: 14px; font-style: italic; display: none; }
+  .footer { text-align: center; margin-top: 2.5rem; font-size: 12px; color: var(--ink-faint); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--amber-border); border-radius: 3px; }
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">0625 · IGCSE · All papers</p>
+    <h1 class="cie-page-title">Examiner <em>Tips</em></h1>
+    <p class="cie-page-lede">Distilled from CIE examiner reports across the 0625 syllabus &mdash; the habits and mistakes that come up year after year.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+<div class="page-wrap">
+
+  <div class="header">
+    <div class="header-eyebrow">CIE IGCSE Physics 0625 &nbsp;·&nbsp; 2026–2028 Specification</div>
+    <div class="header-title">Examiner Tips</div>
+    <div class="header-meta">
+      <span class="stat-pill"><strong id="total-count">—</strong> tips across <strong>6</strong> topics</span>
+      <span class="stat-pill"><strong id="star-count">0</strong> starred</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <i class="ti ti-search search-icon" aria-hidden="true"></i>
+      <input type="text" id="search-input" placeholder="Search tips…" oninput="handleSearch()" />
+    </div>
+    <button class="filter-btn" id="ext-btn" onclick="toggleExtended()">
+      <i class="ti ti-tag" aria-hidden="true"></i> Extended only
+    </button>
+    <button class="filter-btn" id="starred-btn" onclick="toggleStarredView()">
+      <i class="ti ti-star" aria-hidden="true"></i> Starred
+    </button>
+  </div>
+
+  <div class="starred-panel" id="starred-panel">
+    <div class="starred-panel-header" onclick="toggleStarredPanel()">
+      <div class="starred-panel-title">
+        <i class="ti ti-star-filled" aria-hidden="true"></i>
+        Starred tips <span id="starred-panel-count" style="font-size:12px;font-weight:400;opacity:0.7"></span>
+      </div>
+      <i class="ti ti-chevron-down" id="starred-chevron" style="font-size:15px;color:var(--amber);transition:transform 0.2s"></i>
+    </div>
+    <div class="starred-panel-body" id="starred-panel-body">
+      <div class="starred-empty">No starred tips yet — click ☆ on any tip to save it here.</div>
+    </div>
+  </div>
+
+  <div id="topic-container"></div>
+  <div class="no-results" id="no-results">No tips match your search.</div>
+  <div class="footer">© Richard Tyson &nbsp;·&nbsp; CIE IGCSE Physics 0625</div>
+
+</div>
+<script>
+const TIPS_DATA = [
+  { topic: "Topic 1 — Motion, Forces and Energy", topicNum: "1", subtopics: [
+    { name: "1.1 Physical Quantities and Measurement", tips: [
+      { text: "When asked to 'state' whether a quantity is a scalar or vector, do not just give an example — you must explicitly say 'scalar' or 'vector' and refer to direction.", extended: false },
+      { text: "The word 'describe' requires you to say HOW the measurement is made (e.g. use a ruler aligned with the object, read at eye level) — not just name the instrument.", extended: false },
+      { text: "Timing errors: always state that you measure MULTIPLE oscillations and DIVIDE by the number. Timing a single swing is penalised as it does not reduce reaction time error.", extended: false },
+      { text: "When using a measuring cylinder: always read the BOTTOM of the meniscus and hold the cylinder upright at EYE LEVEL. State both points to gain full marks on method questions.", extended: false },
+      { text: "Vector resultant (Extended): do not confuse the resultant magnitude (Pythagoras) with the direction (tan). The question will ask for both; omitting the angle loses a mark.", extended: true },
+      { text: "Always state the direction of a resultant vector with reference to one of the components (e.g. '53° north of east', not just '53°').", extended: true },
+      { text: "Command word trap: 'define' requires a precise statement (e.g. 'A scalar quantity has magnitude only'). 'Give an example' is not a definition.", extended: false }
+    ]},
+    { name: "1.2 Motion", tips: [
+      { text: "g = 9.8 m/s² is the only accepted value in the 2026–2028 specification. Writing g = 10 m/s² will lose the mark on any question that asks you to state its value.", extended: false },
+      { text: "Speed vs velocity: always use the word 'direction' when defining velocity. Saying 'velocity is how fast something moves' does not gain the mark.", extended: false },
+      { text: "Gradient trap: the gradient of a distance–time graph gives SPEED. The gradient of a speed–time graph gives ACCELERATION. Confusing the two is the most common error in this topic.", extended: false },
+      { text: "Area under a speed–time graph: split complex shapes into rectangles and triangles. Show each area calculation separately before adding to minimise arithmetic errors.", extended: false },
+      { text: "Terminal velocity: many candidates say 'gravity decreases' as terminal velocity is approached. Gravity (weight) is constant. It is the drag force that increases.", extended: false },
+      { text: "'Describe' the motion from a graph: you must describe EACH section of the graph in order. A general statement about the whole graph scores zero.", extended: false },
+      { text: "Deceleration: the spec states deceleration is negative acceleration. In calculations, substitute a = −3.0 m/s² (with minus sign) rather than writing 'deceleration = 3.0 m/s²' and using a positive value.", extended: false }
+    ]},
+    { name: "1.3 Mass and Weight", tips: [
+      { text: "Mass and weight are not the same. Mass is measured in kg and is a scalar. Weight is a force measured in N and is a vector. Confusing these is the most penalised error in this topic.", extended: false },
+      { text: "The equation is W = mg. When asked to 'recall and use' this equation, you must show the substitution, not just write the final answer.", extended: false },
+      { text: "g = 9.8 N/kg on Earth's surface. This is the accepted value; g = 10 N/kg is not awarded the mark in the 2026–2028 specification.", extended: false },
+      { text: "When asked to 'define' gravitational field strength, you must say 'force per unit mass' — do not say 'how strong gravity is'.", extended: false },
+      { text: "When discussing the Moon vs Earth, always state that MASS IS UNCHANGED. Candidates who say mass decreases on the Moon lose the mark.", extended: true },
+      { text: "A spring balance measures weight (force); a beam balance compares masses directly. This distinction is tested both directly and in extended writing questions.", extended: false }
+    ]},
+    { name: "1.4 Density", tips: [
+      { text: "The definition of density must say 'per unit volume' — not 'divided by volume'. Writing 'mass divided by volume' is technically correct but 'per unit volume' is the preferred phrasing.", extended: false },
+      { text: "Units matter: if you calculate in g and cm³, your answer is in g/cm³. If the question asks for kg/m³, you must convert (multiply g/cm³ by 1000).", extended: false },
+      { text: "For the displacement method: always state that the stone must be FULLY SUBMERGED and DOES NOT TOUCH THE SIDES of the cylinder.", extended: false },
+      { text: "Floating/sinking: the rule is density of object < density of liquid → floats. You must compare the two numerical density values explicitly — do not just state the rule.", extended: false },
+      { text: "For immiscible liquids, rank by density from bottom (highest) to top (lowest). An object settles at the interface between the two liquids with densities on either side of its own.", extended: true }
+    ]},
+    { name: "1.5 Forces", tips: [
+      { text: "The moment equation requires the PERPENDICULAR distance from the pivot — not the slant distance. If the force is not perpendicular to the beam, you must resolve it first.", extended: false },
+      { text: "Principle of moments: always take moments about the pivot. Show clockwise moments = anticlockwise moments explicitly in your working.", extended: false },
+      { text: "F = ma requires the RESULTANT force, not any individual force. If other forces act (e.g. friction), you must subtract them before using F = ma.", extended: true },
+      { text: "Spring constant units: if extension is given in cm, convert to metres (m) before calculating k in N/m. A very common error is leaving extension in cm, giving k in N/cm rather than N/m.", extended: false },
+      { text: "Centre of gravity method: you must describe at least TWO suspension points and state that the centre of gravity is where the two plumb lines CROSS. One suspension point is not sufficient.", extended: false },
+      { text: "Stability: a lower centre of gravity and a wider base increases stability. If asked to 'explain' stability, reference BOTH the centre of gravity position AND the base width.", extended: false }
+    ]},
+    { name: "1.6 Momentum", tips: [
+      { text: "Momentum is a VECTOR quantity. Always assign a positive direction at the start of a calculation and apply signs consistently.", extended: false },
+      { text: "Conservation of momentum applies only when there is NO external resultant force on the system. Always state this condition if asked to 'state the principle'.", extended: false },
+      { text: "Impulse = FΔt = Δ(mv). Questions often give force and time and ask for velocity — the route is: impulse first, then divide by mass.", extended: true },
+      { text: "When an object rebounds off a wall, the change in momentum is (final − initial), not just the final value. A ball bouncing back reverses its velocity, so Δv involves a sign change.", extended: false },
+      { text: "Units: kg m/s and N s are both correct for momentum/impulse. Show that they are equivalent if asked (N s = kg m/s² × s = kg m/s).", extended: true }
+    ]},
+    { name: "1.7 Energy, Work and Power", tips: [
+      { text: "When asked to 'state the principle of conservation of energy', use the Cambridge phrasing: energy cannot be created or destroyed, only transferred. Do not say 'total energy stays the same' without the transferred clause.", extended: false },
+      { text: "Work done = force × distance IN THE DIRECTION OF THE FORCE. If a horizontal force moves an object horizontally, use the horizontal distance.", extended: false },
+      { text: "Ek = ½mv²: be careful with order of operations. Evaluate v² first, then multiply by m, then halve. A very common error is calculating (mv)² / 2.", extended: true },
+      { text: "Efficiency: the answer must be between 0 and 100%. If you get above 100%, you have the fraction inverted. Always check: useful output < total input.", extended: false },
+      { text: "Energy resources: 'describe advantages and disadvantages' requires you to comment on renewability, reliability, AND environmental impact. A one-word answer ('clean') scores nothing without context.", extended: false }
+    ]},
+    { name: "1.8 Pressure", tips: [
+      { text: "'Define pressure' requires the exact phrase 'force per unit area'. Saying 'force on a surface' or 'how hard something pushes' will not score. The per unit area part is what makes it a definition.", extended: false },
+      { text: "Spec point 1.8–3 asks you to 'describe qualitatively'. You must name BOTH factors: depth and density. Examiners frequently give two marks here — one per factor. Only naming depth scores 1/2.", extended: false },
+      { text: "In p = F/A calculations, the force must be in newtons. If given a mass in kg, calculate weight first: F = mg, using g = 9.8 N/kg (not 10). Using g = 10 will cost the accuracy mark.", extended: false },
+      { text: "Δp = ρgΔh gives the pressure CHANGE due to depth, not the absolute pressure at a point.", extended: true },
+      { text: "Units check: Pa = N/m². Answers to Δp = ρgΔh are often large numbers (tens of thousands of Pa). If the answer line says kPa, divide by 1000. Always check the unit requested.", extended: true }
+    ]}
+  ]},
+  { topic: "Topic 2 — Thermal Physics", topicNum: "2", subtopics: [
+    { name: "2.1 Kinetic Particle Model", tips: [
+      { text: "When describing particle arrangements, the spec requires three aspects: arrangement (regular/irregular), separation (close/far), and motion (vibrate/flow/random). Missing any one costs a mark.", extended: false },
+      { text: "Brownian motion questions demand two linked ideas: (1) the smoke/pollen particles are hit by invisible fast-moving molecules, and (2) this provides evidence for the particle model.", extended: false },
+      { text: "'Explain why pressure increases when temperature increases at constant volume': faster particles (KE increases), more frequent collisions with walls, greater force per collision. All three ideas are needed for full marks.", extended: false },
+      { text: "Absolute zero: the spec requires both the value (−273 °C / 0 K) and the particle-level meaning (particles have least kinetic energy). Stating only the temperature value typically scores 1/2.", extended: false },
+      { text: "Temperature conversion: T(K) = θ(°C) + 273. Common error: students subtract 273 instead of adding. Kelvin temperatures are always larger than the same temperature in Celsius.", extended: false }
+    ]},
+    { name: "2.2 Thermal Properties and Temperature", tips: [
+      { text: "Thermal expansion order: gas > liquid > solid. Always link this to particle separation and intermolecular forces — simply stating the order without explanation scores zero.", extended: false },
+      { text: "Do not confuse internal energy with temperature: temperature measures average KE per particle; internal energy is the total KE + PE of all particles.", extended: false },
+      { text: "Specific heat capacity: ΔE = mcΔθ for calculation questions. Δθ is the temperature CHANGE, not the final temperature.", extended: false },
+      { text: "Melting and boiling: energy is put in but temperature stays constant. The energy breaks intermolecular bonds (increases potential energy), not kinetic energy.", extended: false },
+      { text: "Evaporation vs boiling: key differences are location (surface vs bulk), temperature (any vs fixed boiling point), and whether the liquid cools. Learn all three differences.", extended: false },
+      { text: "In the SHC experiment, always mention lagging (insulation) to reduce heat loss — without it, the calculated value of c will be too high.", extended: false }
+    ]},
+    { name: "2.3 Thermal Processes", tips: [
+      { text: "Conduction: in metals, say 'free electrons transfer energy rapidly'. In non-metals, say 'vibrating atoms pass energy to neighbours'. Never say 'heat moves through the metal'.", extended: false },
+      { text: "Convection only in fluids: the exam mark scheme requires 'density change' in the explanation. 'Warm air rises' alone scores partial credit; 'warm air expands, becomes less dense, rises' is the full answer.", extended: false },
+      { text: "Radiation surface rules (memorise): dull/matt black = best emitter AND best absorber; shiny/white = poorest emitter AND poorest absorber. The same rule applies to both emission and absorption.", extended: false },
+      { text: "Vacuum flask questions: address all three processes and link each to a structural feature. Most marks are lost by giving the feature without explaining which thermal process it reduces.", extended: false }
+    ]}
+  ]},
+  { topic: "Topic 3 — Waves", topicNum: "3", subtopics: [
+    { name: "3.1 General Wave Properties", tips: [
+      { text: "The spec lists seven wave features: wavefront, wavelength, frequency, crest (peak), trough, amplitude and wave speed. Crest, trough and wave speed are commonly omitted.", extended: false },
+      { text: "S-waves are transverse (Secondary = Side-to-side); P-waves are longitudinal (Primary = Push-pull). Examiners use these to test whether you know the definition, not just 'light' and 'sound'.", extended: false },
+      { text: "For refraction in a ripple tank: frequency NEVER changes. Write the chain — v decreases (shallower water) → λ decreases (since f constant, v = fλ) → direction bends towards normal.", extended: false },
+      { text: "Diffraction (Extended): maximum when gap ≈ λ. If gap >> λ, wavefronts are nearly straight. To increase diffraction: decrease gap width OR increase wavelength (decrease frequency).", extended: true },
+      { text: "Don't confuse refraction (speed change at boundary → direction change) with diffraction (spreading around gaps/obstacles). Both shown in ripple tank but are completely different phenomena.", extended: false }
+    ]},
+    { name: "3.2 Light", tips: [
+      { text: "Always draw the normal first when drawing reflection or refraction diagrams. All angles (i and r) are measured from the normal, not from the surface.", extended: false },
+      { text: "Plane mirror image: 'virtual' means it cannot be projected on a screen. Always state all three characteristics: same size, same distance, virtual.", extended: false },
+      { text: "Critical angle formula: n = 1 / sin c. The higher the refractive index, the smaller the critical angle, so TIR occurs more easily.", extended: true },
+      { text: "Optical fibres: the key phrase is 'total internal reflection'. Explain that the angle of incidence at the fibre wall always exceeds the critical angle, so the light cannot escape.", extended: false },
+      { text: "Dispersion: violet = shortest wavelength = highest frequency = refracted most. Red = longest wavelength = lowest frequency = refracted least. Memorise ROY G BIV order.", extended: false }
+    ]},
+    { name: "3.3 Electromagnetic Spectrum", tips: [
+      { text: "EM spectrum order (low f → high f): Radio, Micro, Infrared, Visible, UV, X-ray, Gamma. Memory aid: 'Raging Martians Invaded Venus Using X-ray Guns'.", extended: false },
+      { text: "All EM waves share two properties: (1) they are transverse waves, (2) they travel at 3.0 × 10⁸ m/s in a vacuum. These two facts appear in almost every EM spectrum question.", extended: false },
+      { text: "Digital vs analogue: the key advantage of digital is regeneration — a digital signal can be cleaned up perfectly at a repeater because it only has two values (0 and 1). Analogue noise cannot be removed.", extended: false }
+    ]},
+    { name: "3.4 Sound", tips: [
+      { text: "Sound is longitudinal (particles vibrate parallel to wave travel); light is transverse. Sound cannot travel in a vacuum. These two differences come up in almost every 'compare sound and light' question.", extended: false },
+      { text: "Amplitude → loudness; frequency → pitch. On an oscilloscope: taller trace = louder; more cycles per unit time = higher pitch. These are separate changes — don't confuse them.", extended: false },
+      { text: "Echo calculation: sound travels to the reflector AND back, so total distance = 2 × distance to reflector. Always divide the total distance by 2 to find the one-way distance.", extended: false },
+      { text: "Ultrasound sonar/depth: d = v × t / 2. The divide-by-2 is the most common error. The pulse travels to the bottom and back, so the time recorded is for twice the depth.", extended: false }
+    ]}
+  ]},
+  { topic: "Topic 4 — Electricity and Magnetism", topicNum: "4", subtopics: [
+    { name: "4.1 Simple Phenomena of Magnetism", tips: [
+      { text: "Field line direction: arrows always point from N to S outside the magnet. The direction at any point = direction the N pole of a compass needle points.", extended: false },
+      { text: "Temporary (soft iron) vs permanent (steel): soft iron is easy to magnetise/demagnetise; steel is hard. Soft iron is used in electromagnets; steel in permanent magnets.", extended: false },
+      { text: "Induced magnetism only applies to magnetic materials (iron, steel, nickel, cobalt) — you cannot induce magnetism in copper or plastic.", extended: false }
+    ]},
+    { name: "4.2 Electrical Quantities", tips: [
+      { text: "R = V/I: always check which quantity you are solving for. If asked for current, rearrange to I = V/R. If asked for p.d., use V = IR.", extended: false },
+      { text: "kWh cost: Energy (kWh) = power (kW) × time (h). Cost = energy (kWh) × price per kWh. Don't forget to convert minutes to hours and watts to kilowatts.", extended: false },
+      { text: "E.m.f. vs p.d. (Extended): e.m.f. is a property of a source (energy input per coulomb); p.d. is a property of a component (energy output per coulomb). Both measured in volts.", extended: true },
+      { text: "Conventional current goes from + to − (positive to negative); electron flow is from − to + (negative to positive). They are opposite.", extended: false },
+      { text: "I–V graphs (Extended): straight line through origin = constant resistance (Ohmic). Curve with decreasing gradient = increasing resistance (filament lamp). Near-zero then steep = diode (forward bias).", extended: true },
+      { text: "Wire resistance (Extended): R ∝ L means doubling the length doubles the resistance. R ∝ 1/A means doubling the cross-sectional area halves the resistance.", extended: true },
+      { text: "Electrostatic charging by friction: only electrons transfer — never protons. The object gaining electrons becomes negatively charged; the object losing electrons becomes positively charged.", extended: false }
+    ]},
+    { name: "4.3 Electric Circuits", tips: [
+      { text: "Series circuit rules: current is the same everywhere; p.d.s add up to the supply; resistances add up. Remember: 'series = same current'.", extended: false },
+      { text: "Parallel circuit rules: p.d. is the same across each branch; currents add up to the source current; combined resistance is less than any individual branch. Remember: 'parallel = same voltage'.", extended: false },
+      { text: "Resistors in parallel formula (Extended): 1/R = 1/R₁ + 1/R₂. The answer must always be less than either R₁ or R₂ — use this as a check.", extended: true },
+      { text: "Potential divider (Extended): V₁/V₂ = R₁/R₂. The larger resistor takes the larger share of the p.d. If one resistor is a thermistor or LDR, the output changes with temperature or light.", extended: true },
+      { text: "When solving multi-step circuit problems: find total resistance first, then total current, then use V = IR to find individual p.d.s, then use those p.d.s to find branch currents.", extended: false }
+    ]},
+    { name: "4.4 Electrical Safety", tips: [
+      { text: "Wire colours: live = brown; neutral = blue; earth = green/yellow. The earth pin is the longest in a three-pin plug.", extended: false },
+      { text: "Switch must be on the live wire — so the appliance is fully disconnected from the high-voltage line when switched off.", extended: false },
+      { text: "Fuse rating: choose the smallest rating that is just above the normal operating current. Calculate I = P/V first.", extended: false },
+      { text: "Double insulation (plastic casing): protects the USER from electric shock. The fuse still protects the CIRCUIT AND CABLE from overheating. Both are needed — they protect against different things.", extended: false },
+      { text: "Earthing: if a fault causes the metal casing to become live → large current flows through earth wire → fuse blows → circuit broken. Without earth, the casing stays live and you get a fatal shock when touching it.", extended: false }
+    ]},
+    { name: "4.5 Electromagnetic Effects", tips: [
+      { text: "Transformer equation: Vp/Vs = Np/Ns. The voltage ratio equals the turns ratio. Step-up: more turns on secondary (Ns > Np). Step-down: fewer turns on secondary (Ns < Np).", extended: false },
+      { text: "High-voltage transmission (Extended): the key equation is P_loss = I²R. High voltage means low current; low current squared means very small power loss.", extended: true },
+      { text: "A.c. generator: peaks occur when the coil plane is PARALLEL to the field (cutting flux at max rate). Zeros occur when the coil plane is perpendicular to the field.", extended: false },
+      { text: "Fleming's left-hand rule (motor rule, Extended): First finger = Field, seCond finger = Current, thuMb = Motion (force). Practise until automatic.", extended: true },
+      { text: "Relay: a small control current in an electromagnet closes a switch in a separate high-current circuit. The two circuits are electrically isolated.", extended: false }
+    ]}
+  ]},
+  { topic: "Topic 5 — Nuclear Physics", topicNum: "5", subtopics: [
+    { name: "5.1 The Nuclear Atom", tips: [
+      { text: "Nuclide notation: A (top, nucleon/mass number) = protons + neutrons; Z (bottom, proton/atomic number) = protons only. Neutrons = A – Z. Never mix these up.", extended: false },
+      { text: "Isotopes: same element means same Z (same number of protons). Different isotopes have different A (different number of neutrons). Same chemical properties; may differ in radioactivity.", extended: false },
+      { text: "Alpha-scattering experiment (Extended): the vast majority of particles passing straight through tells you the atom is mostly empty space.", extended: true },
+      { text: "Fission vs fusion (Extended): fission = splitting (heavy → light); fusion = joining (light → heavy). Both release energy. Stars use fusion; nuclear power stations use fission.", extended: true }
+    ]},
+    { name: "5.2 Radioactivity", tips: [
+      { text: "Properties of radiation: learn the table — nature, charge, ionising ability and penetration for α, β and γ. Highly ionising = less penetrating (uses up energy quickly).", extended: false },
+      { text: "Half-life calculations: count the number of half-lives first (time ÷ half-life), then halve the count rate that many times. You can also use N = N₀ × (½)ⁿ.", extended: false },
+      { text: "Spontaneous and random: spontaneous means no external trigger needed; random means you cannot predict which nucleus decays next or when. Use both words in an exam answer.", extended: false },
+      { text: "During α-decay: A goes down by 4, Z goes down by 2. During β-decay: A stays the same, Z goes up by 1. During γ-emission: A and Z are unchanged.", extended: true },
+      { text: "Corrected count rate (Extended): always subtract background before reading a half-life from a graph. If background is given in the question, do this before any calculation.", extended: true },
+      { text: "Applications (Extended): match half-life to the job. Smoke alarms need a long-lived α source. Medical tracers need a short half-life so radioactivity quickly reduces in the body.", extended: true }
+    ]}
+  ]},
+  { topic: "Topic 6 — Space Physics", topicNum: "6", subtopics: [
+    { name: "6.1 Earth and the Solar System", tips: [
+      { text: "Planet order mnemonic: My Very Educated Mother Just Served Us Nachos (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune). Learn this — it comes up in multiple-choice.", extended: false },
+      { text: "Inner vs outer planets: inner = rocky, small (4 closest); outer = gaseous, large (4 furthest).", extended: false },
+      { text: "Light travel time: t = d/c. Speed of light = 3.0 × 10⁸ m/s. Distances in the Solar System are large (10⁹–10¹² m), so answers will be in seconds or minutes.", extended: false },
+      { text: "Orbital speed formula (Extended): v = 2πr/T. The circumference of the orbit is 2πr; dividing by the period T gives average speed. Make sure T is in seconds.", extended: true },
+      { text: "Elliptical orbits (Extended): the Sun is at one focus, not the centre. Planets move faster when closer to the Sun (perihelion) because GPE converts to KE.", extended: true }
+    ]},
+    { name: "6.2 Stars and the Universe", tips: [
+      { text: "Redshift definition: an INCREASE in the observed WAVELENGTH of EM radiation from a receding source. Don't say 'shift to red light' — it applies to all EM radiation, not just visible light.", extended: false },
+      { text: "Big Bang evidence (Extended): (1) redshift of distant galaxies — Universe is expanding; (2) CMBR — relic radiation from the early Universe. Know both.", extended: true },
+      { text: "Life cycle of a star (Extended): less massive (like Sun): cloud → protostar → main sequence → red giant → planetary nebula + white dwarf. More massive: → red supergiant → supernova → neutron star or black hole.", extended: true },
+      { text: "Main sequence stability: gravitational inward force is BALANCED by outward force due to the high temperature in the centre (from fusion). When balance breaks → star evolves.", extended: false },
+      { text: "Hubble constant (Extended): H₀ = v/d. Age of Universe ≈ 1/H₀ ≈ 14 billion years.", extended: true }
+    ]}
+  ]}
+];
+
+let starredTips = new Set(), starredData = {}, showExtendedOnly = false, showStarredView = false, starredPanelOpen = false, searchTerm = '';
+
+document.getElementById('total-count').textContent = TIPS_DATA.reduce((n,t) => n + t.subtopics.reduce((m,s) => m + s.tips.length, 0), 0);
+
+function tipId(ti,si,tpi) { return `${ti}_${si}_${tpi}`; }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+// Flat lookup map: id → {text, subtopic} — populated during renderAll, avoids inline JS string escaping issues
+const tipMeta = {};
+
+function renderAll() {
+  const container = document.getElementById('topic-container');
+  container.innerHTML = '';
+  const q = searchTerm.toLowerCase();
+  let anyVisible = false;
+
+  TIPS_DATA.forEach((topic, ti) => {
+    let topicHasTip = false;
+    const blocks = topic.subtopics.map((sub, si) => {
+      const filtered = sub.tips.map((tip,tpi) => ({tip,origIdx:tpi})).filter(({tip,origIdx}) => {
+        if (showExtendedOnly && !tip.extended) return false;
+        if (showStarredView && !starredTips.has(tipId(ti,si,origIdx))) return false;
+        if (q && !tip.text.toLowerCase().includes(q)) return false;
+        return true;
+      });
+      if (!filtered.length) return null;
+      topicHasTip = true;
+      const tipsHtml = filtered.map(({tip,origIdx}) => {
+        const id = tipId(ti,si,origIdx), starred = starredTips.has(id);
+        tipMeta[id] = { text: tip.text, subtopic: sub.name };
+        const ext = tip.extended ? '<span class="tip-tag">Extended</span>' : '';
+        return `<div class="tip-item${starred?' highlighted':''}" id="tip-${id}">
+          <button class="star-btn${starred?' starred':''}" onclick="toggleStar('${id}')" aria-label="${starred?'Unstar':'Star'} tip">
+            <i class="ti ${starred?'ti-star-filled':'ti-star'}" aria-hidden="true"></i>
+          </button>
+          <div class="tip-text">${ext}${escHtml(tip.text)}</div>
+        </div>`;
+      }).join('');
+      const sk = `sub_${ti}_${si}`, open = !!(q||showStarredView||showExtendedOnly);
+      return { html: `<div class="subtopic-section${open?' open':''}" id="${sk}">
+        <div class="subtopic-header" onclick="toggleSubtopic('${sk}')">
+          <span class="subtopic-name">${escHtml(sub.name)}</span>
+          <i class="ti ti-chevron-down subtopic-chevron" aria-hidden="true"></i>
+        </div>
+        <div class="tips-list">${tipsHtml}</div>
+      </div>`, count: filtered.length };
+    }).filter(Boolean);
+
+    if (!topicHasTip) return;
+    anyVisible = true;
+    const totalTips = blocks.reduce((a,b)=>a+b.count,0);
+    const bk = `topic_${ti}`, open = !!(q||showStarredView||showExtendedOnly);
+    const el = document.createElement('div');
+    el.className = `topic-block${open?' open':''}`;
+    el.id = bk;
+    el.innerHTML = `<div class="topic-header" onclick="toggleTopic('${bk}')">
+      <div class="topic-header-left">
+        <span class="topic-number">${topic.topicNum}</span>
+        <span class="topic-name">${escHtml(topic.topic.replace(/^Topic \d — /,''))}</span>
+      </div>
+      <span class="topic-count">${totalTips} tip${totalTips!==1?'s':''}</span>
+      <i class="ti ti-chevron-down topic-chevron" aria-hidden="true"></i>
+    </div>
+    <div class="subtopic-list">${blocks.map(b=>b.html).join('')}</div>`;
+    container.appendChild(el);
+  });
+
+  document.getElementById('no-results').style.display = anyVisible ? 'none' : 'block';
+  updateStarredPanel();
+  document.getElementById('star-count').textContent = starredTips.size;
+}
+
+function toggleTopic(id) { document.getElementById(id).classList.toggle('open'); }
+function toggleSubtopic(id) { document.getElementById(id).classList.toggle('open'); }
+
+function toggleStar(id) {
+  const nowStarred = !starredTips.has(id);
+  const meta = tipMeta[id] || {};
+  if (nowStarred) { starredTips.add(id); starredData[id] = { text: meta.text, subtopic: meta.subtopic }; }
+  else { starredTips.delete(id); delete starredData[id]; }
+
+  // Update just the tip item in place — no full re-render
+  const tipEl = document.getElementById('tip-' + id);
+  if (tipEl) {
+    tipEl.classList.toggle('highlighted', nowStarred);
+    const btn = tipEl.querySelector('.star-btn');
+    const icon = tipEl.querySelector('.star-btn i');
+    btn.classList.toggle('starred', nowStarred);
+    icon.className = nowStarred ? 'ti ti-star-filled' : 'ti ti-star';
+    btn.setAttribute('aria-label', nowStarred ? 'Unstar tip' : 'Star tip');
+  }
+
+  // Update header count
+  document.getElementById('star-count').textContent = starredTips.size;
+
+  // Update starred panel without touching the topic tree
+  updateStarredPanel();
+}
+
+function updateStarredPanel() {
+  const body = document.getElementById('starred-panel-body');
+  const count = starredTips.size;
+  document.getElementById('starred-panel-count').textContent = count > 0 ? `(${count})` : '';
+  if (!count) {
+    body.innerHTML = '<div class="starred-empty">No starred tips yet — click ☆ on any tip to save it here.</div>';
+  } else {
+    body.innerHTML = Array.from(starredTips).map(id => {
+      const d = starredData[id] || {};
+      return `<div class="starred-tip">
+        <div class="starred-tip-meta">
+          <div class="starred-tip-label">${escHtml(d.subtopic||'')}</div>
+          <div class="starred-tip-text">${escHtml(d.text||'')}</div>
+        </div>
+        <button class="unstar-btn" onclick="toggleStar('${id}')" title="Remove star" aria-label="Remove star">
+          <i class="ti ti-star-filled" aria-hidden="true"></i>
+        </button>
+      </div>`;
+    }).join('');
+  }
+}
+
+function toggleStarredPanel() {
+  starredPanelOpen = !starredPanelOpen;
+  const panel = document.getElementById('starred-panel');
+  const body = document.getElementById('starred-panel-body');
+  const chevron = document.getElementById('starred-chevron');
+  if (starredPanelOpen) { panel.classList.add('open'); body.style.display='block'; chevron.style.transform='rotate(180deg)'; }
+  else { panel.classList.remove('open'); body.style.display='none'; chevron.style.transform=''; }
+}
+
+function toggleExtended() {
+  showExtendedOnly = !showExtendedOnly;
+  document.getElementById('ext-btn').classList.toggle('active', showExtendedOnly);
+  if (showExtendedOnly) { showStarredView=false; document.getElementById('starred-btn').classList.remove('active'); }
+  renderAll();
+}
+
+function toggleStarredView() {
+  showStarredView = !showStarredView;
+  document.getElementById('starred-btn').classList.toggle('active', showStarredView);
+  if (showStarredView) { showExtendedOnly=false; document.getElementById('ext-btn').classList.remove('active'); }
+  renderAll();
+}
+
+function handleSearch() { searchTerm = document.getElementById('search-input').value; renderAll(); }
+
+renderAll();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();CIEGate.watchBrowse();</script>
+</body>
+</html>

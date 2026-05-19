@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE Insider · Examiner-grade revision tools for Cambridge Physics</title>
+<meta name="description" content="Free, interactive revision trainers for Cambridge IGCSE (0625) and AS/A Level (9702) Physics. Built around what examiners actually look for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5efe4;
+    --cream-deep: #ede4d2;
+    --cream-warm: #faf6ec;
+    --ink: #1f1a14;
+    --ink-soft: #3a3127;
+    --ink-mute: #6b5e4d;
+    --rule: #d8ccb4;
+    --rule-soft: #e6dcc6;
+    --accent: #a83b1f;
+    --accent-deep: #7d2a14;
+    --accent-soft: #e8b89f;
+    --gold: #b8893a;
+    --green: #4a6b3a;
+    --green-soft: #d4dcc4;
+    --shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    --shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    background-image:
+      radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+      radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ TOP BAR ============ */
+
+  .topbar {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .wordmark .mark {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    align-self: center;
+  }
+  .wordmark .name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    .wordmark .tag { display: none; }
+  }
+
+  /* ============ HERO ============ */
+
+  header.hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+    color: var(--ink);
+    max-width: 900px;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent-deep);
+  }
+
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ============ SYLLABUS ROWS ============ */
+
+  main { padding: 56px 0 80px; }
+
+  .syllabus-row { margin-bottom: 56px; }
+  .syllabus-row:last-child { margin-bottom: 0; }
+
+  .syllabus-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .syllabus-head .left {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .syllabus-head h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .syllabus-head .code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-mute);
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+  .syllabus-head .level {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 880px) {
+    .tile-grid { grid-template-columns: 1fr; }
+  }
+
+  .tile {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+    min-height: 200px;
+  }
+  .tile.live { cursor: pointer; }
+  .tile.live:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+  .tile.soon {
+    opacity: 0.62;
+    cursor: default;
+  }
+
+  .tile-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .tile-paper {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+  }
+  .tile-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+  .tile-badge.live {
+    background: var(--green-soft);
+    color: var(--green);
+  }
+  .tile-badge.soon {
+    background: var(--cream-deep);
+    color: var(--ink-mute);
+  }
+
+  .tile h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .tile p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  .tile-foot {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tile.live:hover .tile-foot {
+    color: var(--accent-deep);
+  }
+  .tile-foot .arrow {
+    transition: transform 0.15s ease;
+  }
+  .tile.live:hover .tile-foot .arrow {
+    transform: translateX(3px);
+  }
+
+  .row-note {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: var(--ink);
+    color: var(--cream-warm);
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    color: var(--accent-soft);
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: var(--cream-warm);
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent-soft);
+  }
+  .capture p {
+    margin: 0;
+    color: var(--rule);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rule);
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid var(--ink-mute);
+    background: rgba(245, 239, 228, 0.06);
+    color: var(--cream-warm);
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-soft);
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: var(--ink-mute);
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: var(--accent);
+    color: var(--cream-warm);
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: var(--accent-deep); }
+  .capture .fine {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+
+  /* ============ FOOTER ============ */
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 56px;
+    margin-top: 80px;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  footer .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer .disclaimer {
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  footer a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
+  footer a:hover { color: var(--accent); }
+</style>
+<script src="/gate.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="wordmark" href="/">
+      <span class="mark"></span>
+      <span class="name">CIE Insider</span>
+      <span class="tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Cambridge IGCSE & A Level Physics</div>
+    <h1>Revision tools built around what <em>examiners actually look for</em>.</h1>
+    <p class="lede">Free, interactive trainers for Cambridge Physics — focused on the mark-scheme habits that lift a grade, not generic past-paper grinding.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- =================== 0625 =================== -->
+  <section class="syllabus-row">
+    <div class="syllabus-head">
+      <div class="left">
+        <h2>Physics</h2>
+        <span class="code">0625</span>
+        <span class="level">IGCSE</span>
+      </div>
+    </div>
+
+    <div class="tile-grid">
+
+      <a class="tile live" href="/mcq/?paper=0625_w25_qp_11">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 1</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>MCQ Trainer — Core</h3>
+        <p>The 40-question Core multiple-choice paper, with the PDF embedded beside the answer panel. Practice mode or exam conditions, instant marking, and a topic breakdown of where marks were dropped.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/mcq/?paper=0625_w25_qp_21">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 2</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>MCQ Trainer — Extended</h3>
+        <p>40 Extended multiple-choice questions over 45 minutes. Switch into exam-conditions mode for a paced run, or work through at your own pace with the mark scheme one click away.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/0625/p5/guide/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Practical Test — Examiner Guide</h3>
+        <p>Every mark-scheme rule, the top 25 mistakes ranked by frequency, a 50-point self-audit, and a drill quiz. Built from examiner reports 2021–2025.</p>
+        <span class="tile-foot">Open guide <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/0625/p5/drill/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Practical Test — Question Drill</h3>
+        <p>Train like you've marked the paper. Question-by-question prompts that push you to think like an examiner before seeing the answer.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/0625/tips/">
+        <div class="tile-head">
+          <span class="tile-paper">All papers</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Examiner Tips</h3>
+        <p>Distilled from CIE examiner reports across the 0625 syllabus — the habits and mistakes that come up year after year.</p>
+        <span class="tile-foot">Open guide <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+    <p class="row-note">More 0625 trainers in development.</p>
+  </section>
+
+  <!-- =================== 9702 =================== -->
+  <section class="syllabus-row">
+    <div class="syllabus-head">
+      <div class="left">
+        <h2>Physics</h2>
+        <span class="code">9702</span>
+        <span class="level">AS & A Level</span>
+      </div>
+    </div>
+
+    <div class="tile-grid">
+
+      <a class="tile live" href="/mcq/?paper=9702_w25_qp_11">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 1</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>MCQ Trainer — AS Multiple Choice</h3>
+        <p>40 AS-level multiple-choice questions over 75 minutes. PDF beside the answer panel, instant marking, and a topic breakdown after submission so the gaps show up clearly.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p3/limitations/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 3</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Limitations & Improvements Trainer</h3>
+        <p>The marks most students drop on Paper 3 — drilled with real experimental contexts and examiner-level answers.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p5/linearisation/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Linearisation Trainer — Q2</h3>
+        <p>Drill the log-linearisation and straight-line graph marks that Q2 tests every series — 18 relationships, step-by-step, with worked sketches.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p5/cheatsheet/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Planning & Analysis Cheatsheet</h3>
+        <p>Every mark type on Paper 5 in one reference sheet — planning structure, analysis steps, and common pitfalls.</p>
+        <span class="tile-foot">Open cheatsheet <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p5/checklist/">
+        <div class="tile-head">
+          <span class="tile-paper">Paper 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Planning & Analysis Checklist</h3>
+        <p>Self-assessment across variables, diagram, measurement, graph, gradient, and intercept — with ranked common mistakes from 15 series.</p>
+        <span class="tile-foot">Open checklist <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/uncertainties/">
+        <div class="tile-head">
+          <span class="tile-paper">Papers 3 &amp; 5</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Uncertainties Trainer</h3>
+        <p>Absolute and percentage uncertainties, combining rules, and graph-based uncertainty — the skills Cambridge tests on every practical paper. Reference + drill modes.</p>
+        <span class="tile-foot">Open trainer <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+    <p class="row-note">More 9702 trainers in development.</p>
+  </section>
+
+  <!-- =================== REFERENCE =================== -->
+  <section class="syllabus-row">
+    <div class="syllabus-head">
+      <div class="left">
+        <h2>Reference</h2>
+        <span class="level">Definitions & Formulae</span>
+      </div>
+    </div>
+
+    <div class="tile-grid">
+
+      <a class="tile live" href="/0625/definitions/">
+        <div class="tile-head">
+          <span class="tile-paper">0625 · IGCSE</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Definitions & Formulae Flashcards</h3>
+        <p>Shuffle, drill, and flag missed items for re-testing. Every definition and formula you need to recall under exam conditions.</p>
+        <span class="tile-foot">Open flashcards <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p2/definitions/">
+        <div class="tile-head">
+          <span class="tile-paper">9702 · Paper 2</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Definitions & Formulae Flashcards</h3>
+        <p>AS-level definitions and formulae drilled as flashcards — shuffle mode, missed-item review, and retest until clean.</p>
+        <span class="tile-foot">Open flashcards <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tile live" href="/9702/p4/definitions/">
+        <div class="tile-head">
+          <span class="tile-paper">9702 · Paper 4</span>
+          <span class="tile-badge live">Live</span>
+        </div>
+        <h3>Definitions & Formulae Flashcards</h3>
+        <p>A2-level definitions and formulae — same drill system, A2 content. Work through until every card is clean.</p>
+        <span class="tile-foot">Open flashcards <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <div class="disclaimer">
+      <strong style="color: var(--ink-soft);">CIE Insider</strong> · Not affiliated with or endorsed by Cambridge International Examinations. "Cambridge", "CIE", and syllabus codes are referenced for navigation only.
+    </div>
+    <div>
+      © <span id="year"></span> CIE Insider
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

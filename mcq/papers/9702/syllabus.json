@@ -1,0 +1,110 @@
+{
+  "syllabusCode": "9702",
+  "name": "A Level Physics",
+  "topics": [
+    {
+      "id": "physical_quantities",
+      "name": "Physical quantities and units",
+      "subtopics": [
+        { "id": "si_units", "name": "SI units and prefixes" },
+        { "id": "scalars_vectors", "name": "Scalars and vectors" },
+        { "id": "errors_uncertainties", "name": "Errors and uncertainties" }
+      ]
+    },
+    {
+      "id": "kinematics",
+      "name": "Kinematics",
+      "subtopics": [
+        { "id": "equations_motion", "name": "Equations of motion" },
+        { "id": "motion_graphs_al", "name": "Motion graphs" },
+        { "id": "projectile", "name": "Projectile motion" }
+      ]
+    },
+    {
+      "id": "dynamics",
+      "name": "Dynamics",
+      "subtopics": [
+        { "id": "newtons_laws_al", "name": "Newton's laws" },
+        { "id": "linear_momentum", "name": "Linear momentum" },
+        { "id": "collisions", "name": "Elastic and inelastic collisions" }
+      ]
+    },
+    {
+      "id": "forces_density_pressure",
+      "name": "Forces, density, pressure",
+      "subtopics": [
+        { "id": "turning_effects", "name": "Turning effects of forces" },
+        { "id": "equilibrium", "name": "Equilibrium of forces" },
+        { "id": "density_pressure_al", "name": "Density and pressure" },
+        { "id": "upthrust", "name": "Upthrust" }
+      ]
+    },
+    {
+      "id": "work_energy_power",
+      "name": "Work, energy, power",
+      "subtopics": [
+        { "id": "work_done_al", "name": "Work done" },
+        { "id": "ke_pe_al", "name": "KE and GPE" },
+        { "id": "power_efficiency", "name": "Power and efficiency" }
+      ]
+    },
+    {
+      "id": "deformation",
+      "name": "Deformation of solids",
+      "subtopics": [
+        { "id": "stress_strain", "name": "Stress, strain, Young modulus" },
+        { "id": "elastic_plastic", "name": "Elastic and plastic behaviour" }
+      ]
+    },
+    {
+      "id": "waves_al",
+      "name": "Waves",
+      "subtopics": [
+        { "id": "progressive_waves", "name": "Progressive waves" },
+        { "id": "transverse_longitudinal_al", "name": "Transverse and longitudinal" },
+        { "id": "doppler", "name": "Doppler effect" },
+        { "id": "em_waves_al", "name": "Electromagnetic spectrum" },
+        { "id": "polarisation", "name": "Polarisation" }
+      ]
+    },
+    {
+      "id": "superposition",
+      "name": "Superposition",
+      "subtopics": [
+        { "id": "stationary_waves", "name": "Stationary waves" },
+        { "id": "diffraction_al", "name": "Diffraction" },
+        { "id": "interference", "name": "Two-source interference" },
+        { "id": "diffraction_gratings", "name": "Diffraction gratings" }
+      ]
+    },
+    {
+      "id": "electricity_al",
+      "name": "Electricity",
+      "subtopics": [
+        { "id": "current_charge", "name": "Electric current and charge" },
+        { "id": "pd_emf", "name": "Potential difference and EMF" },
+        { "id": "resistance_resistivity", "name": "Resistance and resistivity" },
+        { "id": "iv_characteristics", "name": "I-V characteristics" }
+      ]
+    },
+    {
+      "id": "dc_circuits",
+      "name": "DC circuits",
+      "subtopics": [
+        { "id": "kirchhoff", "name": "Kirchhoff's laws" },
+        { "id": "potential_dividers", "name": "Potential dividers" },
+        { "id": "internal_resistance", "name": "Internal resistance" }
+      ]
+    },
+    {
+      "id": "particle_physics",
+      "name": "Particle physics",
+      "subtopics": [
+        { "id": "atomic_structure_al", "name": "Atomic structure" },
+        { "id": "nucleons_electrons", "name": "Nucleons and electrons" },
+        { "id": "fundamental_particles", "name": "Fundamental particles" },
+        { "id": "antiparticles", "name": "Antiparticles" }
+      ]
+    }
+  ]
+}

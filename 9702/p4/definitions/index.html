@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9702 Paper 4 — Definitions & Formulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--surface:#141720;--surface2:#1c2030;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);--text:#e8eaf0;--muted:#6b7280;--accent:#7ee8a2;--accent-dim:rgba(126,232,162,0.12);--accent2:#60a5fa;--accent2-dim:rgba(96,165,250,0.12);--danger:#f87171;--danger-dim:rgba(248,113,113,0.12);--warn:#fbbf24;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-40%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(126,232,162,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(96,165,250,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+#app{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem;min-height:100vh}
+.header{margin-bottom:2rem;animation:fadeUp 0.4s ease both}
+.header-eyebrow{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem}
+.header-title{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.header-sub{font-size:13px;color:var(--muted);margin-top:0.25rem}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0.75rem;animation:fadeUp 0.4s 0.05s ease both}
+.filter-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:5px 12px;border-radius:4px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.filter-btn:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+.filter-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.filter-btn.active-blue{background:var(--accent2-dim);border-color:var(--accent2);color:var(--accent2)}
+.filter-divider{width:1px;background:var(--border2);align-self:stretch;margin:2px 4px}
+.topic-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.25rem;animation:fadeUp 0.4s 0.1s ease both}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center}
+.stat-n{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--text);display:block}
+.stat-n.g{color:var(--accent)}.stat-n.r{color:var(--danger)}
+.stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;display:block}
+.progress-wrap{height:2px;background:rgba(255,255,255,0.06);border-radius:1px;margin-bottom:1.5rem;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 0.4s cubic-bezier(.4,0,.2,1);width:0%}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem;animation:fadeUp 0.4s 0.15s ease both;transition:border-color 0.2s}
+.card:hover{border-color:var(--border2)}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.card-topic{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.08em}
+.card-badge{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:4px;letter-spacing:0.06em;text-transform:uppercase}
+.badge-def{background:var(--accent2-dim);color:var(--accent2);border:1px solid rgba(96,165,250,0.2)}
+.badge-form{background:rgba(251,191,36,0.1);color:var(--warn);border:1px solid rgba(251,191,36,0.2)}
+.question-text{font-size:18px;font-weight:500;color:var(--text);line-height:1.5;margin-bottom:1.5rem;letter-spacing:-0.01em;min-height:60px}
+.answer-box{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:none;animation:slideDown 0.2s ease both}
+.answer-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.answer-text{font-size:15px;color:var(--text);line-height:1.65;font-weight:300;white-space:pre-line}
+.actions{display:flex;gap:8px}
+.btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:11px 20px;border-radius:8px;cursor:pointer;transition:all 0.15s;border:1px solid;flex:1;text-align:center}
+.btn-reveal{background:transparent;border-color:var(--border2);color:var(--text)}
+.btn-reveal:hover{background:var(--surface2);border-color:rgba(255,255,255,0.25)}
+.btn-got{background:var(--accent-dim);border-color:rgba(126,232,162,0.3);color:var(--accent)}
+.btn-got:hover{background:rgba(126,232,162,0.2)}
+.btn-missed{background:var(--danger-dim);border-color:rgba(248,113,113,0.3);color:var(--danger)}
+.btn-missed:hover{background:rgba(248,113,113,0.2)}
+.btn-action{background:transparent;border-color:var(--border2);color:var(--muted)}
+.btn-action:hover{color:var(--text);border-color:rgba(255,255,255,0.2)}
+.kbd-hint{text-align:center;margin-top:1rem;font-family:var(--mono);font-size:11px;color:rgba(107,114,128,0.6);letter-spacing:0.06em}
+kbd{display:inline-block;padding:1px 6px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;font-size:10px;font-family:var(--mono);color:var(--muted);background:var(--surface)}
+.end-screen{text-align:center;padding:2rem 1rem;animation:fadeUp 0.4s ease both}
+.end-pct{font-family:var(--mono);font-size:72px;font-weight:300;letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem}
+.end-pct.great{color:var(--accent)}.end-pct.ok{color:var(--warn)}.end-pct.poor{color:var(--danger)}
+.end-label{font-size:14px;color:var(--muted);margin-bottom:2rem}
+.breakdown-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:480px;margin:0 auto 2rem;text-align:left}
+.breakdown-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.breakdown-topic{font-size:12px;color:var(--text);font-weight:500;margin-bottom:2px}
+.breakdown-score{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.breakdown-score .hit{color:var(--accent)}
+.end-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.end-actions .btn{flex:unset;min-width:140px}
+.hidden{display:none!important}
+/* Review screen */
+.review-screen{animation:fadeUp 0.4s ease both}
+.review-header{text-align:center;margin-bottom:1.75rem}
+.review-title{font-family:var(--mono);font-size:13px;color:var(--danger);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem}
+.review-subtitle{font-size:14px;color:var(--muted)}
+.review-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
+.review-item{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--danger);border-radius:8px;padding:1rem 1.25rem}
+.review-q{font-size:14px;color:var(--muted);margin-bottom:0.5rem;font-weight:500}
+.review-a{font-size:15px;color:var(--text);line-height:1.65;font-weight:300;white-space:pre-line}
+.review-a-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem}
+.review-actions{display:flex;gap:8px;justify-content:center;padding-bottom:1rem}
+.review-actions .btn{flex:unset;min-width:160px}
+/* Retest mode badge */
+.retest-banner{background:var(--danger-dim);border:1px solid rgba(248,113,113,0.25);border-radius:8px;padding:8px 14px;margin-bottom:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--danger);letter-spacing:0.08em;animation:fadeUp 0.3s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){.stats-row{grid-template-columns:repeat(2,1fr)}.breakdown-grid{grid-template-columns:1fr}.question-text{font-size:16px}.end-pct{font-size:56px}}
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === remap dark navy palette → cream === */
+:root {
+  --bg: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule-soft) !important;
+  --border-h: var(--cie-rule) !important;
+  --border2: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important;
+  --text-s: var(--cie-ink-soft) !important;
+  --text-t: var(--cie-ink-mute) !important;
+  --muted: var(--cie-ink-mute) !important;
+  --acc: var(--cie-accent) !important;
+  --acc-bg: rgba(168,59,31,0.10) !important;
+  --acc-b: var(--cie-accent-soft) !important;
+  --accent: var(--cie-accent) !important;
+  --accent-dim: rgba(168,59,31,0.10) !important;
+  --accent2: var(--cie-gold) !important;
+  --accent2-dim: rgba(184,137,58,0.12) !important;
+  --green: var(--cie-green) !important;
+  --red: var(--cie-accent-deep) !important;
+  --amber: var(--cie-gold) !important;
+  --warn: var(--cie-gold) !important;
+  --danger: var(--cie-accent-deep) !important;
+  --danger-dim: rgba(125,42,20,0.10) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">9702 · AS &amp; A Level · Paper 4</p>
+    <h1 class="cie-page-title">Definitions &amp; Formulae <em>Flashcards</em></h1>
+    <p class="cie-page-lede">A2-level definitions and formulae &mdash; same drill system, A2 content. Work through until every card is clean.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+<div id="app">
+  <div class="header">
+    <div class="header-eyebrow">Cambridge 9702 · Paper 4 · A Level · 2025–2027</div>
+    <div class="header-title">Definitions &amp; Formulae</div>
+    <div class="header-sub" id="deck-info">108 items · all topics</div>
+  </div>
+  <div class="filter-bar" id="section-filters">
+    <button class="filter-btn active" data-sec="all" onclick="setSec(this,'all')">All</button>
+    <button class="filter-btn" data-sec="def" onclick="setSec(this,'def')">Definitions</button>
+    <button class="filter-btn" data-sec="form" onclick="setSec(this,'form')">Formulae</button>
+    <div class="filter-divider"></div>
+    <button class="filter-btn active-blue" onclick="shuffleDeck()">&#8644; Shuffle</button>
+    <button class="filter-btn" onclick="resetSession()">&#8635; Reset</button>
+  </div>
+  <div class="topic-row" id="topic-filters"></div>
+  <div class="stats-row">
+    <div class="stat-box"><span class="stat-n" id="s-total">0</span><span class="stat-l">total</span></div>
+    <div class="stat-box"><span class="stat-n" id="s-done">0</span><span class="stat-l">done</span></div>
+    <div class="stat-box"><span class="stat-n g" id="s-got">0</span><span class="stat-l">got it</span></div>
+    <div class="stat-box"><span class="stat-n r" id="s-missed">0</span><span class="stat-l">missed</span></div>
+  </div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress"></div></div>
+  <div id="quiz-area">
+    <div class="card">
+      <div class="card-meta"><span class="card-topic" id="card-topic"></span><span class="card-badge" id="card-badge"></span></div>
+      <div class="question-text" id="question"></div>
+      <div class="answer-box" id="answer-box"><div class="answer-label">mark scheme answer</div><div class="answer-text" id="answer"></div></div>
+      <div class="actions" id="actions-before"><button class="btn btn-reveal" onclick="reveal()">Show answer</button></div>
+      <div class="actions hidden" id="actions-after">
+        <button class="btn btn-missed" onclick="mark(false)">&#x2715; Missed</button>
+        <button class="btn btn-got" onclick="mark(true)">&#x2713; Got it</button>
+      </div>
+    </div>
+    <div class="kbd-hint"><kbd>Space</kbd> reveal &nbsp;&nbsp; <kbd>&larr;</kbd> missed &nbsp;&nbsp; <kbd>&rarr;</kbd> got it</div>
+  </div>
+  <!-- Review wrong answers screen -->
+  <div id="review-screen" class="hidden review-screen">
+    <div class="review-header">
+      <div class="review-title">&#x2715; Missed items</div>
+      <div class="review-subtitle" id="review-subtitle"></div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+    <div class="review-actions">
+      <button class="btn btn-missed" onclick="startRetest()">Start retest &#8594;</button>
+    </div>
+  </div>
+
+  <!-- Retest mode banner (shown inside quiz-area during retest) -->
+  <div id="retest-banner" class="retest-banner hidden">
+    &#8635; RETEST &nbsp;&middot;&nbsp; <span id="retest-label"></span>
+  </div>
+
+  <div id="end-screen" class="hidden">
+    <div class="end-pct" id="end-pct"></div>
+    <div class="end-label" id="end-label"></div>
+    <div class="breakdown-grid" id="breakdown"></div>
+    <div class="end-actions">
+      <button class="btn btn-missed" id="btn-review" onclick="showReview()">Review missed</button>
+      <button class="btn btn-action" onclick="resetSession()">Start over</button>
+    </div>
+  </div>
+</div>
+<script>
+const ALL=[
+  {s:"def",t:"Circular motion",q:"Define: The radian",a:"Unit of angle; angle subtended at the centre of a circle by an arc equal in length to the radius; 1\u202frad \u2248 57.3\u00b0"},
+  {s:"def",t:"Circular motion",q:"Define: Angular velocity \u03c9",a:"Angle swept per unit time; \u03c9 = \u03b8/t = 2\u03c0/T = 2\u03c0f"},
+  {s:"def",t:"Gravitational fields",q:"Define: Gravitational field strength g",a:"Force per unit mass (acting on a small test mass)"},
+  {s:"def",t:"Gravitational fields",q:"Define: Gravitational potential \u03d5",a:"Work done per unit mass in bringing a small test mass from infinity to that point"},
+  {s:"def",t:"Gravitational fields",q:"State: Gravitational potential energy (two masses)",a:"EP = \u2212GMm/r"},
+  {s:"def",t:"Gravitational fields",q:"Define: Equipotential surface",a:"Surface on which the gravitational potential is the same at all points"},
+  {s:"def",t:"Temperature",q:"Define: Absolute zero",a:"The lowest possible temperature; 0\u202fK / \u2212273.15\u202f\u00b0C; temperature at which particles have minimum internal energy"},
+  {s:"def",t:"Temperature",q:"Define: Specific heat capacity",a:"Energy required per unit mass to raise the temperature by 1\u202fK (with no change of state)"},
+  {s:"def",t:"Temperature",q:"Define: Specific latent heat of fusion",a:"Energy required per unit mass to change state from solid to liquid at constant temperature"},
+  {s:"def",t:"Temperature",q:"Define: Specific latent heat of vaporisation",a:"Energy required per unit mass to change state from liquid to gas at constant temperature"},
+  {s:"def",t:"Ideal gases",q:"State all five assumptions of an ideal gas",a:"1. Molecules have negligible volume compared to container\n2. Collisions are perfectly elastic\n3. No intermolecular forces except during collisions\n4. Time of collision negligible compared to time between collisions\n5. Large number of molecules in random motion"},
+  {s:"def",t:"Ideal gases",q:"Define: Avogadro constant NA",a:"Number of atoms / molecules in one mole of a substance (6.02 \u00d7 10\u00b2\u00b3 mol\u207b\u00b9)"},
+  {s:"def",t:"Ideal gases",q:"Define: Boltzmann constant k",a:"k = R / NA; relates mean kinetic energy of a molecule to temperature"},
+  {s:"def",t:"Thermodynamics",q:"Define: Internal energy",a:"Sum of the random kinetic and potential energies of all the molecules / atoms of the system"},
+  {s:"def",t:"Thermodynamics",q:"State: First law of thermodynamics",a:"Increase in internal energy = heat supplied to system + work done on system  (\u0394U = q + W)"},
+  {s:"def",t:"Oscillations",q:"Define: Angular frequency \u03c9",a:"2\u03c0f = 2\u03c0/T; relates frequency of oscillation to angular measure"},
+  {s:"def",t:"Oscillations",q:"Define: Simple harmonic motion (SHM)",a:"Acceleration proportional to displacement from a fixed point and directed towards that point"},
+  {s:"def",t:"Oscillations",q:"Define: Free oscillation",a:"Oscillation at natural frequency with no energy input / no resistive forces"},
+  {s:"def",t:"Oscillations",q:"Define: Resonance",a:"When driving frequency equals natural frequency, resulting in maximum amplitude"},
+  {s:"def",t:"Oscillations",q:"Define: Damping",a:"Progressive reduction in amplitude of oscillation due to energy loss to surroundings"},
+  {s:"def",t:"Oscillations",q:"Describe: Light damping",a:"Oscillates with decreasing amplitude"},
+  {s:"def",t:"Oscillations",q:"Describe: Critical damping",a:"Returns to equilibrium in shortest time without oscillating"},
+  {s:"def",t:"Oscillations",q:"Describe: Heavy damping",a:"Returns to equilibrium slowly without oscillating"},
+  {s:"def",t:"Electric fields",q:"Define: Electric field strength E",a:"Force per unit positive charge (acting on a small stationary test charge)"},
+  {s:"def",t:"Electric fields",q:"Define: Electric potential V",a:"Work done per unit positive charge in bringing a small test charge from infinity to that point"},
+  {s:"def",t:"Electric fields",q:"State: Electric potential energy (two charges)",a:"EP = Qq / (4\u03c0\u03b5\u2080r)"},
+  {s:"def",t:"Capacitance",q:"Define: Capacitance",a:"Charge stored per unit potential difference (across the capacitor)"},
+  {s:"def",t:"Capacitance",q:"Define: Time constant \u03c4",a:"Time for charge / voltage / current to fall to 1/e (\u224837%) of its initial value; \u03c4 = RC"},
+  {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux density B",a:"Force per unit current per unit length on a straight conductor placed at right angles to the field; unit tesla (T)"},
+  {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux \u03a6",a:"Product of magnetic flux density and the area perpendicular to the field: \u03a6 = BA"},
+  {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux linkage",a:"Product of magnetic flux and number of turns: N\u03a6"},
+  {s:"def",t:"Magnetic fields",q:"State: Faraday\u2019s law",a:"The magnitude of the induced e.m.f. is proportional to the rate of change of magnetic flux linkage"},
+  {s:"def",t:"Magnetic fields",q:"State: Lenz\u2019s law",a:"The induced current / e.m.f. is in a direction that opposes the change causing it"},
+  {s:"def",t:"Alternating currents",q:"Define: Root-mean-square (r.m.s.) current",a:"The steady direct current that would deliver the same power as the alternating current in a resistive load"},
+  {s:"def",t:"Alternating currents",q:"Define: Peak value (I\u2080 or V\u2080)",a:"Maximum value of the alternating current or voltage"},
+  {s:"def",t:"Quantum physics",q:"Define: Photon",a:"Quantum of electromagnetic energy"},
+  {s:"def",t:"Quantum physics",q:"Define: Work function \u03a6",a:"Minimum energy required to remove an electron from the surface of a metal"},
+  {s:"def",t:"Quantum physics",q:"Define: Threshold frequency",a:"Minimum frequency of incident radiation required to emit an electron from a metal surface"},
+  {s:"def",t:"Quantum physics",q:"Define: de Broglie wavelength",a:"Wavelength associated with a moving particle; \u03bb = h/p"},
+  {s:"def",t:"Quantum physics",q:"Define: Electronvolt (eV)",a:"Energy gained by an electron accelerated through a potential difference of 1\u202fV; 1\u202feV = 1.6 \u00d7 10\u207b\u00b9\u2079\u202fJ"},
+  {s:"def",t:"Nuclear physics",q:"Define: Radioactive decay",a:"Spontaneous and random disintegration of an unstable nucleus"},
+  {s:"def",t:"Nuclear physics",q:"Define: Activity",a:"Number of disintegrations per unit time"},
+  {s:"def",t:"Nuclear physics",q:"Define: Decay constant \u03bb",a:"Probability of decay of a nucleus per unit time"},
+  {s:"def",t:"Nuclear physics",q:"Define: Half-life",a:"Time for the activity (or number of undecayed nuclei) to fall to half its initial value"},
+  {s:"def",t:"Nuclear physics",q:"Define: Mass defect",a:"Difference between the mass of the separated nucleons and the mass of the nucleus"},
+  {s:"def",t:"Nuclear physics",q:"Define: Binding energy",a:"Energy required to separate a nucleus into its constituent nucleons / energy released when nucleus is assembled from its nucleons"},
+  {s:"def",t:"Nuclear physics",q:"Define: Binding energy per nucleon",a:"Total binding energy divided by the number of nucleons in the nucleus"},
+  {s:"def",t:"Medical physics",q:"Define: Specific acoustic impedance Z",a:"Z = \u03c1c, where \u03c1 is the density of the medium and c is the speed of sound in the medium"},
+  {s:"def",t:"Medical physics",q:"Define: Attenuation coefficient \u03bc",a:"Measure of how rapidly ultrasound or X-ray intensity decreases in a medium; used in I = I\u2080e\u207b\u03bcx"},
+  {s:"def",t:"Medical physics",q:"Define: Tracer (medical)",a:"Substance containing radioactive nuclei introduced into the body and absorbed by the tissue being studied"},
+  {s:"def",t:"Medical physics",q:"Define: Annihilation",a:"When a particle meets its antiparticle; mass\u2013energy and momentum are conserved; produces two gamma photons travelling in opposite directions"},
+  {s:"def",t:"Astronomy",q:"Define: Luminosity L",a:"Total power of electromagnetic radiation emitted by a star"},
+  {s:"def",t:"Astronomy",q:"Define: Radiant flux intensity F",a:"Power of radiation received per unit area perpendicular to direction of travel; F = L / (4\u03c0d\u00b2)"},
+  {s:"def",t:"Astronomy",q:"Define: Standard candle",a:"Object of known luminosity; used to determine distances to galaxies"},
+  {s:"def",t:"Astronomy",q:"State: Wien\u2019s displacement law",a:"The wavelength of peak emission is inversely proportional to the surface temperature: \u03bb_max \u221d 1/T"},
+  {s:"def",t:"Astronomy",q:"Define: Redshift",a:"Increase in observed wavelength of electromagnetic radiation from a receding source; evidence that the Universe is expanding"},
+  {s:"def",t:"Astronomy",q:"State: Hubble\u2019s law",a:"The recession speed of a galaxy is approximately proportional to its distance from us: v \u2248 H\u2080d"},
+  {s:"form",t:"Circular motion",q:"Formula: Angular velocity",a:"\u03c9 = 2\u03c0/T = 2\u03c0f"},
+  {s:"form",t:"Circular motion",q:"Formula: Linear speed from angular velocity",a:"v = r\u03c9"},
+  {s:"form",t:"Circular motion",q:"Formula: Centripetal acceleration (2 forms)",a:"a = r\u03c9\u00b2 = v\u00b2/r"},
+  {s:"form",t:"Circular motion",q:"Formula: Centripetal force (2 forms)",a:"F = mr\u03c9\u00b2 = mv\u00b2/r"},
+  {s:"form",t:"Gravitational fields",q:"Formula: Newton\u2019s law of gravitation",a:"F = Gm\u2081m\u2082 / r\u00b2"},
+  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational field strength (point mass)",a:"g = GM / r\u00b2"},
+  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential",a:"\u03d5 = \u2212GM / r"},
+  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential energy (two masses)",a:"EP = \u2212GMm / r"},
+  {s:"form",t:"Temperature",q:"Formula: Specific heat capacity",a:"\u0394E = mc\u0394T"},
+  {s:"form",t:"Temperature",q:"Formula: Specific latent heat",a:"E = mL"},
+  {s:"form",t:"Ideal gases",q:"Formula: Ideal gas equation (both forms)",a:"pV = nRT   and   pV = NkT"},
+  {s:"form",t:"Ideal gases",q:"Formula: Boltzmann constant",a:"k = R / NA"},
+  {s:"form",t:"Ideal gases",q:"Formula: Kinetic theory of gases",a:"pV = \u2153Nm\u27e8c\u00b2\u27e9"},
+  {s:"form",t:"Ideal gases",q:"Formula: Mean kinetic energy of a molecule",a:"\u00bdm\u27e8c\u00b2\u27e9 = \u00b3\u2082kT"},
+  {s:"form",t:"Thermodynamics",q:"Formula: Work done by a gas at constant pressure",a:"W = p\u0394V"},
+  {s:"form",t:"Thermodynamics",q:"Formula: First law of thermodynamics",a:"\u0394U = q + W"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 acceleration",a:"a = \u2212\u03c9\u00b2x"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 displacement",a:"x = x\u2080 sin(\u03c9t)"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 maximum velocity",a:"v\u2080 = \u03c9x\u2080"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 velocity at displacement x",a:"v = \u00b1\u03c9\u221a(x\u2080\u00b2 \u2212 x\u00b2)"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 total energy",a:"E = \u00bdm\u03c9\u00b2x\u2080\u00b2"},
+  {s:"form",t:"Electric fields",q:"Formula: Coulomb\u2019s law",a:"F = Q\u2081Q\u2082 / (4\u03c0\u03b5\u2080r\u00b2)"},
+  {s:"form",t:"Electric fields",q:"Formula: Electric field strength (radial)",a:"E = Q / (4\u03c0\u03b5\u2080r\u00b2)"},
+  {s:"form",t:"Electric fields",q:"Formula: Electric field strength (uniform)",a:"E = \u0394V / \u0394d"},
+  {s:"form",t:"Electric fields",q:"Formula: Electric potential (point charge)",a:"V = Q / (4\u03c0\u03b5\u2080r)"},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitance",a:"C = Q/V"},
+  {s:"form",t:"Capacitance",q:"Formula: Energy stored in capacitor (all 3 forms)",a:"W = \u00bdQV = \u00bdCV\u00b2 = Q\u00b2/2C"},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 charge",a:"Q = Q\u2080 e\u207b\u1d57\u141f\u1d3f\u1d9c\u1d30"},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 voltage",a:"V = V\u2080 e\u207b\u1d57\u141f\u1d3f\u1d9c\u1d30"},
+  {s:"form",t:"Capacitance",q:"Formula: Time constant",a:"\u03c4 = RC"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Magnetic flux",a:"\u03a6 = BA cos\u03b8"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Induced e.m.f. (Faraday\u2019s law)",a:"\u03b5 = \u2212N(\u0394\u03a6/\u0394t)"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Force on a current-carrying conductor",a:"F = BIL sin\u03b8"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Force on a moving charge",a:"F = BQv sin\u03b8"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Hall voltage",a:"VH = BI / (ntq)"},
+  {s:"form",t:"Alternating currents",q:"Formula: r.m.s. current and voltage",a:"Ir.m.s. = I\u2080/\u221a2   and   Vr.m.s. = V\u2080/\u221a2"},
+  {s:"form",t:"Quantum physics",q:"Formula: Photon energy",a:"E = hf"},
+  {s:"form",t:"Quantum physics",q:"Formula: Photoelectric effect",a:"hf = \u03a6 + \u00bdmv\u00b2\u2098\u2090\u02e3"},
+  {s:"form",t:"Quantum physics",q:"Formula: de Broglie wavelength",a:"\u03bb = h/p"},
+  {s:"form",t:"Quantum physics",q:"Formula: Energy level transition",a:"hf = E\u2081 \u2212 E\u2082"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Mass\u2013energy equivalence",a:"E = mc\u00b2"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Radioactive decay equation",a:"x = x\u2080 e\u207b\u03bbt  (x = activity, N, or count rate)"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Activity",a:"A = \u03bbN"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Half-life and decay constant",a:"t\u00bd = ln\u202f2 / \u03bb = 0.693 / \u03bb"},
+  {s:"form",t:"Medical physics",q:"Formula: Acoustic impedance",a:"Z = \u03c1c"},
+  {s:"form",t:"Medical physics",q:"Formula: Intensity reflection coefficient",a:"IR/I\u2080 = (Z\u2081 \u2212 Z\u2082)\u00b2 / (Z\u2081 + Z\u2082)\u00b2"},
+  {s:"form",t:"Medical physics",q:"Formula: Attenuation (ultrasound / X-ray)",a:"I = I\u2080 e\u207b\u03bcx"},
+  {s:"form",t:"Astronomy",q:"Formula: Radiant flux intensity",a:"F = L / (4\u03c0d\u00b2)"},
+  {s:"form",t:"Astronomy",q:"Formula: Stefan\u2013Boltzmann law",a:"L = 4\u03c0\u03c3r\u00b2T\u2074"},
+  {s:"form",t:"Astronomy",q:"Formula: Redshift",a:"\u0394\u03bb/\u03bb \u2248 \u0394f/f \u2248 v/c"},
+  {s:"form",t:"Astronomy",q:"Formula: Hubble\u2019s law",a:"v \u2248 H\u2080d"},
+];
+
+const TOPICS=[...new Set(ALL.map(i=>i.t))];
+let activeSec='all',activeTopic='all',deck=[],idx=0,results={got:0,missed:0},missedItems=[],revealed=false,isRetest=false,retestRound=1;
+
+function buildTopicButtons(){
+  const wrap=document.getElementById('topic-filters');wrap.innerHTML='';
+  const a=mkBtn('All topics',true,()=>setTopic(a,'all'));a.dataset.topic='all';wrap.appendChild(a);
+  TOPICS.forEach(t=>{const b=mkBtn(t,false,()=>setTopic(b,t));b.dataset.topic=t;wrap.appendChild(b);});
+}
+function mkBtn(l,active,fn){const b=document.createElement('button');b.className='filter-btn'+(active?' active':'');b.textContent=l;b.onclick=fn;return b;}
+function setSec(el,sec){activeSec=sec;document.querySelectorAll('#section-filters .filter-btn[data-sec]').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));buildDeck();}
+function setTopic(el,t){activeTopic=t;document.querySelectorAll('#topic-filters .filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.topic===t));buildDeck();}
+
+function hideAll(){
+  document.getElementById('quiz-area').classList.add('hidden');
+  document.getElementById('end-screen').classList.add('hidden');
+  document.getElementById('review-screen').classList.add('hidden');
+  document.getElementById('retest-banner').classList.add('hidden');
+}
+
+function buildDeck(){
+  isRetest=false;retestRound=1;
+  deck=ALL.filter(i=>(activeSec==='all'||i.s===activeSec)&&(activeTopic==='all'||i.t===activeTopic));
+  idx=0;results={got:0,missed:0};missedItems=[];updateStats();showCard();
+}
+function shuffleDeck(){buildDeck();for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}showCard();}
+function resetSession(){buildDeck();}
+
+function showCard(){
+  hideAll();
+  document.getElementById('quiz-area').classList.remove('hidden');
+  if(isRetest)document.getElementById('retest-banner').classList.remove('hidden');
+  if(idx>=deck.length){showEnd();return;}
+  revealed=false;
+  const item=deck[idx];
+  document.getElementById('card-topic').textContent=item.t;
+  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':'formula';badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
+  document.getElementById('question').textContent=item.q;document.getElementById('answer').textContent=item.a;
+  document.getElementById('answer-box').style.display='none';
+  document.getElementById('actions-before').classList.remove('hidden');
+  document.getElementById('actions-after').classList.add('hidden');
+  updateStats();
+}
+
+function reveal(){if(revealed)return;revealed=true;CIEGate.track('drill_answer');document.getElementById('answer-box').style.display='block';document.getElementById('actions-before').classList.add('hidden');document.getElementById('actions-after').classList.remove('hidden');}
+function mark(got){if(got){results.got++;}else{results.missed++;missedItems.push(deck[idx]);}idx++;updateStats();showCard();}
+
+function updateStats(){
+  const done=results.got+results.missed;
+  document.getElementById('s-total').textContent=deck.length;document.getElementById('s-done').textContent=done;document.getElementById('s-got').textContent=results.got;document.getElementById('s-missed').textContent=results.missed;
+  document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
+  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+(activeTopic==='all'?'all topics':activeTopic)+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
+  if(isRetest)info+=' \u00b7 retest '+retestRound;
+  document.getElementById('deck-info').textContent=info;
+  if(isRetest)document.getElementById('retest-label').textContent=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 round '+retestRound;
+}
+
+function showEnd(){
+  hideAll();
+  document.getElementById('end-screen').classList.remove('hidden');
+  const pct=deck.length?Math.round((results.got/deck.length)*100):0;
+  const el=document.getElementById('end-pct');el.textContent=pct+'%';el.className='end-pct '+(pct>=80?'great':pct>=60?'ok':'poor');
+  const label=isRetest?'Retest round '+retestRound+' \u00b7 ':'';
+  document.getElementById('end-label').textContent=label+results.got+' correct out of '+deck.length;
+  const tm={};deck.forEach(i=>{if(!tm[i.t])tm[i.t]={got:0,total:0};tm[i.t].total++;});deck.forEach(i=>{if(!missedItems.includes(i))tm[i.t].got++;});
+  document.getElementById('breakdown').innerHTML=Object.entries(tm).map(([t,sc])=>`<div class="breakdown-item"><div class="breakdown-topic">${t}</div><div class="breakdown-score"><span class="hit">${sc.got}</span> / ${sc.total}</div></div>`).join('');
+  document.getElementById('btn-review').style.display=missedItems.length?'':'none';
+  document.getElementById('progress').style.width='100%';
+}
+
+function showReview(){
+  hideAll();
+  document.getElementById('review-screen').classList.remove('hidden');
+  document.getElementById('review-subtitle').textContent=missedItems.length+' item'+(missedItems.length!==1?'s':'')+' to review before retesting';
+  document.getElementById('review-list').innerHTML=missedItems.map(item=>`
+    <div class="review-item">
+      <div class="review-q">${item.q}</div>
+      <div class="review-a-label">correct answer</div>
+      <div class="review-a">${item.a}</div>
+    </div>`).join('');
+}
+
+function startRetest(){
+  isRetest=true;retestRound++;
+  deck=[...missedItems];
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  idx=0;results={got:0,missed:0};missedItems=[];
+  updateStats();showCard();
+}
+
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;
+  if(e.key===' '){e.preventDefault();if(!revealed)reveal();}
+  if(e.key==='ArrowRight'&&revealed)mark(true);
+  if(e.key==='ArrowLeft'&&revealed)mark(false);
+});
+buildTopicButtons();buildDeck();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

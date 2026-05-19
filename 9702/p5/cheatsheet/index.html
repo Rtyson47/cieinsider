@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE 9702 Paper 5 — Cheat Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d; --surface: #141414; --surface2: #1c1c1c; --border: #2a2a2a;
+    --accent: #c8f135; --accent2: #35c8f1; --accent3: #f1c835; --accent4: #f17c35;
+    --text: #e8e8e8; --muted: #888; --danger: #ff5c5c; --purple: #c084fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; line-height: 1.5; padding: 18px; }
+  .header { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 14px; }
+  .header-left h1 { font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 700; color: var(--accent); }
+  .header-left p { font-size: 10px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; margin-top: 2px; }
+  .header-badges { display: flex; gap: 6px; }
+  .badge { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; padding: 2px 7px; border: 1px solid; text-transform: uppercase; letter-spacing: 1px; }
+  .bg { border-color: var(--accent); color: var(--accent); }
+  .bb { border-color: var(--accent2); color: var(--accent2); }
+  .by { border-color: var(--accent3); color: var(--accent3); }
+  .bp { border-color: var(--purple); color: var(--purple); }
+
+  .grid { display: grid; gap: 11px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: 1fr 1fr 1fr; }
+  .spacer { height: 11px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); padding: 11px 13px; }
+  .card-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; }
+  .num { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 700; padding: 1px 5px; }
+  .ng { background: var(--accent); color: #000; } .nb { background: var(--accent2); color: #000; }
+  .ny { background: var(--accent3); color: #000; } .no { background: var(--accent4); color: #000; }
+  .np { background: var(--purple); color: #000; } .nr { background: var(--danger); color: #000; }
+
+  .mt { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .mt th { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); text-align: left; padding: 3px 5px; border-bottom: 1px solid var(--border); }
+  .mt td { padding: 4px 5px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.35; }
+  .mt tr:last-child td { border-bottom: none; }
+  .mk { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--accent); white-space: nowrap; font-size: 10.5px; }
+  .pt { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--accent2); white-space: nowrap; }
+  .mt tr:hover td { background: var(--surface2); }
+
+  .cl { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .cl li { display: flex; gap: 6px; align-items: flex-start; font-size: 11.5px; line-height: 1.35; }
+  .cl li::before { content: '□'; font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-size: 10.5px; flex-shrink: 0; margin-top: 1px; }
+  .cl li.w::before { color: var(--danger); content: '✕'; font-weight: 700; }
+  .cl li.s { padding-left: 14px; color: var(--muted); font-size: 10.5px; }
+  .cl li.s::before { content: '→'; color: var(--muted); }
+
+  .fb { background: var(--surface2); border-left: 3px solid var(--accent); padding: 5px 9px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin: 5px 0; color: var(--accent); }
+  .fb.b { border-color: var(--accent2); color: var(--accent2); }
+  .fb.y { border-color: var(--accent3); color: var(--accent3); }
+  .fb.o { border-color: var(--accent4); color: var(--accent4); }
+  .fb.p { border-color: var(--purple); color: var(--purple); }
+  .fb.r { border-color: var(--danger); color: var(--danger); }
+
+  .al { background: #1a0808; border: 1px solid var(--danger); padding: 6px 9px; font-size: 11px; margin: 5px 0; color: #ffbbbb; }
+  .al strong { color: var(--danger); font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 2px; }
+  .tp { background: #0a1808; border: 1px solid #2a4a1a; padding: 6px 9px; font-size: 11px; margin: 5px 0; color: #bbffbb; }
+  .tp strong { color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 2px; }
+  .nb2 { background: #0a0a1a; border: 1px solid #2a2a5a; padding: 6px 9px; font-size: 11px; margin: 5px 0; color: #bbbbff; }
+  .nb2 strong { color: var(--purple); font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 2px; }
+
+  .sl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin: 9px 0 5px 0; display: flex; align-items: center; gap: 7px; }
+  .sl::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .er { display: flex; gap: 7px; align-items: flex-start; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 11.5px; }
+  .er:last-child { border-bottom: none; }
+  .et { font-family: 'IBM Plex Mono', monospace; color: var(--accent3); font-size: 10.5px; width: 85px; flex-shrink: 0; padding-top: 1px; }
+  .eb { flex: 1; }
+  .eb .sub { color: var(--muted); font-size: 10.5px; display: block; margin-top: 1px; }
+
+  .ur { display: flex; gap: 7px; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 11.5px; align-items: flex-start; }
+  .ur:last-child { border-bottom: none; }
+  .uo { font-family: 'IBM Plex Mono', monospace; color: var(--accent2); width: 65px; flex-shrink: 0; font-size: 10.5px; padding-top: 1px; }
+
+  .footer { margin-top: 11px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; }
+  .footer p { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--muted); }
+
+  @media print {
+    body { background: #fff; color: #000; padding: 10px; font-size: 10px; }
+    :root { --bg:#fff; --surface:#f7f7f7; --surface2:#eee; --border:#ccc; --accent:#2a7a00; --accent2:#005fa3; --accent3:#8a6000; --accent4:#a34500; --text:#111; --muted:#555; --danger:#cc0000; --purple:#7c3aed; }
+    .al { background:#fff0f0; } .tp { background:#f0fff0; } .nb2 { background:#f0f0ff; }
+  }
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === remap black/neon palette → cream === */
+:root {
+  --bg: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important;
+  --muted: var(--cie-ink-mute) !important;
+  --accent: var(--cie-accent) !important;
+  --accent2: var(--cie-gold) !important;
+  --accent3: var(--cie-green) !important;
+  --accent4: var(--cie-accent-deep) !important;
+  --danger: var(--cie-accent-deep) !important;
+  --purple: var(--cie-accent-deep) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">9702 · AS &amp; A Level · Paper 5</p>
+    <h1 class="cie-page-title">Planning &amp; Analysis <em>Cheatsheet</em></h1>
+    <p class="cie-page-lede">Every mark type on Paper 5 in one reference sheet &mdash; planning structure, analysis steps, and common pitfalls.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+
+<div class="header">
+  <div class="header-left">
+    <h1>CIE 9702 — Paper 5 Cheat Sheet</h1>
+    <p>Planning, Analysis and Evaluation · 30 marks · 1h 15min · Built from 6 mark schemes: m20 · w20 · w22 · w23 · m24 · s25</p>
+  </div>
+  <div class="header-badges">
+    <span class="badge bg">Q1 · 15 marks</span>
+    <span class="badge bb">Q2 · 15 marks</span>
+    <span class="badge by">A Level Physics</span>
+    <span class="badge bp">v2</span>
+  </div>
+</div>
+
+<!-- ROW 1 -->
+<div class="grid g2">
+  <div class="card">
+    <div class="card-title"><span class="num ng">Q1</span> Planning — Mark Breakdown (always fixed)</div>
+    <table class="mt">
+      <tr><th>Section</th><th>Marks</th><th>What earns marks</th></tr>
+      <tr><td>Defining the problem</td><td class="mk">2</td><td>Name IV and DV explicitly. State <strong>every</strong> remaining symbol in the equation as controlled.</td></tr>
+      <tr><td>Methods of data collection</td><td class="mk">6</td><td>Labelled diagram. How to measure each variable. Correct instrument connections.</td></tr>
+      <tr><td>Method of analysis</td><td class="mk">3</td><td>Which graph to plot. What gradient equals. What y-intercept equals. Validity statement.</td></tr>
+      <tr><td>Additional detail + safety</td><td class="mk">6</td><td>Any 6 from ~10 listed points covering safety, measurement, precision, validity.</td></tr>
+    </table>
+    <div class="tp" style="margin-top:8px;"><strong>Control variables rule</strong>List every symbol in the equation. Remove IV, DV, and universal constants (g, π, c). Everything left must be stated as "kept constant". One missing = 0/1 for that mark.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num nb">Q2</span> Analysis — Sub-Part Structure</div>
+    <div class="nb2"><strong>Structure varies between papers</strong>(a)→(b)→(c)(i–iv) are always identical. After (c)(iv) the labelling varies: some papers end at (e), others have (f). Always read the paper carefully. The 6 graphing marks in (c) are always the same.</div>
+    <table class="mt" style="margin-top:8px;">
+      <tr><th>Part</th><th>Marks</th><th>What earns marks</th></tr>
+      <tr><td class="pt">(a)</td><td class="mk">1</td><td>Gradient and y-intercept in terms of constants. If equation has no intercept term, only gradient is asked.</td></tr>
+      <tr><td class="pt">(b)</td><td class="mk">2</td><td>Calculated column(s) + absolute uncertainties. Sometimes two new columns (e.g. s25: lg λ and lg μ).</td></tr>
+      <tr><td class="pt">(c)(i)</td><td class="mk">2</td><td>6 points plotted + all error bars (symmetrical, correct length).</td></tr>
+      <tr><td class="pt">(c)(ii)</td><td class="mk">2</td><td>Best-fit line (balanced) + worst acceptable line. Both clearly labelled.</td></tr>
+      <tr><td class="pt">(c)(iii)</td><td class="mk">2</td><td>Gradient of best-fit + uncertainty. Points &gt; ½ line length apart.</td></tr>
+      <tr><td class="pt">(c)(iv)</td><td class="mk">2</td><td>y-intercept via y = mx + c substitution + uncertainty. False origin method not credited.</td></tr>
+      <tr><td class="pt">(d) onwards</td><td class="mk">3–4</td><td>Physical constants with SI units + uncertainties. Final substitution calculation.</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ROW 2 -->
+<div class="grid g3">
+  <div class="card">
+    <div class="card-title"><span class="num ny">Q1</span> Linearisation — All Types Seen</div>
+    <div class="er">
+      <span class="et">y = Ax<sup>n</sup></span>
+      <span class="eb">Plot <strong>lg y vs lg x</strong><span class="sub">gradient = n · intercept = lg A → A = 10^c</span></span>
+    </div>
+    <div class="er">
+      <span class="et">y = Ae<sup>kx</sup></span>
+      <span class="eb">Plot <strong>ln y vs x</strong><span class="sub">gradient = k · intercept = ln A → A = e^c</span></span>
+    </div>
+    <div class="er">
+      <span class="et">y = Ae<sup>−kx</sup></span>
+      <span class="eb">Plot <strong>ln y vs x</strong><span class="sub">gradient = −k (negative). Check sign.</span></span>
+    </div>
+    <div class="er">
+      <span class="et">Already linear</span>
+      <span class="eb">Plot <strong>y vs x</strong> directly<span class="sub">x may be a function: e.g. sin(4θ). Do NOT take logs of a linear equation.</span></span>
+    </div>
+    <div class="al" style="margin-top:6px;"><strong>Trig equations (s25 type — new)</strong>If the equation is already y = mx + c but x involves sin/cos/tan, plot y vs trig(x). The mark scheme explicitly rejects logarithms in this case.</div>
+    <div class="tp" style="margin-top:5px;"><strong>Validity statement</strong>"Relationship valid IF a straight line is produced passing through [expected intercept]." Never "through origin" unless intercept = 0.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num nb">Q2</span> Uncertainty Propagation</div>
+    <div class="ur"><span class="uo">y = 1/x</span><span>δy = δx/x² &nbsp;·&nbsp; fractional: δy/y = δx/x</span></div>
+    <div class="ur"><span class="uo">y = ln x</span><span>δy = δx/x</span></div>
+    <div class="ur"><span class="uo">y = lg x</span><span>δy = 0.434 × δx/x</span></div>
+    <div class="ur"><span class="uo">y = √x</span><span>δy/y = ½ · (δx/x)</span></div>
+    <div class="ur"><span class="uo">y = x<sup>n</sup></span><span>δy/y = |n| · (δx/x)</span></div>
+    <div class="ur"><span class="uo">y = A·B or A/B</span><span>δy/y = δA/A + δB/B</span></div>
+    <div class="sl">From graph</div>
+    <div class="fb">Δgradient = |m_best − m_worst|</div>
+    <div class="fb b">% unc(constant) = (Δm/m + Δc/c) × 100</div>
+    <div class="sl">Log scale special case</div>
+    <div class="fb p">If constant = 10^(y-intercept):<br>Δk = 10^(c_best) − 10^(c_worst)</div>
+    <div class="al" style="margin-top:5px;"><strong>Why different?</strong>k = 10^c is non-linear. The fractional formula only applies to products/quotients. Must compute 10^c at best and worst intercept and subtract.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num no">Q1</span> Additional Detail — Full Category List</div>
+    <ul class="cl">
+      <li><strong>Safety</strong> — name hazard + specific precaution (e.g. "cushion if load falls", "goggles from sharp wire", "gloves from hot coil")</li>
+      <li><strong>Repeat + average</strong> — for DV at each IV value</li>
+      <li><strong>Measure secondary quantity</strong> — diameter → micrometer; mass → balance; B → Hall probe; angle → protractor or trig</li>
+      <li><strong>Multiple measurements of same quantity</strong> — different positions/orientations; average (e.g. diameter along length and around rod)</li>
+      <li><strong>Derived quantity formula</strong> — e.g. A = πd²/4, ρ = m/AL, v = √(2gh), k = mg/extension</li>
+      <li><strong>Ruler alignment</strong> — clamped parallel/perpendicular to motion; set square to verify vertical</li>
+      <li><strong>Fiducial mark</strong> — pin or marker at equilibrium/reference position</li>
+      <li><strong>Control method in practice</strong> — specific action to keep variable constant (e.g. remark ball contact point as θ changes)</li>
+      <li><strong>Increase data range</strong> — use large IV values; drop from greater height for larger d values</li>
+      <li><strong>Video/slow-motion</strong> — camera + slow playback + ruler in view for fast/small displacements or peak EMF</li>
+      <li><strong>Oscilloscope reading</strong> — T = timebase × divisions, f = 1/T; V = y-gain × divisions</li>
+      <li><strong>Hall probe detail</strong> — adjust probe until maximum reading; or measure ± directions and average</li>
+      <li><strong>Validity statement</strong> — straight line confirms relationship; specify expected intercept value</li>
+    </ul>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ROW 3 -->
+<div class="grid g3">
+  <div class="card">
+    <div class="card-title"><span class="num nb">Q2</span> Graph Drawing — Exact Rules</div>
+    <div class="sl">Points</div>
+    <ul class="cl">
+      <li>Within ½ small square of correct position</li>
+      <li>Point diameter &lt; ½ small square</li>
+      <li>Line thickness &lt; ½ small square (penalised from s25 onwards)</li>
+    </ul>
+    <div class="sl">Error bars</div>
+    <ul class="cl">
+      <li>ALL 6 bars plotted — missing any one can cost the WAL mark</li>
+      <li>Symmetrical about the point</li>
+      <li>Total length accurate to &lt; ½ small square</li>
+    </ul>
+    <div class="sl">Best-fit line</div>
+    <ul class="cl">
+      <li>Points balanced on either side — do NOT connect end points</li>
+    </ul>
+    <div class="sl">Worst acceptable line (WAL)</div>
+    <ul class="cl">
+      <li>Steepest OR shallowest line through ALL error bars</li>
+      <li>Both lines clearly labelled</li>
+      <li>All error bars must be plotted or WAL mark cannot be awarded</li>
+    </ul>
+    <div class="sl">Gradient</div>
+    <ul class="cl">
+      <li>Two points ON the line, &gt; ½ line length apart</li>
+      <li>Show substitution with values written out</li>
+      <li>Check units: y-axis units / x-axis units</li>
+    </ul>
+    <div class="al"><strong>False origin trap</strong>If y-axis ≠ 0 at origin, do NOT read intercept from graph. Substitute a line point into y = mx + c. ECF explicitly not given for false origin method.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--danger)"><span class="num nr">!</span> Most Common Mark-Losing Mistakes</div>
+    <ul class="cl">
+      <li class="w">Q1: Only one control variable stated when equation has two or more</li>
+      <li class="s">Fix: scan every symbol, remove IV/DV/universal constants, state the rest</li>
+      <li class="w">Q1: Diagram labels missing or instrument wrongly connected</li>
+      <li class="w">Q1: Safety answer too vague — "be careful" scores nothing</li>
+      <li class="s">Fix: name the hazard AND the action (e.g. "cushion below spring in case load falls")</li>
+      <li class="w">Q1: "Straight line through origin" when intercept ≠ 0</li>
+      <li class="w">Q1: Taking logarithms of a linear equation (trig type)</li>
+      <li class="w">Q2: Uncertainty in transformed column propagated incorrectly</li>
+      <li class="s">1/I: δ(1/I) = δI/I² · lg x: δ(lg x) = 0.434×δx/x · √x: δ(√x) = δx/(2√x)</li>
+      <li class="w">Q2: WAL does not pass through every single error bar</li>
+      <li class="w">Q2: Gradient points too close together (&lt; ½ line length)</li>
+      <li class="w">Q2: y-intercept read from graph with false origin</li>
+      <li class="w">Q2: Missing units or wrong power of ten on physical constants</li>
+      <li class="w">Q2: % uncertainty uses gradient only — forgetting to add y-intercept fraction</li>
+      <li class="w">Q2: When k = 10^(intercept), using fractional formula instead of 10^c_best − 10^c_worst</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num ng">Q1</span> Diagram Checklist + <span class="num nb">Q2(a)</span> Rearrangement</div>
+    <div class="sl">Diagram must-haves</div>
+    <ul class="cl">
+      <li>Workable arrangement (not a list of equipment)</li>
+      <li>At least 2 components labelled by name</li>
+      <li>Voltmeter in parallel · Ammeter in series · Oscilloscope at output</li>
+      <li>Ruler clamped parallel to what is measured</li>
+      <li>For B fields: pair of magnets/coils shown with correct orientation</li>
+      <li>Hall probe shown if B is measured; set square if verifying perpendicular</li>
+    </ul>
+    <div class="sl">Q2(a) rearrangement examples</div>
+    <div class="fb y" style="font-size:10.5px;">E = 3IR + 4IZ → 1/I = (3/E)R + 4Z/E<br>Plot 1/I vs R · grad = 3/E · intercept = 4Z/E</div>
+    <div class="fb b" style="font-size:10.5px;">I = (E/R)e^(−t/RC) → ln I = −t/(RC) + ln(E/R)<br>Plot ln I vs t · grad = −1/RC · intercept = ln(E/R)</div>
+    <div class="fb" style="font-size:10.5px;">F = kλ^n → lg F = n·lg λ + lg k<br>Plot lg F vs lg λ · grad = n · intercept = lg k</div>
+    <div class="fb o" style="font-size:10.5px;">R = 4ρL/πYZd² → 1/R = (πYZd²/4ρ)·(1/L)<br>Plot 1/R vs 1/L · grad only (no intercept term)</div>
+    <div class="al" style="margin-top:5px;"><strong>No-intercept case (w22)</strong>If rearrangement gives y = mx with no constant term, part (a) only asks for gradient. Do not invent an intercept.</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>CIE A Level Physics 9702 · Paper 5 · Planning, Analysis and Evaluation</p>
+  <p>Evidence base: m20 · w20 · w22 · w23 · m24 · s25 — 6 series confirmed across 2020–2025</p>
+</div>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();CIEGate.watchBrowse();</script>
+</body>
+</html>

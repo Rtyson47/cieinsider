@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0625 IGCSE Physics — Definitions & Formulae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.15);
+  --text: #1a1814;
+  --muted: #8a8278;
+  --core: #1a5c8a;
+  --core-bg: #e8f2fa;
+  --core-border: #b8d6ef;
+  --supp: #b84c0a;
+  --supp-bg: #fdf0e8;
+  --supp-border: #f0c9a8;
+  --both: #2d6a4f;
+  --both-bg: #e8f5ee;
+  --both-border: #a8d5bc;
+  --accent: #c8470a;
+  --green: #2d6a4f;
+  --green-bg: rgba(45,106,79,0.1);
+  --red: #b83232;
+  --red-bg: rgba(184,50,50,0.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(200,71,10,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(26,92,138,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  animation: fadeUp 0.5s ease both;
+}
+
+.header-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.header-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+}
+
+/* Tier pills */
+.tier-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.5s 0.05s ease both;
+}
+
+.tier-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 400;
+}
+
+.tier-pill.both { background: var(--both-bg); border-color: var(--both-border); color: var(--both); }
+.tier-pill.core { background: var(--core-bg); border-color: var(--core-border); color: var(--core); }
+.tier-pill.supp { background: var(--supp-bg); border-color: var(--supp-border); color: var(--supp); }
+.tier-pill.inactive { background: transparent; border-color: var(--border2); color: var(--muted); }
+.tier-pill:hover { filter: brightness(0.95); }
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  animation: fadeUp 0.5s 0.08s ease both;
+}
+
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.filter-btn:hover { background: var(--surface2); color: var(--text); }
+.filter-btn.active { background: var(--text); border-color: var(--text); color: var(--bg); }
+.filter-btn.action { border-color: var(--accent); color: var(--accent); }
+.filter-btn.action:hover { background: var(--supp-bg); }
+.filter-divider { width: 1px; background: var(--border2); align-self: stretch; margin: 2px 2px; }
+
+.topic-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.stat-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.stat-n {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  line-height: 1.1;
+}
+.stat-n.g { color: var(--green); }
+.stat-n.r { color: var(--red); }
+.stat-l { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.08em; margin-top: 3px; display: block; }
+
+/* Progress */
+.progress-wrap {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(.4,0,.2,1);
+  width: 0%;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  animation: fadeUp 0.5s 0.12s ease both;
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  gap: 8px;
+}
+
+.card-topic {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.card-badges {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge-def { background: var(--core-bg); border-color: var(--core-border); color: var(--core); }
+.badge-form { background: var(--supp-bg); border-color: var(--supp-border); color: var(--supp); }
+.badge-cs { background: var(--both-bg); border-color: var(--both-border); color: var(--both); }
+.badge-s { background: var(--supp-bg); border-color: var(--supp-border); color: var(--supp); }
+.badge-c { background: var(--core-bg); border-color: var(--core-border); color: var(--core); }
+
+.question-text {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  min-height: 56px;
+}
+
+.answer-box {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: none;
+  animation: slideDown 0.2s ease both;
+}
+
+.answer-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.answer-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+  font-weight: 300;
+  white-space: pre-line;
+}
+
+/* Buttons */
+.actions { display: flex; gap: 8px; }
+
+.btn {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 11px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1px solid;
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-reveal {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+.btn-reveal:hover { opacity: 0.88; }
+
+.btn-got {
+  background: var(--green-bg);
+  border-color: rgba(45,106,79,0.3);
+  color: var(--green);
+}
+.btn-got:hover { background: rgba(45,106,79,0.18); }
+
+.btn-missed {
+  background: var(--red-bg);
+  border-color: rgba(184,50,50,0.3);
+  color: var(--red);
+}
+.btn-missed:hover { background: rgba(184,50,50,0.18); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border2);
+  color: var(--muted);
+}
+.btn-outline:hover { color: var(--text); border-color: var(--border2); background: var(--surface2); }
+
+/* Keyboard hint */
+.kbd-hint {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+}
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--muted);
+  background: var(--surface);
+}
+
+/* End screen */
+.end-screen {
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: fadeUp 0.4s ease both;
+}
+
+.end-pct {
+  font-family: var(--serif);
+  font-size: 80px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+.end-pct.great { color: var(--green); }
+.end-pct.ok { color: #8a6a0a; }
+.end-pct.poor { color: var(--red); }
+
+.end-label { font-size: 14px; color: var(--muted); margin-bottom: 2rem; font-family: var(--mono); }
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+
+.breakdown-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.breakdown-topic { font-size: 12px; color: var(--text); font-weight: 500; margin-bottom: 2px; }
+.breakdown-score { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.breakdown-score .hit { color: var(--green); }
+
+.end-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.end-actions .btn { flex: unset; min-width: 140px; }
+
+.hidden { display: none !important; }
+/* Review screen */
+.review-screen{animation:fadeUp 0.4s ease both}
+.review-header{text-align:center;margin-bottom:1.75rem}
+.review-title{font-family:var(--mono);font-size:13px;color:var(--danger);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem}
+.review-subtitle{font-size:14px;color:var(--muted)}
+.review-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
+.review-item{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--danger);border-radius:8px;padding:1rem 1.25rem}
+.review-q{font-size:14px;color:var(--muted);margin-bottom:0.5rem;font-weight:500}
+.review-a{font-size:15px;color:var(--text);line-height:1.65;font-weight:300;white-space:pre-line}
+.review-a-label{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem}
+.review-actions{display:flex;gap:8px;justify-content:center;padding-bottom:1rem}
+.review-actions .btn{flex:unset;min-width:160px}
+/* Retest mode banner */
+.retest-banner{background:var(--danger-dim);border:1px solid rgba(248,113,113,0.25);border-radius:8px;padding:8px 14px;margin-bottom:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--danger);letter-spacing:0.08em;animation:fadeUp 0.3s ease both}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .breakdown-grid { grid-template-columns: 1fr; }
+  .question-text { font-size: 18px; }
+  .end-pct { font-size: 60px; }
+  #app { padding: 1.5rem 1rem 4rem; }
+}
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+/* === reharmonise light defs palette to match site === */
+:root {
+  --bg: var(--cie-cream) !important;
+  --surface: var(--cie-cream-warm) !important;
+  --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule-soft) !important;
+  --border2: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important;
+  --muted: var(--cie-ink-mute) !important;
+  --accent: var(--cie-accent) !important;
+  --green: var(--cie-green) !important;
+  --green-bg: rgba(74,107,58,0.12) !important;
+  --red: var(--cie-accent-deep) !important;
+  --red-bg: rgba(125,42,20,0.10) !important;
+}
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">0625 · IGCSE · Reference</p>
+    <h1 class="cie-page-title">Definitions &amp; Formulae <em>Flashcards</em></h1>
+    <p class="cie-page-lede">Shuffle, drill, and flag missed items for re-testing. Every definition and formula you need to recall under exam conditions.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+<div id="app">
+  <div class="header">
+    <div class="header-eyebrow">Cambridge IGCSE · Physics 0625 · 2026–2028</div>
+    <div class="header-title">Definitions &amp; Formulae</div>
+    <div class="header-sub" id="deck-info">120 items · all topics</div>
+  </div>
+
+  <div class="tier-pills">
+    <button class="tier-pill both active" data-tier="all" onclick="setTier(this,'all')">All tiers</button>
+    <button class="tier-pill core inactive" data-tier="cs" onclick="setTier(this,'cs')">Core only  (C+S)</button>
+    <button class="tier-pill supp inactive" data-tier="s" onclick="setTier(this,'s')">Extended extra  (S)</button>
+  </div>
+
+  <div class="filter-bar" id="section-filters">
+    <button class="filter-btn active" data-sec="all" onclick="setSec(this,'all')">All</button>
+    <button class="filter-btn" data-sec="def" onclick="setSec(this,'def')">Definitions</button>
+    <button class="filter-btn" data-sec="form" onclick="setSec(this,'form')">Formulae</button>
+    <div class="filter-divider"></div>
+    <button class="filter-btn action" onclick="shuffleDeck()">&#8644; Shuffle</button>
+    <button class="filter-btn" onclick="resetSession()">&#8635; Reset</button>
+  </div>
+
+  <div class="topic-row" id="topic-filters"></div>
+
+  <div class="stats-row">
+    <div class="stat-box"><span class="stat-n" id="s-total">0</span><span class="stat-l">total</span></div>
+    <div class="stat-box"><span class="stat-n" id="s-done">0</span><span class="stat-l">done</span></div>
+    <div class="stat-box"><span class="stat-n g" id="s-got">0</span><span class="stat-l">got it</span></div>
+    <div class="stat-box"><span class="stat-n r" id="s-missed">0</span><span class="stat-l">missed</span></div>
+  </div>
+
+  <div class="progress-wrap"><div class="progress-fill" id="progress"></div></div>
+
+  <div id="quiz-area">
+    <div class="card">
+      <div class="card-meta">
+        <span class="card-topic" id="card-topic"></span>
+        <div class="card-badges" id="card-badges"></div>
+      </div>
+      <div class="question-text" id="question"></div>
+      <div class="answer-box" id="answer-box">
+        <div class="answer-label">mark scheme answer</div>
+        <div class="answer-text" id="answer"></div>
+      </div>
+      <div class="actions" id="actions-before">
+        <button class="btn btn-reveal" onclick="reveal()">Show answer</button>
+      </div>
+      <div class="actions hidden" id="actions-after">
+        <button class="btn btn-missed" onclick="mark(false)">&#x2715; Missed</button>
+        <button class="btn btn-got" onclick="mark(true)">&#x2713; Got it</button>
+      </div>
+    </div>
+    <div class="kbd-hint"><kbd>Space</kbd> reveal &nbsp;&nbsp; <kbd>&larr;</kbd> missed &nbsp;&nbsp; <kbd>&rarr;</kbd> got it</div>
+  </div>
+
+  <!-- Review wrong answers screen -->
+  <div id="review-screen" class="hidden review-screen">
+    <div class="review-header">
+      <div class="review-title">&#x2715; Missed items</div>
+      <div class="review-subtitle" id="review-subtitle"></div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+    <div class="review-actions">
+      <button class="btn btn-missed" onclick="startRetest()">Start retest &#8594;</button>
+    </div>
+  </div>
+
+  <!-- Retest mode banner -->
+  <div id="retest-banner" class="retest-banner hidden">
+    &#8635; RETEST &nbsp;&middot;&nbsp; <span id="retest-label"></span>
+  </div>
+
+  <div id="end-screen" class="hidden">
+    <div class="end-pct" id="end-pct"></div>
+    <div class="end-label" id="end-label"></div>
+    <div class="breakdown-grid" id="breakdown"></div>
+    <div class="end-actions">
+      <button class="btn btn-missed" id="btn-review" onclick="showReview()">Review missed</button>
+      <button class="btn btn-outline" onclick="resetSession()">Start over</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const ALL = [
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Scalar",a:"Quantity with magnitude only"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Vector",a:"Quantity with both magnitude and direction"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Speed",a:"Distance travelled per unit time"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Velocity",a:"Speed in a given direction"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Acceleration",a:"Change in velocity per unit time"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Gravitational field strength g",a:"Force per unit mass"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"State what is meant by: Mass",a:"Measure of the quantity of matter in an object"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"State what is meant by: Weight",a:"Gravitational force on an object that has mass"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Density",a:"Mass per unit volume"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Spring constant k",a:"Force per unit extension"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Limit of proportionality",a:"Point beyond which extension is no longer proportional to the applied force"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Moment of a force",a:"Force \u00d7 perpendicular distance from the pivot"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"State: Principle of moments",a:"For a body in equilibrium, the sum of clockwise moments about any point equals the sum of anticlockwise moments about the same point"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"State what is meant by: Centre of gravity",a:"Point at which the entire weight of the body may be considered to act"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Momentum",a:"Product of mass and velocity"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Impulse",a:"Force \u00d7 time for which force acts; equal to change in momentum (F\u0394t = \u0394(mv))"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Resultant force",a:"Change in momentum per unit time"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"State: Principle of conservation of momentum",a:"The total momentum of a system remains constant provided no external resultant force acts on it"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Work done",a:"Force \u00d7 distance moved in the direction of the force"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Power",a:"Work done per unit time / rate of energy transfer"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Efficiency",a:"(Useful energy output / total energy input) \u00d7 100%; also accepted in terms of power"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Kinetic energy",a:"Energy a body has due to its motion"},
+  {s:"def",t:"Motion, forces & energy",tier:"s",q:"Define: Gravitational potential energy",a:"Energy stored due to position in a gravitational field"},
+  {s:"def",t:"Motion, forces & energy",tier:"cs",q:"Define: Pressure",a:"Force per unit area"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Describe particles in a solid",a:"Closely packed in fixed positions, vibrating about fixed points; strong forces between particles"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Describe particles in a liquid",a:"Close together but able to move; weaker forces than in a solid"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Describe particles in a gas",a:"Far apart, moving randomly at high speed; negligible forces between particles"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Define: Absolute zero",a:"Temperature at which particles have minimum (least) kinetic energy; \u2212273\u00b0C / 0\u202fK"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Describe: Brownian motion",a:"Random motion of microscopic particles caused by unequal bombardment by surrounding molecules"},
+  {s:"def",t:"Thermal physics",tier:"s",q:"Define: Specific heat capacity",a:"Energy required per unit mass per unit temperature increase"},
+  {s:"def",t:"Thermal physics",tier:"s",q:"Define: Specific latent heat",a:"Energy required per unit mass to change state at constant temperature"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Define: Thermal conduction",a:"Transfer of thermal energy through a material without the material itself moving, by particle vibration and collision"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Define: Convection",a:"Transfer of thermal energy by the movement of a fluid due to density differences"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Define: Thermal radiation",a:"Transfer of thermal energy by infrared waves; does not require a medium"},
+  {s:"def",t:"Thermal physics",tier:"cs",q:"Define: Evaporation",a:"Escape of more energetic particles from the surface of a liquid; causes cooling of the liquid"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Amplitude",a:"Maximum displacement from the equilibrium position"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Wavelength",a:"Distance between two adjacent points in phase / distance between adjacent crests"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Frequency",a:"Number of complete waves passing a point per unit time"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Period",a:"Time for one complete oscillation"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Transverse wave",a:"Oscillations perpendicular to the direction of energy transfer"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Longitudinal wave",a:"Oscillations parallel to the direction of energy transfer"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Refraction",a:"Change in direction of a wave when it passes from one medium to another due to a change in speed"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Critical angle",a:"Angle of incidence (in the denser medium) for which the angle of refraction is 90\u00b0"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Total internal reflection",a:"Complete reflection of a ray at a boundary when the angle of incidence exceeds the critical angle"},
+  {s:"def",t:"Waves",tier:"s",q:"Define: Refractive index n",a:"Ratio of the speeds of a wave in two different regions"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Dispersion",a:"Splitting of white light into its component colours / wavelengths when passing through a prism"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Focal length",a:"Distance from the optical centre of a lens to the principal focus"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Principal focus (focal point)",a:"Point at which rays parallel to the principal axis converge (or appear to diverge from) after passing through a lens"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Intensity",a:"Power transmitted per unit area perpendicular to the direction of wave travel"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Ultrasound",a:"Sound with a frequency above 20\u202f000\u202fHz (above the upper limit of human hearing)"},
+  {s:"def",t:"Waves",tier:"cs",q:"Define: Echo",a:"Reflection of a sound wave from a surface"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Describe: Electric current (Core)",a:"Rate of flow of charge"},
+  {s:"def",t:"Electricity & magnetism",tier:"s",q:"Define: Electric current (quantitative)",a:"Charge passing a point per unit time; I = Q/t"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Electromotive force (e.m.f.)",a:"Electrical work done by a source in moving a unit charge around a complete circuit"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Potential difference",a:"Work done by a unit charge passing through a component"},
+  {s:"def",t:"Electricity & magnetism",tier:"s",q:"State: Ohm\u2019s law",a:"Current is directly proportional to potential difference provided temperature (and other physical conditions) remain constant"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Describe: Thermistor (NTC)",a:"Component whose resistance decreases as temperature increases"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Describe: LDR (light-dependent resistor)",a:"Component whose resistance decreases as light intensity increases"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Direct current (d.c.)",a:"Current that flows in one direction only"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Alternating current (a.c.)",a:"Current that reverses direction periodically"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Magnetic field",a:"Region in which a magnetic pole (or magnetic material) experiences a force"},
+  {s:"def",t:"Electricity & magnetism",tier:"s",q:"State: Faraday\u2019s law",a:"The magnitude of the induced e.m.f. is proportional to the rate of change of magnetic flux linkage"},
+  {s:"def",t:"Electricity & magnetism",tier:"s",q:"State: Lenz\u2019s law",a:"The induced e.m.f. / current opposes the change causing it"},
+  {s:"def",t:"Electricity & magnetism",tier:"cs",q:"Define: Kilowatt-hour (kWh)",a:"Energy used by a 1\u202fkW appliance in 1 hour; 1\u202fkWh = 3.6 \u00d7 10\u2076\u202fJ"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Describe: Nuclear model of the atom",a:"Small, dense, positively charged nucleus containing protons and neutrons; electrons orbit in the space around the nucleus"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Proton number Z (atomic number)",a:"Number of protons in the nucleus"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Nucleon number A (mass number)",a:"Total number of protons and neutrons in the nucleus"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Isotopes",a:"Atoms of the same element with the same proton number but different nucleon numbers (different numbers of neutrons)"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Describe: Alpha particle (\u03b1)",a:"Helium nucleus: 2 protons and 2 neutrons; charge +2e"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Describe: Beta particle (\u03b2)",a:"Fast-moving electron emitted from the nucleus; charge \u2212e"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Describe: Gamma radiation (\u03b3)",a:"High-frequency electromagnetic radiation emitted from the nucleus; no charge, no mass"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Radioactive decay",a:"Spontaneous and random disintegration of an unstable nucleus"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Half-life",a:"Time taken for half the nuclei of that isotope in any sample to decay (or for activity to fall to half its initial value)"},
+  {s:"def",t:"Nuclear physics",tier:"cs",q:"Define: Background radiation",a:"Radiation from natural and artificial sources present at all times in the environment"},
+  {s:"def",t:"Nuclear physics",tier:"s",q:"Define: Nuclear fission",a:"A large (heavy) nucleus splits into smaller nuclei releasing energy"},
+  {s:"def",t:"Nuclear physics",tier:"s",q:"Define: Nuclear fusion",a:"Small (light) nuclei combine to form a larger nucleus releasing energy"},
+  {s:"def",t:"Space physics",tier:"cs",q:"Define: Light-year",a:"Distance travelled by light in (the vacuum of) space in one year; = 9.5 \u00d7 10\u00b9\u2075\u202fm"},
+  {s:"def",t:"Space physics",tier:"cs",q:"Define: Redshift",a:"Increase in the observed wavelength of electromagnetic radiation emitted from receding stars and galaxies"},
+  {s:"def",t:"Space physics",tier:"cs",q:"What does redshift tell us about the Universe?",a:"Evidence that the Universe is expanding; supports the Big Bang Theory"},
+  {s:"def",t:"Space physics",tier:"s",q:"Define: Hubble constant H\u2080",a:"Ratio of the speed at which a galaxy is moving away from Earth to its distance from Earth: H\u2080 = v/d"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Speed",a:"v = d/t"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Acceleration",a:"a = \u0394v/\u0394t"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Weight",a:"W = mg"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Density",a:"\u03c1 = m/V"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Pressure",a:"p = F/A"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Pressure in a liquid",a:"\u0394p = \u03c1g\u0394h"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Moment of a force",a:"M = F \u00d7 d"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Hooke\u2019s law",a:"F = kx"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Spring constant",a:"k = F/x"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Momentum",a:"p = mv"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Impulse",a:"impulse = F\u0394t = \u0394(mv)"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Resultant force (\u0394p/\u0394t form)",a:"F = \u0394p/\u0394t"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Newton\u2019s 2nd law (F = ma form)",a:"F = ma"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Work done",a:"W = Fd"},
+  {s:"form",t:"Motion, forces & energy",tier:"cs",q:"Formula: Power",a:"P = W/t"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Efficiency (energy form)",a:"\u03b7 = (useful energy output / total energy input) \u00d7 100%"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Efficiency (power form)",a:"\u03b7 = (useful power output / total power input) \u00d7 100%"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Kinetic energy",a:"Ek = \u00bdmv\u00b2"},
+  {s:"form",t:"Motion, forces & energy",tier:"s",q:"Formula: Gravitational potential energy",a:"\u0394Ep = mg\u0394h"},
+  {s:"form",t:"Thermal physics",tier:"s",q:"Formula: Specific heat capacity",a:"\u0394E = mc\u0394\u03b8"},
+  {s:"form",t:"Thermal physics",tier:"s",q:"Formula: Specific latent heat",a:"Q = mL"},
+  {s:"form",t:"Thermal physics",tier:"cs",q:"Formula: Temperature conversion (K \u2194 \u00b0C)",a:"T (K) = \u03b8 (\u00b0C) + 273"},
+  {s:"form",t:"Thermal physics",tier:"s",q:"Formula: Boyle\u2019s law (constant temperature)",a:"pV = constant  (p\u2081V\u2081 = p\u2082V\u2082)"},
+  {s:"form",t:"Waves",tier:"cs",q:"Formula: Wave equation",a:"v = f\u03bb"},
+  {s:"form",t:"Waves",tier:"s",q:"Formula: Refractive index",a:"n = sin\u202fi / sin\u202fr"},
+  {s:"form",t:"Waves",tier:"s",q:"Formula: Critical angle",a:"n = 1 / sin\u202fc"},
+  {s:"form",t:"Electricity & magnetism",tier:"s",q:"Formula: Electric charge",a:"Q = It"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: e.m.f.",a:"E = W/Q"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: Potential difference",a:"V = W/Q"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: Resistance",a:"R = V/I"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: Electrical power",a:"P = IV"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: Electrical energy",a:"E = IVt"},
+  {s:"form",t:"Electricity & magnetism",tier:"s",q:"Formula: Resistors in series",a:"R = R\u2081 + R\u2082 + \u2026"},
+  {s:"form",t:"Electricity & magnetism",tier:"s",q:"Formula: Resistors in parallel",a:"1/R = 1/R\u2081 + 1/R\u2082 + \u2026"},
+  {s:"form",t:"Electricity & magnetism",tier:"s",q:"Formula: Potential divider",a:"R\u2081/R\u2082 = V\u2081/V\u2082"},
+  {s:"form",t:"Electricity & magnetism",tier:"cs",q:"Formula: Transformer \u2014 voltage / turns ratio",a:"Vp/Vs = Np/Ns"},
+  {s:"form",t:"Electricity & magnetism",tier:"s",q:"Formula: Transformer \u2014 power (ideal)",a:"IpVp = IsVs"},
+  {s:"form",t:"Space physics",tier:"s",q:"Formula: Orbital speed",a:"v = 2\u03c0r/T"},
+  {s:"form",t:"Space physics",tier:"s",q:"Formula: Hubble constant",a:"H\u2080 = v/d"},
+  {s:"form",t:"Space physics",tier:"s",q:"Formula: Age of Universe estimate",a:"age \u2248 1/H\u2080 = d/v"},
+];
+
+const TOPICS = [...new Set(ALL.map(i=>i.t))];
+let activeSec='all', activeTier='all', activeTopic='all';
+let deck=[], idx=0, results={got:0,missed:0}, missedItems=[], revealed=false, isRetest=false, retestRound=1;
+
+function buildTopicButtons(){
+  const wrap=document.getElementById('topic-filters');
+  wrap.innerHTML='';
+  const a=mkBtn('All topics',true,()=>setTopic(a,'all'));
+  a.dataset.topic='all'; wrap.appendChild(a);
+  TOPICS.forEach(t=>{
+    const b=mkBtn(t,false,()=>setTopic(b,t));
+    b.dataset.topic=t; wrap.appendChild(b);
+  });
+}
+
+function mkBtn(l,active,fn){
+  const b=document.createElement('button');
+  b.className='filter-btn'+(active?' active':'');
+  b.textContent=l; b.onclick=fn; return b;
+}
+
+function setSec(el,sec){
+  activeSec=sec;
+  document.querySelectorAll('#section-filters .filter-btn[data-sec]').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));
+  buildDeck();
+}
+
+function setTier(el,tier){
+  activeTier=tier;
+  document.querySelectorAll('.tier-pill').forEach(b=>{
+    b.classList.toggle('inactive', b.dataset.tier!==tier);
+    b.classList.toggle('active', b.dataset.tier===tier);
+  });
+  buildDeck();
+}
+
+function setTopic(el,topic){
+  activeTopic=topic;
+  document.querySelectorAll('#topic-filters .filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.topic===topic));
+  buildDeck();
+}
+
+function hideAll(){
+  document.getElementById('quiz-area').classList.add('hidden');
+  document.getElementById('end-screen').classList.add('hidden');
+  document.getElementById('review-screen').classList.add('hidden');
+  document.getElementById('retest-banner').classList.add('hidden');
+}
+
+function buildDeck(){
+  isRetest=false; retestRound=1;
+  deck=ALL.filter(i=>{
+    if(activeSec!=='all'&&i.s!==activeSec)return false;
+    if(activeTier==='cs'&&i.tier!=='cs')return false;
+    if(activeTier==='s'&&i.tier!=='s')return false;
+    if(activeTopic!=='all'&&i.t!==activeTopic)return false;
+    return true;
+  });
+  idx=0; results={got:0,missed:0}; missedItems=[];
+  updateStats(); showCard();
+}
+
+function shuffleDeck(){
+  buildDeck();
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  showCard();
+}
+
+function resetSession(){buildDeck();}
+
+function showCard(){
+  hideAll();
+  document.getElementById('quiz-area').classList.remove('hidden');
+  if(isRetest)document.getElementById('retest-banner').classList.remove('hidden');
+  if(idx>=deck.length){showEnd();return;}
+  revealed=false;
+  const item=deck[idx];
+  document.getElementById('card-topic').textContent=item.t;
+
+  const badges=document.getElementById('card-badges');
+  badges.innerHTML='';
+  const typeBadge=document.createElement('span');
+  typeBadge.className='badge '+(item.s==='def'?'badge-def':'badge-form');
+  typeBadge.textContent=item.s==='def'?'definition':'formula';
+  badges.appendChild(typeBadge);
+  const tierBadge=document.createElement('span');
+  tierBadge.className='badge '+(item.tier==='cs'?'badge-cs':'badge-s');
+  tierBadge.textContent=item.tier==='cs'?'C+S':'S only';
+  badges.appendChild(tierBadge);
+
+  document.getElementById('question').textContent=item.q;
+  document.getElementById('answer').textContent=item.a;
+  document.getElementById('answer-box').style.display='none';
+  document.getElementById('actions-before').classList.remove('hidden');
+  document.getElementById('actions-after').classList.add('hidden');
+  updateStats();
+}
+
+function reveal(){
+  if(revealed)return;
+  revealed=true;
+  CIEGate.track('drill_answer');
+  document.getElementById('answer-box').style.display='block';
+  document.getElementById('actions-before').classList.add('hidden');
+  document.getElementById('actions-after').classList.remove('hidden');
+}
+
+function mark(got){
+  if(got){results.got++;}else{results.missed++;missedItems.push(deck[idx]);}
+  idx++; updateStats(); showCard();
+}
+
+function updateStats(){
+  const done=results.got+results.missed;
+  document.getElementById('s-total').textContent=deck.length;
+  document.getElementById('s-done').textContent=done;
+  document.getElementById('s-got').textContent=results.got;
+  document.getElementById('s-missed').textContent=results.missed;
+  document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
+  const tierLabel = activeTier==='all'?'all tiers':activeTier==='cs'?'core only':'extended extra';
+  let info = deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+
+    (activeTopic==='all'?'all topics':activeTopic)+' \u00b7 '+tierLabel+' \u00b7 '+
+    (activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
+  if(isRetest) info+=' \u00b7 retest '+retestRound;
+  document.getElementById('deck-info').textContent=info;
+  if(isRetest) document.getElementById('retest-label').textContent=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 round '+retestRound;
+}
+
+function showEnd(){
+  hideAll();
+  document.getElementById('end-screen').classList.remove('hidden');
+  const pct=deck.length?Math.round((results.got/deck.length)*100):0;
+  const el=document.getElementById('end-pct');
+  el.textContent=pct+'%';
+  el.className='end-pct '+(pct>=80?'great':pct>=60?'ok':'poor');
+  const label=isRetest?'Retest round '+retestRound+' \u00b7 ':'';
+  document.getElementById('end-label').textContent=label+results.got+' correct out of '+deck.length;
+  const tm={};
+  deck.forEach(i=>{if(!tm[i.t])tm[i.t]={got:0,total:0};tm[i.t].total++;});
+  deck.forEach(i=>{if(!missedItems.includes(i))tm[i.t].got++;});
+  document.getElementById('breakdown').innerHTML=Object.entries(tm).map(([t,sc])=>
+    `<div class="breakdown-item"><div class="breakdown-topic">${t}</div><div class="breakdown-score"><span class="hit">${sc.got}</span> / ${sc.total}</div></div>`
+  ).join('');
+  document.getElementById('btn-review').style.display=missedItems.length?'':'none';
+  document.getElementById('progress').style.width='100%';
+}
+
+function showReview(){
+  hideAll();
+  document.getElementById('review-screen').classList.remove('hidden');
+  document.getElementById('review-subtitle').textContent=missedItems.length+' item'+(missedItems.length!==1?'s':'')+' to review before retesting';
+  document.getElementById('review-list').innerHTML=missedItems.map(item=>`
+    <div class="review-item">
+      <div class="review-q">${item.q}</div>
+      <div class="review-a-label">correct answer</div>
+      <div class="review-a">${item.a}</div>
+    </div>`).join('');
+}
+
+function startRetest(){
+  isRetest=true; retestRound++;
+  deck=[...missedItems];
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  idx=0; results={got:0,missed:0}; missedItems=[];
+  updateStats(); showCard();
+}
+
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;
+  if(e.key===' '){e.preventDefault();if(!revealed)reveal();}
+  if(e.key==='ArrowRight'&&revealed)mark(true);
+  if(e.key==='ArrowLeft'&&revealed)mark(false);
+});
+
+buildTopicButtons();
+buildDeck();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

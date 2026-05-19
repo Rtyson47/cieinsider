@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper 5 Trainer · CIE Insider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:        #FAF6EE;
+  --cream-deep:   #F2EAD8;
+  --ink:          #2B2118;
+  --ink-soft:     #4A3D32;
+  --warm-red:     #B8412C;
+  --warm-red-d:   #8B2F1F;
+  --sage:         #5C7A4E;
+  --sage-d:       #3D5333;
+  --gold-d:       #A07B1F;
+  --gold-l:       #D4B560;
+  --line:         #C9BFAE;
+  --line-soft:    #E8DFCE;
+  --shadow:       rgba(43, 33, 24, 0.08);
+  --shadow-md:    rgba(43, 33, 24, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(184, 65, 44, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(92, 122, 78, 0.04) 0%, transparent 40%);
+}
+
+/* HEADER */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(250, 246, 238, 0.95);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.brand-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+}
+
+.brand-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--line);
+  align-self: center;
+}
+
+.brand-tag {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.score-pill {
+  background: var(--cream-deep);
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.score-pill .correct { color: var(--sage-d); }
+.score-pill .wrong { color: var(--warm-red-d); }
+
+/* MAIN LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+
+/* INTRO / MODE SELECTOR */
+.intro {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.intro-eyebrow {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.intro-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.intro-title em {
+  color: var(--warm-red);
+  font-style: italic;
+}
+
+.intro-sub {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto 8px;
+  font-weight: 400;
+}
+
+.intro-meta {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+/* MODE CARDS */
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.mode-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mode-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent, var(--warm-red));
+  transition: width 0.3s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--shadow-md);
+}
+
+.mode-card:hover::before {
+  width: 100%;
+  opacity: 0.05;
+}
+
+.mode-card[data-mode="drills"] { --accent: var(--warm-red); }
+.mode-card[data-mode="spotter"] { --accent: var(--gold-d); }
+.mode-card[data-mode="planning"] { --accent: var(--sage); }
+
+.mode-number {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 18px;
+  letter-spacing: 0.1em;
+}
+
+.mode-name {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.mode-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.mode-meta {
+  font-size: 13px;
+  color: var(--gold-d);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mode-meta::after {
+  content: '→';
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.mode-card:hover .mode-meta::after {
+  transform: translateX(4px);
+}
+
+/* QUESTION SCREEN */
+.question-screen {
+  display: none;
+}
+
+.question-screen.active {
+  display: block;
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-soft);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.q-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.q-mode-badge {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+}
+
+.q-mode-badge.drills { color: var(--warm-red); }
+.q-mode-badge.spotter { color: var(--gold-d); }
+.q-mode-badge.planning { color: var(--sage); }
+
+.q-counter {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.q-skill {
+  font-size: 13px;
+  color: var(--gold-d);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.q-prompt {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.q-context {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+/* SPOTTER specific - candidate response box */
+.candidate-response {
+  background: var(--cream-deep);
+  border-left: 4px solid var(--line);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.5;
+  border-radius: 0 4px 4px 0;
+}
+
+.candidate-response::before {
+  content: 'Candidate wrote:';
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* PLANNING specific - scenario box */
+.planning-scenario {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+.planning-scenario h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage-d);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.planning-scenario p {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* OPTIONS */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.option {
+  background: white;
+  border: 1.5px solid var(--line);
+  padding: 18px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--ink-soft);
+  background: #FFFEFA;
+  transform: translateX(2px);
+}
+
+.option:disabled {
+  cursor: not-allowed;
+}
+
+.option-letter {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--cream-deep);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+
+.option:hover:not(:disabled) .option-letter {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.option-text {
+  flex-grow: 1;
+  padding-top: 2px;
+}
+
+.option.correct {
+  border-color: var(--sage);
+  background: #F4F7EF;
+}
+
+.option.correct .option-letter {
+  background: var(--sage);
+  color: white;
+}
+
+.option.incorrect {
+  border-color: var(--warm-red);
+  background: #FDF4F1;
+}
+
+.option.incorrect .option-letter {
+  background: var(--warm-red);
+  color: white;
+}
+
+.option.dimmed {
+  opacity: 0.4;
+}
+
+/* FEEDBACK */
+.feedback {
+  display: none;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  animation: fadeUp 0.3s ease;
+}
+
+.feedback.show { display: block; }
+
+.feedback-correct {
+  background: #F4F7EF;
+  border: 1.5px solid var(--sage);
+  padding: 24px 28px;
+  border-radius: 4px;
+}
+
+.feedback-correct .feedback-title {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--sage-d);
+  margin-bottom: 8px;
+}
+
+.feedback-correct .feedback-body {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.feedback-incorrect {
+  background: #FDF4F1;
+  border: 1.5px solid var(--warm-red);
+  padding: 24px 28px;
+  border-radius: 4px;
+}
+
+.feedback-incorrect .feedback-title {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--warm-red-d);
+  margin-bottom: 12px;
+}
+
+.feedback-incorrect .examiner-quote {
+  background: white;
+  border-left: 4px solid var(--gold-d);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.feedback-incorrect .examiner-quote-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.feedback-incorrect .examiner-quote-source {
+  font-size: 13px;
+  color: var(--gold-d);
+  font-weight: 600;
+}
+
+.feedback-incorrect .feedback-rule {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-top: 12px;
+}
+
+.feedback-incorrect .feedback-rule strong {
+  color: var(--warm-red-d);
+  font-weight: 700;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: var(--warm-red);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+.btn-secondary:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  height: 3px;
+  background: var(--line-soft);
+  margin-bottom: 32px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--warm-red), var(--gold-d));
+  transition: width 0.4s ease;
+  border-radius: 100px;
+}
+
+/* RESULTS SCREEN */
+.results-screen {
+  display: none;
+  text-align: center;
+  animation: fadeUp 0.4s ease;
+}
+
+.results-screen.active { display: block; }
+
+.results-eyebrow {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.results-title {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.results-title em { color: var(--warm-red); font-style: italic; }
+
+.results-score {
+  font-family: 'Fraunces', serif;
+  font-size: 96px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 32px 0 8px;
+  line-height: 1;
+}
+
+.results-score-total {
+  font-size: 18px;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+}
+
+.results-message {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink-soft);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.5;
+}
+
+.weak-areas {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 28px 32px;
+  border-radius: 4px;
+  max-width: 540px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.weak-areas h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.weak-areas ul {
+  list-style: none;
+}
+
+.weak-areas li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.weak-areas li:last-child { border-bottom: none; }
+
+.weak-areas .count {
+  color: var(--warm-red-d);
+  font-weight: 600;
+}
+
+.results-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 32px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.site-footer em {
+  font-family: 'Fraunces', serif;
+  color: var(--gold-d);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 32px 20px 64px; }
+  .header-inner { padding: 0 20px; }
+  .intro-title { font-size: 36px; }
+  .q-prompt { font-size: 22px; }
+  .results-title { font-size: 40px; }
+  .results-score { font-size: 72px; }
+  .brand-tag { display: none; }
+}
+  /* ============ EMAIL CAPTURE ============ */
+
+  .capture {
+    margin-top: 72px;
+    background: #1f1a14;
+    color: #faf6ec;
+    border-radius: 6px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
+
+  .capture .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8b89f;
+    margin-bottom: 14px;
+  }
+  .capture h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: #faf6ec;
+    letter-spacing: -0.01em;
+  }
+  .capture h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: #e8b89f;
+  }
+  .capture p {
+    margin: 0;
+    color: #d8ccb4;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .capture form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .capture label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d8ccb4;
+    font-weight: 600;
+  }
+  .capture input[type="email"] {
+    appearance: none;
+    border: 1px solid #6b5e4d;
+    background: rgba(245, 239, 228, 0.06);
+    color: #faf6ec;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .capture input[type="email"]:focus {
+    outline: none;
+    border-color: #e8b89f;
+    background: rgba(245, 239, 228, 0.1);
+  }
+  .capture input[type="email"]::placeholder {
+    color: #6b5e4d;
+  }
+  .capture button {
+    appearance: none;
+    border: none;
+    background: #a83b1f;
+    color: #faf6ec;
+    padding: 14px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .capture button:hover { background: #7d2a14; }
+  .capture .fine {
+    font-size: 12px;
+    color: #6b5e4d;
+    margin-top: 4px;
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout (injected by wrapper)
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4;
+  --cie-cream-deep: #ede4d2;
+  --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14;
+  --cie-ink-soft: #3a3127;
+  --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4;
+  --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f;
+  --cie-accent-deep: #7d2a14;
+  --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a;
+  --cie-green: #4a6b3a;
+  --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+  --cie-shadow-soft: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+}
+
+html.cie-wrap, body.cie-wrap {
+  background: var(--cie-cream) !important;
+  color: var(--cie-ink);
+}
+body.cie-wrap {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh;
+  padding: 0 !important;
+}
+
+.cie-topbar {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 10;
+}
+.cie-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.cie-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cie-ink);
+}
+.cie-wordmark .cie-mark {
+  width: 7px; height: 7px;
+  background: var(--cie-accent);
+  border-radius: 50%;
+  align-self: center;
+}
+.cie-wordmark .cie-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.cie-wordmark .cie-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cie-ink-mute);
+  font-weight: 600;
+}
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cie-ink-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--cie-rule);
+  border-radius: 4px;
+  background: var(--cie-cream-warm);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+
+.cie-page-hero {
+  padding: 56px 0 32px;
+  border-bottom: 1px solid var(--cie-rule);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-page-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.cie-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cie-accent);
+  margin: 0 0 14px;
+}
+h1.cie-page-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  color: var(--cie-ink);
+}
+h1.cie-page-title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cie-accent-deep);
+}
+.cie-page-lede {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cie-ink-soft);
+  max-width: 680px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cie-tool-stage {
+  padding: 40px 0 64px;
+  position: relative;
+  z-index: 2;
+  /* Force every descendant to inherit cream surroundings so dark-tool
+     bodies that styled themselves with var(--bg) get overridden via
+     the per-tool token remap below. */
+}
+
+.cie-footer {
+  border-top: 1px solid var(--cie-rule);
+  padding: 32px 0 56px;
+  margin-top: 64px;
+  font-size: 13px;
+  color: var(--cie-ink-mute);
+  background: var(--cie-cream);
+  position: relative;
+  z-index: 5;
+}
+.cie-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a {
+  color: var(--cie-ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cie-rule);
+}
+.cie-footer a:hover { color: var(--cie-accent); }
+
+</style>
+<script src="/gate.js"></script>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/">
+      <span class="cie-arrow">&larr;</span>
+      <span>Dashboard</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">0625 · IGCSE · Paper 5</p>
+    <h1 class="cie-page-title">Practical Test &mdash; <em>Question Drill</em></h1>
+    <p class="cie-page-lede">Train like you&rsquo;ve marked the paper. Question-by-question prompts that push you to think like an examiner before seeing the answer.</p>
+  </div>
+</header>
+<main class="cie-tool-stage">
+
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-name">CIE Insider</span>
+      <span class="brand-sep"></span>
+      <span class="brand-tag">IGCSE Physics 0625 · Paper 5 Trainer</span>
+    </div>
+    <div class="score-display" id="scoreDisplay" style="display: none;">
+      <div class="score-pill">
+        <span class="correct" id="correctCount">0</span>
+        <span style="color: var(--line);"> / </span>
+        <span id="totalCount">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- INTRO / MODE SELECTOR -->
+  <section class="intro" id="introScreen">
+    <div class="intro-eyebrow">Practical exam preparation</div>
+    <h1 class="intro-title">Train like you've <em>marked</em> the paper.</h1>
+    <p class="intro-sub">Three modes built from Cambridge examiner reports 2021–2025. Every wrong answer shows you exactly what the examiner said.</p>
+    <p class="intro-meta">Pick a mode to begin. Each session takes 8–15 minutes.</p>
+
+    <div class="mode-grid">
+      <button class="mode-card" data-mode="drills" onclick="startMode('drills')">
+        <div class="mode-number">01 · DRILLS</div>
+        <div class="mode-name">Skill-by-skill rules</div>
+        <p class="mode-desc">Test yourself on the core rules examiners check for: graph work, conclusions, units, technique. Fast-paced, single answer per question.</p>
+        <div class="mode-meta">10 questions</div>
+      </button>
+
+      <button class="mode-card" data-mode="spotter" onclick="startMode('spotter')">
+        <div class="mode-number">02 · SPOTTER</div>
+        <div class="mode-name">What's wrong here?</div>
+        <p class="mode-desc">Real candidate answers from past exams. Identify the mistake the examiner flagged. Trains the eye for what loses marks.</p>
+        <div class="mode-meta">8 scenarios</div>
+      </button>
+
+      <button class="mode-card" data-mode="planning" onclick="startMode('planning')">
+        <div class="mode-number">03 · PLANNING</div>
+        <div class="mode-name">Q4 planning simulator</div>
+        <p class="mode-desc">Build a planning answer step-by-step. Each choice is scored against what examiners actually credit. Highest-mark question type.</p>
+        <div class="mode-meta">5 stages</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- QUESTION SCREEN -->
+  <section class="question-screen" id="questionScreen">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+
+    <div class="q-header">
+      <div class="q-meta">
+        <span class="q-mode-badge" id="qModeBadge">DRILLS</span>
+        <span class="q-counter" id="qCounter">Question 1 of 10</span>
+      </div>
+      <span class="q-skill" id="qSkill">Graph work</span>
+    </div>
+
+    <h2 class="q-prompt" id="qPrompt"></h2>
+    <p class="q-context" id="qContext"></p>
+
+    <div id="qExtra"></div>
+
+    <div class="options" id="qOptions"></div>
+
+    <div class="feedback" id="qFeedback"></div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" onclick="returnToMenu()">← Back to modes</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">Next →</button>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="results-screen" id="resultsScreen">
+    <div class="results-eyebrow" id="resultsMode">DRILLS · COMPLETE</div>
+    <h2 class="results-title">Session <em>done.</em></h2>
+
+    <div class="results-score" id="finalScore">0</div>
+    <div class="results-score-total" id="finalScoreTotal">out of 10</div>
+
+    <p class="results-message" id="resultsMessage"></p>
+
+    <div class="weak-areas" id="weakAreas" style="display: none;">
+      <h3>Skills to revisit</h3>
+      <ul id="weakAreasList"></ul>
+    </div>
+
+    <div class="results-actions">
+      <button class="btn btn-secondary" onclick="returnToMenu()">Try another mode</button>
+      <button class="btn btn-primary" id="retryBtn">Retry this mode</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  Built by <em>CIE Insider</em> · Examiner-led preparation for Cambridge IGCSE Physics 0625
+</footer>
+
+<script>
+// ============================================================
+// QUESTION BANKS
+// ============================================================
+
+const DRILLS = [
+  {
+    skill: "Graph work",
+    prompt: "Your data shows resistance increasing with wire length. What's the correct way to prove it's a directly proportional relationship?",
+    options: [
+      { text: "Show that as length increases, resistance also increases", correct: false,
+        quote: "The most common misconception was that because T² increased as d increased, the two quantities were directly proportional.",
+        source: "Nov 2023",
+        rule: "Both quantities increasing only proves positive correlation, not direct proportion." },
+      { text: "Plot R against L and check the line is straight AND passes through the origin", correct: true },
+      { text: "Take the average of all R values and divide by the average of all L values", correct: false,
+        quote: "Some candidates thought that a straight line was sufficient to show proportionality.",
+        source: "Jun 2021",
+        rule: "An average is just one value — you can't show proportionality without the full data pattern." },
+      { text: "Show that the line through the data is straight", correct: false,
+        quote: "Very few candidates realised that the line must pass through the origin to show a proportional relationship.",
+        source: "Jun 2021",
+        rule: "Straight line = LINEAR. Straight line through ORIGIN = PROPORTIONAL." }
+    ]
+  },
+  {
+    skill: "Tolerance rule",
+    prompt: "You calculate two values: f₁ = 12.4 cm and f₂ = 13.8 cm. Are they 'equal within experimental accuracy'?",
+    options: [
+      { text: "No — they are obviously different numbers", correct: false,
+        quote: "Most candidates were able to state whether or not their results supported the statement given. However, not all candidates were able to go on and give a convincing justification for their statements.",
+        source: "Jun 2021",
+        rule: "You must calculate the percentage difference, not eyeball it." },
+      { text: "Yes — because the difference is 1.4 cm which is small", correct: false,
+        quote: "The idea of experimental tolerances was not well understood by the majority of candidates.",
+        source: "Jun 2021",
+        rule: "'Small' isn't a measurement. Use the 5%/10% rule based on percentage difference." },
+      { text: "Calculate (1.4 ÷ 12.4) × 100 = 11.3%. This is >10%, so no — they are different.", correct: true },
+      { text: "Yes — because all experiments have errors", correct: false,
+        quote: "Candidates could state a yes/no conclusion but could not justify it using percentage difference and the 5%/10% threshold.",
+        source: "Nov 2021",
+        rule: "The tolerance rule is precise: ≤5% same, >10% different, 5–10% with justification." }
+    ]
+  },
+  {
+    skill: "Timing technique",
+    prompt: "You're asked to find the period of a pendulum. Which technique should you use?",
+    options: [
+      { text: "Time one swing 10 times and take the average", correct: false,
+        quote: "Some candidates appeared to refer to 10 separate timings of one oscillation giving an average result, not realising that a single time for 10 oscillations is the technique involved.",
+        source: "Jun 2021",
+        rule: "Time 10 oscillations as ONE continuous measurement, then divide by 10." },
+      { text: "Time 10 oscillations in one go, then divide the time by 10", correct: true },
+      { text: "Time one swing carefully using a digital stopwatch", correct: false,
+        quote: "Reaction time error is spread over 10 oscillations / a longer time.",
+        source: "Nov 2023",
+        rule: "Timing one oscillation gives a much larger percentage error than timing ten." },
+      { text: "Time 10 oscillations to eliminate reaction time error", correct: false,
+        quote: "Treating 20 oscillations as 20 separate averages is a persistent misconception. Reaction time is NOT eliminated by timing 20 oscillations.",
+        source: "Nov 2022",
+        rule: "Reaction time is REDUCED as a percentage, NEVER eliminated." }
+    ]
+  },
+  {
+    skill: "Best-fit line",
+    prompt: "Your plotted data forms a clear pattern, but none of the points pass through the origin. Where should your line of best fit go?",
+    options: [
+      { text: "Through the origin and the average of the data points", correct: false,
+        quote: "There were many graphs where the attempt at a best-fit line was forced through the origin.",
+        source: "Jun 2021",
+        rule: "Don't force the line through the origin — the line follows YOUR data." },
+      { text: "Connecting each data point in order (dot-to-dot)", correct: false,
+        quote: "Best-fit line drawn as dot-to-dot.",
+        source: "Jun 2021",
+        rule: "A best-fit line is smooth and straight (if data is linear) — never dot-to-dot." },
+      { text: "A smooth straight line with an even distribution of points on each side", correct: true },
+      { text: "From the first point to the last point", correct: false,
+        quote: "Best-fit lines must show an even distribution of points on either side of the line.",
+        source: "Jun 2021",
+        rule: "A best-fit line balances ALL points, not just the endpoints." }
+    ]
+  },
+  {
+    skill: "Measurement precision",
+    prompt: "You measure a length with a ruler. It looks exactly 5 cm. How should you record it?",
+    options: [
+      { text: "5 cm", correct: false,
+        quote: "Distance y was exactly 2 centimetres, but candidates were expected to write 2.0 cm to indicate measurement to the nearest millimetre.",
+        source: "Jun 2022",
+        rule: "Writing '5 cm' implies precision only to the nearest cm. A ruler gives mm precision." },
+      { text: "5.0 cm", correct: true },
+      { text: "5 cm exactly", correct: false,
+        quote: "When using a ruler, always record to the nearest mm — one decimal place in cm.",
+        source: "Jun 2022",
+        rule: "Precision is shown by the decimal places — write 5.0 cm, not '5 cm exactly'." },
+      { text: "0.05 m", correct: false,
+        quote: "The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.",
+        source: "Jun 2025",
+        rule: "Match the unit the question specified. cm to the nearest mm means 5.0 cm." }
+    ]
+  },
+  {
+    skill: "Sources of error",
+    prompt: "In a careful experiment with a marble and measuring cylinder, what's a valid source of inaccuracy?",
+    options: [
+      { text: "Parallax error when reading the scale", correct: false,
+        quote: "Most candidates gave general examples of poor experimental practice despite the question stating the experiment was carried out carefully.",
+        source: "Mar 2023",
+        rule: "'Parallax' alone is a technique error — not credited when the experiment was 'carefully' performed." },
+      { text: "Measuring cylinder scale divisions are too large relative to the marble volume", correct: true },
+      { text: "Human error in reading the level", correct: false,
+        quote: "Generic answers like 'human error' gain no credit.",
+        source: "Nov 2021",
+        rule: "'Human error' is never credited. Be specific about what makes the reading uncertain." },
+      { text: "The marble wasn't fully submerged", correct: false,
+        quote: "If the question states the experiment was done carefully, answers about poor technique are wrong.",
+        source: "Mar 2022",
+        rule: "If the question specifies careful technique, only inherent apparatus limits count." }
+    ]
+  },
+  {
+    skill: "Conclusions",
+    prompt: "In a planning question, you're asked how you'd reach a conclusion from your results. Which is correct?",
+    options: [
+      { text: "The temperature will decrease faster with smaller volumes", correct: false,
+        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
+        source: "Jun 2022",
+        rule: "That's a PREDICTION — what you expect. A CONCLUSION method is HOW you'd use the data." },
+      { text: "I will use my physics knowledge to interpret the results", correct: false,
+        quote: "Many candidates incorrectly predicted a conclusion, often quoting theory to support this.",
+        source: "Mar 2022",
+        rule: "Theory doesn't replace data. State how the RESULTS will tell you the answer." },
+      { text: "Plot a graph of cooling rate against volume. If a straight line through the origin is obtained, cooling rate is proportional to volume.", correct: true },
+      { text: "Compare my results to the expected value from textbook data", correct: false,
+        quote: "Conclusions must come from your own data, not from comparison to external sources.",
+        source: "Jun 2022",
+        rule: "Your conclusion uses YOUR experimental data — not a textbook value." }
+    ]
+  },
+  {
+    skill: "Circuit diagrams",
+    prompt: "You have a resistor and a lamp in series. You need to measure the p.d. across BOTH together. Where does the voltmeter go?",
+    options: [
+      { text: "In parallel with just the resistor", correct: false,
+        quote: "Voltmeter placed across one component only in series circuit — must span whole series combination.",
+        source: "Nov 2021",
+        rule: "If the question asks for p.d. across both, the voltmeter must span both." },
+      { text: "In parallel across both the resistor and lamp together", correct: true },
+      { text: "In series with the resistor", correct: false,
+        quote: "Voltmeter: connected in parallel with the component; ammeter in series.",
+        source: "Jun 2021",
+        rule: "Voltmeter is ALWAYS in parallel. Ammeter is always in series." },
+      { text: "Across the battery terminals", correct: false,
+        quote: "Common errors included placing the voltmeter across the power supply terminals.",
+        source: "Nov 2025",
+        rule: "Across the battery measures the e.m.f., not the p.d. across your test components." }
+    ]
+  },
+  {
+    skill: "Planning",
+    prompt: "You're planning an investigation. The question asks for additional apparatus needed. What should you include?",
+    options: [
+      { text: "Only equipment that isn't already shown in the question diagram", correct: true },
+      { text: "A complete list of all apparatus used in the experiment", correct: false,
+        quote: "A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.",
+        source: "Jun 2021",
+        rule: "Don't copy what's already in the question — only add NEW equipment." },
+      { text: "Only basic items like ruler and stopwatch", correct: false,
+        quote: "Many candidates did not state that both a protractor and a ruler were needed as extra apparatus.",
+        source: "Jun 2025",
+        rule: "Name every measuring instrument required — including the 'obvious' ones." },
+      { text: "Just the apparatus you'd use to take the key measurement", correct: false,
+        quote: "Candidates needed to include a stop-watch (or other timing device) for initial credit to be awarded.",
+        source: "Jun 2021",
+        rule: "List ALL additional instruments — for IV, DV, AND control variables." }
+    ]
+  },
+  {
+    skill: "Ray tracing",
+    prompt: "You're doing a ray-tracing experiment with pins. What's the correct precaution?",
+    options: [
+      { text: "Work in a darkened room", correct: false,
+        quote: "A significant number of candidates incorrectly suggested carrying out the experiment in a darkened room. Successful candidates made valid suggestions such as viewing the bases of the pins.",
+        source: "Jun 2021",
+        rule: "Darkened room is the WRONG precaution for ray tracing. It's correct for lens experiments only." },
+      { text: "Use thick pins so they're easy to see", correct: false,
+        quote: "Suggestions could include using thin pins.",
+        source: "Jun 2025",
+        rule: "THIN pins give a more accurate line. Thick pins blur the position." },
+      { text: "View the bases of the pins when aligning them", correct: true },
+      { text: "Place the pins exactly 5.0 cm apart", correct: false,
+        quote: "Pins placed at exactly 5.0 cm risked being just too short.",
+        source: "Nov 2021",
+        rule: "Pins must be CLEARLY more than 5 cm apart — exactly 5.0 cm is risky." }
+    ]
+  }
+];
+
+const SPOTTER = [
+  {
+    skill: "Graph work",
+    context: "On a question asking what 1 small division on the speed axis represents.",
+    candidateAnswer: "The student's graph has axes labelled 'speed' and 'time' with no units, and the y-axis goes from 0 to 100 in increments of 7.",
+    prompt: "What did the examiner flag as wrong?",
+    options: [
+      { text: "The graph should be plotted on log-log paper", correct: false,
+        quote: "Always use linear graph paper for IGCSE 0625 unless specified.",
+        source: "General",
+        rule: "Log paper is never the answer for IGCSE Paper 5." },
+      { text: "Two errors: missing units on axes, and awkward scale (increments of 7)", correct: true },
+      { text: "The line of best fit was forced through the origin", correct: false,
+        quote: "This is a real error elsewhere, but the question here is about axis setup.",
+        source: "Jun 2021",
+        rule: "Read the question carefully — it asks about a specific student error." },
+      { text: "The plot points are too small to see", correct: false,
+        quote: "Plots should be no larger than half a small square — but small is fine, not 'too small'.",
+        source: "Jun 2021",
+        rule: "The issue here is axis labels and scale choice, not plot size." }
+    ]
+  },
+  {
+    skill: "Tolerance",
+    context: "A question asked whether two refractive index values (1.42 and 1.51) are 'equal within experimental accuracy'.",
+    candidateAnswer: "Yes, both values are close to 1.5 so they're approximately equal.",
+    prompt: "What did the examiner say was missing?",
+    options: [
+      { text: "The candidate should have written the calculation: (0.09 ÷ 1.42) × 100 = 6.3%, which is between 5% and 10%, so 'yes, equal within experimental accuracy'.", correct: true },
+      { text: "The candidate should have said 'no, they're different'", correct: false,
+        quote: "The percentage difference is 6.3% — between 5% and 10%, so EITHER answer is acceptable with justification.",
+        source: "Jun 2021",
+        rule: "In the 5–10% range, both yes and no are valid IF justified by calculation." },
+      { text: "The candidate should have given the values to more decimal places", correct: false,
+        quote: "The issue is not precision but the missing percentage calculation.",
+        source: "Jun 2021",
+        rule: "The tolerance rule requires SHOWING the percentage difference." },
+      { text: "The candidate should have averaged the two values", correct: false,
+        quote: "Averaging doesn't show whether values agree within tolerance.",
+        source: "Jun 2021",
+        rule: "Use percentage difference — that's what proves agreement or disagreement." }
+    ]
+  },
+  {
+    skill: "Sources of error",
+    context: "After a 'carefully carried out' density experiment using a marble and measuring cylinder.",
+    candidateAnswer: "There was parallax error when reading the measuring cylinder.",
+    prompt: "Why didn't this answer score?",
+    options: [
+      { text: "Parallax isn't a real source of error in physics", correct: false,
+        quote: "Parallax IS a real source — but it's a technique error, not an inherent apparatus limitation.",
+        source: "Mar 2023",
+        rule: "Parallax is real, but it's a technique issue — not credited when the experiment is 'carefully done'." },
+      { text: "The question specified the experiment was 'carefully carried out', so technique errors don't apply", correct: true },
+      { text: "Parallax should have been spelled 'paralax'", correct: false,
+        quote: "Spelling errors are rarely the issue — the answer's substance is what matters.",
+        source: "General",
+        rule: "Focus on the physics: technique vs inherent limits." },
+      { text: "The candidate should have said 'paral­lax in the meniscus reading'", correct: false,
+        quote: "Even with that detail, parallax is still a technique error.",
+        source: "Mar 2023",
+        rule: "When the experiment is 'carefully done', the answer must be an INHERENT apparatus limit." }
+    ]
+  },
+  {
+    skill: "Cooling rate",
+    context: "Two beakers of water are cooling. Beaker A starts at 80°C and ends at 60°C. Beaker B starts at 70°C and ends at 55°C. Same time elapsed.",
+    candidateAnswer: "Beaker A cooled faster because it ended at a higher temperature than B.",
+    prompt: "What's wrong with this conclusion?",
+    options: [
+      { text: "Cooling rate isn't measured by final temperature — it's measured by temperature CHANGE per unit time", correct: true },
+      { text: "Beaker A actually cooled slower because it lost more heat", correct: false,
+        quote: "Beaker A cooled 20°C; Beaker B cooled 15°C. A did cool faster, but the candidate's REASONING was wrong.",
+        source: "Mar 2021",
+        rule: "The conclusion might be correct but the reasoning given is wrong." },
+      { text: "The starting temperatures should have been equal", correct: false,
+        quote: "The reasoning error is comparing FINAL temperatures, not the comparison of starting points.",
+        source: "Mar 2021",
+        rule: "The student's logic was wrong — they used the wrong quantity to judge cooling rate." },
+      { text: "The candidate should have used Newton's law of cooling", correct: false,
+        quote: "Newton's law isn't required for IGCSE — just the basic concept that cooling rate = ΔT/time.",
+        source: "General",
+        rule: "Keep it simple: cooling rate = temperature change ÷ time." }
+    ]
+  },
+  {
+    skill: "Planning",
+    context: "Planning question: investigating how angle of launch affects horizontal range of a projectile.",
+    candidateAnswer: "Method: 1) Set up the apparatus. 2) Measure the range. 3) Change the angle. 4) Repeat.",
+    prompt: "What's missing from this plan?",
+    options: [
+      { text: "Multiple things: no number of values specified, 'repeat' is vague, no instruments named, no conclusion method", correct: true },
+      { text: "The candidate should have included a labelled diagram", correct: false,
+        quote: "Diagrams help but aren't always required — the missing METHOD content is the bigger issue.",
+        source: "Jun 2021",
+        rule: "A diagram is a nice-to-have. The missing essentials are the bigger problem." },
+      { text: "The candidate should have stated the expected result", correct: false,
+        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
+        source: "Mar 2022",
+        rule: "A prediction is not what's needed — the method itself has gaps." },
+      { text: "The candidate should have used a different angle", correct: false,
+        quote: "The issue is the method's vagueness, not the angle value.",
+        source: "Mar 2023",
+        rule: "The plan needs structure: instruments, number of values, repeats, conclusion." }
+    ]
+  },
+  {
+    skill: "Technique",
+    context: "A focal length experiment. The student is asked how to obtain a sharp image on the screen.",
+    candidateAnswer: "Move the screen slowly until the image is clearest.",
+    prompt: "Why didn't this score full marks?",
+    options: [
+      { text: "The screen position is fixed once the object-to-screen distance is set — you must move the LENS", correct: true },
+      { text: "The candidate should have said 'use a brighter lamp'", correct: false,
+        quote: "Brightness isn't the issue — the procedure is.",
+        source: "Jun 2025",
+        rule: "The error is procedural: which component to move." },
+      { text: "The candidate should have specified a particular screen position", correct: false,
+        quote: "The screen position has been fixed by the experimental setup.",
+        source: "Jun 2025",
+        rule: "When the screen-object distance is fixed, only the LENS can adjust." },
+      { text: "The candidate should have said 'work in a darkened room'", correct: false,
+        quote: "Darkened room is credited for SEEING the image — but the question asked HOW to obtain a sharp image, which is about which component moves.",
+        source: "Nov 2023",
+        rule: "Darkened room is for image visibility — moving the lens is for sharpness." }
+    ]
+  },
+  {
+    skill: "Measurement",
+    context: "After taking a reading of 23.4 cm³, the student noticed they'd misread and the actual reading was 24.1 cm³.",
+    candidateAnswer: "The student wrote '24.1' on top of the '23.4' in the table.",
+    prompt: "Why does the examiner take issue with this?",
+    options: [
+      { text: "Overwriting makes the original answer ambiguous — the examiner can't tell which value was intended", correct: true },
+      { text: "The new value is wrong", correct: false,
+        quote: "The examiner has no way to know — but the issue is PRESENTATION not VALUE.",
+        source: "Jun 2021",
+        rule: "The complaint is about how the change was made, not the value itself." },
+      { text: "The student should have used pen, not pencil", correct: false,
+        quote: "Pencil is fine for tables — that's not the issue.",
+        source: "Jun 2021",
+        rule: "Overwriting is the problem regardless of pen or pencil." },
+      { text: "The student should have used a different colour", correct: false,
+        quote: "Cross out completely and rewrite — not change colour.",
+        source: "Jun 2021",
+        rule: "The fix is: one clean line through the old value, write new value next to it." }
+    ]
+  },
+  {
+    skill: "Conclusion",
+    context: "Planning question. The candidate ended their plan with: 'I predict that as the temperature of the water increases, it will boil faster.'",
+    prompt: "Why does this final sentence score zero?",
+    candidateAnswer: "I predict that as the temperature of the water increases, it will boil faster.",
+    options: [
+      { text: "It's a PREDICTION — the question asked how to reach a conclusion from the data, not what you expect to find", correct: true },
+      { text: "The prediction is wrong — hotter water boils slower", correct: false,
+        quote: "The prediction's accuracy isn't the issue — the type of statement is.",
+        source: "Jun 2022",
+        rule: "A prediction is what you expect; a conclusion is HOW you use the data." },
+      { text: "The candidate should have written it in past tense", correct: false,
+        quote: "Tense isn't the issue — the statement's TYPE is.",
+        source: "Jun 2022",
+        rule: "Whether predicted or past, this isn't a conclusion method." },
+      { text: "The candidate should have included specific temperatures", correct: false,
+        quote: "Specific numbers wouldn't fix it — it's still a prediction.",
+        source: "Jun 2022",
+        rule: "Add: 'Plot temperature against boil time. If a clear pattern is seen, this shows the relationship.'" }
+    ]
+  }
+];
+
+const PLANNING = [
+  {
+    stage: 1,
+    title: "Stage 1: Apparatus",
+    scenario: "You're asked to investigate how the diameter of a wire affects its resistance. The question provides a power supply, a length of wire, and crocodile clips.",
+    skill: "Naming instruments",
+    prompt: "What additional apparatus do you need to name?",
+    options: [
+      { text: "Voltmeter, ammeter, ruler, and micrometer (or vernier callipers)", correct: true },
+      { text: "Voltmeter and ammeter only — the rest is provided", correct: false,
+        quote: "Many candidates did not state that both a protractor and a ruler were needed as extra apparatus.",
+        source: "Jun 2025",
+        rule: "You need to MEASURE the diameter — and the wire length. Name those instruments." },
+      { text: "Just a voltmeter — current can be calculated", correct: false,
+        quote: "Candidates needed to include all measuring devices for initial credit.",
+        source: "Jun 2021",
+        rule: "Every measurement needs an instrument. Don't omit measuring tools." },
+      { text: "A complete list of everything mentioned in the question", correct: false,
+        quote: "A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.",
+        source: "Jun 2021",
+        rule: "Only ADDITIONAL apparatus — don't copy what's already provided." }
+    ]
+  },
+  {
+    stage: 2,
+    title: "Stage 2: Variables",
+    scenario: "Your investigation: diameter of wire (the independent variable) vs resistance (dependent variable).",
+    skill: "Control variables",
+    prompt: "Which is a VALID control variable for this experiment?",
+    options: [
+      { text: "Length of wire", correct: true },
+      { text: "The same beaker (apparatus)", correct: false,
+        quote: "Reference to the apparatus was not accepted as a control variable.",
+        source: "Mar 2022",
+        rule: "Apparatus is not a control variable. Use measurable physical quantities." },
+      { text: "Keep current constant", correct: false,
+        quote: "Saying 'keep current constant' was penalised — it is self-contradictory.",
+        source: "Jun 2023",
+        rule: "Current is the dependent variable being measured. You can't 'keep it constant'." },
+      { text: "View the meter perpendicularly", correct: false,
+        quote: "Precautions ≠ control variables.",
+        source: "Mar 2022",
+        rule: "Viewing perpendicularly is a PRECAUTION, not a control variable." }
+    ]
+  },
+  {
+    stage: 3,
+    title: "Stage 3: Method",
+    scenario: "You've named the apparatus and identified control variables. Now describe the experimental procedure.",
+    skill: "Method structure",
+    prompt: "What's the minimum your method must include?",
+    options: [
+      { text: "Measure 5+ values of diameter; for each, measure V and I; repeat each and average; calculate R = V/I", correct: true },
+      { text: "Try different diameters and record the resistance", correct: false,
+        quote: "It was necessary for the method to include measurements for a minimum of five values of the independent variable, to repeat each value and to then take averages.",
+        source: "Jun 2021",
+        rule: "≥ 5 values, with repeats and averages — not just 'different diameters'." },
+      { text: "Measure 3 diameters very accurately", correct: false,
+        quote: "Minimum of five values of the independent variable.",
+        source: "Jun 2021",
+        rule: "Three is not enough — five values minimum." },
+      { text: "Repeat the experiment many times", correct: false,
+        quote: "'Repeat the experiment' is too vague — must say 'repeat with a different angle' or 'repeat each angle measurement and take an average'.",
+        source: "Mar 2023",
+        rule: "'Repeat' alone is vague. Be specific about WHAT you're varying." }
+    ]
+  },
+  {
+    stage: 4,
+    title: "Stage 4: Sources of error",
+    scenario: "The question states the experiment was 'carefully carried out'. You're asked for a source of inaccuracy.",
+    skill: "Sources of error",
+    prompt: "Which is a valid answer?",
+    options: [
+      { text: "The wire diameter may not be perfectly uniform along its length", correct: true },
+      { text: "Parallax error when reading the meters", correct: false,
+        quote: "Most candidates gave general examples of poor experimental practice despite the question stating the experiment was carried out carefully.",
+        source: "Mar 2023",
+        rule: "Parallax is a TECHNIQUE error — not credited for 'careful' experiments." },
+      { text: "Human error in connecting the circuit", correct: false,
+        quote: "Generic answers like 'human error' gain no credit.",
+        source: "Nov 2021",
+        rule: "'Human error' is never credited. It's a non-answer." },
+      { text: "The wire might break during the experiment", correct: false,
+        quote: "Sources of inaccuracy relate to MEASUREMENT — not equipment failure.",
+        source: "Jun 2021",
+        rule: "Inaccuracy is about how reliably you can MEASURE — not whether something might go wrong." }
+    ]
+  },
+  {
+    stage: 5,
+    title: "Stage 5: Conclusion",
+    scenario: "You've described your method. Now state how you'd reach a conclusion from your results.",
+    skill: "Conclusion method",
+    prompt: "Which is the best conclusion statement?",
+    options: [
+      { text: "Plot a graph of resistance against 1/diameter². If a straight line through the origin is obtained, R is proportional to 1/d².", correct: true },
+      { text: "If the resistance increases with smaller diameter, this confirms the theory", correct: false,
+        quote: "Candidates must conclude from their data, not from physics theory.",
+        source: "Mar 2021",
+        rule: "Conclude from the data pattern, not from comparison to expected theory." },
+      { text: "I predict that thinner wires will have higher resistance", correct: false,
+        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
+        source: "Jun 2021",
+        rule: "That's a prediction. The question asks HOW you'd reach a conclusion from your data." },
+      { text: "Compare the values to find a pattern", correct: false,
+        quote: "Not many candidates explained how they would use their results.",
+        source: "Jun 2021",
+        rule: "Be specific: graph what against what, and what pattern shows what conclusion." }
+    ]
+  }
+];
+
+// ============================================================
+// STATE
+// ============================================================
+
+let currentMode = null;
+let currentQuestions = [];
+let currentIndex = 0;
+let correctCount = 0;
+let wrongAnswers = []; // {skill, prompt}
+
+// ============================================================
+// CONTROLLER
+// ============================================================
+
+function startMode(mode) {
+  currentMode = mode;
+  currentIndex = 0;
+  correctCount = 0;
+  wrongAnswers = [];
+
+  if (mode === 'drills') currentQuestions = [...DRILLS];
+  else if (mode === 'spotter') currentQuestions = [...SPOTTER];
+  else if (mode === 'planning') currentQuestions = [...PLANNING];
+
+  // Shuffle drill and spotter options + question order. Planning order is fixed (it's a sequence).
+  if (mode !== 'planning') {
+    currentQuestions = shuffle(currentQuestions);
+  }
+  currentQuestions.forEach(q => {
+    q.options = shuffle([...q.options]);
+  });
+
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('resultsScreen').classList.remove('active');
+  document.getElementById('questionScreen').classList.add('active');
+  document.getElementById('scoreDisplay').style.display = 'flex';
+  document.getElementById('totalCount').textContent = currentQuestions.length;
+
+  renderQuestion();
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function renderQuestion() {
+  const q = currentQuestions[currentIndex];
+  const progress = (currentIndex / currentQuestions.length) * 100;
+  document.getElementById('progressFill').style.width = progress + '%';
+
+  const badge = document.getElementById('qModeBadge');
+  badge.textContent = currentMode.toUpperCase();
+  badge.className = 'q-mode-badge ' + currentMode;
+
+  if (currentMode === 'planning') {
+    document.getElementById('qCounter').textContent = q.title;
+  } else {
+    document.getElementById('qCounter').textContent = `Question ${currentIndex + 1} of ${currentQuestions.length}`;
+  }
+
+  document.getElementById('qSkill').textContent = q.skill;
+  document.getElementById('qPrompt').textContent = q.prompt;
+  document.getElementById('qContext').textContent = q.context || '';
+
+  // Extra content (candidate response for spotter, scenario for planning)
+  const extra = document.getElementById('qExtra');
+  extra.innerHTML = '';
+  if (currentMode === 'spotter' && q.candidateAnswer) {
+    const box = document.createElement('div');
+    box.className = 'candidate-response';
+    box.textContent = q.candidateAnswer;
+    extra.appendChild(box);
+  } else if (currentMode === 'planning' && q.scenario) {
+    const box = document.createElement('div');
+    box.className = 'planning-scenario';
+    box.innerHTML = `<h4>Scenario</h4><p>${q.scenario}</p>`;
+    extra.appendChild(box);
+  }
+
+  // Options
+  const optsContainer = document.getElementById('qOptions');
+  optsContainer.innerHTML = '';
+  const letters = ['A', 'B', 'C', 'D'];
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.innerHTML = `<span class="option-letter">${letters[i]}</span><span class="option-text">${opt.text}</span>`;
+    btn.onclick = () => selectOption(i);
+    optsContainer.appendChild(btn);
+  });
+
+  // Reset feedback and next button
+  document.getElementById('qFeedback').classList.remove('show');
+  document.getElementById('qFeedback').innerHTML = '';
+  document.getElementById('nextBtn').style.display = 'none';
+}
+
+function selectOption(index) {
+  const q = currentQuestions[currentIndex];
+  const opt = q.options[index];
+  const optionButtons = document.querySelectorAll('.option');
+
+  optionButtons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === index) {
+      btn.classList.add(opt.correct ? 'correct' : 'incorrect');
+    } else if (q.options[i].correct && !opt.correct) {
+      btn.classList.add('correct');
+    } else {
+      btn.classList.add('dimmed');
+    }
+  });
+
+  // Build feedback
+  const fb = document.getElementById('qFeedback');
+  if (opt.correct) {
+    correctCount++;
+    document.getElementById('correctCount').textContent = correctCount;
+    fb.innerHTML = `
+      <div class="feedback-correct">
+        <div class="feedback-title">Correct.</div>
+        <div class="feedback-body">That's exactly what examiners credit. Move on.</div>
+      </div>
+    `;
+  } else {
+    wrongAnswers.push({ skill: q.skill, prompt: q.prompt });
+    fb.innerHTML = `
+      <div class="feedback-incorrect">
+        <div class="feedback-title">Not credited.</div>
+        <div class="examiner-quote">
+          <div class="examiner-quote-text">"${opt.quote}"</div>
+          <div class="examiner-quote-source">— Examiner Report, ${opt.source}</div>
+        </div>
+        <div class="feedback-rule"><strong>The rule:</strong> ${opt.rule}</div>
+      </div>
+    `;
+  }
+  fb.classList.add('show');
+  document.getElementById('nextBtn').style.display = 'inline-flex';
+
+  if (currentMode === 'drills')   CIEGate.track('drill_answer');
+  else if (currentMode === 'spotter')  CIEGate.track('spotter_answer');
+  else if (currentMode === 'planning') CIEGate.track('planning_stage');
+
+  // Scroll feedback into view
+  setTimeout(() => fb.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= currentQuestions.length) {
+    showResults();
+  } else {
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function showResults() {
+  document.getElementById('questionScreen').classList.remove('active');
+  document.getElementById('resultsScreen').classList.add('active');
+  document.getElementById('progressFill').style.width = '100%';
+
+  document.getElementById('resultsMode').textContent = currentMode.toUpperCase() + ' · COMPLETE';
+  document.getElementById('finalScore').textContent = correctCount;
+  document.getElementById('finalScoreTotal').textContent = `out of ${currentQuestions.length}`;
+
+  // Message based on score
+  const pct = correctCount / currentQuestions.length;
+  let msg = '';
+  if (pct === 1) msg = 'Flawless. You\'re thinking like an examiner.';
+  else if (pct >= 0.8) msg = 'Strong performance. The weak spots below are worth a second pass.';
+  else if (pct >= 0.6) msg = 'A solid foundation, but several rules need reinforcement. Focus on the skills below.';
+  else if (pct >= 0.4) msg = 'You\'re catching the major patterns. Take your time, re-read the rules, and try again.';
+  else msg = 'Worth working through the revision guide before retrying. The skills below are where to start.';
+  document.getElementById('resultsMessage').textContent = msg;
+
+  // Weak areas
+  if (wrongAnswers.length > 0) {
+    const skillCounts = {};
+    wrongAnswers.forEach(w => {
+      skillCounts[w.skill] = (skillCounts[w.skill] || 0) + 1;
+    });
+    const sorted = Object.entries(skillCounts).sort((a, b) => b[1] - a[1]);
+    const list = document.getElementById('weakAreasList');
+    list.innerHTML = '';
+    sorted.forEach(([skill, count]) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${skill}</span><span class="count">${count} miss${count > 1 ? 'es' : ''}</span>`;
+      list.appendChild(li);
+    });
+    document.getElementById('weakAreas').style.display = 'block';
+  } else {
+    document.getElementById('weakAreas').style.display = 'none';
+  }
+
+  // Retry button
+  document.getElementById('retryBtn').onclick = () => startMode(currentMode);
+}
+
+function returnToMenu() {
+  document.getElementById('questionScreen').classList.remove('active');
+  document.getElementById('resultsScreen').classList.remove('active');
+  document.getElementById('introScreen').style.display = 'block';
+  document.getElementById('scoreDisplay').style.display = 'none';
+  document.getElementById('progressFill').style.width = '0%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when Paper 4, Paper 6, or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+
+    <!--
+      ============================================================
+      CONVERTKIT FORM
+      ============================================================
+      To wire this up:
+        1. In ConvertKit, create a form and grab its FORM ID.
+        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
+           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
+        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
+      ============================================================
+    -->
+    <form
+      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      method="post"
+      data-sv-form="YOUR_FORM_ID"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-hub">Email address</label>
+      <input
+        id="email-hub"
+        type="email"
+        name="email_address"
+        placeholder="you@example.com"
+        required
+      >
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
