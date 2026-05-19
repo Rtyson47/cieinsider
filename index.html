@@ -3,8 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIE Insider · Examiner-grade revision tools for Cambridge Physics</title>
-<meta name="description" content="Free, interactive revision trainers for Cambridge IGCSE (0625) and AS/A Level (9702) Physics. Built around what examiners actually look for.">
+<title>Cambridge IGCSE & A Level Physics Revision Tools | CIE Insider</title>
+<meta name="description" content="Free interactive revision trainers for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Built from real examiner reports — the mark-scheme habits that lift a grade.">
+<link rel="canonical" href="https://cieinsider.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cieinsider.com/">
+<meta property="og:site_name" content="CIE Insider">
+<meta property="og:title" content="Cambridge IGCSE & A Level Physics Revision Tools | CIE Insider">
+<meta property="og:description" content="Free interactive revision trainers for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Built from real examiner reports — the mark-scheme habits that lift a grade.">
+<meta property="og:image" content="https://cieinsider.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cambridge IGCSE & A Level Physics Revision Tools | CIE Insider">
+<meta name="twitter:description" content="Free interactive revision trainers for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Built from real examiner reports — the mark-scheme habits that lift a grade.">
+<meta name="twitter:image" content="https://cieinsider.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cieinsider.com/#org",
+      "name": "CIE Insider",
+      "url": "https://cieinsider.com/",
+      "description": "Examiner-grade revision tools for Cambridge IGCSE and A Level Physics"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cieinsider.com/#website",
+      "url": "https://cieinsider.com/",
+      "name": "CIE Insider",
+      "publisher": { "@id": "https://cieinsider.com/#org" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -309,6 +341,83 @@
     color: var(--ink-mute);
     font-style: italic;
   }
+
+  /* ============ BLOG SECTION ============ */
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 880px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+  .blog-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .blog-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink-soft);
+    box-shadow: var(--shadow);
+  }
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+  }
+  .blog-card-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--cream-deep);
+    color: var(--ink-mute);
+    border: 1px solid var(--rule);
+  }
+  .blog-card h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .blog-card p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  .blog-card-foot {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .blog-card:hover .blog-card-foot { color: var(--accent-deep); }
+  .blog-card:hover .blog-card-foot .arrow { transform: translateX(3px); }
 
   /* ============ EMAIL CAPTURE ============ */
 
@@ -634,6 +743,41 @@
         <h3>Definitions & Formulae Flashcards</h3>
         <p>A2-level definitions and formulae — same drill system, A2 content. Work through until every card is clean.</p>
         <span class="tile-foot">Open flashcards <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- =================== BLOG =================== -->
+  <section class="syllabus-row">
+    <div class="syllabus-head">
+      <div class="left">
+        <h2>From the blog</h2>
+        <span class="level">Examiner insights</span>
+      </div>
+      <a href="/blog/" style="font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; letter-spacing:0.01em;">All articles →</a>
+    </div>
+
+    <div class="blog-grid">
+
+      <a class="blog-card" href="/blog/examiner-report-2025/">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">0625 · 9702</span>
+          <span>May 2026</span>
+        </div>
+        <h3>What the 2025 Cambridge Physics Examiner Reports Actually Tell You</h3>
+        <p>A plain-English breakdown of the 2025 reports — the persistent patterns, what top candidates did, and how to turn the findings into marks.</p>
+        <span class="blog-card-foot">Read article <span class="arrow">→</span></span>
+      </a>
+
+      <a class="blog-card" href="/blog/common-mistakes-igcse-physics/">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">0625 · IGCSE</span>
+          <span>May 2026</span>
+        </div>
+        <h3>10 Cambridge IGCSE Physics Mistakes Examiners See Every Year</h3>
+        <p>The errors that appear in Cambridge 0625 reports year after year — with exact wording fixes so you know what to write instead.</p>
+        <span class="blog-card-foot">Read article <span class="arrow">→</span></span>
       </a>
 
     </div>
