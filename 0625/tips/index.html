@@ -159,6 +159,63 @@
     .capture { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
   }
 
+  /* Lead magnet promo */
+  .lead-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--cie-cream-warm, #faf6ec);
+    border: 1px solid var(--cie-rule, #d8ccb4);
+    border-left: 3px solid #b8893a;
+    border-radius: 4px;
+    padding: 20px 28px;
+    margin: 0 auto 0;
+    max-width: 1180px;
+  }
+  .lead-promo-text { }
+  .lead-promo-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #b8893a;
+    margin-bottom: 4px;
+  }
+  .lead-promo-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--cie-ink, #1f1a14);
+    margin: 0 0 4px;
+  }
+  .lead-promo p {
+    font-size: 13px;
+    color: var(--cie-ink-mute, #6b5e4d);
+    margin: 0;
+    line-height: 1.45;
+  }
+  .lead-promo-btn {
+    display: inline-block;
+    background: #b8893a;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .lead-promo-btn:hover { background: #9a7230; }
+  @media (max-width: 600px) {
+    .lead-promo { flex-direction: column; align-items: flex-start; gap: 14px; padding: 18px 20px; }
+  }
+
   .capture .eyebrow {
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -860,6 +917,15 @@ renderAll();
 </script>
 
   <!-- =================== EMAIL CAPTURE =================== -->
+  <div class="lead-promo">
+    <div class="lead-promo-text">
+      <div class="lead-promo-eyebrow">Free download</div>
+      <p class="lead-promo-title">IGCSE Physics A* Checklist</p>
+      <p>Six strategies as a printable PDF &mdash; mark scheme language, command words, Paper 5 mark breakdown, and a 6-week revision plan.</p>
+    </div>
+    <a class="lead-promo-btn" href="/resources/">Get free checklist &rarr;</a>
+  </div>
+
   <section class="capture">
     <div>
       <div class="eyebrow">Get the next trainer first</div>
@@ -873,16 +939,16 @@ renderAll();
       ============================================================
       To wire this up:
         1. In ConvertKit, create a form and grab its FORM ID.
-        2. Replace YOUR_FORM_ID below in TWO places (action= and the hidden input is not needed for v3 forms).
+        2. Replace 9454927 below in TWO places (action= and the hidden input is not needed for v3 forms).
         3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
            (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
         4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
       ============================================================
     -->
     <form
-      action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions"
+      action="https://app.kit.com/forms/9454927/subscriptions"
       method="post"
-      data-sv-form="YOUR_FORM_ID"
+      data-sv-form="9454927"
       data-uid=""
       data-format="inline"
       data-version="5"
