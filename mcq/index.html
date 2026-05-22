@@ -142,6 +142,30 @@
 
   .paper-picker option { color: var(--ink); }
 
+  .type-tabs { display: flex; gap: 3px; }
+
+  .type-tab {
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-dim);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .type-tab:hover { border-color: var(--border-strong); color: var(--ink); }
+
+  .type-tab.active {
+    background: var(--accent-glow);
+    border-color: var(--accent-deep);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
   .header-spacer { flex: 1; }
 
   .mode-pill {
@@ -614,6 +638,8 @@
 <div class="header">
   <div class="brand">CIE <span class="brand-mark">Insider</span></div>
 
+  <div class="type-tabs" id="typeTabs"></div>
+
   <select class="paper-picker" id="paperPicker">
     <option value="">Loading papers…</option>
   </select>
@@ -735,7 +761,19 @@ const State = {
   initialDuration: 0,
 
   // Mode
-  examMode: false  // false = practice, true = exam conditions
+  examMode: false,  // false = practice, true = exam conditions
+
+  // Active paper-type filter tab
+  activeType: null
+};
+
+// Ordered type definitions — add 'A' here when A Level papers are added
+const TYPE_ORDER = ['core', 'extended', 'AS', 'A'];
+const TYPE_META  = {
+  core:     { label: 'IGCSE Core'     },
+  extended: { label: 'IGCSE Extended' },
+  AS:       { label: 'AS Level'       },
+  A:        { label: 'A Level'        },
 };
 
 // =============================================================================
@@ -748,16 +786,33 @@ async function boot() {
     const res = await fetch('papers/index.json');
     if (!res.ok) throw new Error('index missing');
     State.paperIndex = await res.json();
-    populatePicker();
 
-    // Priority: URL ?paper=<id>  >  last-used (localStorage)  >  first paper in registry
-    const urlPaper = new URLSearchParams(window.location.search).get('paper');
+    const params    = new URLSearchParams(window.location.search);
+    const urlPaper  = params.get('paper');
+    const urlType   = params.get('type');
     const lastPaper = localStorage.getItem('cieinsider_last_paper');
-    const firstId = getFirstPaperId();
+    const lastType  = localStorage.getItem('cieinsider_last_type');
+
+    // Determine which type tab to activate:
+    // URL ?type= > inferred from URL ?paper= > localStorage type > inferred from last paper > first type
+    const available = getAvailableTypes();
+    let targetType =
+      (urlType  && available.includes(urlType))  ? urlType  :
+      (urlPaper && inferTypeFromPaper(urlPaper))  ? inferTypeFromPaper(urlPaper) :
+      (lastType && available.includes(lastType))  ? lastType :
+      (lastPaper && inferTypeFromPaper(lastPaper)) ? inferTypeFromPaper(lastPaper) :
+      available[0];
+
+    buildTypeTabs(available);
+    setActiveType(targetType);
+
+    // Determine which paper to load:
+    // URL ?paper= > last-used paper (only if it matches the active type) > first paper of type
     const loadId =
-      (urlPaper && paperExists(urlPaper)) ? urlPaper :
-      (lastPaper && paperExists(lastPaper)) ? lastPaper :
-      firstId;
+      (urlPaper  && paperExists(urlPaper))                                        ? urlPaper  :
+      (lastPaper && paperExists(lastPaper) &&
+       inferTypeFromPaper(lastPaper) === targetType)                              ? lastPaper :
+      getFirstPaperOfType(targetType);
     if (loadId) await loadPaper(loadId);
   } catch (err) {
     console.error('Boot error:', err);
@@ -765,10 +820,25 @@ async function boot() {
   }
 }
 
-function getFirstPaperId() {
+function getAvailableTypes() {
+  const seen = new Set();
+  for (const code in State.paperIndex.syllabi)
+    State.paperIndex.syllabi[code].papers.forEach(p => seen.add(p.paperType));
+  return TYPE_ORDER.filter(t => seen.has(t));
+}
+
+function getFirstPaperOfType(type) {
   for (const code in State.paperIndex.syllabi) {
-    const papers = State.paperIndex.syllabi[code].papers;
-    if (papers.length) return papers[0].id;
+    const found = State.paperIndex.syllabi[code].papers.find(p => p.paperType === type);
+    if (found) return found.id;
+  }
+  return null;
+}
+
+function inferTypeFromPaper(paperId) {
+  for (const code in State.paperIndex.syllabi) {
+    const found = State.paperIndex.syllabi[code].papers.find(p => p.id === paperId);
+    if (found) return found.paperType;
   }
   return null;
 }
@@ -780,20 +850,46 @@ function paperExists(id) {
   return false;
 }
 
+function buildTypeTabs(availableTypes) {
+  const container = document.getElementById('typeTabs');
+  container.innerHTML = '';
+  availableTypes.forEach(type => {
+    const btn = document.createElement('button');
+    btn.className = 'type-tab';
+    btn.dataset.type = type;
+    btn.textContent = TYPE_META[type].label;
+    btn.addEventListener('click', async () => {
+      if (type === State.activeType) return;
+      setActiveType(type);
+      const firstId = getFirstPaperOfType(type);
+      if (firstId) await loadPaper(firstId);
+    });
+    container.appendChild(btn);
+  });
+}
+
+function setActiveType(type) {
+  State.activeType = type;
+  localStorage.setItem('cieinsider_last_type', type);
+  document.querySelectorAll('.type-tab').forEach(btn =>
+    btn.classList.toggle('active', btn.dataset.type === type)
+  );
+  populatePicker();
+}
+
 function populatePicker() {
   const picker = document.getElementById('paperPicker');
   picker.innerHTML = '';
   for (const code in State.paperIndex.syllabi) {
-    const syl = State.paperIndex.syllabi[code];
-    const grp = document.createElement('optgroup');
-    grp.label = `${syl.code} — ${syl.name}`;
-    syl.papers.forEach(p => {
-      const opt = document.createElement('option');
-      opt.value = p.id;
-      opt.textContent = p.label;
-      grp.appendChild(opt);
-    });
-    picker.appendChild(grp);
+    State.paperIndex.syllabi[code].papers
+      .filter(p => !State.activeType || p.paperType === State.activeType)
+      .forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        // Strip trailing "(Type)" suffix — the active tab already communicates it
+        opt.textContent = p.label.replace(/\s*\([^)]+\)$/, '');
+        picker.appendChild(opt);
+      });
   }
 }
 
