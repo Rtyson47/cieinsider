@@ -935,23 +935,28 @@ async function loadPaper(paperId) {
   localStorage.setItem('cieinsider_last_paper', paperId);
   document.getElementById('paperPicker').value = paperId;
 
-  // PDF
-  const embed = document.getElementById('pdfEmbed');
+  // PDF — replace the embed element entirely to force browser reload
   const fallback = document.getElementById('pdfFallback');
+  const oldEmbed = document.getElementById('pdfEmbed');
+  const newEmbed = document.createElement('embed');
+  newEmbed.id = 'pdfEmbed';
+  newEmbed.type = 'application/pdf';
+  newEmbed.style.cssText = 'width:100%;height:100%;border:none;';
+  oldEmbed.replaceWith(newEmbed);
+
   if (State.paper.pdfPath) {
-    embed.src = State.paper.pdfPath;
-    embed.style.display = 'block';
+    newEmbed.src = State.paper.pdfPath;
+    newEmbed.style.display = 'block';
     fallback.style.display = 'none';
     document.getElementById('expectedPath').textContent = State.paper.pdfPath;
-    // If embed fails to load anything, show fallback after a beat
     setTimeout(() => {
-      if (embed.offsetHeight < 100) {
-        embed.style.display = 'none';
+      if (newEmbed.offsetHeight < 100) {
+        newEmbed.style.display = 'none';
         fallback.style.display = 'block';
       }
     }, 1500);
   } else {
-    embed.style.display = 'none';
+    newEmbed.style.display = 'none';
     fallback.style.display = 'block';
   }
 
