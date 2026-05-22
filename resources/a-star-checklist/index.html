@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE Physics A* Checklist | CIE Insider</title>
+<meta name="description" content="Printable A* checklist for Cambridge IGCSE Physics 0625 — six strategies with action checkboxes, based on Cambridge examiner reports.">
+<link rel="canonical" href="https://cieinsider.com/resources/a-star-checklist/">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<style>
+  :root {
+    --cream: #f5efe4;
+    --cream-deep: #ede4d2;
+    --cream-warm: #faf6ec;
+    --ink: #1f1a14;
+    --ink-soft: #3a3127;
+    --ink-mute: #6b5e4d;
+    --rule: #d8ccb4;
+    --accent: #a83b1f;
+    --accent-deep: #7d2a14;
+    --gold: #b8893a;
+    --green: #436438;
+    --green-soft: #d4dcc4;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── Screen: topbar ── */
+  .screen-only { }
+  .topbar {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
+  .wordmark .mark { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; align-self: center; }
+  .wordmark .name { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 4px; padding: 9px 18px;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.02em; transition: background 0.15s;
+  }
+  .print-btn:hover { background: var(--accent-deep); }
+
+  /* ── Document ── */
+  .doc {
+    max-width: 780px;
+    margin: 32px auto 56px;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  .doc-header {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .doc-header-left {}
+  .doc-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .doc-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .doc-title em { font-style: italic; font-weight: 400; color: var(--accent-deep); }
+  .doc-sub {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .doc-logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink-mute);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+  .doc-logo .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+  /* Intro blurb */
+  .doc-intro {
+    background: var(--cream-deep);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    line-height: 1.55;
+  }
+  .doc-intro strong { color: var(--ink); }
+
+  /* Strategy sections */
+  .strategy {
+    margin-bottom: 20px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .strategy-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .strategy-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .strategy-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 40;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* Checklist items */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .checklist li .cb {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid var(--ink-mute);
+    border-radius: 3px;
+    margin-top: 1px;
+    background: #fff;
+  }
+  .checklist li .cb.green { border-color: var(--green); }
+  .checklist li strong { color: var(--ink); font-weight: 600; }
+  .checklist li em { font-style: italic; color: var(--ink); }
+
+  /* Two-column layout for some sections */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Command word table */
+  .cmd-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+  .cmd-table th { text-align: left; padding: 5px 8px; background: var(--cream-deep); border: 1px solid var(--rule); font-weight: 600; color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+  .cmd-table td { padding: 5px 8px; border: 1px solid var(--rule); color: var(--ink-soft); vertical-align: top; line-height: 1.4; }
+  .cmd-table tr:nth-child(even) td { background: var(--cream-warm); }
+  .cmd-table code { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--cream-deep); padding: 1px 4px; border-radius: 2px; color: var(--accent); }
+
+  /* Footer rule */
+  .doc-footer {
+    margin-top: 28px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-family: 'JetBrains Mono', monospace;
+    gap: 12px;
+  }
+
+  /* ── Print styles ── */
+  @media print {
+    .screen-only { display: none !important; }
+
+    body {
+      background: #fff;
+      font-size: 11pt;
+      margin: 0;
+    }
+
+    .doc {
+      max-width: 100%;
+      margin: 0;
+      padding: 12mm 14mm;
+    }
+
+    .doc-title { font-size: 24pt; }
+    .strategy-title { font-size: 13pt; }
+    .checklist li { font-size: 10.5pt; }
+    .cmd-table { font-size: 9pt; }
+    .cmd-table th { font-size: 8.5pt; }
+
+    .strategy { break-inside: avoid; }
+    .two-col { break-inside: avoid; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .topbar { padding: 16px 20px; }
+    .doc { padding: 0 16px; margin-top: 20px; }
+    .doc-title { font-size: 24px; }
+    .doc-header { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Screen-only topbar -->
+<div class="topbar screen-only">
+  <a class="wordmark" href="/">
+    <span class="mark"></span>
+    <span class="name">CIE Insider</span>
+  </a>
+  <button class="print-btn" onclick="window.print()">
+    ⬇ Save as PDF
+  </button>
+</div>
+
+<div class="doc">
+
+  <!-- Document header -->
+  <div class="doc-header">
+    <div class="doc-header-left">
+      <div class="doc-eyebrow">Cambridge IGCSE Physics 0625 &nbsp;·&nbsp; Revision Reference</div>
+      <h1 class="doc-title">A* <em>Checklist</em></h1>
+      <div class="doc-sub">Six strategies &nbsp;·&nbsp; Based on Cambridge examiner reports &nbsp;·&nbsp; cieinsider.com</div>
+    </div>
+    <div class="doc-logo">
+      <span class="dot"></span>CIE Insider
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="doc-intro">
+    <strong>How to use this checklist:</strong> Work through each strategy in the weeks before your exam. Tick each item when you can do it reliably — not when you&rsquo;ve read about it. The gap between A and A* is almost always writing precision, not physics knowledge.
+  </div>
+
+  <!-- Strategy 01 -->
+  <div class="strategy">
+    <div class="strategy-header">
+      <span class="strategy-num">01</span>
+      <h2 class="strategy-title">Mark scheme language &mdash; write physics, not impressions</h2>
+    </div>
+    <ul class="checklist">
+      <li><span class="cb"></span><span>I can give a <strong>causal explanation</strong> (mechanism + consequence), not just describe the outcome</span></li>
+      <li><span class="cb"></span><span>For resistance + temperature: &ldquo;ions vibrate with greater amplitude, causing more frequent collisions with electrons&rdquo;</span></li>
+      <li><span class="cb"></span><span>For transformer explanation: &ldquo;changing magnetic flux in primary&rdquo; + &ldquo;induces EMF in secondary coil&rdquo;</span></li>
+      <li><span class="cb"></span><span>I have practised writing answers <em>against the mark scheme</em> and identified the exact phrase I was missing</span></li>
+      <li><span class="cb"></span><span>I have reviewed the <a href="https://cieinsider.com/0625/tips/" style="color:var(--accent);">examiner tips trainer</a> for topics I keep dropping marks on</span></li>
+    </ul>
+  </div>
+
+  <!-- Strategy 02 -->
+  <div class="strategy">
+    <div class="strategy-header">
+      <span class="strategy-num">02</span>
+      <h2 class="strategy-title">Definitions &mdash; word-for-word recall on all 120 items</h2>
+    </div>
+    <ul class="checklist">
+      <li><span class="cb"></span><span><strong>Speed:</strong> distance travelled per unit time &nbsp;(not &ldquo;how fast you go&rdquo;)</span></li>
+      <li><span class="cb"></span><span><strong>Specific heat capacity:</strong> energy required to raise temperature of 1&nbsp;kg by 1&nbsp;K (1&nbsp;&deg;C), without change of state</span></li>
+      <li><span class="cb"></span><span><strong>Specific latent heat:</strong> energy required to change state of 1&nbsp;kg at constant temperature</span></li>
+      <li><span class="cb"></span><span><strong>Pressure (kinetic model):</strong> rate of change of momentum of particles colliding with the container walls</span></li>
+      <li><span class="cb"></span><span>I have drilled the full <a href="https://cieinsider.com/0625/definitions/" style="color:var(--accent);">0625 definitions deck</a> and can recall all 120 items accurately</span></li>
+    </ul>
+  </div>
+
+  <!-- Two-column: command words + graphs -->
+  <div class="two-col">
+
+    <!-- Strategy 03 -->
+    <div class="strategy">
+      <div class="strategy-header">
+        <span class="strategy-num">03</span>
+        <h2 class="strategy-title">Command words &mdash; match response to the question type</h2>
+      </div>
+      <table class="cmd-table">
+        <thead>
+          <tr><th>Word</th><th>What it requires</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>State</code></td><td>One-line fact, no explanation</td></tr>
+          <tr><td><code>Describe</code></td><td>What happens, not why</td></tr>
+          <tr><td><code>Explain</code></td><td>Mechanism + consequence (2 mark points)</td></tr>
+          <tr><td><code>Calculate</code></td><td>Substitution shown + units</td></tr>
+          <tr><td><code>Determine</code></td><td>Method shown (e.g. gradient triangle)</td></tr>
+          <tr><td><code>Sketch</code></td><td>Correct shape + key features labelled</td></tr>
+        </tbody>
+      </table>
+      <ul class="checklist" style="margin-top:8px;">
+        <li><span class="cb"></span><span>I check the command word before writing any answer</span></li>
+        <li><span class="cb"></span><span>I never write an explanation when the question says &ldquo;state&rdquo;</span></li>
+      </ul>
+    </div>
+
+    <!-- Strategy 05 -->
+    <div class="strategy">
+      <div class="strategy-header">
+        <span class="strategy-num">05</span>
+        <h2 class="strategy-title">Graphs &mdash; best-fit line, axes, gradient</h2>
+      </div>
+      <ul class="checklist">
+        <li><span class="cb"></span><span>Both axes labelled with <strong>quantity and unit</strong></span></li>
+        <li><span class="cb"></span><span>Scale is sensible (uses at least half the grid)</span></li>
+        <li><span class="cb"></span><span>Points plotted correctly (&le;&nbsp;1&nbsp;mm from true position)</span></li>
+        <li><span class="cb"></span><span><strong>Line of best fit</strong> is a single smooth line, not dot-to-dot</span></li>
+        <li><span class="cb"></span><span>Line passes through origin only if physics requires it</span></li>
+        <li><span class="cb"></span><span>Gradient: triangle drawn on graph, &Delta;y and &Delta;x values written, units carried through</span></li>
+      </ul>
+    </div>
+
+  </div><!-- end two-col -->
+
+  <!-- Strategy 04 -->
+  <div class="strategy">
+    <div class="strategy-header">
+      <span class="strategy-num">04</span>
+      <h2 class="strategy-title">Paper 5 &mdash; systematic marks, every series</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:12px; font-weight:700; color:var(--ink); margin:0 0 6px; text-transform:uppercase; letter-spacing:0.08em;">Question 1 &mdash; Planning</p>
+        <ul class="checklist">
+          <li><span class="cb green"></span><span>Correct circuit / apparatus diagram</span></li>
+          <li><span class="cb green"></span><span>Independent variable named and varied</span></li>
+          <li><span class="cb green"></span><span>Dependent variable named and measured</span></li>
+          <li><span class="cb green"></span><span>At least one specific control variable</span></li>
+          <li><span class="cb green"></span><span>Method produces a range of at least 6 readings</span></li>
+          <li><span class="cb green"></span><span>Safety precaution relevant to the apparatus</span></li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:12px; font-weight:700; color:var(--ink); margin:0 0 6px; text-transform:uppercase; letter-spacing:0.08em;">Question 2 &mdash; Analysis</p>
+        <ul class="checklist">
+          <li><span class="cb green"></span><span>Readings to correct sig. figs. and precision</span></li>
+          <li><span class="cb green"></span><span>Calculated column with correct values and units</span></li>
+          <li><span class="cb green"></span><span>Graph axes: quantity + unit, sensible scale</span></li>
+          <li><span class="cb green"></span><span>Points plotted, best-fit line drawn</span></li>
+          <li><span class="cb green"></span><span>Gradient found using large triangle on line</span></li>
+          <li><span class="cb green"></span><span>Limitation: specific apparatus fault (not &ldquo;human error&rdquo;)</span></li>
+          <li><span class="cb green"></span><span>Improvement: specific method with reason</span></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--ink-mute); margin:8px 0 0;">Full mark breakdown at <a href="https://cieinsider.com/0625/p5/guide/" style="color:var(--accent);">cieinsider.com/0625/p5/guide/</a> &nbsp;&middot;&nbsp; Drill in examiner language at <a href="https://cieinsider.com/0625/p5/drill/" style="color:var(--accent);">cieinsider.com/0625/p5/drill/</a></p>
+  </div>
+
+  <!-- Strategy 06 -->
+  <div class="strategy">
+    <div class="strategy-header">
+      <span class="strategy-num">06</span>
+      <h2 class="strategy-title">Six-week revision plan</h2>
+    </div>
+    <ul class="checklist">
+      <li><span class="cb"></span><span><strong>Weeks 1&ndash;2:</strong> Definitions deck &mdash; all 120 items. Flag any you keep missing; return to them daily.</span></li>
+      <li><span class="cb"></span><span><strong>Weeks 3&ndash;4:</strong> Paper 5 drill. Read the guide first, then practise planning, recording, analysis, and evaluation questions daily.</span></li>
+      <li><span class="cb"></span><span><strong>Weeks 5&ndash;6:</strong> Past papers under timed conditions. Mark against the scheme word by word. For every missed mark, identify the specific phrase you were missing.</span></li>
+      <li><span class="cb"></span><span>Final week: filter the examiner tips by the topics you keep dropping marks on.</span></li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <div>Cambridge IGCSE Physics 0625 &nbsp;&middot;&nbsp; Not affiliated with Cambridge International Examinations</div>
+    <div>cieinsider.com &nbsp;&middot;&nbsp; May 2026</div>
+  </div>
+
+</div><!-- end doc -->
+
+<script>
+// Screen: restore checkbox state via localStorage
+document.querySelectorAll('.cb').forEach((cb, i) => {
+  const key = 'astar_cb_' + i;
+  if (localStorage.getItem(key) === '1') {
+    cb.style.background = '#436438';
+    cb.style.borderColor = '#436438';
+  }
+  cb.addEventListener('click', () => {
+    const checked = cb.style.background === 'rgb(67, 100, 56)';
+    if (checked) {
+      cb.style.background = '';
+      cb.style.borderColor = '';
+      localStorage.removeItem(key);
+    } else {
+      cb.style.background = '#436438';
+      cb.style.borderColor = '#436438';
+      localStorage.setItem(key, '1');
+    }
+  });
+});
+</script>
+</body>
+</html>
