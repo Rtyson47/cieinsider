@@ -6,156 +6,296 @@
       "papers": [
         {
           "id": "0625_w25_qp_11",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 1 (Core)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 1 (Core)",
           "paperType": "core",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_w25_qp_12",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 2 (Core)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 2 (Core)",
           "paperType": "core",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_w25_qp_13",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 3 (Core)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 3 (Core)",
           "paperType": "core",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_w25_qp_21",
-          "label": "Oct/Nov 2025 — Paper 2 Variant 1 (Extended)",
+          "label": "Oct/Nov 2025 \u2014 Paper 2 Variant 1 (Extended)",
           "paperType": "extended",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_w25_qp_22",
-          "label": "Oct/Nov 2025 — Paper 2 Variant 2 (Extended)",
+          "label": "Oct/Nov 2025 \u2014 Paper 2 Variant 2 (Extended)",
           "paperType": "extended",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_w25_qp_23",
-          "label": "Oct/Nov 2025 — Paper 2 Variant 3 (Extended)",
+          "label": "Oct/Nov 2025 \u2014 Paper 2 Variant 3 (Extended)",
           "paperType": "extended",
           "session": "Oct/Nov 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_11",
-          "label": "May/June 2025 — Paper 1 Variant 1 (Core)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 1 (Core)",
           "paperType": "core",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_12",
-          "label": "May/June 2025 — Paper 1 Variant 2 (Core)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 2 (Core)",
           "paperType": "core",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_13",
-          "label": "May/June 2025 — Paper 1 Variant 3 (Core)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 3 (Core)",
           "paperType": "core",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_21",
-          "label": "May/June 2025 — Paper 2 Variant 1 (Extended)",
+          "label": "May/June 2025 \u2014 Paper 2 Variant 1 (Extended)",
           "paperType": "extended",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_22",
-          "label": "May/June 2025 — Paper 2 Variant 2 (Extended)",
+          "label": "May/June 2025 \u2014 Paper 2 Variant 2 (Extended)",
           "paperType": "extended",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_s25_qp_23",
-          "label": "May/June 2025 — Paper 2 Variant 3 (Extended)",
+          "label": "May/June 2025 \u2014 Paper 2 Variant 3 (Extended)",
           "paperType": "extended",
           "session": "May/June 2025",
           "duration": 45
         },
         {
           "id": "0625_m25_qp_12",
-          "label": "March 2025 — Paper 1 Variant 2 (Core)",
+          "label": "March 2025 \u2014 Paper 1 Variant 2 (Core)",
           "paperType": "core",
           "session": "March 2025",
           "duration": 45
         },
         {
           "id": "0625_m25_qp_22",
-          "label": "March 2025 — Paper 2 Variant 2 (Extended)",
+          "label": "March 2025 \u2014 Paper 2 Variant 2 (Extended)",
           "paperType": "extended",
           "session": "March 2025",
           "duration": 45
         },
         {
+          "id": "0625_w24_qp_11",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 1 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w24_qp_12",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w24_qp_13",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 3 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w24_qp_21",
+          "label": "Oct/Nov 2024 \u2014 Paper 2 Variant 1 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w24_qp_22",
+          "label": "Oct/Nov 2024 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w24_qp_23",
+          "label": "Oct/Nov 2024 \u2014 Paper 2 Variant 3 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2024",
+          "duration": 45
+        },
+        {
           "id": "0625_s24_qp_11",
-          "label": "May/June 2024 — Paper 1 Variant 1 (Core)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 1 (Core)",
           "paperType": "core",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_s24_qp_12",
-          "label": "May/June 2024 — Paper 1 Variant 2 (Core)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 2 (Core)",
           "paperType": "core",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_s24_qp_13",
-          "label": "May/June 2024 — Paper 1 Variant 3 (Core)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 3 (Core)",
           "paperType": "core",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_s24_qp_21",
-          "label": "May/June 2024 — Paper 2 Variant 1 (Extended)",
+          "label": "May/June 2024 \u2014 Paper 2 Variant 1 (Extended)",
           "paperType": "extended",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_s24_qp_22",
-          "label": "May/June 2024 — Paper 2 Variant 2 (Extended)",
+          "label": "May/June 2024 \u2014 Paper 2 Variant 2 (Extended)",
           "paperType": "extended",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_s24_qp_23",
-          "label": "May/June 2024 — Paper 2 Variant 3 (Extended)",
+          "label": "May/June 2024 \u2014 Paper 2 Variant 3 (Extended)",
           "paperType": "extended",
           "session": "May/June 2024",
           "duration": 45
         },
         {
           "id": "0625_m24_qp_12",
-          "label": "March 2024 — Paper 1 Variant 2 (Core)",
+          "label": "March 2024 \u2014 Paper 1 Variant 2 (Core)",
           "paperType": "core",
           "session": "March 2024",
           "duration": 45
         },
         {
           "id": "0625_m24_qp_22",
-          "label": "March 2024 — Paper 2 Variant 2 (Extended)",
+          "label": "March 2024 \u2014 Paper 2 Variant 2 (Extended)",
           "paperType": "extended",
           "session": "March 2024",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_11",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 1 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_12",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_13",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 3 (Core)",
+          "paperType": "core",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_21",
+          "label": "Oct/Nov 2023 \u2014 Paper 2 Variant 1 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_22",
+          "label": "Oct/Nov 2023 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_w23_qp_23",
+          "label": "Oct/Nov 2023 \u2014 Paper 2 Variant 3 (Extended)",
+          "paperType": "extended",
+          "session": "Oct/Nov 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_11",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 1 (Core)",
+          "paperType": "core",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_12",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_13",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 3 (Core)",
+          "paperType": "core",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_21",
+          "label": "May/June 2023 \u2014 Paper 2 Variant 1 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_22",
+          "label": "May/June 2023 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_s23_qp_23",
+          "label": "May/June 2023 \u2014 Paper 2 Variant 3 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_m23_qp_12",
+          "label": "March 2023 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "March 2023",
+          "duration": 45
+        },
+        {
+          "id": "0625_m23_qp_22",
+          "label": "March 2023 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "March 2023",
           "duration": 45
         }
       ]
@@ -166,86 +306,156 @@
       "papers": [
         {
           "id": "9702_w25_qp_11",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 1 (AS Multiple Choice)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 1 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "Oct/Nov 2025",
           "duration": 75
         },
         {
           "id": "9702_w25_qp_12",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 2 (AS Multiple Choice)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "Oct/Nov 2025",
           "duration": 75
         },
         {
           "id": "9702_w25_qp_13",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 3 (AS Multiple Choice)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 3 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "Oct/Nov 2025",
           "duration": 75
         },
         {
           "id": "9702_w25_qp_14",
-          "label": "Oct/Nov 2025 — Paper 1 Variant 4 (AS Multiple Choice)",
+          "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 4 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "Oct/Nov 2025",
           "duration": 75
         },
         {
           "id": "9702_s25_qp_11",
-          "label": "May/June 2025 — Paper 1 Variant 1 (AS Multiple Choice)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 1 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2025",
           "duration": 75
         },
         {
           "id": "9702_s25_qp_12",
-          "label": "May/June 2025 — Paper 1 Variant 2 (AS Multiple Choice)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2025",
           "duration": 75
         },
         {
           "id": "9702_s25_qp_13",
-          "label": "May/June 2025 — Paper 1 Variant 3 (AS Multiple Choice)",
+          "label": "May/June 2025 \u2014 Paper 1 Variant 3 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2025",
           "duration": 75
         },
         {
           "id": "9702_m25_qp_12",
-          "label": "March 2025 — Paper 1 Variant 2 (AS Multiple Choice)",
+          "label": "March 2025 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "March 2025",
           "duration": 75
         },
         {
+          "id": "9702_w24_qp_11",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 1 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2024",
+          "duration": 75
+        },
+        {
+          "id": "9702_w24_qp_12",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 2 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2024",
+          "duration": 75
+        },
+        {
+          "id": "9702_w24_qp_13",
+          "label": "Oct/Nov 2024 \u2014 Paper 1 Variant 3 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2024",
+          "duration": 75
+        },
+        {
           "id": "9702_s24_qp_11",
-          "label": "May/June 2024 — Paper 1 Variant 1 (AS Multiple Choice)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 1 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2024",
           "duration": 75
         },
         {
           "id": "9702_s24_qp_12",
-          "label": "May/June 2024 — Paper 1 Variant 2 (AS Multiple Choice)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2024",
           "duration": 75
         },
         {
           "id": "9702_s24_qp_13",
-          "label": "May/June 2024 — Paper 1 Variant 3 (AS Multiple Choice)",
+          "label": "May/June 2024 \u2014 Paper 1 Variant 3 (AS Multiple Choice)",
           "paperType": "AS",
           "session": "May/June 2024",
           "duration": 75
         },
         {
           "id": "9702_m24_qp_12",
-          "label": "March 2024 — Paper 1 Variant 2 (AS)",
+          "label": "March 2024 \u2014 Paper 1 Variant 2 (AS)",
           "paperType": "AS",
           "session": "March 2024",
+          "duration": 75
+        },
+        {
+          "id": "9702_w23_qp_11",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 1 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_w23_qp_12",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 2 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_w23_qp_13",
+          "label": "Oct/Nov 2023 \u2014 Paper 1 Variant 3 (AS)",
+          "paperType": "AS",
+          "session": "Oct/Nov 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_s23_qp_11",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 1 (AS)",
+          "paperType": "AS",
+          "session": "May/June 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_s23_qp_12",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 2 (AS)",
+          "paperType": "AS",
+          "session": "May/June 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_s23_qp_13",
+          "label": "May/June 2023 \u2014 Paper 1 Variant 3 (AS)",
+          "paperType": "AS",
+          "session": "May/June 2023",
+          "duration": 75
+        },
+        {
+          "id": "9702_m23_qp_12",
+          "label": "March 2023 \u2014 Paper 1 Variant 2 (AS)",
+          "paperType": "AS",
+          "session": "March 2023",
           "duration": 75
         }
       ]

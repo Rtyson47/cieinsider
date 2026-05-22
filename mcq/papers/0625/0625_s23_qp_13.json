@@ -1,0 +1,333 @@
+{
+  "id": "0625_s23_qp_13",
+  "syllabusCode": "0625",
+  "label": "May/June 2023 \u2014 Paper 1 Variant 3 (Core)",
+  "paperType": "core",
+  "session": "May/June 2023",
+  "duration": 45,
+  "questionCount": 40,
+  "pdfPath": "papers/0625/2023_s/0625_s23_qp_13.pdf",
+  "markschemePath": "papers/0625/2023_s/0625_s23_ms_13.pdf",
+  "questions": [
+    {
+      "n": 1,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 2,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 3,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 4,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 5,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 6,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 7,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 8,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 9,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 10,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 11,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 12,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 13,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 14,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 15,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 16,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 17,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 18,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 19,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 20,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 21,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 22,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 23,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 24,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 25,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 26,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 27,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 28,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 29,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 30,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 31,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 32,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 33,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 34,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 35,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 36,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 37,
+      "answer": "B",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 38,
+      "answer": "D",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 39,
+      "answer": "A",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    },
+    {
+      "n": 40,
+      "answer": "C",
+      "topic": null,
+      "subtopic": null,
+      "difficulty": null,
+      "explanation": null
+    }
+  ]
+}
