@@ -698,21 +698,24 @@ const ALL=[
 ];
 
 const TOPICS=[...new Set(ALL.map(i=>i.t))];
-let activeSec='all',activeTopics=new Set(TOPICS),deck=[],idx=0,results={got:0,missed:0},missedItems=[],revealed=false,isRetest=false,retestRound=1;
+let activeSec='all',activeTopics=new Set(TOPICS),allTopicsMode=true,deck=[],idx=0,results={got:0,missed:0},missedItems=[],revealed=false,isRetest=false,retestRound=1;
 
 function buildTopicButtons(){
   const wrap=document.getElementById('topic-filters');wrap.innerHTML='';
   const a=mkBtn('All topics',true,()=>setAllTopics());a.dataset.topic='all';wrap.appendChild(a);
-  TOPICS.forEach(t=>{const b=mkBtn(t,true,()=>toggleTopic(b,t));b.dataset.topic=t;wrap.appendChild(b);});
+  TOPICS.forEach(t=>{const b=mkBtn(t,false,()=>toggleTopic(b,t));b.dataset.topic=t;wrap.appendChild(b);});
 }
 function mkBtn(l,active,fn){const b=document.createElement('button');b.className='filter-btn'+(active?' active':'');b.textContent=l;b.onclick=fn;return b;}
 function setSec(el,sec){activeSec=sec;document.querySelectorAll('#section-filters .filter-btn[data-sec]').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));buildDeck();}
-function setAllTopics(){activeTopics=new Set(TOPICS);document.querySelectorAll('#topic-filters .filter-btn').forEach(b=>b.classList.add('active'));buildDeck();}
+function setAllTopics(){allTopicsMode=true;activeTopics=new Set(TOPICS);document.querySelector('#topic-filters .filter-btn[data-topic="all"]').classList.add('active');document.querySelectorAll('#topic-filters .filter-btn:not([data-topic="all"])').forEach(b=>b.classList.remove('active'));buildDeck();}
 function toggleTopic(el,t){
-  if(activeTopics.has(t)){if(activeTopics.size===1)return;activeTopics.delete(t);}else{activeTopics.add(t);}
-  const allActive=activeTopics.size===TOPICS.length;
-  document.querySelector('#topic-filters .filter-btn[data-topic="all"]').classList.toggle('active',allActive);
-  document.querySelectorAll('#topic-filters .filter-btn:not([data-topic="all"])').forEach(b=>b.classList.toggle('active',activeTopics.has(b.dataset.topic)));
+  if(allTopicsMode){allTopicsMode=false;activeTopics=new Set([t]);}
+  else{
+    if(activeTopics.has(t)){if(activeTopics.size===1)return;activeTopics.delete(t);}else{activeTopics.add(t);}
+    if(activeTopics.size===TOPICS.length)allTopicsMode=true;
+  }
+  document.querySelector('#topic-filters .filter-btn[data-topic="all"]').classList.toggle('active',allTopicsMode);
+  document.querySelectorAll('#topic-filters .filter-btn:not([data-topic="all"])').forEach(b=>b.classList.toggle('active',!allTopicsMode&&activeTopics.has(b.dataset.topic)));
   buildDeck();
 }
 
@@ -754,7 +757,7 @@ function updateStats(){
   const done=results.got+results.missed;
   document.getElementById('s-total').textContent=deck.length;document.getElementById('s-done').textContent=done;document.getElementById('s-got').textContent=results.got;document.getElementById('s-missed').textContent=results.missed;
   document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
-  const topicLabel=activeTopics.size===TOPICS.length?'all topics':activeTopics.size+' topic'+(activeTopics.size!==1?'s':'');
+  const topicLabel=(allTopicsMode||activeTopics.size===TOPICS.length)?'all topics':activeTopics.size+' topic'+(activeTopics.size!==1?'s':'');
   let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+topicLabel+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
   if(isRetest)info+=' \u00b7 retest '+retestRound;
   document.getElementById('deck-info').textContent=info;
