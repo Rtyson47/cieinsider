@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Got it · CIE Insider</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://cieinsider.com/thanks/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
+<style>
+  :root {
+    --page:#ffffff; --surface:#f4f6f9; --surface-2:#eef1f6;
+    --accent:#1a56e8; --accent-tint:#eaf0fe;
+    --success:#1f8a5b; --success-tint:#e6f4ec; --success-text:#15683f;
+    --fg-1:#14181f; --fg-2:#5b6573; --fg-3:#8a94a4;
+    --border:#e1e6ec;
+    --font-body:'Inter',system-ui,-apple-system,sans-serif;
+    --font-display:'Space Grotesk',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; height:100%; }
+  body {
+    background:var(--page); color:var(--fg-1);
+    font-family:var(--font-body); font-size:15px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh; padding:24px;
+  }
+  .container { max-width:520px; width:100%; text-align:center; }
+  .brand {
+    font-family:var(--font-display); font-size:18px; font-weight:700;
+    letter-spacing:-0.01em; color:var(--fg-1); text-decoration:none;
+    display:inline-block; margin-bottom:32px;
+  }
+  .brand .mark { color:var(--accent); }
+  .check {
+    width:64px; height:64px; background:var(--success); color:#fff;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    margin:0 auto 24px; font-size:32px; font-weight:700;
+    box-shadow:0 0 0 6px var(--success-tint);
+  }
+  h1 {
+    font-family:var(--font-display); font-size:32px; font-weight:700;
+    letter-spacing:-0.02em; line-height:1.1; margin:0 0 16px;
+  }
+  p { font-size:16px; line-height:1.55; color:var(--fg-2); margin:0 0 16px; }
+  .intent-pill {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--accent-tint); color:var(--accent);
+    padding:6px 12px; border-radius:999px;
+    font-family:var(--font-mono); font-size:12px;
+    letter-spacing:0.04em; margin:8px 0 24px;
+  }
+  .intent-pill .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); }
+  .actions { margin-top:32px; padding-top:24px; border-top:1px solid var(--border); }
+  .btn {
+    display:inline-block; background:var(--accent); color:#fff !important;
+    padding:12px 22px; border-radius:8px; font-weight:600;
+    text-decoration:none; font-size:14px;
+  }
+  .btn:hover { background:#1547c2; }
+  .secondary {
+    display:inline-block; color:var(--fg-2) !important;
+    padding:12px 16px; font-size:13px; text-decoration:none;
+  }
+  .secondary:hover { color:var(--accent) !important; }
+  .footer {
+    margin-top:48px; font-size:12px; color:var(--fg-3);
+  }
+  .footer a { color:var(--fg-3); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="https://cieinsider.com" class="brand">CIE <span class="mark">Insider</span></a>
+
+  <div class="check">✓</div>
+
+  <h1>Got it.</h1>
+
+  <div class="intent-pill" id="intentPill" hidden>
+    <span class="dot"></span>
+    <span id="intentLabel">—</span>
+  </div>
+
+  <p id="message">
+    Thanks — your choice has been noted. I'll be in touch with the right thing at the
+    right time, and not a lot in between.
+  </p>
+
+  <div class="actions">
+    <a href="https://cieinsider.com" class="btn">Back to CIE Insider →</a>
+    <a href="https://cieinsider.com/mcq/" class="secondary">Open the MCQ trainer</a>
+  </div>
+
+  <div class="footer">
+    CIE Insider · <a href="https://cieinsider.com">cieinsider.com</a>
+  </div>
+</div>
+
+<script>
+  const INTENT_COPY = {
+    '0625-to-9702':       { label: 'Continuing to A Level Physics', message: "Great. Over summer I'll send the things I wish I'd seen before I started A2 Physics — the topic-by-topic head-start guides and the bigger thing once it exists." },
+    '0625-undecided':     { label: 'Still deciding', message: "Fine. I'll send a few honest pieces about what A Level Physics is actually like — the kind of thing that helps you decide one way or the other." },
+    '0625-not-continuing':{ label: 'Not continuing with Physics', message: "All good — congrats on getting through IGCSE Physics. I'll mostly leave you alone; the trainer and past papers stay free if you ever need to refer back." },
+    '9702-a2-2027':       { label: 'Continuing to A2 · May/June 2027', message: "Brilliant. A2 is a step up, and over summer I'm building something for people walking into it. You're now on the first-look list." },
+    '9702-resit':         { label: 'Resitting AS', message: "Got it. I'll send the AS-relevant things first and the bigger summer build whenever it lands." },
+    'sept-2026-interest': { label: 'First-look list', message: "You're on the list. When the thing exists, you'll hear about it first. No spam in between." },
+  };
+  const params = new URLSearchParams(window.location.search);
+  const intent = params.get('intent');
+  if (intent && INTENT_COPY[intent]) {
+    document.getElementById('intentLabel').textContent = INTENT_COPY[intent].label;
+    document.getElementById('intentPill').hidden = false;
+    document.getElementById('message').textContent = INTENT_COPY[intent].message;
+  }
+</script>
+
+</body>
+</html>

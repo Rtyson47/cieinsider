@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CIE Insider//MCQ Session 0625//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:mcq-session-0625-2026-05-30@cieinsider.com
+DTSTAMP:20260526T200000Z
+DTSTART:20260530T140000Z
+DTEND:20260530T144500Z
+SUMMARY:CIE Insider · Live MCQ (IGCSE Physics 0625)
+DESCRIPTION:Live MCQ revision session for Cambridge IGCSE Physics (0625).\n\nFour days before the MCQ exam on 3 June 2026. 45 minutes\, live on YouTube. Real Cambridge-style multiple-choice questions worked under exam pressure.\n\nThe join link will be sent to your inbox a few hours before the session starts.\n\nReplay sent the same evening if you can't be there live.\n\nhttps://cieinsider.com/mcq-session/
+LOCATION:YouTube Live
+URL:https://cieinsider.com/mcq-session/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CIE Insider MCQ session starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
