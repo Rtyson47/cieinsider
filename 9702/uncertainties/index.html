@@ -2485,6 +2485,35 @@ document.getElementById('total-count').textContent = QUESTIONS.length;
 renderNav();
 </script>
 
+<!-- FAQ (SEO) -->
+<section class="cie-faqx">
+  <style>
+    .cie-faqx{max-width:780px;margin:0 auto;padding:56px 32px 8px;position:relative;z-index:2;}
+    .cie-faqx h2{font-family:'Fraunces',serif;font-weight:600;font-size:28px;color:#1f1a14;margin:0 0 6px;letter-spacing:-0.01em;}
+    .cie-faqx .sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#b8893a;font-weight:700;margin:0 0 18px;}
+    .cie-faqx details{border-bottom:1px solid #d8ccb4;padding:16px 0;}
+    .cie-faqx summary{cursor:pointer;font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#1f1a14;list-style:none;display:flex;gap:12px;align-items:baseline;}
+    .cie-faqx summary::-webkit-details-marker{display:none;}
+    .cie-faqx summary::before{content:'+';color:#a83b1f;font-weight:700;font-family:'Inter',sans-serif;}
+    .cie-faqx details[open] summary::before{content:'–';}
+    .cie-faqx details p{margin:12px 0 0 24px;color:#3a3127;line-height:1.7;font-family:'Inter',sans-serif;font-size:16px;}
+  </style>
+  <h2>Frequently asked questions</h2>
+  <p class="sub">Uncertainties, quickly answered</p>
+  <details><summary>How do you calculate percentage uncertainty in physics?</summary><p>Divide the absolute uncertainty by the measured value and multiply by 100. For a single reading, the absolute uncertainty is usually half the smallest scale division, or the instrument's stated resolution.</p></details>
+  <details><summary>How do you combine uncertainties?</summary><p>When quantities are multiplied or divided, add their percentage uncertainties. When they are added or subtracted, add their absolute uncertainties. For a power, multiply the percentage uncertainty by that power.</p></details>
+  <details><summary>What is the difference between absolute and percentage uncertainty?</summary><p>Absolute uncertainty is the ± value in the same units as the measurement; percentage uncertainty expresses that same uncertainty as a percentage of the measured value.</p></details>
+  <details><summary>How are uncertainties tested in A Level Physics?</summary><p>On the practical papers — 9702 Paper 3 and Paper 5 — through error bars, percentage-uncertainty calculations, and finding the uncertainty in a gradient using the worst acceptable line.</p></details>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do you calculate percentage uncertainty in physics?","acceptedAnswer":{"@type":"Answer","text":"Divide the absolute uncertainty by the measured value and multiply by 100. For a single reading, the absolute uncertainty is usually half the smallest scale division, or the instrument's stated resolution."}},
+  {"@type":"Question","name":"How do you combine uncertainties?","acceptedAnswer":{"@type":"Answer","text":"When quantities are multiplied or divided, add their percentage uncertainties. When they are added or subtracted, add their absolute uncertainties. For a power, multiply the percentage uncertainty by that power."}},
+  {"@type":"Question","name":"What is the difference between absolute and percentage uncertainty?","acceptedAnswer":{"@type":"Answer","text":"Absolute uncertainty is the ± value in the same units as the measurement; percentage uncertainty expresses that same uncertainty as a percentage of the measured value."}},
+  {"@type":"Question","name":"How are uncertainties tested in A Level Physics?","acceptedAnswer":{"@type":"Answer","text":"On the practical papers — 9702 Paper 3 and Paper 5 — through error bars, percentage-uncertainty calculations, and finding the uncertainty in a gradient using the worst acceptable line."}}
+]}
+</script>
+
 <!-- FOOTER (matches dashboard) -->
 <footer class="cie-footer">
   <div class="site-container cie-footer-inner">
