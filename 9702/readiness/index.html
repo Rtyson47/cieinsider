@@ -96,6 +96,12 @@ kbd{display:inline-block;padding:1px 6px;border:1px solid var(--border2);border-
 .end-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
 .end-actions .btn{min-width:150px}
 .end-foot{font-size:14px;color:var(--text-s);max-width:480px;margin:0 auto;line-height:1.6}
+.end-next{max-width:480px;margin:1.75rem auto 0;padding:1.4rem 1.5rem;background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:10px;text-align:left}
+.end-next-eyebrow{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem}
+.end-next-title{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--text);margin:0 0 0.5rem;letter-spacing:-0.01em}
+.end-next-body{font-size:14px;color:var(--text-s);line-height:1.6;margin:0 0 1rem}
+.btn-bridge{display:inline-block;background:var(--accent);border-color:var(--accent);color:#fff;text-decoration:none}
+.btn-bridge:hover{filter:brightness(0.92)}
 /* review screen */
 .review-screen{animation:fadeUp 0.4s ease both}
 .review-header{text-align:center;margin-bottom:1.5rem}
@@ -266,7 +272,13 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
       <button class="btn btn-missed" onclick="showReview()">Review answers</button>
       <button class="btn btn-action" onclick="build()">Retake check</button>
     </div>
-    <p class="end-foot">The fixes are quick &mdash; the free trainers below drill the physics itself. Start with the skills flagged &ldquo;revisit&rdquo; above and you&rsquo;ll close most of the gap before AS even begins.</p>
+    <p class="end-foot" id="end-foot"></p>
+    <div class="end-next hidden" id="end-next">
+      <div class="end-next-eyebrow">What I built for exactly this</div>
+      <h3 class="end-next-title">The IGCSE to AS Bridge</h3>
+      <p class="end-next-body">Four weeks, eight modules, each one ending in a drill set in a 9702 context. It covers the same five skills this check just scored you on: standard form, prefixes, rearranging, significant figures, unit conversion. Self paced, with an optional live tier taught by the examiner who wrote it.</p>
+      <a class="btn btn-bridge" href="/bridge/">See the bridge course &rarr;</a>
+    </div>
   </div>
 
   <div id="review-screen" class="hidden review-screen">
@@ -283,6 +295,12 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
 </div>
 
 <script>
+// v2 SWITCH. Set to true the moment https://cieinsider.com/bridge/ is deployed
+// and its Stripe links are live. It reveals the bridge card on the results
+// screen for anyone scoring 8 or below. Nothing else needs changing.
+// Written 2026-07-24; the card and its copy are already in the markup below.
+const BRIDGE_LIVE=false;
+
 const Q=[
   {sk:"Units & quantities",
    q:"A quantity is measured in <b>kg m s⁻¹</b>. Which quantity is it?",
@@ -396,6 +414,20 @@ function showEnd(){
   pctEl.className='end-pct '+band;
   document.getElementById('end-verdict').textContent=label;
   document.getElementById('end-desc').textContent=desc;
+
+  // Closing line, by band. The bridge card only ever shows to people the check
+  // found gaps in: a strong score is told to go and enjoy the summer, which is
+  // the same line the emails take. Flip BRIDGE_LIVE once /bridge/ is deployed.
+  const foot=document.getElementById('end-foot'), next=document.getElementById('end-next');
+  if(band==='great'){
+    foot.textContent='Nothing in this list is going to be what holds you back. Go and enjoy the rest of your summer, and spend September on the physics itself.';
+    next.classList.add('hidden');
+  } else {
+    foot.textContent=(band==='ok')
+      ? 'The skills flagged "revisit" above are the ones to make automatic before September. None of them takes long, and each one sits under every calculation you will meet at AS.'
+      : 'Start with the skills flagged "revisit" above. They are quick to fix, which is exactly why they are worth fixing now: every one of them sits under calculations you will be doing from your first AS lesson.';
+    next.classList.toggle('hidden', !BRIDGE_LIVE);
+  }
   const sk={};
   deck.forEach((it,i)=>{ if(!sk[it.sk])sk[it.sk]={got:0,total:0}; sk[it.sk].total++; if(chosen[i]===it.correctText)sk[it.sk].got++; });
   document.getElementById('breakdown').innerHTML=Object.entries(sk).map(([s,v])=>{
