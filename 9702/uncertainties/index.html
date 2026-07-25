@@ -2485,6 +2485,45 @@ document.getElementById('total-count').textContent = QUESTIONS.length;
 renderNav();
 </script>
 
+<!-- WORKED EXAMPLES (SEO) -->
+<section class="cie-worked">
+  <style>
+    .cie-worked{max-width:780px;margin:0 auto;padding:48px 32px 8px;position:relative;z-index:2;}
+    .cie-worked h2{font-family:'Fraunces',serif;font-weight:600;font-size:28px;color:#1f1a14;margin:0 0 6px;letter-spacing:-0.01em;}
+    .cie-worked .sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#b8893a;font-weight:700;margin:0 0 22px;}
+    .cie-worked .wx{border:1px solid #d8ccb4;border-radius:12px;background:#faf6ec;padding:22px 24px;margin:0 0 18px;}
+    .cie-worked h3{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:#1f1a14;margin:0 0 10px;}
+    .cie-worked p{color:#3a3127;line-height:1.7;font-family:'Inter',sans-serif;font-size:15.5px;margin:0 0 10px;}
+    .cie-worked .step{margin:0 0 6px 0;padding-left:18px;text-indent:-18px;}
+    .cie-worked .ans{font-weight:700;color:#1f1a14;}
+    .cie-worked a{color:#a83b1f;font-weight:600;}
+    .cie-worked strong{color:#1f1a14;}
+  </style>
+  <h2>Worked examples</h2>
+  <p class="sub">The combining rules with real numbers</p>
+
+  <div class="wx">
+    <h3>Example 1: percentage uncertainty in a density</h3>
+    <p>A small sphere has mass m = (45.0 &plusmn; 0.1) g and radius r = (12.0 &plusmn; 0.1) mm. Find the percentage uncertainty in its density &rho; = m / [(4/3)&pi;r<sup>3</sup>].</p>
+    <p class="step">1. Percentage uncertainty in m: (0.1 / 45.0) &times; 100 = 0.22%.</p>
+    <p class="step">2. Percentage uncertainty in r: (0.1 / 12.0) &times; 100 = 0.83%.</p>
+    <p class="step">3. Volume goes as r<sup>3</sup>, so its percentage uncertainty is 3 &times; 0.83% = 2.5%.</p>
+    <p class="step">4. Density is m / V, so add the percentages: 0.22% + 2.5% = <span class="ans">2.7%</span>.</p>
+    <p>Notice the radius dominates, because raising to a power multiplies its percentage uncertainty. Improving the radius measurement matters far more here than improving the mass.</p>
+  </div>
+
+  <div class="wx">
+    <h3>Example 2: uncertainty in a gradient (Paper 5)</h3>
+    <p>On a Paper 5 graph the best-fit line has gradient 2.00. The worst acceptable line &mdash; the steepest or shallowest line that still passes through all the error bars &mdash; has gradient 2.07. Find the uncertainty in the gradient.</p>
+    <p class="step">1. Read a pair of coordinates off the worst acceptable line and find its gradient, then subtract the best-fit gradient: 2.07 - 2.00 = 0.07.</p>
+    <p class="step">2. So the gradient is <span class="ans">2.00 &plusmn; 0.07</span>.</p>
+    <p class="step">3. As a percentage: (0.07 / 2.00) &times; 100 = <span class="ans">3.5%</span>.</p>
+    <p>Cambridge awards the mark for showing the coordinates you took from the worst acceptable line and the subtraction, not for a percentage that appears without working. Maximum and minimum methods can earn credit too, but only when that working is equally explicit.</p>
+  </div>
+
+  <p>Ready to apply these? Switch to the Drill tab above for generated problems with step-by-step solutions, then take the gradient method into the <a href="/9702/p5/linearisation/">Paper 5 linearisation trainer</a> and audit your working with the <a href="/9702/p5/checklist/">Paper 5 checklist</a>. The full method breakdown is in the <a href="/9702/p5/">Paper 5 Planning and Analysis guide</a>.</p>
+</section>
+
 <!-- FAQ (SEO) -->
 <section class="cie-faqx">
   <style>

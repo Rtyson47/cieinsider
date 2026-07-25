@@ -588,6 +588,7 @@
 <header class="page-hero">
   <div class="site-container">
     <div class="eyebrow">9702 · Paper 5 · Question 2</div>
+    <p style="margin:6px 0 0; font-size:14px;"><a href="/9702/p5/" style="color:var(--accent); text-decoration:none; font-weight:600;">&larr; Paper 5: Planning &amp; Analysis guide</a></p>
     <h1 class="page-title">A Level Physics Paper 5 &mdash; Linearisation <em>Trainer</em></h1>
     <p class="page-lede">Drill the log-linearisation and straight-line graph marks that Q2 tests every series — 18 relationships, step-by-step feedback, and worked sketches.</p>
   </div>
@@ -660,6 +661,48 @@
   </section>
 
 </main>
+
+<section class="p5-extra">
+  <div class="site-container">
+    <h2>How to linearise a relationship for Paper 5 Question 2</h2>
+    <p>Cambridge A Level Physics 9702 Paper 5 Question 2 gives you a relationship between two quantities and asks you to plot a straight line to find the unknown constants. Linearising means rearranging that relationship into the form <strong>y = mx + c</strong>, then choosing what to put on each axis so the gradient m and the intercept c carry the constants you actually need.</p>
+
+    <h3>The four forms that cover almost every question</h3>
+    <ul>
+      <li><strong>Power law, y = a x<sup>n</sup>.</strong> Take logs of both sides: lg y = n lg x + lg a. Plot <strong>lg y against lg x</strong>. The gradient is n and the intercept is lg a, so a = 10<sup>intercept</sup>.</li>
+      <li><strong>Exponential, y = a e<sup>kx</sup>.</strong> Take natural logs: ln y = kx + ln a. Plot <strong>ln y against x</strong>. The gradient is k and the intercept is ln a.</li>
+      <li><strong>A power inside a root, e.g. T = 2&pi;&radic;(L/g).</strong> Square first: T<sup>2</sup> = (4&pi;<sup>2</sup>/g) L. Plot <strong>T<sup>2</sup> against L</strong>. The gradient is 4&pi;<sup>2</sup>/g.</li>
+      <li><strong>Reciprocal, y = a/x + b.</strong> This is already linear in 1/x. Plot <strong>y against 1/x</strong>. The gradient is a and the intercept is b.</li>
+    </ul>
+
+    <h3>Worked example: a simple pendulum</h3>
+    <p>The period of a simple pendulum is T = 2&pi;&radic;(L/g). Squaring both sides gives T<sup>2</sup> = (4&pi;<sup>2</sup>/g) L, which matches y = mx + c with y = T<sup>2</sup>, x = L, gradient 4&pi;<sup>2</sup>/g and intercept 0. Plot T<sup>2</sup> in s<sup>2</sup> against L in m, draw the best-fit line, measure the gradient over a triangle spanning at least half the line, then rearrange to g = 4&pi;<sup>2</sup> / gradient.</p>
+
+    <h3>Worked example: exponential decay</h3>
+    <p>For a decay of the form A = A<sub>0</sub> e<sup>-&lambda;t</sup>, take natural logs to get ln A = ln A<sub>0</sub> - &lambda;t. Plot ln A against t. The line slopes downward with gradient -&lambda;, so the decay constant &lambda; is the magnitude of the gradient, and ln A<sub>0</sub> is read from the intercept at t = 0.</p>
+
+    <h3>Where Paper 5 candidates lose marks</h3>
+    <p>Examiner reports flag the same errors every series: plotting the raw quantities instead of the linearised ones, mislabelling a logarithmic axis (a quantity like ln(I/A) is just a number, but the label must still show which unit I was divided by), using a gradient triangle shorter than half the drawn line, and forgetting to convert the gradient back into the physical constant at the end. Carry units through every step and quote the final constant with a unit and a sensible number of significant figures.</p>
+
+    <h3>Frequently asked questions</h3>
+    <p><strong>Should I use lg (base 10) or ln (base e)?</strong> For a power law y = a x<sup>n</sup> either works, because the base only changes the intercept; lg is conventional. For an exponential y = a e<sup>kx</sup> use ln, so the gradient comes out as k directly with no conversion factor.</p>
+    <p><strong>What if the intercept is off the graph?</strong> Find the constant from the gradient where you can, or substitute a point that lies on the best-fit line back into y = mx + c. Do not read an intercept off an axis that does not start at zero without accounting for the offset.</p>
+    <p><strong>How accurate does the line have to be?</strong> Cambridge expects points plotted to within half a small square, a best-fit line with the scatter balanced about it, and a gradient triangle covering more than half the drawn line. For the read-offs, choose two points that sit on grid lines &mdash; that is what keeps the coordinates easy to read accurately. Those are the marks Question 2 rewards.</p>
+
+    <p style="margin-top:26px;">Once the 18 relationships feel automatic, pair this with the <a href="/9702/p5/cheatsheet/">Paper 5 cheat sheet</a> for the full mark-type breakdown, the <a href="/9702/p5/checklist/">Paper 5 checklist</a> to audit each practice answer, and the <a href="/9702/uncertainties/">uncertainties trainer</a> for the error-analysis marks that sit alongside Question 2. Full method walk-throughs are in the <a href="/9702/p5/">Paper 5 Planning and Analysis guide</a>.</p>
+  </div>
+</section>
+<style>
+  .p5-extra { background:var(--cream-warm); border-top:1px solid var(--rule); }
+  .p5-extra > .site-container { max-width:780px; padding-top:52px; padding-bottom:60px; }
+  .p5-extra h2 { font-size:25px; line-height:1.25; margin:0 0 14px; color:var(--ink); }
+  .p5-extra h3 { font-size:17px; margin:30px 0 8px; color:var(--ink); }
+  .p5-extra p { font-size:15.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 14px; }
+  .p5-extra ul { margin:0 0 14px; padding-left:22px; }
+  .p5-extra li { font-size:15.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 9px; }
+  .p5-extra a { color:var(--accent); font-weight:600; }
+  .p5-extra strong { color:var(--ink); }
+</style>
 
 <footer>
   <div class="site-container foot-inner">
