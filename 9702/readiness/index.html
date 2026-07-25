@@ -237,7 +237,7 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
       <div class="seo-intro-inner">
     <h2>The jump from IGCSE to AS Physics is rarely the physics &mdash; it's the fluency</h2>
     <p>Cambridge AS Level Physics (9702) assumes, from the first lesson, that you can already handle a set of core numerical skills without stopping to think: writing numbers in <strong>standard form</strong>, swapping <strong>SI prefixes</strong> (nano, micro, milli, kilo, mega) for their powers of ten, <strong>rearranging equations</strong> before substituting numbers, quoting answers to a sensible number of <strong>significant figures</strong>, and <strong>converting units</strong> (including the squared and cubed ones). These are the skills that decide whether AS calculations feel quick or fiddly.</p>
-    <p>This is a free 10-question diagnostic covering exactly those skills, using the kind of quantities you'll meet at AS &mdash; momentum, current, wavelength, resistivity, kinetic energy. It doesn't test the AS physics itself (you haven't been taught it yet). It tests whether the maths underneath it is automatic. You'll get a readiness verdict and a per-skill breakdown showing where to spend your summer.</p>
+    <p>This is a free 10-question diagnostic covering exactly those skills, using the kind of quantities you'll meet at AS &mdash; momentum, charge, density, resistance, kinetic energy. It doesn't test the AS physics itself (you haven't been taught it yet). It tests whether the maths underneath it is automatic, and it's pitched at the level AS will actually ask for rather than the level IGCSE left you at &mdash; so a couple of questions are meant to stretch you. You'll get a readiness verdict and a per-skill breakdown showing where to spend your summer.</p>
     <p>When you're ready to shore up the physics, the free <a href="/9702/p2/definitions/">AS definitions &amp; formulae flashcards</a> and the <a href="/mcq/?paper=9702_w25_qp_11&amp;type=AS">AS multiple-choice trainer</a> are the natural next steps.</p>
   </div>
   </details>
@@ -315,25 +315,25 @@ const Q=[
    o:["2.5 × 10⁻⁴ A","2.5 × 10⁻³ A","2.5 × 10⁻² A","250 A"],c:0,
    why:"milli (m) means × 10⁻³, so 0.25 mA = 0.25 × 10⁻³ A = 2.5 × 10⁻⁴ A. Replacing a prefix with its power of ten before you calculate is the habit that stops mistakes."},
   {sk:"Unit prefixes",
-   q:"A power of <b>3.0 MW</b> expressed in watts is:",
-   o:["3.0 × 10⁶ W","3.0 × 10³ W","3.0 × 10⁹ W","3.0 × 10⁻⁶ W"],c:0,
-   why:"mega (M) means × 10⁶, so 3.0 MW = 3.0 × 10⁶ W. Watch the case: capital M is mega (10⁶), lower-case m is milli (10⁻³)."},
-  {sk:"Rearranging",
-   q:"The resistivity equation is <b>R = ρL / A</b>. Rearranged to make <b>A</b> the subject:",
-   o:["A = ρL / R","A = RL / ρ","A = R / (ρL)","A = ρLR"],c:0,
-   why:"Multiply both sides by A: RA = ρL. Then divide by R: A = ρL / R. Rearranging with the symbols first, before any numbers go in, is expected throughout AS."},
+   q:"A current of <b>250 µA</b> flows for <b>2.0 ms</b>. Using Q = It, the charge that flows is:",
+   o:["5.0 × 10⁻⁷ C","5.0 × 10⁻⁴ C","5.0 × 10⁻¹⁰ C","0.50 C"],c:0,
+   why:"Replace both prefixes before you multiply: 250 µA = 250 × 10⁻⁶ A and 2.0 ms = 2.0 × 10⁻³ s. Multiplying gives 500 × 10⁻⁹ C = 5.0 × 10⁻⁷ C. Two prefixes in one calculation is the normal case at AS, and the marks tend to go in the last step — 500 × 10⁻⁹ is the right value but it isn't standard form."},
   {sk:"Rearranging",
    q:"Kinetic energy is <b>E = ½mv²</b>. Rearranged to make <b>v</b> the subject:",
    o:["v = √(2E / m)","v = √(E / 2m)","v = 2E / m","v = √(2Em)"],c:0,
-   why:"Multiply by 2: 2E = mv². Divide by m: v² = 2E / m. Square-root the whole right-hand side: v = √(2E / m). The step people drop is rooting everything, not just part of it."},
+   why:"Multiply by 2: 2E = mv². Divide by m: v² = 2E / m. Square-root the whole right-hand side: v = √(2E / m). The step people drop is rooting everything, not just part of it. You will have rearranged this one at IGCSE, so treat it as the warm-up for the next question."},
+  {sk:"Rearranging",
+   q:"For uniformly accelerated motion, <b>v² = u² + 2as</b>. Rearranged to make <b>s</b> the subject:",
+   o:["s = (v² − u²) / 2a","s = (v − u)² / 2a","s = (v² + u²) / 2a","s = v² − u² / 2a"],c:0,
+   why:"Subtract u² from both sides: v² − u² = 2as. Then divide by 2a: s = (v² − u²) / 2a. Two things to watch — v² − u² is not the same as (v − u)², and the <b>whole</b> numerator goes over 2a, not just the v² term. This equation isn't on the IGCSE syllabus; it's one of the first you meet at AS, and it's a fair sample of the rearranging expected from there on."},
+  {sk:"Unit conversion",
+   q:"Aluminium has a density of <b>2.7 g cm⁻³</b>. In kg m⁻³ this is:",
+   o:["2.7 × 10³ kg m⁻³","2.7 × 10⁻³ kg m⁻³","2.7 × 10⁻¹ kg m⁻³","2.7 × 10⁻⁹ kg m⁻³"],c:0,
+   why:"Two conversions, not one. Grams to kilograms divides by 10³; cm³ to m³ divides by (10⁻²)³ = 10⁻⁶. Together: 2.7 × 10⁻³ ÷ 10⁻⁶ = 2.7 × 10³ kg m⁻³. Sense-check it — aluminium is a few thousand kg per cubic metre, so an answer smaller than 1 was never going to be right."},
   {sk:"Significant figures",
-   q:"How many significant figures are in <b>0.003050</b>?",
-   o:["4","3","5","6"],c:0,
-   why:"Leading zeros never count. The significant digits are 3, 0, 5 and the final 0 (a trailing zero after a decimal point does count), giving 4 significant figures."},
-  {sk:"Significant figures",
-   q:"The least precise value in a calculation is given to 2 significant figures. Your calculator shows <b>0.041872</b>. Quote it as:",
-   o:["0.042","0.0419","0.04","0.041872"],c:0,
-   why:"Match the least precise data — here 2 significant figures. 0.041872 to 2 s.f. is 0.042. Copying the full calculator display costs easy marks &mdash; the 9702 Paper 4 examiner report repeated the same instruction about appropriate significant figures in June 2021, 2022, 2023 and 2024."},
+   q:"A voltmeter reads <b>1.50 V</b> and an ammeter reads <b>0.36 A</b>. Using R = V / I, the resistance should be quoted as:",
+   o:["4.2 Ω","4.17 Ω","4.1667 Ω","4 Ω"],c:0,
+   why:"V / I = 1.50 / 0.36 = 4.1666… Now decide the precision: 1.50 V is 3 s.f., but 0.36 A is only 2 s.f. (leading zeros never count), so the answer is limited to 2 s.f. — 4.2 Ω. Copying the full calculator display costs easy marks &mdash; the 9702 Paper 4 examiner report repeated the same instruction about appropriate significant figures in June 2021, 2022, 2023 and 2024."},
   {sk:"Standard form",
    q:"Evaluate <b>(3.0 × 10⁸) × (5.0 × 10⁻⁴)</b>, in standard form:",
    o:["1.5 × 10⁵","1.5 × 10⁴","15 × 10⁴","1.5 × 10⁻⁵"],c:0,
