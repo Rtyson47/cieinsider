@@ -1,2 +1,14 @@
 .DS_Store
 **/.DS_Store
+
+# This repo is PUBLIC (github.com/Rtyson47/cieinsider) and its root is the deployed web root, so
+# anything committed here is readable at cieinsider.com/<path> as well as on GitHub.
+# Added 2026-07-30, when bridge/ was about to be committed wholesale.
+
+# Internal verification reports: they quote blockers, unverified-claim post-mortems and
+# accountant/VAT notes. They belong next to the asset for working purposes, never on the site.
+**/verification-report.md
+
+# Archived page versions, kept per the versioning convention. Useful in the workspace, but in a
+# web root they are publicly readable orphan pages carrying superseded copy.
+**/_v[0-9]*.html
