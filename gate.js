@@ -47,7 +47,7 @@
   // ─────────────────────────────────────────────
   // CONFIG — replace with real values
   // ─────────────────────────────────────────────
-  const KIT_API_KEY = 'ReOz_79RGfHrPiRHkMrACg';
+  const KIT_API_KEY = 'BW8jYJD2dFUjrf5y-qjv6g';
   const KIT_FORM_ID = '9454927';
 
   const UNLOCK_KEY = 'cie_insider_unlocked';
