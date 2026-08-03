@@ -207,8 +207,21 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
 .seo-intro li { margin-bottom: 4px; }
 .seo-intro a { color: #a83b1f; }
 @media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+/* ---- results capture (replaces the site-wide gate on this page, 2026-07-30) ---- */
+.cap{max-width:480px;margin:0 auto 1.75rem;padding:1.4rem 1.5rem;background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent2);border-radius:10px;text-align:left}
+.cap-eyebrow{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem}
+.cap-title{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--text);margin:0 0 0.5rem;letter-spacing:-0.01em}
+.cap-body{font-size:14px;color:var(--text-s);line-height:1.6;margin:0 0 1rem}
+.cap-row{display:flex;gap:8px;flex-wrap:wrap}
+.cap-row input{flex:1 1 200px;font-family:var(--sans);font-size:14px;padding:11px 14px;border-radius:8px;border:1px solid var(--border2);background:var(--bg);color:var(--text)}
+.cap-row input:focus{outline:none;border-color:var(--accent2)}
+.cap-row .btn{flex:0 0 auto;background:var(--accent2);border-color:var(--accent2);color:var(--text)}
+.cap-row .btn:hover{filter:brightness(0.92)}
+.cap-fine{font-size:12px;color:var(--muted);margin:0.7rem 0 0;line-height:1.5}
+.cap-err{font-size:13px;color:var(--danger);margin:0.6rem 0 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:480px){.cap-row .btn{width:100%}}
 </style>
-<script src="/gate.js"></script>
 </head>
 <body class="cie-wrap">
 <div class="cie-topbar">
@@ -267,6 +280,21 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
     <div class="end-pct" id="end-score"></div>
     <div class="end-verdict" id="end-verdict"></div>
     <div class="end-label" id="end-desc"></div>
+
+    <div class="cap hidden" id="cap">
+      <div class="cap-eyebrow">See which of the six to fix</div>
+      <h3 class="cap-title">Your skill-by-skill breakdown</h3>
+      <p class="cap-body">The score tells you roughly where you stand. The breakdown tells you what to do about it: each of the six skills scored separately, plus the worked method for every question you got wrong. Tell me where to send it and it opens right here.</p>
+      <div class="cap-row">
+        <label class="sr-only" for="cap-email">Email address</label>
+        <input id="cap-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+        <button class="btn" id="cap-btn" type="button" onclick="capSubmit()">Show my breakdown</button>
+      </div>
+      <p class="cap-err hidden" id="cap-err"></p>
+      <p class="cap-fine">One email when a new 9702 trainer goes live, plus the occasional examiner tip before an exam window. Unsubscribe in one click.</p>
+    </div>
+
+    <div id="end-detail" class="hidden">
     <div class="breakdown-grid" id="breakdown"></div>
     <div class="end-actions">
       <button class="btn btn-missed" onclick="showReview()">Review answers</button>
@@ -278,6 +306,7 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
       <h3 class="end-next-title">The IGCSE to AS Bridge</h3>
       <p class="end-next-body">Four weeks, eight modules, each one ending in a drill set in a 9702 context. It covers the same six skills this check just scored you on: reading a quantity off its units, standard form, prefixes, rearranging, unit conversion, significant figures. Self paced, with an optional live tier taught by the examiner who wrote it.</p>
       <a class="btn btn-bridge" href="/bridge/">See the bridge course &rarr;</a>
+    </div>
     </div>
   </div>
 
@@ -379,7 +408,6 @@ function render(){
 
 function choose(btn,opt){
   if(answeredLock)return;answeredLock=true;
-  if(window.CIEGate)CIEGate.track('drill_answer');
   const it=deck[idx];
   const correct=opt===it.correctText;
   chosen[idx]=opt;
@@ -398,6 +426,92 @@ function choose(btn,opt){
 }
 
 function next(){ if(idx<deck.length-1){idx++;render();} else showEnd(); }
+
+/* ============================================================
+   RESULTS CAPTURE (added 2026-07-30, replaces the site-wide gate)
+   ------------------------------------------------------------
+   The old behaviour was CIEGate.track('drill_answer'), which threw a
+   non-dismissible modal after question 3 of 10. That is fine for a warm
+   list and wrong for cold traffic (Reddit, TikTok, search), where it reads
+   as bait. Both calls are now gone from this page and /gate.js is no longer
+   loaded here. Instead: all ten questions run free, the score and verdict
+   always show, and the email is asked for at the point it buys something
+   specific - the per-skill breakdown and the worked answers.
+
+   CAP_MODE:
+     'breakdown' - score + verdict visible, breakdown/review/bridge gated.
+                   RECOMMENDED. Defensible in a Reddit comment thread.
+     'all'       - nothing but the form until they subscribe. Higher capture,
+                   higher bounce, and it is the version a commenter calls bait.
+   Flip the one constant to switch; nothing else changes.
+
+   CAP_TAG_ID: paste the numeric id of the Kit tag `bridge-readiness-check`.
+   It does not exist yet - create it and paste the id (see the handover note).
+   While it is null the form still subscribes to form 9454927 correctly, it
+   just arrives untagged. Never invent an id here.
+   ============================================================ */
+const CAP_MODE   = 'breakdown';
+const CAP_TAG_ID = null;
+const CAP_FORM   = '9454927';
+const CAP_KEY    = 'BW8jYJD2dFUjrf5y-qjv6g';   // public-class key, same as the old gate
+const CAP_DONE   = 'cie_readiness_captured';
+
+function capUnlocked(){
+  try{
+    return localStorage.getItem(CAP_DONE)==='true'
+        || localStorage.getItem('cie_insider_unlocked')==='true';
+  }catch(e){ return false; }
+}
+
+function capApply(){
+  const cap=document.getElementById('cap'), detail=document.getElementById('end-detail');
+  const open=capUnlocked();
+  cap.classList.toggle('hidden', open);
+  detail.classList.toggle('hidden', !open);
+  // In 'all' mode the score itself waits behind the form too.
+  ['end-score','end-verdict','end-desc'].forEach(id=>{
+    document.getElementById(id).classList.toggle('hidden', CAP_MODE==='all' && !open);
+  });
+}
+
+function capReveal(){
+  try{ localStorage.setItem(CAP_DONE,'true'); }catch(e){}
+  capApply();
+  document.getElementById('end-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+async function capSubmit(){
+  const input=document.getElementById('cap-email');
+  const btn=document.getElementById('cap-btn');
+  const err=document.getElementById('cap-err');
+  const email=input.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    err.textContent='Please enter a valid email address.';
+    err.classList.remove('hidden');
+    return;
+  }
+  err.classList.add('hidden');
+  btn.disabled=true; btn.textContent='One moment...';
+  const body={api_key:CAP_KEY,email:email};
+  if(CAP_TAG_ID) body.tags=[CAP_TAG_ID];
+  try{
+    await fetch('https://api.convertkit.com/v3/forms/'+CAP_FORM+'/subscribe',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+  }catch(e){
+    // Never trap the student behind our own network error: they answered ten
+    // questions and the breakdown is theirs either way.
+  }
+  capReveal();
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter' && document.activeElement && document.activeElement.id==='cap-email'){
+    e.preventDefault(); capSubmit();
+  }
+});
 
 function showEnd(){
   document.getElementById('quiz-area').classList.add('hidden');
@@ -434,6 +548,8 @@ function showEnd(){
     const weak=v.got<v.total;
     return '<div class="breakdown-item"><div class="breakdown-topic">'+escapeHtml(s)+(weak?'<span class="revisit">revisit</span>':'')+'</div><div class="breakdown-score"><span class="hit">'+v.got+'</span> / '+v.total+'</div></div>';
   }).join('');
+
+  capApply();
 }
 
 function showReview(){

@@ -184,6 +184,77 @@
     margin: 0;
   }
 
+  /* ============ SPOTLIGHT BAND ============ */
+  /* Sits directly under the hero so the newest thing is the first thing seen.
+     The 9702 tiles for this are 6 tiles down the page and were invisible on
+     arrival. Main-site tokens only - this is a site page, not a funnel asset. */
+
+  .spotlight {
+    background: var(--cream-warm);
+    border-bottom: 1px solid var(--rule);
+  }
+  .spotlight-inner {
+    padding: 40px 0 44px;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .spotlight .eyebrow { margin-bottom: 14px; }
+  .spotlight .eyebrow .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .spotlight h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 96;
+    font-weight: 600;
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .spotlight h2 em { font-style: italic; font-weight: 500; color: var(--accent-deep); }
+  .spotlight p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 60ch;
+  }
+  .spotlight-actions { display: flex; flex-direction: column; gap: 10px; }
+  .spot-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 22px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .spot-btn.primary { background: var(--accent); color: #fff; }
+  .spot-btn.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+  .spot-btn.secondary { background: transparent; color: var(--accent); }
+  .spot-btn.secondary:hover { background: var(--cream-deep); }
+  .spot-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    text-align: center;
+    margin: 2px 0 0;
+  }
+  @media (max-width: 820px) {
+    .spotlight-inner { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 36px; }
+  }
+
   /* ============ SYLLABUS ROWS ============ */
 
   main { padding: 56px 0 80px; }
@@ -559,6 +630,21 @@
     <p class="lede">Free, interactive trainers for Cambridge Physics — focused on the mark-scheme habits that lift a grade, not generic past-paper grinding.</p>
   </div>
 </header>
+
+<section class="spotlight">
+  <div class="container spotlight-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>New &middot; Before you start AS</div>
+      <h2>Going from IGCSE to AS Physics? <em>Find out in ten questions.</em></h2>
+      <p>AS Physics assumes six numerical skills from the first lesson: reading a quantity off its units, standard form, prefixes, rearranging, unit conversion and significant figures. The readiness check scores you on each one separately and shows you the worked method for anything you missed.</p>
+    </div>
+    <div class="spotlight-actions">
+      <a class="spot-btn primary" href="/9702/readiness/">Take the readiness check &rarr;</a>
+      <a class="spot-btn secondary" href="/bridge/">See the IGCSE &rarr; AS Bridge</a>
+      <p class="spot-note">Free. Ten questions, scored per skill.</p>
+    </div>
+  </div>
+</section>
 
 <main class="container">
 
