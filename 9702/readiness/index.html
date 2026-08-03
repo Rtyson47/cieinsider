@@ -445,13 +445,15 @@ function next(){ if(idx<deck.length-1){idx++;render();} else showEnd(); }
                    higher bounce, and it is the version a commenter calls bait.
    Flip the one constant to switch; nothing else changes.
 
-   CAP_TAG_ID: paste the numeric id of the Kit tag `bridge-readiness-check`.
-   It does not exist yet - create it and paste the id (see the handover note).
-   While it is null the form still subscribes to form 9454927 correctly, it
-   just arrives untagged. Never invent an id here.
+   CAP_TAG_ID: the numeric id of the Kit tag `bridge-readiness-check`.
+   Created 2026-08-03 via POST /v4/tags and confirmed by re-POSTing (the call
+   is idempotent - the same id and original created_at come back). Verified
+   against GET /v4/tags the same day. If it is ever set back to null the form
+   still subscribes to form 9454927 correctly, it just arrives untagged.
+   Never invent an id here.
    ============================================================ */
 const CAP_MODE   = 'breakdown';
-const CAP_TAG_ID = null;
+const CAP_TAG_ID = 21898790;
 const CAP_FORM   = '9454927';
 const CAP_KEY    = 'BW8jYJD2dFUjrf5y-qjv6g';   // public-class key, same as the old gate
 const CAP_DONE   = 'cie_readiness_captured';
