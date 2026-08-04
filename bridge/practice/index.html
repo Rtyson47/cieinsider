@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html class="cie-wrap" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridge Practice Generator (9702) | CIE Insider</title>
+<meta name="description" content="Generate unlimited practice questions for the IGCSE to AS Physics Bridge. Pick the modules, pick how many, pick the difficulty — every question comes with the worked method.">
+<link rel="canonical" href="https://cieinsider.com/bridge/practice/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cieinsider.com/bridge/practice/">
+<meta property="og:site_name" content="CIE Insider">
+<meta property="og:title" content="Bridge Practice Question Generator (9702) | CIE Insider">
+<meta property="og:description" content="Choose your modules, how many questions and the difficulty, and get a fresh practice set every time — each question marked with the method an examiner wants to see.">
+<meta property="og:image" content="https://cieinsider.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bridge Practice Question Generator (9702) | CIE Insider">
+<meta name="twitter:description" content="Choose your modules, how many questions and the difficulty, and get a fresh practice set every time — each question marked with the method an examiner wants to see.">
+<meta name="twitter:image" content="https://cieinsider.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cieinsider.com/" },
+        { "@type": "ListItem", "position": 2, "name": "IGCSE to AS Physics Bridge", "item": "https://cieinsider.com/bridge/" },
+        { "@type": "ListItem", "position": 3, "name": "Practice Generator", "item": "https://cieinsider.com/bridge/practice/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "IGCSE to AS Bridge — Practice Question Generator",
+      "description": "Generates unlimited practice questions on the numerical skills Cambridge AS Physics 9702 assumes: units and base units, standard form, SI prefixes, unit conversion, calculator handling, rearranging equations and significant figures. Choose the modules, the number of questions and the difficulty.",
+      "url": "https://cieinsider.com/bridge/practice/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+      "provider": { "@type": "Organization", "name": "CIE Insider", "url": "https://cieinsider.com/" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<style>
+/* ── tool tokens (dark core; remapped to cream by the shell below) ── */
+:root{--bg:#0d0f14;--surface:#141720;--surface2:#1c2030;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);--text:#e8eaf0;--text-s:#c3c7d1;--muted:#6b7280;--accent:#7ee8a2;--accent-dim:rgba(126,232,162,0.12);--accent2:#60a5fa;--accent2-dim:rgba(96,165,250,0.12);--danger:#f87171;--danger-dim:rgba(248,113,113,0.12);--warn:#fbbf24;--green:#7ee8a2;--ok-tint:rgba(74,107,58,0.12);--no-tint:rgba(125,42,20,0.10);--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+#app{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0.5rem 1.5rem 1rem}
+.hidden{display:none!important}
+
+/* ── setup screen ── */
+.setup{animation:fadeUp 0.35s ease both}
+.setup-block{margin-bottom:1.9rem}
+.setup-label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem}
+.setup-hint{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:0.9rem}
+.setup-hint b{color:var(--text-s);font-weight:600}
+.mod-tools{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 11px;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s}
+.chip:hover{color:var(--text);border-color:var(--accent)}
+.mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.mod-opt{display:flex;gap:11px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:9px;padding:12px 13px;cursor:pointer;transition:border-color .15s,background .15s}
+.mod-opt:hover{border-color:var(--accent)}
+.mod-opt.on{border-color:var(--accent);background:var(--accent-dim)}
+.mod-opt input{appearance:none;flex:0 0 auto;width:17px;height:17px;margin-top:2px;border:1.5px solid var(--border2);border-radius:4px;background:var(--bg);cursor:pointer;position:relative}
+.mod-opt input:checked{border-color:var(--accent);background:var(--accent)}
+.mod-opt input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border-right:2px solid var(--cie-cream-warm,#fff);border-bottom:2px solid var(--cie-cream-warm,#fff);transform:rotate(42deg)}
+.mod-opt input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mod-n{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--muted);display:block;margin-bottom:2px}
+.mod-t{font-size:14px;font-weight:600;color:var(--text);line-height:1.3;display:block}
+.mod-s{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:3px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font-family:var(--sans);font-size:14px;font-weight:600;padding:10px 17px;border-radius:8px;border:1px solid var(--border2);background:var(--surface);color:var(--text-s);cursor:pointer;transition:all .15s}
+.seg button:hover{border-color:var(--accent)}
+.seg button.on{border-color:var(--accent);background:var(--accent-dim);color:var(--accent)}
+.count-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.count-row input{width:92px;font-family:var(--mono);font-size:15px;padding:10px 12px;border-radius:8px;border:1px solid var(--border2);background:var(--bg);color:var(--text);text-align:center}
+.count-row input:focus{outline:none;border-color:var(--accent)}
+.count-row .count-unit{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.setup-go{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:0.4rem}
+.summary{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.6;margin-top:0.85rem}
+.summary b{color:var(--text-s);font-weight:500}
+.warn-line{font-size:13.5px;color:var(--danger);margin-top:0.7rem}
+
+/* ── quiz ── */
+.rc-head{margin-bottom:1.1rem}
+.rc-eyebrow{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.4rem}
+.rc-title{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.rc-sub{font-size:13px;color:var(--muted);margin-top:0.25rem;font-family:var(--mono)}
+.progress-wrap{height:3px;background:rgba(31,26,20,0.08);border-radius:2px;margin-bottom:1.5rem;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.4s cubic-bezier(.4,0,.2,1);width:0%}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem 1.6rem 1.4rem;animation:fadeUp 0.35s ease both}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.1rem;gap:10px}
+.card-topic{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em}
+.card-badge{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:4px;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border2);white-space:nowrap;background:var(--accent2-dim);color:var(--accent2)}
+.card-badge.easy{background:var(--ok-tint);color:var(--green)}
+.card-badge.hard{background:var(--no-tint);color:var(--danger)}
+.question-text{font-size:18px;font-weight:500;color:var(--text);line-height:1.5;margin-bottom:1.25rem;letter-spacing:-0.01em}
+.opt{display:block;width:100%;text-align:left;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:13px 15px;margin-bottom:9px;font-family:var(--sans);font-size:15px;color:var(--text);cursor:pointer;transition:border-color .15s,background .15s;line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt .optk{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:11px;font-weight:500}
+.opt.correct{border-color:var(--green);background:var(--ok-tint)}
+.opt.correct .optk{color:var(--green)}
+.opt.wrong{border-color:var(--danger);background:var(--no-tint)}
+.opt.wrong .optk{color:var(--danger)}
+.why{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:8px;padding:0.9rem 1.1rem;margin-top:14px;font-size:14px;color:var(--text-s);line-height:1.6;display:none}
+.why.show{display:block;animation:slideDown 0.2s ease both}
+.why b{color:var(--text);font-weight:600}
+.next-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
+.kbd-hint{text-align:center;margin-top:1rem;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.05em}
+kbd{display:inline-block;padding:1px 6px;border:1px solid var(--border2);border-radius:4px;font-size:10px;font-family:var(--mono);color:var(--muted);background:var(--surface)}
+.btn{font-family:var(--sans);font-size:14px;font-weight:600;padding:11px 22px;border-radius:8px;cursor:pointer;transition:all 0.15s;border:1px solid;text-align:center}
+.btn-got{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.btn-got:hover{filter:brightness(0.97)}
+.btn-missed{background:var(--danger-dim);border-color:var(--danger);color:var(--danger)}
+.btn-action{background:transparent;border-color:var(--border2);color:var(--muted)}
+.btn-action:hover{color:var(--text);border-color:var(--accent)}
+.btn-solid{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-solid:hover{filter:brightness(0.92)}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+
+/* ── end screen ── */
+#end-screen{text-align:center;padding:1.5rem 0.5rem 0.5rem;animation:fadeUp 0.4s ease both}
+.end-pct{font-family:var(--mono);font-size:64px;font-weight:300;letter-spacing:-0.03em;line-height:1;margin-bottom:0.5rem}
+.end-pct.great{color:var(--green)}.end-pct.ok{color:var(--warn)}.end-pct.poor{color:var(--danger)}
+.end-verdict{font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--text);letter-spacing:-0.01em;margin-bottom:0.5rem}
+.end-label{font-size:15px;color:var(--text-s);max-width:480px;margin:0 auto 1.75rem;line-height:1.55}
+.bd-title{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:0 auto 0.6rem;max-width:520px;text-align:left}
+.breakdown-grid{display:grid;grid-template-columns:1fr;gap:8px;max-width:520px;margin:0 auto 1.5rem;text-align:left}
+.breakdown-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.breakdown-topic{font-size:13.5px;color:var(--text);font-weight:500}
+.breakdown-topic .bd-n{font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:8px}
+.revisit{font-family:var(--mono);font-size:9px;color:var(--danger);letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--danger);border-radius:3px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+.breakdown-score{font-family:var(--mono);font-size:14px;color:var(--muted);white-space:nowrap}
+.breakdown-score .hit{color:var(--green)}
+.end-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
+.end-actions .btn{min-width:150px}
+.end-foot{font-size:14px;color:var(--text-s);max-width:520px;margin:0 auto;line-height:1.6}
+.share{max-width:520px;margin:1.5rem auto 0;padding:0.9rem 1.1rem;background:var(--surface2);border:1px solid var(--border2);border-radius:9px;text-align:left}
+.share-k{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem}
+.share-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.share-row code{flex:1 1 240px;font-family:var(--mono);font-size:12px;color:var(--text-s);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px 11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.end-next{max-width:520px;margin:1.75rem auto 0;padding:1.4rem 1.5rem;background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:10px;text-align:left}
+.end-next-eyebrow{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem}
+.end-next-title{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--text);margin:0 0 0.5rem;letter-spacing:-0.01em}
+.end-next-body{font-size:14px;color:var(--text-s);line-height:1.6;margin:0 0 1rem}
+.btn-bridge{display:inline-block;background:var(--accent);border-color:var(--accent);color:#fff;text-decoration:none}
+.btn-bridge:hover{filter:brightness(0.92)}
+
+/* ── review ── */
+.review-screen{animation:fadeUp 0.4s ease both}
+.review-header{text-align:center;margin-bottom:1.5rem}
+.review-title{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem}
+.review-subtitle{font-size:14px;color:var(--muted)}
+.review-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem}
+.review-item{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:8px;padding:1rem 1.2rem}
+.review-item.no{border-left-color:var(--danger)}
+.review-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.45rem}
+.review-q{font-size:15px;color:var(--text);margin-bottom:0.6rem;font-weight:500;line-height:1.45}
+.review-line{font-size:13px;color:var(--muted);margin-bottom:0.3rem}
+.review-line .rl{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;margin-right:8px}
+.review-line .g{color:var(--green);font-weight:500}.review-line .r{color:var(--danger);font-weight:500}
+.review-a{font-size:13px;color:var(--text-s);line-height:1.6;margin-top:0.5rem}
+.review-a b{color:var(--text)}
+.review-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding-bottom:0.5rem}
+.review-actions .btn{min-width:150px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){.mod-grid{grid-template-columns:1fr}.question-text{font-size:16px}.end-pct{font-size:52px}.end-verdict{font-size:22px}.end-actions .btn,.review-actions .btn{min-width:0;flex:1 1 140px}}
+
+/* ============ EMAIL CAPTURE ============ */
+.capture{margin-top:64px;background:#1f1a14;color:#faf6ec;border-radius:6px;padding:48px 40px;box-shadow:0 1px 0 rgba(31,26,20,0.06),0 12px 32px -16px rgba(31,26,20,0.18);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media (max-width:760px){.capture{grid-template-columns:1fr;gap:28px;padding:36px 28px}}
+.capture .eyebrow{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#e8b89f;margin-bottom:14px}
+.capture h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 60;font-weight:600;font-size:30px;line-height:1.15;margin:0 0 12px;color:#faf6ec;letter-spacing:-0.01em}
+.capture h2 em{font-style:italic;font-weight:500;color:#e8b89f}
+.capture p{margin:0;color:#d8ccb4;font-size:15px;line-height:1.55}
+.capture form{display:flex;flex-direction:column;gap:12px}
+.capture label{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#d8ccb4;font-weight:600}
+.capture input[type="email"]{appearance:none;border:1px solid #6b5e4d;background:rgba(245,239,228,0.06);color:#faf6ec;padding:14px 16px;font-family:'Inter',sans-serif;font-size:15px;border-radius:4px;transition:border-color 0.15s ease,background 0.15s ease}
+.capture input[type="email"]:focus{outline:none;border-color:#e8b89f;background:rgba(245,239,228,0.1)}
+.capture input[type="email"]::placeholder{color:#6b5e4d}
+.capture button{appearance:none;border:none;background:#a83b1f;color:#faf6ec;padding:14px 22px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.04em;border-radius:4px;cursor:pointer;transition:background 0.15s ease}
+.capture button:hover{background:#7d2a14}
+.capture .fine{font-size:12px;color:#6b5e4d;margin-top:4px}
+</style>
+<style data-cie-shell>
+/* ============================================================
+   CIE Insider — site shell tokens & layout
+   ============================================================ */
+:root {
+  --cie-cream: #f5efe4; --cie-cream-deep: #ede4d2; --cie-cream-warm: #faf6ec;
+  --cie-ink: #1f1a14; --cie-ink-soft: #3a3127; --cie-ink-mute: #6b5e4d;
+  --cie-rule: #d8ccb4; --cie-rule-soft: #e6dcc6;
+  --cie-accent: #a83b1f; --cie-accent-deep: #7d2a14; --cie-accent-soft: #e8b89f;
+  --cie-gold: #b8893a; --cie-green: #4a6b3a; --cie-green-soft: #d4dcc4;
+  --cie-shadow: 0 1px 0 rgba(31,26,20,0.06), 0 12px 32px -16px rgba(31,26,20,0.18);
+}
+html.cie-wrap, body.cie-wrap { background: var(--cie-cream) !important; color: var(--cie-ink); }
+body.cie-wrap {
+  margin: 0; font-family: 'Inter', -apple-system, sans-serif;
+  background-image:
+    radial-gradient(ellipse 1200px 800px at 10% -10%, rgba(184, 137, 58, 0.08), transparent),
+    radial-gradient(ellipse 1000px 600px at 110% 10%, rgba(168, 59, 31, 0.06), transparent) !important;
+  min-height: 100vh; padding: 0 !important;
+}
+.cie-topbar { padding: 24px 0; border-bottom: 1px solid var(--cie-rule); background: var(--cie-cream); position: relative; z-index: 10; }
+.cie-topbar-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.cie-wordmark { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--cie-ink); }
+.cie-wordmark .cie-mark { width: 7px; height: 7px; background: var(--cie-accent); border-radius: 50%; align-self: center; }
+.cie-wordmark .cie-name { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+.cie-wordmark .cie-tag { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cie-ink-mute); font-weight: 600; }
+@media (max-width: 600px) { .cie-wordmark .cie-tag { display: none; } }
+.cie-back { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--cie-ink-soft); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--cie-rule); border-radius: 4px; background: var(--cie-cream-warm); transition: border-color 0.15s ease, color 0.15s ease; }
+.cie-back:hover { border-color: var(--cie-ink-soft); color: var(--cie-accent); }
+.cie-back .cie-arrow { transition: transform 0.15s ease; }
+.cie-back:hover .cie-arrow { transform: translateX(-3px); }
+.cie-page-hero { padding: 56px 0 32px; border-bottom: 1px solid var(--cie-rule); background: var(--cie-cream); position: relative; z-index: 5; }
+.cie-page-hero-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.cie-eyebrow { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cie-accent); margin: 0 0 14px; }
+h1.cie-page-title { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 144; font-weight: 600; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--cie-ink); }
+h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-accent-deep); }
+.cie-page-lede { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; font-size: 18px; color: var(--cie-ink-soft); max-width: 680px; line-height: 1.45; margin: 0; }
+.cie-tool-stage { padding: 40px 0 64px; position: relative; z-index: 2; }
+.cie-footer { border-top: 1px solid var(--cie-rule); padding: 32px 0 56px; margin-top: 64px; font-size: 13px; color: var(--cie-ink-mute); background: var(--cie-cream); position: relative; z-index: 5; }
+.cie-footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.cie-footer .cie-disclaimer { max-width: 600px; line-height: 1.5; }
+.cie-footer a { color: var(--cie-ink-soft); text-decoration: underline; text-decoration-color: var(--cie-rule); }
+.cie-footer a:hover { color: var(--cie-accent); }
+/* === remap dark palette → cream === */
+:root {
+  --bg: var(--cie-cream) !important; --surface: var(--cie-cream-warm) !important; --surface2: var(--cie-cream-deep) !important;
+  --border: var(--cie-rule-soft) !important; --border2: var(--cie-rule) !important;
+  --text: var(--cie-ink) !important; --text-s: var(--cie-ink-soft) !important; --muted: var(--cie-ink-mute) !important;
+  --accent: var(--cie-accent) !important; --accent-dim: rgba(168,59,31,0.10) !important;
+  --accent2: var(--cie-gold) !important; --accent2-dim: rgba(184,137,58,0.12) !important;
+  --green: var(--cie-green) !important; --warn: var(--cie-gold) !important;
+  --danger: var(--cie-accent-deep) !important; --danger-dim: rgba(125,42,20,0.10) !important;
+}
+</style>
+<style>
+.seo-intro { border-bottom: 1px solid #d8ccb4; }
+.seo-intro details { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.seo-intro summary { padding: 10px 0; font-size: 13px; color: #8a7b6c; cursor: pointer; user-select: none; list-style: none; display: flex; align-items: center; gap: 6px; }
+.seo-intro summary::-webkit-details-marker { display: none; }
+.seo-intro summary::before { content: '▸'; font-size: 10px; }
+.seo-intro details[open] > summary::before { content: '▾'; }
+.seo-intro-inner { padding: 12px 0 24px; }
+.seo-intro h2 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #1f1a14; margin: 0 0 14px; letter-spacing: -0.01em; }
+.seo-intro p { font-size: 15px; color: #3a3127; line-height: 1.7; margin: 0 0 12px; max-width: 72ch; }
+.seo-intro a { color: #a83b1f; }
+@media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+</style>
+</head>
+<body class="cie-wrap">
+<div class="cie-topbar">
+  <div class="cie-topbar-inner">
+    <a class="cie-wordmark" href="/">
+      <span class="cie-mark"></span>
+      <span class="cie-name">CIE Insider</span>
+      <span class="cie-tag">Cambridge Physics · Examiner-grade revision</span>
+    </a>
+    <a class="cie-back" href="/bridge/">
+      <span class="cie-arrow">&larr;</span>
+      <span>The bridge</span>
+    </a>
+  </div>
+</div>
+<header class="cie-page-hero">
+  <div class="cie-page-hero-inner">
+    <p class="cie-eyebrow">IGCSE &rarr; AS Bridge · Practice generator</p>
+    <h1 class="cie-page-title">Build yourself <em>as much practice</em> as you need.</h1>
+    <p class="cie-page-lede">Pick the modules you want to drill, how many questions you want and how hard they should be. Every set is generated fresh with new numbers, and every question comes back with the method rather than just the answer.</p>
+  </div>
+</header>
+<section class="seo-intro">
+  <details>
+    <summary>About this generator</summary>
+    <div class="seo-intro-inner">
+      <h2>Drills you cannot run out of</h2>
+      <p>Each bridge module ends in a drill, and the drills are fixed sets: you work them once, and the second time through you are partly remembering rather than working. This generator exists for the practice after that. The questions are built from the same eight modules &mdash; <strong>quantities and base units</strong>, <strong>standard form</strong>, <strong>SI prefixes</strong>, <strong>converting to SI</strong>, <strong>calculator handling</strong>, <strong>rearranging equations</strong>, <strong>significant figures</strong> and the <strong>seven step method</strong> &mdash; but the numbers, quantities and contexts are generated each time, so a set is never the set you did yesterday.</p>
+      <p>The wrong options are not filler. Each one is a mistake that actually turns up on scripts: the right value in the wrong form, the prefix that never got replaced, the conversion factor that was not squared, the whole calculator display copied out. Picking one tells you something, which is why the explanation names the error rather than just restating the right answer.</p>
+      <p>Not sure which modules you need? The free <a href="/9702/readiness/">AS readiness check</a> scores all six skills separately in ten questions. The <a href="/bridge/">bridge course itself</a> is where the teaching is.</p>
+    </div>
+  </details>
+</section>
+<main class="cie-tool-stage">
+
+<div id="app">
+
+  <!-- ============================ SETUP ============================ -->
+  <div id="setup-screen" class="setup">
+    <div class="rc-head">
+      <div class="rc-eyebrow">Bridge practice · 9702</div>
+      <div class="rc-title">Build a practice set</div>
+      <div class="rc-sub">Modules, length and difficulty are yours to choose</div>
+    </div>
+
+    <div class="setup-block">
+      <div class="setup-label">1 · Modules</div>
+      <p class="setup-hint">Tick the ones you want questions from. Leave them all on for a mixed set across the whole course.</p>
+      <div class="mod-tools">
+        <button class="chip" type="button" onclick="setAllMods(true)">Select all</button>
+        <button class="chip" type="button" onclick="setAllMods(false)">Clear</button>
+      </div>
+      <div class="mod-grid" id="mod-grid"></div>
+    </div>
+
+    <div class="setup-block">
+      <div class="setup-label">2 · How many questions</div>
+      <p class="setup-hint">Anything from a five question warm-up to a fifty question session.</p>
+      <div class="count-row" id="count-presets"></div>
+    </div>
+
+    <div class="setup-block">
+      <div class="setup-label">3 · Difficulty</div>
+      <p class="setup-hint"><b>Easy</b> is one step. <b>Medium</b> is two, usually a conversion and then a formula. <b>Hard</b> is where AS actually sits: several steps, and a trap in at least one of them. <b>Mixed</b> spreads the set across all three.</p>
+      <div class="seg" id="diff-seg"></div>
+    </div>
+
+    <div class="setup-go">
+      <button class="btn btn-solid" id="start-btn" type="button" onclick="startSet()">Generate my set &rarr;</button>
+      <button class="chip" type="button" onclick="startSet(true)">Surprise me</button>
+    </div>
+    <p class="summary" id="setup-summary"></p>
+    <p class="warn-line hidden" id="setup-warn"></p>
+  </div>
+
+  <!-- ============================ QUIZ ============================ -->
+  <div id="quiz-screen" class="hidden">
+    <div class="rc-head">
+      <div class="rc-eyebrow">Bridge practice · 9702</div>
+      <div class="rc-title" id="quiz-title">Practice set</div>
+      <div class="rc-sub" id="q-count">Question 1 of 10</div>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progress"></div></div>
+
+    <div class="card">
+      <div class="card-meta"><span class="card-topic" id="q-skill"></span><span class="card-badge" id="q-diff"></span></div>
+      <div class="question-text" id="q-stem"></div>
+      <div id="opts"></div>
+      <div class="why" id="why"></div>
+      <div class="next-row">
+        <button class="btn btn-action" type="button" onclick="quitSet()">&larr; New set</button>
+        <button class="btn btn-got hidden" id="next-btn" type="button" onclick="next()">Next &rarr;</button>
+      </div>
+    </div>
+    <div class="kbd-hint"><kbd>1</kbd>&ndash;<kbd>4</kbd> choose &nbsp;&nbsp; <kbd>Enter</kbd> next</div>
+  </div>
+
+  <!-- ============================ END ============================ -->
+  <div id="end-screen" class="hidden">
+    <div class="end-pct" id="end-score"></div>
+    <div class="end-verdict" id="end-verdict"></div>
+    <div class="end-label" id="end-desc"></div>
+
+    <div class="bd-title">By module</div>
+    <div class="breakdown-grid" id="breakdown-mod"></div>
+    <div class="bd-title" id="bd-diff-title">By difficulty</div>
+    <div class="breakdown-grid" id="breakdown-diff"></div>
+
+    <div class="end-actions">
+      <button class="btn btn-missed" type="button" onclick="showReview()">Review answers</button>
+      <button class="btn btn-got" type="button" onclick="againSameSettings()">Another set &rarr;</button>
+      <button class="btn btn-action" type="button" onclick="quitSet()">Change settings</button>
+    </div>
+    <p class="end-foot" id="end-foot"></p>
+
+    <div class="share">
+      <div class="share-k">Link to this exact set</div>
+      <div class="share-row">
+        <code id="share-url"></code>
+        <button class="chip" type="button" id="share-btn" onclick="copyShare()">Copy</button>
+      </div>
+    </div>
+
+    <div class="end-next">
+      <div class="end-next-eyebrow">Where the teaching is</div>
+      <h3 class="end-next-title">The IGCSE to AS Bridge</h3>
+      <p class="end-next-body">This generator drills the eight modules. The course is where they are taught: four weeks, eight modules, each ending in a drill set in a 9702 context, from the examiner who marked both 0625 and 9702.</p>
+      <a class="btn btn-bridge" href="/bridge/">See the bridge course &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ============================ REVIEW ============================ -->
+  <div id="review-screen" class="hidden review-screen">
+    <div class="review-header">
+      <div class="review-title">Your answers</div>
+      <div class="review-subtitle" id="review-sub"></div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+    <div class="review-actions">
+      <button class="btn btn-action" type="button" onclick="backToEnd()">&larr; Back to result</button>
+      <button class="btn btn-got" type="button" onclick="againSameSettings()">Another set &rarr;</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ================= ENGINE START =================
+   Question generators for the IGCSE -> AS bridge practice sets.
+
+   Every generator returns { stem, correct, wrongs:[3], why }. The engine
+   shuffles the four options and records the correct text, so a generator
+   never has to care about option order.
+
+   Two rules hold everywhere in here:
+     1. Numbers are built from integers wherever possible (tenths, hundredths)
+        and normalised into standard form by norm(), so displayed mantissas are
+        exact rather than whatever a float rounded to.
+     2. Every wrong option is a mistake that actually appears on scripts. If it
+        cannot be named in the explanation, it does not belong in the options.
+   ================================================= */
+
+var MODULES=[
+  {n:1,title:'Quantities, units and A level notation',skill:'Units & quantities',blurb:'Base units, notation, homogeneity'},
+  {n:2,title:'Standard form',skill:'Standard form',blurb:'Reading, writing and arithmetic in it'},
+  {n:3,title:'Prefixes and unit magnitudes',skill:'Unit prefixes',blurb:'nano to giga, and the squared ones'},
+  {n:4,title:'Converting to SI units',skill:'Unit conversion',blurb:'g, cm, km h⁻¹, g cm⁻³'},
+  {n:5,title:'Using your calculator',skill:'Calculator handling',blurb:'Brackets, roots, entering powers'},
+  {n:6,title:'Rearranging equations',skill:'Rearranging',blurb:'Symbols first, on 9702 equations'},
+  {n:7,title:'Significant figures',skill:'Significant figures',blurb:'Counting, rounding, matching the data'},
+  {n:8,title:'How to attack any calculation',skill:'Multi-step calculations',blurb:'The seven step method, end to end'}
+];
+
+/* ---------------- formatting helpers ---------------- */
+var SUPMAP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sup(n){return String(n).split('').map(function(c){return SUPMAP[c]!==undefined?SUPMAP[c]:c;}).join('');}
+function p10(e){return '10'+sup(e);}
+
+// value = intVal x 10^scale  ->  { m:'4.5', e:-5 }, mantissa always 1 <= m < 10
+function norm(intVal,scale){
+  var s=String(intVal);
+  var e=scale+s.length-1;
+  var t=s.replace(/0+$/,'');
+  if(t==='')t='0';
+  var m=t.length>1?(t[0]+'.'+t.slice(1)):(t+'.0');
+  return {m:m,e:e};
+}
+function fmt(parts,unit){
+  var u=unit?' '+unit:'';
+  return parts.e===0?(parts.m+u):(parts.m+' × '+p10(parts.e)+u);
+}
+function shift(parts,d){return {m:parts.m,e:parts.e+d};}
+// move the decimal point k places right, compensating the exponent: the classic
+// "right value, wrong form" distractor (48 x 10^-6 for 4.8 x 10^-5).
+function slide(parts,k){
+  var v=Number((parseFloat(parts.m)*Math.pow(10,k)).toPrecision(8));
+  return {m:String(v),e:parts.e-k};
+}
+// float -> { m, e } with sf significant figures in the mantissa
+function sciParts(v,sf){
+  var exp=Math.floor(Math.log10(Math.abs(v)));
+  var mant=Number((v/Math.pow(10,exp)).toPrecision(sf));
+  if(Math.abs(mant)>=10){mant=mant/10;exp++;}
+  if(Math.abs(mant)<1){mant=mant*10;exp--;}
+  return {m:mant.toFixed(sf-1),e:exp};
+}
+function sci(v,sf,unit){return fmt(sciParts(v,sf),unit);}
+// plain decimal to sf significant figures (no exponent notation), trailing zeros kept:
+// "4.2" from 4.1666 at 2 s.f., and "4.0" from 3.999, because the zero is the point.
+function plain(v,sf,unit){
+  var s=v.toPrecision(sf);
+  if(s.indexOf('e')>=0)s=String(Number(s));
+  return s+(unit?' '+unit:'');
+}
+// plain decimal with trailing zeros stripped — for exact conversions, where "170.0 s"
+// would be claiming a precision the question never gave.
+function num(v,sf,unit){return String(Number(v.toPrecision(sf||6)))+(unit?' '+unit:'');}
+// digit string "48" at exponent e -> "0.000048" (e=-5) or "4800" (e=3)
+function dec(digits,e,unit){
+  var out;
+  if(e>=0){
+    out=(e+1>=digits.length)?(digits+new Array(e+2-digits.length).join('0')):(digits.slice(0,e+1)+'.'+digits.slice(e+1));
+  }else{
+    out='0.'+new Array(-e).join('0')+digits;
+  }
+  return out+(unit?' '+unit:'');
+}
+// tenths -> a display string that keeps 2 s.f. ("8.0" not "8")
+function tenths(t){return (t%10===0)?(t/10).toFixed(1):String(t/10);}
+
+/* ---------------- seeded randomness ---------------- */
+function mulberry32(a){
+  return function(){
+    a|=0;a=a+0x6D2B79F5|0;
+    var t=Math.imul(a^a>>>15,1|a);
+    t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+function makeR(rng){
+  var r={
+    f:rng,
+    int:function(lo,hi){return lo+Math.floor(rng()*(hi-lo+1));},
+    pick:function(a){return a[Math.floor(rng()*a.length)];},
+    shuffle:function(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(rng()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;},
+    sample:function(a,k){return r.shuffle(a).slice(0,k);},
+    sign:function(){return rng()<0.5?-1:1;}
+  };
+  return r;
+}
+
+/* ---------------- shared data ---------------- */
+var QUANTITIES=[
+  {q:'Momentum',u:'kg m s⁻¹',eq:'p = mv',w:['kg m s⁻²','kg m² s⁻¹','kg m² s⁻²'],
+   d:'mass × velocity, so kg × m s⁻¹ = kg m s⁻¹'},
+  {q:'Force',u:'kg m s⁻²',eq:'F = ma',named:'the newton, N',w:['kg m s⁻¹','kg m² s⁻²','kg m⁻¹ s⁻²'],
+   d:'mass × acceleration, so kg × m s⁻² = kg m s⁻²'},
+  {q:'Energy',u:'kg m² s⁻²',eq:'E = ½mv²',named:'the joule, J',w:['kg m s⁻²','kg m² s⁻³','kg m² s⁻¹'],
+   d:'½mv², so kg × (m s⁻¹)² = kg m² s⁻²'},
+  {q:'Power',u:'kg m² s⁻³',eq:'P = E/t',named:'the watt, W',w:['kg m² s⁻²','kg m s⁻³','kg m² s⁻¹'],
+   d:'energy ÷ time, so kg m² s⁻² ÷ s = kg m² s⁻³'},
+  {q:'Pressure',u:'kg m⁻¹ s⁻²',eq:'p = F/A',named:'the pascal, Pa',w:['kg m s⁻²','kg m⁻² s⁻²','kg m⁻¹ s⁻¹'],
+   d:'force ÷ area, so kg m s⁻² ÷ m² = kg m⁻¹ s⁻²'},
+  {q:'Density',u:'kg m⁻³',eq:'ρ = m/V',w:['kg m³','kg m⁻²','kg m⁻¹ s⁻²'],
+   d:'mass ÷ volume, so kg ÷ m³ = kg m⁻³'},
+  {q:'Acceleration',u:'m s⁻²',eq:'a = Δv/t',w:['m s⁻¹','m² s⁻²','kg m s⁻²'],
+   d:'change in velocity ÷ time, so m s⁻¹ ÷ s = m s⁻²'},
+  {q:'Charge',u:'A s',eq:'Q = It',named:'the coulomb, C',w:['A s⁻¹','A m s','C s⁻¹'],
+   d:'current × time, so A × s = A s'}
+];
+
+var HOMOG_OK=['v = u + at','s = ut + ½at²','v² = u² + 2as','E = ½mv²','p = mv','W = Fs','P = Fv','p = ρgh','V = IR','P = VI','F = ma','ρ = m/V'];
+var HOMOG_BAD=[
+  {eq:'E = ½mv',why:'½mv has base units kg m s⁻¹, which is momentum, not energy (kg m² s⁻²). It is one power of velocity short.'},
+  {eq:'v² = u² + 2as²',why:'2as² is (m s⁻²)(m²) = m³ s⁻², while v² is m² s⁻². In that equation s is a distance and it is not squared.'},
+  {eq:'s = ut² + ½at',why:'ut² is (m s⁻¹)(s²) = m s, and ½at is (m s⁻²)(s) = m s⁻¹. Neither term is a length, so nothing in it balances.'},
+  {eq:'P = Fv²',why:'Fv² is (kg m s⁻²)(m² s⁻²) = kg m³ s⁻⁴, while power is kg m² s⁻³. Power is force × velocity, not force × velocity squared.'},
+  {eq:'p = ρg',why:'ρg is (kg m⁻³)(m s⁻²) = kg m⁻² s⁻², while pressure is kg m⁻¹ s⁻². It is the depth h that makes p = ρgh balance.'},
+  {eq:'W = F/s',why:'F/s is (kg m s⁻²)/m = kg s⁻², while work is kg m² s⁻². Work is force × distance, not force ÷ distance.'}
+];
+var HOMOG_NOTE=' Homogeneous means every term carries the same base units. It does not prove an equation is right, but a non-homogeneous one is always wrong, which is why it is worth thirty seconds before you substitute.';
+
+var PREFIXES=[
+  {n:'nano',s:'n',e:-9},{n:'micro',s:'µ',e:-6},{n:'milli',s:'m',e:-3},
+  {n:'kilo',s:'k',e:3},{n:'mega',s:'M',e:6},{n:'giga',s:'G',e:9}
+];
+var PREFIX_UNITS=[
+  {u:'A',q:'current',un:'amperes'},{u:'V',q:'potential difference',un:'volts'},
+  {u:'Ω',q:'resistance',un:'ohms'},{u:'m',q:'length',un:'metres'},
+  {u:'s',q:'time interval',un:'seconds'},{u:'J',q:'energy',un:'joules'},
+  {u:'W',q:'power',un:'watts'},{u:'N',q:'force',un:'newtons'},
+  {u:'Hz',q:'frequency',un:'hertz'},{u:'C',q:'charge',un:'coulombs'}
+];
+var MANTISSA_TENTHS=[15,25,36,47,50,80,120,250,470];
+
+var TWO_PREFIX=[
+  {f:'Q = It',a:{q:'A current of',pre:['n','µ','m'],u:'A'},b:{q:'flows for',pre:['µ','m'],u:'s'},out:'C',outq:'charge that flows',
+   sent:function(A,B){return 'A current of <b>'+A+'</b> flows for <b>'+B+'</b>. Using Q = It, the charge that flows is:';}},
+  {f:'V = IR',out:'V',outq:'potential difference',
+   sent:function(A,B){return 'A current of <b>'+A+'</b> passes through a resistor of resistance <b>'+B+'</b>. Using V = IR, the potential difference across it is:';},
+   a:{pre:['µ','m'],u:'A'},b:{pre:['k','M'],u:'Ω'}},
+  {f:'E = Pt',out:'J',outq:'energy transferred',
+   sent:function(A,B){return 'A lamp of power <b>'+A+'</b> is switched on for <b>'+B+'</b>. Using E = Pt, the energy transferred is:';},
+   a:{pre:['m','k'],u:'W'},b:{pre:['m','µ'],u:'s'}},
+  {f:'W = Fd',out:'J',outq:'work done',
+   sent:function(A,B){return 'A force of <b>'+A+'</b> moves its point of application <b>'+B+'</b> in the direction of the force. Using W = Fd, the work done is:';},
+   a:{pre:['k','m'],u:'N'},b:{pre:['m','µ'],u:'m'}}
+];
+function preBySym(s){for(var i=0;i<PREFIXES.length;i++){if(PREFIXES[i].s===s)return PREFIXES[i];}return null;}
+
+var POWER_ITEMS=[
+  {pre:'mm',pe:-3,n:2,ctx:'A wire has a cross-sectional area of',unit:'m²',vals:[15,20,25,50,80]},
+  {pre:'cm',pe:-2,n:2,ctx:'A metal plate has a surface area of',unit:'m²',vals:[25,50,120,250,360]},
+  {pre:'µm',pe:-6,n:2,ctx:'A thin film has an area of',unit:'m²',vals:[15,25,40,80]},
+  {pre:'km',pe:3,n:2,ctx:'A field has an area of',unit:'m²',vals:[15,25,40,60]},
+  {pre:'cm',pe:-2,n:3,ctx:'A block has a volume of',unit:'m³',vals:[25,50,120,250,800]},
+  {pre:'mm',pe:-3,n:3,ctx:'A droplet has a volume of',unit:'m³',vals:[15,25,40,80]}
+];
+
+var SI_CONV=[
+  {from:'g',to:'kg',e:-3,q:'A mass of',un:'kg'},
+  {from:'cm',to:'m',e:-2,q:'A length of',un:'m'},
+  {from:'mm',to:'m',e:-3,q:'A thickness of',un:'m'},
+  {from:'km',to:'m',e:3,q:'A distance of',un:'m'},
+  {from:'t',to:'kg',e:3,q:'A mass of',un:'kg',fromName:'tonnes'},
+  {from:'ms',to:'s',e:-3,q:'A time interval of',un:'s'},
+  {from:'µs',to:'s',e:-6,q:'A time interval of',un:'s'}
+];
+
+var DENSITIES=[
+  {name:'aluminium',v:2.7,sf:2,d:'2.7'},{name:'copper',v:8.9,sf:2,d:'8.9'},
+  {name:'steel',v:7.8,sf:2,d:'7.8'},{name:'ice',v:0.92,sf:2,d:'0.92'},
+  {name:'mercury',v:13.6,sf:3,d:'13.6'},{name:'lead',v:11.3,sf:3,d:'11.3'},
+  {name:'gold',v:19.3,sf:3,d:'19.3'},{name:'water',v:1.0,sf:2,d:'1.0'}
+];
+
+var REARRANGE=[
+  {d:'easy',eq:'v = fλ',sub:'λ',c:'λ = v/f',w:['λ = f/v','λ = vf','λ = v − f'],
+   why:'Divide both sides by f. λ = v/f. Check it with a sense test: a higher frequency at fixed wave speed must give a shorter wavelength, and v/f does that while vf does not.'},
+  {d:'easy',eq:'V = IR',sub:'I',c:'I = V/R',w:['I = R/V','I = VR','I = V − R'],
+   why:'Divide both sides by R. I = V/R. A bigger resistance at fixed p.d. must give a smaller current, which rules out VR straight away.'},
+  {d:'easy',eq:'P = VI',sub:'I',c:'I = P/V',w:['I = V/P','I = PV','I = P − V'],
+   why:'Divide both sides by V. I = P/V. This is the one you will use every time a question gives you a power rating and a mains voltage.'},
+  {d:'easy',eq:'p = mv',sub:'v',c:'v = p/m',w:['v = m/p','v = pm','v = p − m'],
+   why:'Divide both sides by m. v = p/m.'},
+  {d:'easy',eq:'ρ = m/V',sub:'V',c:'V = m/ρ',w:['V = ρ/m','V = ρm','V = m − ρ'],
+   why:'V is in the denominator, so multiply both sides by V first: ρV = m. Then divide by ρ: V = m/ρ. Moving a symbol out of a denominator in one step is where this one usually goes wrong.'},
+  {d:'easy',eq:'W = Fs',sub:'s',c:'s = W/F',w:['s = F/W','s = WF','s = W − F'],
+   why:'Divide both sides by F. s = W/F.'},
+  {d:'easy',eq:'Q = It',sub:'t',c:'t = Q/I',w:['t = I/Q','t = QI','t = Q − I'],
+   why:'Divide both sides by I. t = Q/I.'},
+  {d:'easy',eq:'v = s/t',sub:'t',c:'t = s/v',w:['t = v/s','t = sv','t = s − v'],
+   why:'t is in the denominator, so multiply both sides by t first: vt = s. Then divide by v: t = s/v. Two moves, not one — and the two-move version is the one that survives when the equation gets longer.'},
+  {d:'medium',eq:'F = ma',sub:'a',c:'a = F/m',w:['a = m/F','a = Fm','a = F − m'],
+   why:'Divide both sides by m. a = F/m. Worth doing symbolically even here, because in practice F is usually a resultant you worked out on the line above.'},
+  {d:'medium',eq:'P = W/t',sub:'W',c:'W = Pt',w:['W = P/t','W = t/P','W = P + t'],
+   why:'Multiply both sides by t. W = Pt. Anything sitting in a denominator comes up by multiplying, and it multiplies the whole of the other side.'},
+  {d:'medium',eq:'c = fλ',sub:'f',c:'f = c/λ',w:['f = λ/c','f = cλ','f = c − λ'],
+   why:'Divide both sides by λ. f = c/λ. Sense-check it: a longer wavelength at fixed wave speed has to mean a lower frequency, and c/λ does that.'},
+  {d:'hard',eq:'p = ρgh',sub:'ρ',c:'ρ = p/(gh)',w:['ρ = pg/h','ρ = gh/p','ρ = ph/g'],
+   why:'g and h are both multiplying ρ, so both come down together: ρ = p/(gh). On a calculator that bracket is not optional — p ÷ g × h gives you ph/g instead.'},
+  {d:'hard',eq:'E = mgh',sub:'h',c:'h = E/(mg)',w:['h = Em/g','h = mg/E','h = E/m − g'],
+   why:'m and g are both multiplying h, so h = E/(mg). Same shape as p = ρgh: two symbols in the denominator, one bracket.'},
+  {d:'medium',eq:'ρ = RA/L',sub:'R',c:'R = ρL/A',w:['R = ρA/L','R = A/(ρL)','R = L/(ρA)'],
+   why:'Multiply both sides by L: ρL = RA. Then divide by A: R = ρL/A. Resistivity questions almost always hand you ρ, L and A and want R, so this is the form worth knowing outright.'},
+  {d:'medium',eq:'ρ = RA/L',sub:'A',c:'A = ρL/R',w:['A = R/(ρL)','A = ρ/(RL)','A = RL/ρ'],
+   why:'Multiply by L: ρL = RA. Divide by R: A = ρL/R. Then remember the area itself usually needs converting out of mm².'},
+  {d:'medium',eq:'E = ½mv²',sub:'v',c:'v = √(2E/m)',w:['v = √(E/2m)','v = 2E/m','v = √(2Em)'],
+   why:'Multiply by 2: 2E = mv². Divide by m: v² = 2E/m. Then root the <b>whole</b> right-hand side: v = √(2E/m). Rooting only part of it is the step people drop.'},
+  {d:'medium',eq:'E = ½mv²',sub:'m',c:'m = 2E/v²',w:['m = E/(2v²)','m = 2E/v','m = (2E/v)²'],
+   why:'Multiply by 2: 2E = mv². Divide by v²: m = 2E/v². The ½ becomes a factor of 2 on top, not on the bottom.'},
+  {d:'medium',eq:'p = ρgh',sub:'h',c:'h = p/(ρg)',w:['h = ρg/p','h = pρ/g','h = pg/ρ'],
+   why:'ρ and g are both multiplying h, so both come down together: h = p/(ρg). Writing it as p/ρg on paper is fine, but type it into a calculator without the bracket and you get pg/ρ instead.'},
+  {d:'medium',eq:'v = u + at',sub:'t',c:'t = (v − u)/a',w:['t = (u − v)/a','t = v − u/a','t = a(v − u)'],
+   why:'Subtract u: v − u = at. Divide by a: t = (v − u)/a. The whole bracket goes over a, which is why v − u/a is not the same thing.'},
+  {d:'hard',eq:'v² = u² + 2as',sub:'s',c:'s = (v² − u²)/2a',w:['s = (v − u)²/2a','s = (v² + u²)/2a','s = v² − u²/2a'],
+   why:'Subtract u²: v² − u² = 2as. Divide by 2a: s = (v² − u²)/2a. Two things to watch: v² − u² is not (v − u)², and the whole numerator goes over 2a.'},
+  {d:'hard',eq:'v² = u² + 2as',sub:'u',c:'u = √(v² − 2as)',w:['u = v − √(2as)','u = √(v²) − 2as','u = √(v² + 2as)'],
+   why:'Subtract 2as from both sides: u² = v² − 2as. Then root the whole right-hand side: u = √(v² − 2as). You cannot root term by term, which is exactly what v − √(2as) does.'},
+  {d:'hard',eq:'s = ut + ½at²',sub:'a',c:'a = 2(s − ut)/t²',w:['a = 2s/t² − u','a = (s − ut)/2t²','a = 2(s − ut)/t'],
+   why:'Subtract ut: s − ut = ½at². Multiply by 2: 2(s − ut) = at². Divide by t²: a = 2(s − ut)/t². The bracket has to survive all the way to the end.'},
+  {d:'hard',eq:'E = FL/(Ax)',sub:'x',c:'x = FL/(AE)',w:['x = FLA/E','x = AE/(FL)','x = FL/A − E'],
+   why:'This is the Young modulus with x as the extension. Multiply both sides by x: Ex = FL/A. Divide by E: x = FL/(AE). Both A and E end up in the denominator together.'},
+  {d:'hard',eq:'P = I²R',sub:'I',c:'I = √(P/R)',w:['I = P/√R','I = √(PR)','I = P/R²'],
+   why:'Divide by R: I² = P/R. Root the whole thing: I = √(P/R). Rooting the R only, as in P/√R, changes the value.'}
+];
+
+var SF_POOL=[
+  {n:'0.00450',c:3},{n:'1.20',c:3},{n:'0.0308',c:3},{n:'25.0',c:3},{n:'0.070',c:2},
+  {n:'4.005',c:4},{n:'12.30',c:4},{n:'0.9',c:1},{n:'3.14159',c:6},{n:'0.00080',c:2},
+  {n:'6.02',c:3},{n:'0.512',c:3},{n:'80.5',c:3},{n:'1.0',c:2}
+];
+// lab0 and lab1 are joined by " and ", so each has to read on from the last.
+var SF_CALCS=[
+  {f:'R = V/I',ins:[{u:'V',lab:'A voltmeter reads'},{u:'A',lab:'an ammeter reads'}],op:'/',out:'Ω',outq:'resistance'},
+  {f:'ρ = m/V',ins:[{u:'kg',lab:'A sample has a mass of'},{u:'m³',lab:'a volume of'}],op:'/',out:'kg m⁻³',outq:'density'},
+  {f:'v = s/t',ins:[{u:'m',lab:'A trolley travels'},{u:'s',lab:'takes a time of'}],op:'/',out:'m s⁻¹',outq:'average speed'},
+  {f:'P = VI',ins:[{u:'V',lab:'A component has a p.d. of'},{u:'A',lab:'carries a current of'}],op:'*',out:'W',outq:'power'},
+  {f:'F = ma',ins:[{u:'kg',lab:'A body has a mass of'},{u:'m s⁻²',lab:'an acceleration of'}],op:'*',out:'N',outq:'resultant force'}
+];
+
+/* ---------------- generators ---------------- */
+var GENS=[];
+function gen(mod,diff,id,make){GENS.push({mod:mod,diff:diff,id:id,make:make});}
+
+/* ===== Module 1 — quantities, units, notation ===== */
+gen(1,'easy','m1-read-unit',function(r){
+  var t=r.pick(QUANTITIES);
+  var others=r.sample(QUANTITIES.filter(function(x){return x.q!==t.q;}),3);
+  return {
+    stem:'A quantity is measured in <b>'+t.u+'</b>. Which quantity is it?',
+    correct:t.q,
+    wrongs:others.map(function(x){return x.q;}),
+    why:t.q+' is '+t.d+'. Reading a quantity straight off its unit is worth practising in both directions: '+others[0].q.toLowerCase()+' would be '+others[0].u+'.'
+  };
+});
+gen(1,'easy','m1-notation',function(r){
+  var it=r.pick([
+    {q:'speed',u:'m s⁻¹',w:['ms⁻¹','m/s⁻¹','m s⁻²'],note:'ms⁻¹ reads as "per millisecond" — the space is doing real work. And once you write the index you drop the solidus, so m/s⁻¹ says "per second per second".'},
+    {q:'acceleration',u:'m s⁻²',w:['ms⁻²','m/s⁻²','m s⁻¹'],note:'ms⁻² would be "per millisecond squared". The space between the metre and the second is what separates the two units.'},
+    {q:'density',u:'kg m⁻³',w:['kgm⁻³','kg/m⁻³','kg m³'],note:'kg m³ is a different quantity altogether: the negative index is what carries the "per".'},
+    {q:'resistivity',u:'Ω m',w:['Ω m⁻¹','Ω/m','Ωm⁻¹'],note:'Resistivity really is ohm metres, not ohms per metre — it comes from ρ = RA/L, so ohm × m² ÷ m.'}
+  ]);
+  return {
+    stem:'Written the way 9702 expects, the unit of <b>'+it.q+'</b> is:',
+    correct:it.u,wrongs:it.w,
+    why:'The AS convention is a space between units and a negative index instead of a slash, so '+it.q+' is '+it.u+'. '+it.note
+  };
+});
+gen(1,'medium','m1-base-units',function(r){
+  var t=r.pick(QUANTITIES);
+  return {
+    stem:'Expressed in <b>SI base units</b>, '+t.q.toLowerCase()+' ('+t.eq+') is:',
+    correct:t.u,wrongs:t.w.slice(0,3),
+    why:t.q+' is '+t.d+'.'+(t.named?' The named unit is '+t.named+', but a "give your answer in base units" question wants the '+t.u+' form.':' Build it from the defining equation rather than trying to remember the string.')
+  };
+});
+gen(1,'medium','m1-named-unit',function(r){
+  var pool=QUANTITIES.filter(function(x){return x.named;});
+  var t=r.pick(pool);
+  var others=r.sample(pool.filter(function(x){return x.q!==t.q;}),3);
+  return {
+    stem:'Which quantity has <b>'+t.named.split(', ')[0]+'</b> as its named SI unit?',
+    correct:t.q,wrongs:others.map(function(x){return x.q;}),
+    why:t.q+' ('+t.eq+') is measured in '+t.named+', which in base units is '+t.u+'. Every named unit on the 9702 list is a shorthand for a base unit combination, and questions ask for either.'
+  };
+});
+gen(1,'hard','m1-homogeneity',function(r){
+  var bad=r.pick(HOMOG_BAD);
+  var ok=r.sample(HOMOG_OK.filter(function(e){return e!==bad.eq;}),3);
+  return {
+    stem:'One of these equations is <b>not homogeneous</b>. Which one?',
+    correct:bad.eq,wrongs:ok,
+    why:bad.eq+' is the odd one out. '+bad.why+HOMOG_NOTE
+  };
+});
+
+/* ===== Module 2 — standard form ===== */
+gen(2,'easy','m2-to-sf',function(r){
+  var digits=String(r.int(11,99));
+  var e=r.pick([-6,-5,-4,-3,3,4,5,6,8]);
+  var unit=r.pick(['m','s','kg','A','N','J','C','Hz']);
+  var c=norm(parseInt(digits,10),e-1);
+  return {
+    stem:'Written in standard form, <b>'+dec(digits,e,unit)+'</b> is:',
+    correct:fmt(c,unit),
+    wrongs:[fmt(shift(c,1),unit),fmt(slide(c,1),unit),fmt({m:c.m,e:-c.e},unit)],
+    why:'Standard form is a number between 1 and 10 multiplied by a power of ten. Moving the decimal point to sit after the '+digits[0]+' takes '+Math.abs(e)+' place'+(Math.abs(e)===1?'':'s')+', so the answer is '+fmt(c,unit)+'. Note that '+fmt(slide(c,1),unit)+' is the same value but is not standard form — the first part must be between 1 and 10.'
+  };
+});
+gen(2,'medium','m2-multiply',function(r){
+  var A=r.pick([15,20,25,30,40,50,60,80,12,24]);
+  var B=r.pick([20,30,40,50]);
+  // ab = a+b (1.5 × 3.0 and 1.5 + 3.0 are both 4.5) would make the "added the first
+  // parts" distractor identical to the right answer
+  while(A*B===(A+B)*10)B=r.pick([20,30,40,50]);
+  var p=r.pick([-8,-6,-5,-4,-3,3,4,5,6,8]);
+  var q=r.pick([-6,-4,-3,-2,2,3,4,6]);
+  var a=norm(A,-1),b=norm(B,-1),c=norm(A*B,-2+p+q),guard=0;
+  // keep the answer clear of 10⁰ and 10±¹, where the "wrong form" distractor collapses
+  // into an ordinary-looking number and stops being obviously the wrong form
+  while(guard++<40&&Math.abs(c.e)<2){q=r.pick([-6,-4,-3,-2,2,3,4,6]);c=norm(A*B,-2+p+q);}
+  return {
+    stem:'Evaluate <b>('+fmt(shift(a,p))+') × ('+fmt(shift(b,q))+')</b>, giving your answer in standard form:',
+    correct:fmt(c),
+    wrongs:[fmt(slide(c,1)),fmt({m:c.m,e:p-q+(c.e-p-q)}),fmt(norm(A+B,-1+p+q))],
+    why:'Multiply the first parts and add the powers: '+tenths(A)+' × '+tenths(B)+' = '+(A*B/100).toFixed(1)+', and '+p10(p)+' × '+p10(q)+' = '+p10(p+q)+'. That gives '+(A*B/100).toFixed(1)+' × '+p10(p+q)+' = '+fmt(c)+'. Adding the powers is the step to get right — subtracting them is the usual slip — and the answer still has to be tidied into standard form at the end.'
+  };
+});
+gen(2,'medium','m2-divide',function(r){
+  var pair=r.pick([[80,20],[90,30],[60,40],[75,25],[48,16],[30,40],[20,80],[15,50],[36,60],[45,90],[12,40]]);
+  var A=pair[0],B=pair[1];
+  var p=r.pick([-8,-6,-5,-3,3,4,6,8]);
+  var q=r.pick([-6,-4,-2,2,4,5]);
+  while(q===p)q=r.pick([-6,-4,-2,2,4,5]);
+  var a=norm(A,-1),b=norm(B,-1),c=norm(A*100/B,-2+p-q),guard=0;
+  while(guard++<40&&Math.abs(c.e)<2){
+    q=r.pick([-6,-4,-2,2,4,5]);
+    if(q===p)continue;
+    c=norm(A*100/B,-2+p-q);
+  }
+  return {
+    stem:'Evaluate <b>('+fmt(shift(a,p))+') ÷ ('+fmt(shift(b,q))+')</b>, giving your answer in standard form:',
+    correct:fmt(c),
+    wrongs:[fmt(slide(c,-1)),fmt({m:c.m,e:q-p+(c.e-p+q)}),fmt(norm(A*B,-2+p-q))],
+    why:'Divide the first parts and subtract the powers: '+tenths(A)+' ÷ '+tenths(B)+' = '+((A*100/B)%10===0?(A/B).toFixed(1):(A/B).toFixed(2))+', and '+p10(p)+' ÷ '+p10(q)+' = '+p10(p-q)+'. Tidied into standard form that is '+fmt(c)+'. '
+      +(A<B?'The first part came out below 1, so it has to be moved back between 1 and 10 and the power adjusted to match — which is the step '+fmt(slide(c,-1))+' stops one short of.'
+           :'Watch '+fmt(slide(c,-1))+' in the options: the right value, but the first part has to sit between 1 and 10 for it to count as standard form.')
+  };
+});
+gen(2,'hard','m2-add',function(r){
+  var d=r.pick([1,2]);
+  var p=r.pick([-7,-6,-5,-4,-3,4,5,6,8]);
+  var q=p-d;
+  var A=r.pick([15,20,25,30,40,50,60]);
+  var B=r.pick([15,20,25,30,45,50]);
+  var total=A*Math.pow(10,d)+B;
+  var c=norm(total,-1+q),guard=0;
+  while(guard++<40&&Math.abs(c.e)<2){
+    p=r.pick([-7,-6,-5,-4,-3,4,5,6,8]);q=p-d;c=norm(total,-1+q);
+  }
+  return {
+    stem:'Evaluate <b>('+fmt(shift(norm(A,-1),p))+') + ('+fmt(shift(norm(B,-1),q))+')</b>, giving your answer in standard form:',
+    correct:fmt(c),
+    wrongs:[fmt(norm(A+B,-1+p)),fmt(norm(A+B,-1+p+q)),fmt(norm(A*Math.pow(10,d+1)+B,-1+q))],
+    why:'You cannot add the first parts until the powers match. Line both numbers up at the smaller power, '+p10(q)+': the first becomes '+(A*Math.pow(10,d)/10)+' × '+p10(q)+' and the second is already '+tenths(B)+' × '+p10(q)+'. Adding gives '+((A*Math.pow(10,d)+B)/10)+' × '+p10(q)+' = '+fmt(c)+'. Adding the powers is wrong here — that rule belongs to multiplication — and so is adding the first parts as they stand, which is what '+fmt(norm(A+B,-1+p))+' does.'
+  };
+});
+
+/* ===== Module 3 — prefixes and unit magnitudes ===== */
+gen(3,'easy','m3-prefix-to-base',function(r){
+  var p=r.pick(PREFIXES);
+  var U=r.pick(PREFIX_UNITS);
+  var vT=r.pick(MANTISSA_TENTHS);
+  var c=norm(vT,-1+p.e);
+  var mid=tenths(vT)+' × '+p10(p.e)+' '+U.u;
+  return {
+    stem:'A '+U.q+' of <b>'+tenths(vT)+' '+p.s+U.u+'</b> expressed in '+U.un+' is:',
+    correct:fmt(c,U.u),
+    wrongs:[fmt(shift(c,3),U.u),fmt(shift(c,-3),U.u),fmt({m:c.m,e:-p.e+(c.e-p.e)},U.u)],
+    why:p.n+' ('+p.s+') means × '+p10(p.e)+', so '+tenths(vT)+' '+p.s+U.u+' = '+mid
+      +(mid===fmt(c,U.u)?', which is already in standard form.':' = '+fmt(c,U.u)+'.')
+      +' Replace the prefix with its power of ten <b>before</b> you calculate, not after — that is the whole habit this module is about.'
+  };
+});
+gen(3,'easy','m3-prefix-power',function(r){
+  var p=r.pick(PREFIXES);
+  return {
+    stem:'The prefix <b>'+p.n+' ('+p.s+')</b> stands for a factor of:',
+    correct:p10(p.e),
+    wrongs:[p10(p.e+3),p10(p.e-3),p10(-p.e)],
+    why:p.n+' is '+p10(p.e)+'. The prefixes you need at AS run in thousands either side of the base unit — nano, micro, milli, then kilo, mega, giga — with centi (10⁻²) as the one exception that is not a multiple of three.'
+  };
+});
+gen(3,'medium','m3-two-prefixes',function(r){
+  var t=r.pick(TWO_PREFIX);
+  var pa,pb,aT,bT,c,guard=0;
+  // An answer at 10¹ would turn the "wrong form" distractor into a plain "25 J", which
+  // is not a wrong form at all — it is the tidier way to write the right answer.
+  do{
+    pa=preBySym(r.pick(t.a.pre));pb=preBySym(r.pick(t.b.pre));
+    aT=r.pick([15,20,25,36,50,80]);bT=r.pick([20,25,40,50,15]);
+    c=norm(aT*bT,-2+pa.e+pb.e);
+  }while(guard++<40&&c.e===1);
+  var A=tenths(aT)+' '+pa.s+t.a.u,B=tenths(bT)+' '+pb.s+t.b.u;
+  return {
+    stem:t.sent(A,B),
+    correct:fmt(c,t.out),
+    wrongs:[fmt(slide(c,1),t.out),fmt({m:c.m,e:c.e-pb.e},t.out),fmt({m:c.m,e:c.e-2*pb.e},t.out)],
+    why:'Replace both prefixes before you multiply: '+A+' = '+fmt(shift(norm(aT,-1),pa.e))+' '+t.a.u+' and '+B+' = '+fmt(shift(norm(bT,-1),pb.e))+' '+t.b.u+'. Multiplying gives '+fmt(c,t.out)+'. Two prefixes in one calculation is the normal case at AS, and the marks tend to go in the last step — either one prefix never gets replaced, or the answer is left in a form that is not standard form.'
+  };
+});
+gen(3,'hard','m3-area-volume',function(r){
+  var it=r.pick(POWER_ITEMS);
+  var vT=r.pick(it.vals);
+  var c=norm(vT,-1+it.pe*it.n);
+  var word=it.n===2?'squared':'cubed';
+  return {
+    stem:it.ctx+' <b>'+tenths(vT)+' '+it.pre+sup(it.n)+'</b>. In '+it.unit+' this is:',
+    correct:fmt(c,it.unit),
+    wrongs:[fmt({m:c.m,e:c.e-it.pe*it.n+it.pe},it.unit),fmt({m:c.m,e:c.e-2*it.pe*it.n},it.unit),fmt({m:c.m,e:c.e+it.pe},it.unit)],
+    why:'1 '+it.pre+' = '+p10(it.pe)+' m, so 1 '+it.pre+sup(it.n)+' = ('+p10(it.pe)+')'+sup(it.n)+' = '+p10(it.pe*it.n)+' '+it.unit+'. That makes '+tenths(vT)+' '+it.pre+sup(it.n)+' = '+fmt(c,it.unit)+'. The factor gets '+word+' as well as the unit — using '+p10(it.pe)+' instead of '+p10(it.pe*it.n)+' is the single most expensive habit in Young modulus questions.'
+  };
+});
+
+/* ===== Module 4 — converting to SI ===== */
+gen(4,'easy','m4-single',function(r){
+  var t=r.pick(SI_CONV);
+  var vT=r.pick(MANTISSA_TENTHS);
+  var c=norm(vT,-1+t.e);
+  return {
+    stem:'Before substituting into a formula, everything goes into SI units. <b>'+t.q+' '+tenths(vT)+' '+t.from+'</b> in '+t.un+' is:',
+    correct:fmt(c,t.to),
+    wrongs:[fmt(shift(c,3),t.to),fmt(shift(c,-3),t.to),fmt({m:c.m,e:-t.e+(c.e-t.e)},t.to)],
+    why:'1 '+(t.fromName?t.fromName.replace(/s$/,''):t.from)+' = '+p10(t.e)+' '+t.to+', so '+tenths(vT)+' '+t.from+' = '+fmt(c,t.to)+'. Convert first, substitute second: the alternative is spotting the problem three lines later with the arithmetic already done.'
+  };
+});
+gen(4,'easy','m4-time',function(r){
+  // non-integer values only: the "2.5 minutes is 2 min 50 s" distractor needs a fraction
+  var t=r.pick([{v:2.5,u:'minutes',f:60},{v:4.5,u:'minutes',f:60},{v:3.5,u:'minutes',f:60},
+                {v:0.25,u:'hours',f:3600},{v:1.5,u:'hours',f:3600},{v:0.75,u:'hours',f:3600}]);
+  var val=t.v*t.f;
+  var whole=Math.floor(t.v),frac=t.v-whole;
+  var clock=whole*t.f+Math.round(frac*100)*(t.f===60?1:60);
+  return {
+    stem:'A measurement lasts <b>'+t.v+' '+t.u+'</b>. In seconds this is:',
+    correct:num(val,6,'s'),
+    wrongs:[num(clock,6,'s'),num(t.v*(t.f===60?3600:60),6,'s'),num(t.v/t.f,2,'s')],
+    why:'1 '+t.u.replace(/s$/,'')+' = '+t.f+' s, so '+t.v+' × '+t.f+' = '+num(val,6,'s')+'. Note that '+t.v+' '+t.u+' is not '+whole+' '+t.u.replace(/s$/,'')+(whole===1?'':'s')+' and '+Math.round(frac*100)+(t.f===60?' seconds':' minutes')+' — the decimal is a fraction of the unit, not a reading off a clock face. Time is the conversion people skip because it looks too obvious to write down, and it is the one that quietly ruins a suvat answer.'
+  };
+});
+gen(4,'medium','m4-kmh',function(r){
+  var v=r.pick([18,36,54,72,90,108,126,144]);
+  return {
+    stem:'A car travels at <b>'+v+' km h⁻¹</b>. In m s⁻¹ this is:',
+    correct:plain(v/3.6,2,'m s⁻¹'),
+    wrongs:[num(v/60,3,'m s⁻¹'),num(v*3.6,3,'m s⁻¹'),num(v*1000/60,3,'m s⁻¹')],
+    why:'1 km = 1000 m and 1 h = 3600 s, so km h⁻¹ → m s⁻¹ means × 1000 ÷ 3600, which is ÷ 3.6. That gives '+plain(v/3.6,2,'m s⁻¹')+'. Dividing by 60 converts to km per minute, not to m s⁻¹.'
+  };
+});
+gen(4,'medium','m4-litres',function(r){
+  var vT=r.pick([15,25,50,120,250,750]);
+  var c=norm(vT,-1-3);
+  return {
+    stem:'A container holds <b>'+tenths(vT)+' litres</b> of water. In m³ this is:',
+    correct:fmt(c,'m³'),
+    wrongs:[fmt(shift(c,-3),'m³'),fmt(shift(c,3),'m³'),fmt(shift(c,-6),'m³')],
+    why:'1 litre is 1000 cm³, and 1 cm³ = 10⁻⁶ m³, so 1 litre = 10⁻³ m³. That makes '+tenths(vT)+' litres = '+fmt(c,'m³')+'. Worth carrying: a cubic metre is a thousand litres, which is the sense check on any answer here.'
+  };
+});
+gen(4,'hard','m4-density',function(r){
+  var d=r.pick(DENSITIES);
+  var c=sciParts(d.v*1000,d.sf);
+  return {
+    stem:'The density of '+d.name+' is <b>'+d.d+' g cm⁻³</b>. In kg m⁻³ this is:',
+    correct:fmt(c,'kg m⁻³'),
+    wrongs:[fmt(shift(c,-3),'kg m⁻³'),fmt(shift(c,-6),'kg m⁻³'),fmt(shift(c,3),'kg m⁻³')],
+    why:'Two conversions, not one. Grams to kilograms is ÷ 10³; cm³ to m³ is ÷ (10⁻²)³ = ÷ 10⁻⁶. Together that is × 10⁻³ ÷ 10⁻⁶ = × 10³, so '+d.d+' g cm⁻³ = '+fmt(c,'kg m⁻³')+'. Sense-check it: solids and liquids run in the thousands of kg m⁻³, so anything below 1 was never going to be right.'
+  };
+});
+gen(4,'hard','m4-pressure',function(r){
+  var vT=r.pick([15,25,40,80,120]);
+  var c=norm(vT,-1+4);
+  return {
+    stem:'A pressure is quoted as <b>'+tenths(vT)+' N cm⁻²</b>. In pascals (N m⁻²) this is:',
+    correct:fmt(c,'Pa'),
+    wrongs:[fmt(shift(c,-2),'Pa'),fmt(shift(c,-4),'Pa'),fmt(shift(c,2),'Pa')],
+    why:'1 cm⁻² means "per (10⁻² m)²" = per 10⁻⁴ m², so dividing by 10⁻⁴ multiplies by 10⁴: '+tenths(vT)+' N cm⁻² = '+fmt(c,'Pa')+'. A negative index on a prefixed unit still gets raised to the power — and because it is in the denominator, the factor comes out the other way up.'
+  };
+});
+
+/* ===== Module 5 — using your calculator ===== */
+gen(5,'easy','m5-exp-key',function(r){
+  var n=r.int(3,9)*r.sign();
+  return {
+    stem:'You need to enter <b>1 × '+p10(n)+'</b> into your calculator. Which key sequence gives it?',
+    correct:'1  ×10ˣ  '+n,
+    wrongs:['10  ×10ˣ  '+n,'1  ×10ˣ  '+(-n),n+'  ×10ˣ  1'],
+    why:'The ×10ˣ (or EXP) key already carries the "× 10", so you type the first part, then the power: 1 ×10ˣ '+n+'. Typing 10 ×10ˣ '+n+' gives 10 × '+p10(n)+' = '+p10(n+1)+', ten times too big, and it is the single most common calculator slip at AS because on paper it looks like what you meant.'
+  };
+});
+gen(5,'medium','m5-brackets-product',function(r){
+  var t=r.pick([['4.5','3.0','6.0'],['36','3.0','6.0'],['24','4.0','2.0'],['12','2.0','3.0'],['18','3.0','2.0'],['6.0','4.0','3.0'],['7.5','5.0','3.0']]);
+  var a=parseFloat(t[0]),b=parseFloat(t[1]),c=parseFloat(t[2]);
+  return {
+    stem:'Evaluate <b>'+t[0]+' / ('+t[1]+' × '+t[2]+')</b>.',
+    correct:num(a/(b*c),3),
+    wrongs:[num(a/b*c,3),num(a/(b+c),3),num(b*c/a,3)],
+    why:t[0]+' ÷ ('+t[1]+' × '+t[2]+') = '+t[0]+' ÷ '+num(b*c,4)+' = '+num(a/(b*c),3)+'. Typed without the brackets, '+t[0]+' ÷ '+t[1]+' × '+t[2]+' gives '+num(a/b*c,3)+', because the calculator works left to right and multiplies by '+t[2]+' instead of dividing by it. Everything below the line goes in a bracket, every time.'
+  };
+});
+gen(5,'medium','m5-brackets-sum',function(r){
+  var t=r.pick([['12','2.0','4.0'],['24','2.0','6.0'],['36','3.0','9.0'],['18','3.0','3.0'],['45','4.0','5.0']]);
+  var a=parseFloat(t[0]),b=parseFloat(t[1]),c=parseFloat(t[2]);
+  return {
+    stem:'Evaluate <b>'+t[0]+' / ('+t[1]+' + '+t[2]+')</b>.',
+    correct:num(a/(b+c),3),
+    wrongs:[num(a/b+c,3),num(a/(b*c),3),num(a/b+a/c,3)],
+    why:t[0]+' ÷ ('+t[1]+' + '+t[2]+') = '+t[0]+' ÷ '+num(b+c,4)+' = '+num(a/(b+c),3)+'. Without the bracket the calculator divides first and then adds, giving '+num(a/b+c,3)+'. A sum underneath the line has to be finished before anything is divided by it — which is the shape of every total-resistance and average-speed calculation you will meet.'
+  };
+});
+gen(5,'hard','m5-root',function(r){
+  var v=r.pick([2.0,3.0,4.0,5.0,6.0]);
+  // m = 4 would make √(2E)/m and √(E/2m) the same number, and m = 0.25 would make
+  // √(2E)/m and 2E/m the same number. Either way the question would end up with two
+  // identical options, so both are left out.
+  var m=r.pick([0.50,2.0,8.0]);
+  var E=0.5*m*v*v;
+  var d1=function(x){return x%1===0?x.toFixed(1):String(Number(x.toPrecision(3)));};
+  return {
+    stem:'A body of mass <b>'+d1(m)+' kg</b> has kinetic energy <b>'+d1(E)+' J</b>. Using v = √(2E/m), its speed is:',
+    correct:d1(v)+' m s⁻¹',
+    wrongs:[d1(Math.sqrt(2*E)/m)+' m s⁻¹',d1(Math.sqrt(E/(2*m)))+' m s⁻¹',d1(2*E/m)+' m s⁻¹'],
+    why:'2E/m = '+d1(2*E/m)+', and the root of that is '+d1(v)+' m s⁻¹. The whole of 2E/m has to sit inside the root: √(2E)/m gives '+d1(Math.sqrt(2*E)/m)+' instead, and √(E/2m) gives '+d1(Math.sqrt(E/(2*m)))+'. If your calculator opens a bracket for you when you press √, check where it closes before you press equals.'
+  };
+});
+gen(5,'hard','m5-sf-entry',function(r){
+  var aT=r.pick([15,24,30,48]),bT=r.pick([20,30,40,60]);
+  var p=r.pick([-6,-5,4,8]),q=r.pick([-3,-2,3,5]);
+  var c=norm(aT*bT,-2+p+q),guard=0;
+  while(guard++<40&&Math.abs(c.e)<2){q=r.pick([-3,-2,3,5]);c=norm(aT*bT,-2+p+q);}
+  return {
+    stem:'You type <b>'+tenths(aT)+' ×10ˣ '+p+' × '+tenths(bT)+' ×10ˣ '+q+'</b> into your calculator. What should the display show, in standard form?',
+    correct:fmt(c),
+    wrongs:[fmt(slide(c,1)),fmt(shift(c,1)),fmt(norm(aT*bT,-2+p-q))],
+    why:'The ×10ˣ key applies to the number in front of it, so this is ('+fmt(shift(norm(aT,-1),p))+') × ('+fmt(shift(norm(bT,-1),q))+') = '+fmt(c)+'. Predicting the display before you look at it is the check that catches a mistyped power — the calculator will happily return an answer that is a factor of ten out and look completely confident about it.'
+  };
+});
+
+/* ===== Module 6 — rearranging ===== */
+function rearrangeGen(diff){
+  return function(r){
+    var it=r.pick(REARRANGE.filter(function(x){return x.d===diff;}));
+    return {
+      stem:'Rearrange <b>'+it.eq+'</b> to make <b>'+it.sub+'</b> the subject.',
+      correct:it.c,wrongs:it.w.slice(0,3),
+      why:it.why+' Symbols first, numbers once at the end — rearranging an expression that already has numbers and powers of ten in it is where working falls apart.'
+    };
+  };
+}
+gen(6,'easy','m6-easy',rearrangeGen('easy'));
+gen(6,'medium','m6-medium',rearrangeGen('medium'));
+gen(6,'hard','m6-hard',rearrangeGen('hard'));
+
+/* ===== Module 7 — significant figures ===== */
+gen(7,'easy','m7-count',function(r){
+  var it=r.pick(SF_POOL);
+  var wrongs=[];
+  var cands=[it.c+1,it.c-1,it.c+2,it.c-2,it.c+3];
+  for(var i=0;i<cands.length&&wrongs.length<3;i++){if(cands[i]>=1&&cands[i]<=8&&cands[i]!==it.c)wrongs.push(cands[i]);}
+  return {
+    stem:'How many significant figures does <b>'+it.n+'</b> have?',
+    correct:String(it.c),wrongs:wrongs.map(String),
+    why:it.n+' has '+it.c+' significant figure'+(it.c===1?'':'s')+'. Leading zeros never count — they only place the decimal point. Zeros between digits always count, and a trailing zero after the decimal point counts too, because writing it is a claim about how precisely you measured.'
+  };
+});
+gen(7,'easy','m7-which-3sf',function(r){
+  var target=r.pick(SF_POOL.filter(function(x){return x.c===3;}));
+  var others=r.sample(SF_POOL.filter(function(x){return x.c!==3;}),3);
+  return {
+    stem:'Which of these is quoted to <b>3 significant figures</b>?',
+    correct:target.n,wrongs:others.map(function(x){return x.n;}),
+    why:target.n+' has 3 significant figures. The others have '+others.map(function(x){return x.n+' ('+x.c+')';}).join(', ')+'. Counting starts at the first non-zero digit and runs to the end of the number as written.'
+  };
+});
+gen(7,'medium','m7-limiting',function(r){
+  var t=r.pick(SF_CALCS);
+  var hi,lo,val,tries=0;
+  // the four options are the same number at 1, 2, 3 and "full display" precision, so
+  // reject any draw where two of those collapse onto the same value.
+  do{
+    hi=r.int(100,999)/100*Math.pow(10,r.pick([0,0,1]));
+    lo=r.int(11,99)/100*Math.pow(10,r.pick([0,0,-1]));
+    val=t.op==='/'?hi/lo:hi*lo;
+    tries++;
+  }while(tries<60&&(!isFinite(val)
+      ||Number(val.toPrecision(2))===Number(val.toPrecision(3))
+      ||Number(val.toPrecision(1))===Number(val.toPrecision(2))
+      ||Number(val.toPrecision(3))===Number(val.toPrecision(8))));
+  var hiS=hi.toPrecision(3),loS=lo.toPrecision(2);
+  return {
+    stem:t.ins[0].lab+' <b>'+hiS+' '+t.ins[0].u+'</b> and '+t.ins[1].lab+' <b>'+loS+' '+t.ins[1].u+'</b>. Using '+t.f+', the '+t.outq+' should be quoted as:',
+    correct:plain(val,2,t.out),
+    wrongs:[plain(val,3,t.out),num(val,8,t.out),plain(val,1,t.out)],
+    why:hiS+' '+(t.op==='/'?'÷':'×')+' '+loS+' = '+num(val,8)+'. Now decide the precision: '+hiS+' is 3 s.f. but '+loS+' is only 2 s.f., and a calculated answer can be no more precise than the least precise measurement it came from — so it is limited to 2 s.f., giving '+plain(val,2,t.out)+'. Copying the full display is the cheapest mark in physics to lose, and the 9702 examiner reports say so every single year.'
+  };
+});
+gen(7,'hard','m7-round',function(r){
+  var ds,sf,tries=0;
+  // Two draws are barred. A trailing zero in the 4th digit would make the 3 s.f. and
+  // 4 s.f. answers the same number. An exact half-way case (1.105 to 3 s.f.) has no
+  // single defensible answer — round-half-up says 1.11, while the binary value of 1.105
+  // sits a hair under the half, so a calculator says 1.10. Neither belongs in a drill.
+  do{
+    ds=String(r.int(1000,9999));
+    sf=r.pick([2,3]);
+    tries++;
+  }while(tries<60&&(ds.charAt(3)==='0'||/^5?0*$/.test(ds.slice(sf))));
+  var digits=parseInt(ds,10)/1000;
+  var e=r.pick([-5,-4,-3,-2,3,4,5]);
+  var v=digits*Math.pow(10,e);
+  var c=sciParts(v,sf);
+  return {
+    stem:'Give <b>'+fmt(sciParts(v,4))+'</b> to <b>'+sf+' significant figures</b>.',
+    correct:fmt(c),
+    wrongs:[fmt(sciParts(v,sf+1)),fmt(slide(c,1)),fmt(sciParts(v,sf===2?4:1))],
+    why:'Count '+sf+' figures from the first non-zero digit and let the next figure decide the rounding, which gives '+fmt(c)+'. Rounding in standard form only ever touches the first part — the power of ten is untouched unless the rounding carries you up to 10, in which case the first part becomes 1.0 and the power goes up by one.'
+  };
+});
+gen(7,'hard','m7-zeros',function(r){
+  var it=r.pick([
+    {n:'0.00250 m',c:'3',w:['2','5','6'],note:'the two leading zeros place the decimal point and the one between the decimal point and the 2 does the same; the trailing zero after the 5 is a real claim about precision, so it counts'},
+    {n:'1.0080 s',c:'5',w:['3','4','2'],note:'both zeros between the 1 and the 8 count, and so does the trailing zero after the 8'},
+    {n:'0.0500 A',c:'3',w:['2','4','1'],note:'the leading zeros do not count, the 5 does, and the two trailing zeros do'},
+    {n:'20.05 V',c:'4',w:['3','2','5'],note:'every digit here counts: the zeros are enclosed by non-zero digits'}
+  ]);
+  return {
+    stem:'How many significant figures does <b>'+it.n+'</b> have?',
+    correct:it.c,wrongs:it.w,
+    why:it.n+' has '+it.c+' significant figures — '+it.note+'. Zeros are the whole difficulty with significant figures: where they sit decides whether they are information or punctuation.'
+  };
+});
+
+/* ===== Module 8 — the seven step method ===== */
+gen(8,'easy','m8-density',function(r){
+  var pair=r.pick([[250,100],[120,50],[480,200],[90,50],[360,200],[750,250]]);
+  var m=pair[0],V=pair[1];
+  var rho=m/V;
+  var c=sciParts(rho*1000,2);
+  return {
+    stem:'A block has a mass of <b>'+m+' g</b> and a volume of <b>'+V+' cm³</b>. Give its density in <b>kg m⁻³</b>.',
+    correct:fmt(c,'kg m⁻³'),
+    wrongs:[num(rho,3,'kg m⁻³'),fmt(shift(c,-6),'kg m⁻³'),fmt(shift(c,3),'kg m⁻³')],
+    why:'Convert first: '+m+' g = '+num(m/1000,3,'kg')+' and '+V+' cm³ = '+sci(V*1e-6,2,'m³')+'. Then ρ = m/V = '+fmt(c,'kg m⁻³')+'. Doing it the other way round — '+m+'/'+V+' = '+num(rho,3)+' g cm⁻³ and converting at the end — works too, but only if you remember the factor is 10³ and not 10⁻³. Either way, an answer still in g cm⁻³ is not the answer the question asked for.'
+  };
+});
+gen(8,'medium','m8-charge',function(r){
+  var pa=preBySym(r.pick(['n','µ','m'])),pb=preBySym(r.pick(['µ','m']));
+  // two different prefixes, or "ignored the second one" and "ignored the first one"
+  // would be the same option twice
+  while(pb.e===pa.e)pb=preBySym(r.pick(['µ','m']));
+  var aT=r.pick([15,25,36,50,80]),bT=r.pick([20,25,40,50]);
+  var c=norm(aT*bT,-2+pa.e+pb.e),guard=0;
+  while(guard++<40&&c.e===1){aT=r.pick([15,25,36,50,80]);bT=r.pick([20,25,40,50]);c=norm(aT*bT,-2+pa.e+pb.e);}
+  return {
+    stem:'A current of <b>'+tenths(aT)+' '+pa.s+'A</b> flows for <b>'+tenths(bT)+' '+pb.s+'s</b>. Using Q = It, the charge that flows is:',
+    correct:fmt(c,'C'),
+    wrongs:[fmt(slide(c,1),'C'),fmt({m:c.m,e:c.e-pb.e},'C'),fmt({m:c.m,e:c.e-pa.e},'C')],
+    why:'Both prefixes go before the multiplication: ('+fmt(shift(norm(aT,-1),pa.e),'A')+') × ('+fmt(shift(norm(bT,-1),pb.e),'s')+') = '+fmt(c,'C')+'. Then check the form: the first part has to sit between 1 and 10, so an answer like '+fmt(slide(c,1),'C')+' is the right value written the wrong way.'
+  };
+});
+gen(8,'medium','m8-speed',function(r){
+  var pair=r.pick([[45,30],[60,25],[80,40],[120,50],[36,20]]);
+  var s=pair[0],t=pair[1];
+  var v=(s/100)/(t/1000);
+  return {
+    stem:'A trolley travels <b>'+s+' cm</b> in <b>'+t+' ms</b>. Its average speed is:',
+    correct:num(v,3,'m s⁻¹'),
+    wrongs:[num(s/t,3,'m s⁻¹'),num(v/1000,3,'m s⁻¹'),num(v*100,3,'m s⁻¹')],
+    why:'Convert both: '+s+' cm = '+num(s/100,3,'m')+' and '+t+' ms = '+num(t/1000,3,'s')+'. Then v = s/t = '+num(s/100,3)+' ÷ '+num(t/1000,3)+' = '+num(v,3,'m s⁻¹')+'. Dividing the numbers as they stand gives '+num(s/t,3)+', which is centimetres per millisecond — a real quantity, just not the one the question asked for.'
+  };
+});
+gen(8,'hard','m8-resistivity',function(r){
+  var R=r.pick([2.5,4.0,1.6,3.2,5.0]);
+  var A=r.pick([0.50,0.80,1.2,2.0]);
+  var L=r.pick([80,50,120,250]);
+  var rho=R*(A*1e-6)/(L/100);
+  var c=sciParts(rho,2);
+  var inv=(L/100)/(R*A*1e-6);
+  return {
+    stem:'A wire of length <b>'+L+' cm</b> has a uniform cross-sectional area of <b>'+A.toFixed(2)+' mm²</b> and a resistance of <b>'+R.toFixed(1)+' Ω</b>. Using ρ = RA/L, its resistivity is:',
+    correct:fmt(c,'Ω m'),
+    wrongs:[fmt(shift(c,3),'Ω m'),fmt(shift(c,-2),'Ω m'),sci(inv,2,'Ω m')],
+    why:'Convert both awkward units first. Area: '+A.toFixed(2)+' mm² = '+A.toFixed(2)+' × (10⁻³)² = '+sci(A*1e-6,2,'m²')+' — the factor is squared, not just the unit. Length: '+L+' cm = '+plain(L/100,3,'m')+'. Then ρ = RA/L = '+R.toFixed(1)+' × '+sci(A*1e-6,2)+' ÷ '+plain(L/100,3)+' = '+fmt(c,'Ω m')+' to 2 s.f. Using 10⁻³ for the area instead of 10⁻⁶ gives '+fmt(shift(c,3),'Ω m')+', which is the classic version of this mistake.'
+  };
+});
+gen(8,'hard','m8-suvat',function(r){
+  var u,a,tms,t,s,tries=0,opts;
+  // The three wrong answers here are all near neighbours of the right one, so reject any
+  // draw where two of the four round to the same displayed value — "forgot the ½" and
+  // "used ut only" both land on the answer for some combinations.
+  do{
+    u=r.pick([15,20,25]);a=r.pick([4.0,6.0,8.0]);tms=r.pick([200,400,500,800]);
+    t=tms/1000;s=u*t+0.5*a*t*t;tries++;
+    opts=[plain(s,2,'m'),num(u*tms+0.5*a*tms*tms,3,'m'),num(u*t+a*t*t,3,'m'),num(u*t,3,'m')];
+  }while(tries<40&&dedupe(opts).length!==4);
+  return {
+    stem:'A body moving at <b>'+u+' m s⁻¹</b> accelerates uniformly at <b>'+a.toFixed(1)+' m s⁻²</b> for <b>'+tms+' ms</b>. Using s = ut + ½at², the distance travelled is:',
+    correct:opts[0],
+    wrongs:opts.slice(1),
+    why:'The time is the only thing needing conversion: '+tms+' ms = '+num(t,3,'s')+'. Then s = ('+u+' × '+num(t,3)+') + (½ × '+a.toFixed(1)+' × '+num(t,3)+'²) = '+num(u*t,3)+' + '+num(0.5*a*t*t,3)+' = '+num(s,4)+', which is '+plain(s,2,'m')+' to 2 s.f. Leaving the time in milliseconds gives '+num(u*tms+0.5*a*tms*tms,3,'m')+', and that fails the sense check instantly — nothing here travels that far in '+num(t,3)+' s.'
+  };
+});
+gen(8,'hard','m8-ke',function(r){
+  var mg=r.pick([200,500,800,250]),vk=r.pick([36,54,72]);
+  var m=mg/1000,v=vk/3.6;
+  var E=0.5*m*v*v;
+  return {
+    stem:'A body of mass <b>'+mg+' g</b> is moving at <b>'+vk+' km h⁻¹</b>. Its kinetic energy is:',
+    correct:plain(E,2,'J'),
+    wrongs:[num(0.5*mg*v*v,3,'J'),num(0.5*m*vk*vk,3,'J'),num(m*v*v,3,'J')],
+    why:'Two conversions before the formula: '+mg+' g = '+num(m,3,'kg')+' and '+vk+' km h⁻¹ = '+num(v,3,'m s⁻¹')+' (÷ 3.6). Then E = ½mv² = ½ × '+num(m,3)+' × '+num(v,3)+'² = '+plain(E,2,'J')+'. The joule is built from kilograms and metres per second, so a mass left in grams or a speed left in km h⁻¹ was never going to produce joules.'
+  };
+});
+
+/* ---------------- set building ---------------- */
+var DIFFS=['easy','medium','hard'];
+
+function buildSet(cfg){
+  var rng=mulberry32(cfg.seed>>>0),r=makeR(rng);
+  var pool=GENS.filter(function(g){
+    return cfg.mods.indexOf(g.mod)>=0 && (cfg.diff==='mixed'||g.diff===cfg.diff);
+  });
+  if(!pool.length)return [];
+  var mods=cfg.mods.filter(function(m){return pool.some(function(g){return g.mod===m;});});
+  var diffs=cfg.diff==='mixed'?DIFFS.slice():[cfg.diff];
+  var modOrder=r.shuffle(mods),diffOrder=r.shuffle(diffs);
+  var out=[],seen={},used={};
+
+  for(var i=0;i<cfg.count;i++){
+    var m=modOrder[i%modOrder.length];
+    var d=diffOrder[(i+Math.floor(i/modOrder.length))%diffOrder.length];
+    var cands=pool.filter(function(g){return g.mod===m&&g.diff===d;});
+    if(!cands.length)cands=pool.filter(function(g){return g.mod===m;});
+    if(!cands.length)cands=pool;
+    // spread the work across generators before repeating one
+    var lo=Math.min.apply(null,cands.map(function(g){return used[g.id]||0;}));
+    var fresh=cands.filter(function(g){return (used[g.id]||0)===lo;});
+    var g=r.pick(fresh);
+    used[g.id]=(used[g.id]||0)+1;
+
+    // A question is "the same" only if both the wording and what is on offer repeat:
+    // "which of these is not homogeneous?" is a different question every time the four
+    // equations change, even though the sentence above them does not.
+    var q=null,last=null;
+    for(var t=0;t<24;t++){
+      var cand=g.make(r);
+      last=cand;
+      if(optionsOk(cand)&&!seen[keyOf(cand)]){q=cand;break;}
+    }
+    if(!q)q=last;
+    seen[keyOf(q)]=true;
+    var opts=r.shuffle(dedupe([q.correct].concat(q.wrongs)));
+    out.push({mod:g.mod,diff:g.diff,skill:MODULES[g.mod-1].skill,stem:q.stem,why:q.why,correct:q.correct,opts:opts});
+  }
+  return out;
+}
+function keyOf(q){return q.stem+'||'+[q.correct].concat(q.wrongs).slice().sort().join('|');}
+function dedupe(a){
+  var seen={},out=[];
+  for(var i=0;i<a.length;i++){var k=String(a[i]);if(!seen[k]){seen[k]=true;out.push(a[i]);}}
+  return out;
+}
+function optionsOk(q){
+  if(!q||!q.correct||!q.wrongs||q.wrongs.length!==3)return false;
+  return dedupe([q.correct].concat(q.wrongs)).length===4;
+}
+/* ================= ENGINE END ================= */
+
+/* ================= UI ================= */
+var COUNTS=[5,10,20,30];
+var DIFF_LABELS={mixed:'Mixed',easy:'Easy',medium:'Medium',hard:'Hard'};
+var STORE='cie_bridge_practice_cfg';
+
+var cfg={mods:[1,2,3,4,5,6,7,8],count:10,diff:'mixed',seed:0};
+var deck=[],idx=0,chosen=[],correctCount=0,answeredLock=false;
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function $(id){return document.getElementById(id);}
+function newSeed(){return Math.floor(Math.random()*900000)+100000;}
+
+/* ---- setup screen ---- */
+function renderSetup(){
+  $('mod-grid').innerHTML=MODULES.map(function(m){
+    var on=cfg.mods.indexOf(m.n)>=0;
+    return '<label class="mod-opt'+(on?' on':'')+'" data-mod="'+m.n+'">'
+      +'<input type="checkbox" '+(on?'checked':'')+' onchange="toggleMod('+m.n+',this.checked)" aria-label="Module '+m.n+': '+esc(m.title)+'">'
+      +'<span><span class="mod-n">Module '+m.n+'</span><span class="mod-t">'+esc(m.title)+'</span><span class="mod-s">'+esc(m.blurb)+'</span></span>'
+      +'</label>';
+  }).join('');
+
+  $('count-presets').innerHTML=COUNTS.map(function(c){
+    return '<button class="chip'+(cfg.count===c?' on':'')+'" type="button" onclick="setCount('+c+')" style="'+(cfg.count===c?'color:var(--accent);border-color:var(--accent)':'')+'">'+c+'</button>';
+  }).join('')
+    +'<input id="count-input" type="number" min="1" max="50" step="1" value="'+cfg.count+'" oninput="setCount(this.value,true)" aria-label="Number of questions">'
+    +'<span class="count-unit">questions (1&ndash;50)</span>';
+
+  $('diff-seg').innerHTML=['mixed','easy','medium','hard'].map(function(d){
+    return '<button type="button" class="'+(cfg.diff===d?'on':'')+'" onclick="setDiff(\''+d+'\')">'+DIFF_LABELS[d]+'</button>';
+  }).join('');
+
+  updateSummary();
+}
+function toggleMod(n,on){
+  var i=cfg.mods.indexOf(n);
+  if(on&&i<0)cfg.mods.push(n);
+  if(!on&&i>=0)cfg.mods.splice(i,1);
+  cfg.mods.sort(function(a,b){return a-b;});
+  var el=document.querySelector('.mod-opt[data-mod="'+n+'"]');
+  if(el)el.classList.toggle('on',on);
+  updateSummary();
+}
+function setAllMods(on){
+  cfg.mods=on?MODULES.map(function(m){return m.n;}):[];
+  renderSetup();
+}
+function setCount(v,fromInput){
+  var n=parseInt(v,10);
+  if(isNaN(n))n=cfg.count;
+  cfg.count=Math.max(1,Math.min(50,n));
+  if(fromInput){
+    // don't re-render under the cursor; just repaint the presets
+    Array.prototype.forEach.call($('count-presets').querySelectorAll('.chip'),function(b){
+      var on=parseInt(b.textContent,10)===cfg.count;
+      b.classList.toggle('on',on);
+      b.style.color=on?'var(--accent)':'';
+      b.style.borderColor=on?'var(--accent)':'';
+    });
+    updateSummary();
+  }else{
+    renderSetup();
+  }
+}
+function setDiff(d){cfg.diff=d;renderSetup();}
+
+function availableFor(mods,diff){
+  return GENS.filter(function(g){
+    return mods.indexOf(g.mod)>=0&&(diff==='mixed'||g.diff===diff);
+  }).length;
+}
+function updateSummary(){
+  var warn=$('setup-warn'),start=$('start-btn');
+  var n=cfg.mods.length;
+  if(!n){
+    $('setup-summary').textContent='';
+    warn.textContent='Pick at least one module.';
+    warn.classList.remove('hidden');
+    start.disabled=true;
+    return;
+  }
+  var avail=availableFor(cfg.mods,cfg.diff);
+  start.disabled=avail===0;
+  if(avail===0){
+    warn.textContent='No '+DIFF_LABELS[cfg.diff].toLowerCase()+' questions exist for that combination of modules. Try mixed, or add a module.';
+    warn.classList.remove('hidden');
+    $('setup-summary').textContent='';
+    return;
+  }
+  warn.classList.add('hidden');
+  var label=n===MODULES.length?'all 8 modules':(n+' module'+(n===1?'':'s')+' ('+cfg.mods.join(', ')+')');
+  $('setup-summary').innerHTML='<b>'+cfg.count+' question'+(cfg.count===1?'':'s')+'</b> · '+label+' · '+DIFF_LABELS[cfg.diff].toLowerCase()
+    +'<br>Numbers are generated fresh each time, so the same settings never give you the same set twice.';
+  saveCfg();
+}
+function saveCfg(){
+  try{localStorage.setItem(STORE,JSON.stringify({mods:cfg.mods,count:cfg.count,diff:cfg.diff}));}catch(e){}
+}
+function loadCfg(){
+  try{
+    var s=JSON.parse(localStorage.getItem(STORE)||'null');
+    if(s&&Array.isArray(s.mods)&&s.mods.length){
+      cfg.mods=s.mods.filter(function(m){return m>=1&&m<=8;});
+      cfg.count=Math.max(1,Math.min(50,parseInt(s.count,10)||10));
+      cfg.diff=DIFF_LABELS[s.diff]?s.diff:'mixed';
+    }
+  }catch(e){}
+}
+
+/* ---- running a set ---- */
+function startSet(surprise){
+  if(surprise){
+    cfg.mods=MODULES.map(function(m){return m.n;});
+    cfg.diff='mixed';
+    renderSetup();
+  }
+  if(!cfg.mods.length)return;
+  cfg.seed=newSeed();
+  runSet();
+}
+function againSameSettings(){cfg.seed=newSeed();runSet();}
+function runSet(){
+  deck=buildSet({mods:cfg.mods,count:cfg.count,diff:cfg.diff,seed:cfg.seed});
+  if(!deck.length)return;
+  idx=0;chosen=[];correctCount=0;
+  show('quiz-screen');
+  var n=cfg.mods.length;
+  $('quiz-title').textContent=(n===MODULES.length?'All modules':'Modules '+cfg.mods.join(', '))+' · '+DIFF_LABELS[cfg.diff].toLowerCase();
+  render();
+  scrollToApp();
+}
+function show(which){
+  ['setup-screen','quiz-screen','end-screen','review-screen'].forEach(function(id){
+    $(id).classList.toggle('hidden',id!==which);
+  });
+}
+function scrollToApp(){
+  var app=$('app');
+  var y=app.getBoundingClientRect().top+window.scrollY-16;
+  if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'});
+}
+function quitSet(){show('setup-screen');renderSetup();scrollToApp();}
+
+function render(){
+  answeredLock=false;
+  var it=deck[idx];
+  $('q-count').textContent='Question '+(idx+1)+' of '+deck.length;
+  $('q-skill').textContent='Module '+it.mod+' · '+it.skill;
+  var badge=$('q-diff');
+  badge.textContent=it.diff;
+  badge.className='card-badge '+it.diff;
+  $('q-stem').innerHTML=it.stem;
+  var box=$('opts');box.innerHTML='';
+  it.opts.forEach(function(opt,i){
+    var b=document.createElement('button');
+    b.className='opt';b.type='button';b.dataset.opt=opt;
+    b.innerHTML='<span class="optk">'+String.fromCharCode(65+i)+'</span>'+esc(opt);
+    b.onclick=function(){choose(b,opt);};
+    box.appendChild(b);
+  });
+  var why=$('why');why.className='why';why.innerHTML='';
+  $('next-btn').classList.add('hidden');
+  $('progress').style.width=(idx/deck.length*100)+'%';
+}
+function choose(btn,opt){
+  if(answeredLock)return;
+  answeredLock=true;
+  var it=deck[idx];
+  var right=opt===it.correct;
+  chosen[idx]=opt;
+  if(right)correctCount++;
+  Array.prototype.forEach.call($('opts').children,function(b){
+    b.disabled=true;
+    if(b.dataset.opt===it.correct)b.classList.add('correct');
+    else if(b===btn)b.classList.add('wrong');
+  });
+  var why=$('why');
+  why.className='why show';
+  why.innerHTML=(right?'<b>Correct.</b> ':'<b>Not quite.</b> ')+it.why;
+  var nb=$('next-btn');
+  nb.classList.remove('hidden');
+  nb.innerHTML=(idx===deck.length-1?'See result &rarr;':'Next &rarr;');
+  $('progress').style.width=((idx+1)/deck.length*100)+'%';
+}
+function next(){if(idx<deck.length-1){idx++;render();}else showEnd();}
+
+/* ---- results ---- */
+function bandOf(pct){return pct>=85?'great':(pct>=60?'ok':'poor');}
+function showEnd(){
+  show('end-screen');
+  $('progress').style.width='100%';
+  var n=correctCount,total=deck.length,pct=Math.round(n/total*100);
+  var band=bandOf(pct);
+  var el=$('end-score');
+  el.textContent=n+'/'+total;
+  el.className='end-pct '+band;
+  var verdict,desc;
+  if(band==='great'){verdict='Solid';desc='That is the level of fluency AS assumes. Push the difficulty up, or bring in the modules you have been avoiding.';}
+  else if(band==='ok'){verdict='Getting there';desc='The method is there; the handling is not automatic yet. The modules flagged below are the ones to run again.';}
+  else{verdict='Worth another run';desc='Most of what went wrong here will be handling rather than physics. Take one flagged module at a time and run a short set on it until it stops costing you.';}
+  $('end-verdict').textContent=verdict;
+  $('end-desc').textContent=desc;
+
+  var byMod={},byDiff={};
+  deck.forEach(function(it,i){
+    var right=chosen[i]===it.correct;
+    if(!byMod[it.mod])byMod[it.mod]={got:0,total:0};
+    byMod[it.mod].total++;if(right)byMod[it.mod].got++;
+    if(!byDiff[it.diff])byDiff[it.diff]={got:0,total:0};
+    byDiff[it.diff].total++;if(right)byDiff[it.diff].got++;
+  });
+  $('breakdown-mod').innerHTML=Object.keys(byMod).sort(function(a,b){return a-b;}).map(function(m){
+    var v=byMod[m],weak=v.got<v.total;
+    return '<div class="breakdown-item"><div class="breakdown-topic"><span class="bd-n">M'+m+'</span>'+esc(MODULES[m-1].title)
+      +(weak?'<span class="revisit">revisit</span>':'')+'</div>'
+      +'<div class="breakdown-score"><span class="hit">'+v.got+'</span> / '+v.total+'</div></div>';
+  }).join('');
+  var diffKeys=DIFFS.filter(function(d){return byDiff[d];});
+  $('bd-diff-title').classList.toggle('hidden',diffKeys.length<2);
+  $('breakdown-diff').innerHTML=diffKeys.length<2?'':diffKeys.map(function(d){
+    var v=byDiff[d];
+    return '<div class="breakdown-item"><div class="breakdown-topic">'+DIFF_LABELS[d]+'</div>'
+      +'<div class="breakdown-score"><span class="hit">'+v.got+'</span> / '+v.total+'</div></div>';
+  }).join('');
+
+  var weakest=Object.keys(byMod).filter(function(m){return byMod[m].got<byMod[m].total;}).sort(function(a,b){
+    return (byMod[a].got/byMod[a].total)-(byMod[b].got/byMod[b].total);
+  });
+  $('end-foot').textContent=weakest.length
+    ? 'Start with module '+weakest[0]+', '+MODULES[weakest[0]-1].title.toLowerCase()+'. Run twenty questions on that one module before you mix them again — a mixed set tells you where the gap is, a single-module set is what closes it.'
+    : 'Nothing dropped in that set. Either raise the difficulty or add the modules you left out; the point of the generator is that it does not run out.';
+
+  $('share-url').textContent=shareUrl();
+  $('share-btn').textContent='Copy';
+}
+function shareUrl(){
+  var base=location.origin+location.pathname;
+  return base+'?mods='+cfg.mods.join(',')+'&n='+cfg.count+'&d='+cfg.diff+'&seed='+cfg.seed;
+}
+function copyShare(){
+  var btn=$('share-btn');
+  var url=shareUrl();
+  function done(ok){btn.textContent=ok?'Copied':'Copy failed';setTimeout(function(){btn.textContent='Copy';},1800);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){done(true);},function(){done(false);});
+  }else{
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=url;document.body.appendChild(ta);ta.select();
+      done(document.execCommand('copy'));
+      document.body.removeChild(ta);
+    }catch(e){done(false);}
+  }
+}
+
+function showReview(){
+  show('review-screen');
+  $('review-sub').textContent='All '+deck.length+', with the method for each';
+  $('review-list').innerHTML=deck.map(function(it,i){
+    var got=chosen[i]===it.correct;
+    return '<div class="review-item '+(got?'ok':'no')+'">'
+      +'<div class="review-tag">Module '+it.mod+' · '+esc(it.skill)+' · '+it.diff+'</div>'
+      +'<div class="review-q">'+it.stem+'</div>'
+      +'<div class="review-line"><span class="rl">Your answer</span><span class="'+(got?'g':'r')+'">'+esc(chosen[i]||'—')+'</span></div>'
+      +(got?'':'<div class="review-line"><span class="rl">Correct</span><span class="g">'+esc(it.correct)+'</span></div>')
+      +'<div class="review-a">'+it.why+'</div>'
+      +'</div>';
+  }).join('');
+  scrollToApp();
+}
+function backToEnd(){show('end-screen');}
+
+/* ---- keyboard ---- */
+document.addEventListener('keydown',function(e){
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(['INPUT','TEXTAREA','SELECT'].indexOf(tag)>=0)return;
+  if($('quiz-screen').classList.contains('hidden'))return;
+  if(!answeredLock&&['1','2','3','4'].indexOf(e.key)>=0){
+    var b=$('opts').children[+e.key-1];
+    if(b)b.click();
+  }else if(answeredLock&&(e.key==='Enter'||e.key===' ')){
+    e.preventDefault();
+    $('next-btn').click();
+  }
+});
+
+/* ---- boot: URL params win over saved settings ---- */
+(function(){
+  loadCfg();
+  var qs=new URLSearchParams(location.search);
+  var mods=qs.get('mods'),n=qs.get('n'),d=qs.get('d'),seed=qs.get('seed');
+  var fromUrl=false;
+  if(mods){
+    var list=mods.split(',').map(function(x){return parseInt(x,10);}).filter(function(x){return x>=1&&x<=8;});
+    if(list.length){cfg.mods=list.sort(function(a,b){return a-b;});fromUrl=true;}
+  }
+  if(n&&!isNaN(parseInt(n,10))){cfg.count=Math.max(1,Math.min(50,parseInt(n,10)));fromUrl=true;}
+  if(d&&DIFF_LABELS[d]){cfg.diff=d;fromUrl=true;}
+  renderSetup();
+  if(seed&&!isNaN(parseInt(seed,10))&&fromUrl&&availableFor(cfg.mods,cfg.diff)){
+    cfg.seed=parseInt(seed,10);
+    runSet();
+  }
+})();
+</script>
+
+  <!-- =================== EMAIL CAPTURE =================== -->
+  <section class="capture">
+    <div>
+      <div class="eyebrow">Get the next trainer first</div>
+      <h2>One email when a new <em>trainer goes live</em>.</h2>
+      <p>No spam, no daily nudges. Just a note when the next 9702 trainer is ready, plus the occasional examiner tip the week before an exam window.</p>
+    </div>
+    <form
+      action="https://app.kit.com/forms/9454927/subscriptions"
+      method="post"
+      data-sv-form="9454927"
+      data-uid=""
+      data-format="inline"
+      data-version="5"
+    >
+      <label for="email-bp">Email address</label>
+      <input id="email-bp" type="email" name="email_address" placeholder="you@example.com" required>
+      <button type="submit">Notify me</button>
+      <span class="fine">Unsubscribe in one click, any time.</span>
+    </form>
+  </section>
+
+</main>
+<footer class="cie-footer">
+  <div class="cie-footer-inner">
+    <div class="cie-disclaimer">
+      <strong style="color: var(--cie-ink-soft);">CIE Insider</strong> &middot; Not affiliated with or endorsed by Cambridge International Examinations. &ldquo;Cambridge&rdquo;, &ldquo;CIE&rdquo;, and syllabus codes are referenced for navigation only.
+    </div>
+    <div>&copy; <span id="cie-year"></span> CIE Insider</div>
+  </div>
+</footer>
+<script>document.getElementById('cie-year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
