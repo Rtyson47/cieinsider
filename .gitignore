@@ -12,3 +12,36 @@
 # Archived page versions, kept per the versioning convention. Useful in the workspace, but in a
 # web root they are publicly readable orphan pages carrying superseded copy.
 **/_v[0-9]*.html
+
+# Added 2026-08-05, while shipping the bridge practice generator. Same reason as above: the
+# repo root is the web root, so each of these would be publicly fetchable if committed.
+
+# Internal working docs. SEO audits and post-mortems quote blockers and unverified claims;
+# they are for the workspace, not for cieinsider.com/docs/seo-indexing-audit-v2.md.
+docs/
+learnings/
+
+# Local preview config. Machine-specific, and CLAUDE.md already records the canonical setup.
+.claude/
+
+# YouTube thumbnail sources: funnel assets, not site pages. They render as orphan pages in a
+# web root and are not linked from anywhere.
+_thumbs/
+
+# Past paper PDFs staged but never registered in mcq/papers/index.json. Every paper the trainer
+# actually serves IS committed (64 of 64 registered, checked 2026-08-05); these are extras that
+# would publish CIE-copyright PDFs on the domain for no functional gain.
+# Listed one by one ON PURPOSE. A blanket mcq/papers rule would silently swallow the next paper
+# you add and register, which is a trap worth avoiding.
+mcq/papers/0625/2021_m/
+mcq/papers/0625/2021_s/
+mcq/papers/0625/2021_w/
+mcq/papers/0625/2022_m/
+mcq/papers/0625/2022_s/
+mcq/papers/0625/2022_w/
+mcq/papers/9702/2021_m/
+mcq/papers/9702/2021_s/
+mcq/papers/9702/2021_w/
+mcq/papers/9702/2022_m/
+mcq/papers/9702/2022_s/
+mcq/papers/9702/2022_w/
