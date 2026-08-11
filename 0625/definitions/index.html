@@ -1249,6 +1249,59 @@ buildDeck();
 </script>
 
   <!-- =================== EMAIL CAPTURE =================== -->
+
+  <!-- =================== AS READINESS CROSS-LINK =================== -->
+  <!-- Added 2026-08-10. Identical block on every 0625 page: the site already takes
+       organic IGCSE traffic and none of it was pointed at /9702/readiness/.
+       Self-contained literal hex rather than this page's CSS variables, because the
+       token names differ from page to page (--cream vs --cie-cream vs --bg). -->
+  <style>
+  .as-next {
+    margin-top: 72px;
+    background: #faf6ec;
+    border: 1px solid #d8ccb4;
+    border-left: 4px solid #a83b1f;
+    border-radius: 6px;
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+    box-shadow: 0 1px 0 rgba(31,26,20,0.04), 0 4px 16px -8px rgba(31,26,20,0.1);
+  }
+  .as-next-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #6b5e4d; margin: 0 0 10px; font-weight: 500;
+  }
+  .as-next h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: 22px; line-height: 1.25; letter-spacing: -0.01em;
+    color: #1f1a14; margin: 0 0 10px; padding: 0; border: 0;
+  }
+  .as-next p.as-next-body { margin: 0; font-size: 15px; line-height: 1.6; color: #3a3127; }
+  .as-next-btn {
+    display: inline-block; white-space: nowrap;
+    background: #a83b1f; color: #faf6ec; text-decoration: none;
+    padding: 13px 24px; border-radius: 4px; font-weight: 700; font-size: 15px;
+    transition: background 0.15s;
+  }
+  .as-next-btn:hover { background: #7d2a14; }
+  @media (max-width: 640px) {
+    .as-next { grid-template-columns: 1fr; padding: 28px 24px; gap: 20px; }
+    .as-next-btn { text-align: center; }
+  }
+  </style>
+
+  <section class="as-next">
+    <div>
+      <p class="as-next-eyebrow">Carrying on to AS Physics?</p>
+      <h2>The maths AS Physics assumes you already have</h2>
+      <p class="as-next-body">Not the physics &mdash; the maths underneath it. Ten questions on units and quantities, standard form, prefixes, rearranging, unit conversion and significant figures. Free, no sign-up to take it, and you get a readiness verdict with a per-skill breakdown at the end.</p>
+    </div>
+    <a class="as-next-btn" href="/9702/readiness/">Take the readiness check &rarr;</a>
+  </section>
+
   <section class="capture">
     <div>
       <div class="eyebrow">Get the next trainer first</div>
