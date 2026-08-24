@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IGCSE to AS Physics Bridge (9702) | CIE Insider</title>
-<meta name="description" content="A four week summer bridge from IGCSE Physics to Cambridge AS 9702, built by a CIE examiner. Eight self paced modules, plus an optional live tier.">
+<meta name="description" content="A four week summer bridge from IGCSE Physics to Cambridge AS 9702, built by a CIE examiner. Eight self paced modules and every drill worked.">
 <link rel="canonical" href="https://cieinsider.com/bridge/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cieinsider.com/bridge/">
@@ -30,26 +30,16 @@
     {
       "@type": "Product",
       "name": "IGCSE to AS Physics Bridge (9702)",
-      "description": "A four week self paced course covering the numerical and unit skills Cambridge AS Physics 9702 assumes from the first lesson, with an optional live examiner tier.",
+      "description": "A four week self paced course covering the numerical and unit skills Cambridge AS Physics 9702 assumes from the first lesson, with every drill worked.",
       "brand": { "@type": "Brand", "name": "CIE Insider" },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Self paced",
-          "price": "39",
-          "priceCurrency": "GBP",
-          "availability": "https://schema.org/InStock",
-          "url": "https://cieinsider.com/bridge/"
-        },
-        {
-          "@type": "Offer",
-          "name": "Self paced plus live",
-          "price": "99",
-          "priceCurrency": "GBP",
-          "availability": "https://schema.org/InStock",
-          "url": "https://cieinsider.com/bridge/"
-        }
-      ]
+      "offers": {
+        "@type": "Offer",
+        "name": "The bridge",
+        "price": "39",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "url": "https://cieinsider.com/bridge/"
+      }
     },
     {
       "@type": "FAQPage",
@@ -61,18 +51,13 @@
         },
         {
           "@type": "Question",
-          "name": "What is the difference between the two tiers?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The content is identical. The £99 tier adds four live sessions where I work the drills live, take answers sent in by the group and mark them on screen in the session, and answer questions. This is not homework marking and there is nothing to hand in: you send an answer, it goes up, we work through what the marks are actually for. Live places are capped at 25 so that everyone can get a word in and everyone's work gets looked at." }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I cannot make the live sessions?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Every session is recorded and the replay goes to everyone on the live tier. That said, if you already know the time will never work for you, the £39 tier is the better buy. You are not missing any content." }
+          "name": "What exactly do I get?",
+          "acceptedAnswer": { "@type": "Answer", "text": "All eight modules, open from the moment you join, with every drill worked through in full. There is also a practice generator: pick the modules, the length and the difficulty, and it builds a set as long as you need, with the working shown for every answer. It is yours to keep, with no expiry." }
         },
         {
           "@type": "Question",
           "name": "What if I buy it and change my mind?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Email me within 14 days of buying and I will refund you in full, no questions asked, whether or not you have started the modules. If you bought the £99 tier and want to drop to self paced instead, I will refund the difference. The full terms are on the terms page." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Email me within 14 days of buying and I will refund you in full, no questions asked, whether or not you have started the modules. The full terms are on the terms page." }
         },
         {
           "@type": "Question",
@@ -175,6 +160,7 @@ p{line-height:1.6}
 
 /* pricing */
 .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:start}
+.tiers.single{grid-template-columns:minmax(0,440px);justify-content:center}
 .tier{border:1px solid var(--border);border-radius:10px;padding:28px;background:var(--page)}
 .tier.featured{border-color:var(--accent);box-shadow:var(--shadow-card)}
 .tier .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-2);margin-bottom:14px}
@@ -246,10 +232,10 @@ footer a{color:var(--fg-2)}
       <h1>Start AS Physics already <span class="em">fluent</span> in the maths it assumes.</h1>
       <p class="lead">A four week course in the six numerical skills Cambridge AS Physics 9702 assumes from the first lesson and never stops to teach. None of them is especially hard on its own, which is exactly why they go unchecked all summer. Built by a Cambridge trained examiner who marked both 0625 and 9702, so that in September your attention goes on the new physics rather than the arithmetic underneath it.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#pricing">See the two tiers, from &pound;39</a>
+        <a class="btn btn-primary" href="#pricing">See what you get, &pound;39</a>
         <a class="btn btn-secondary" href="/9702/readiness/">Take the free readiness check</a>
       </div>
-      <p class="hero-meta">8 modules &middot; 4 weeks &middot; self paced from &pound;39 &middot; 25 live places</p>
+      <p class="hero-meta">8 modules &middot; 4 weeks &middot; self paced &middot; &pound;39</p>
     </div>
   </section>
 
@@ -328,45 +314,28 @@ footer a{color:var(--fg-2)}
   <!-- ========================== PRICING ========================== -->
   <section class="sec" id="pricing">
     <div class="wrap">
-      <span class="eyebrow">Two ways in</span>
-      <h2>Same content. The difference is whether I am in the room.</h2>
-      <p class="sec-lead">Both tiers get all eight modules and every drill, for good. The live tier adds four live sessions where I work through the drills live, put real answers from the group on screen and mark them there and then, and answer whatever is still not landing.</p>
+      <span class="eyebrow">What it costs</span>
+      <h2>One price, and everything is in it.</h2>
+      <p class="sec-lead">All eight modules and every drill, open from the moment you join and yours to keep. There is no upsell, and no second tier to weigh up.</p>
 
-      <div class="tiers">
+      <div class="tiers single">
 
-        <div class="tier">
-          <div class="tname">Self paced</div>
+        <div class="tier featured">
+          <div class="tname">The bridge</div>
           <div class="price">&pound;39</div>
           <p class="tdesc">Everything you need to arrive ready, on your own schedule.</p>
           <ul>
-            <li>All 8 modules</li>
+            <li>All 8 modules, open at once</li>
             <li>Every drill, with worked solutions</li>
-            <li>Downloadable and yours to keep, no expiry</li>
-            <li class="off">No live sessions</li>
-            <li class="off">No live marking</li>
+            <li>The practice generator, for as many sets as you want</li>
+            <li>Yours to keep, no expiry</li>
           </ul>
           <!-- Live Stripe payment link, added 2026-07-30. Quantity adjustment ON, minimum enforced at 1. -->
-          <a class="btn btn-secondary" href="https://buy.stripe.com/fZuaEQ0fqa3f0cE9NlgIo02" data-stripe="self-paced">Get the self paced bridge</a>
+          <!-- The £99 live tier was retired 2026-08-24 (Rich's call): zero buyers, and the sessions
+               could not be honestly promised. Its Stripe link buy.stripe.com/6oU00cbY81wJf7ybVtgIo00
+               must be DEACTIVATED in the Stripe dashboard so a shared URL cannot still be paid. -->
+          <a class="btn btn-primary" href="https://buy.stripe.com/fZuaEQ0fqa3f0cE9NlgIo02" data-stripe="self-paced">Get the bridge</a>
           <p class="fine">One payment. Access is immediate.</p>
-        </div>
-
-        <div class="tier featured">
-          <span class="cap">25 live places</span>
-          <div class="tname">Self paced plus live</div>
-          <div class="price">&pound;99</div>
-          <p class="tdesc">The same course, plus four live hours with the examiner who wrote it.</p>
-          <ul>
-            <li>Everything in the self paced tier</li>
-            <li>4 live sessions, 60 minutes each</li>
-            <li>Your answers marked live, on screen</li>
-            <li>Replays of every session</li>
-            <li>Ask me anything, live</li>
-          </ul>
-          <!-- Live Stripe payment link, added 2026-07-30. Quantity adjustment OFF (verified), so the
-               25-place cap cannot be broken by one payment buying several seats. The cap itself is the
-               link's payment limit and is set in the Stripe dashboard, not visible from this page. -->
-          <a class="btn btn-primary" href="https://buy.stripe.com/6oU00cbY81wJf7ybVtgIo00" data-stripe="live">Take a live place</a>
-          <p class="fine">One payment. Cheaper than two hours of one to one tutoring.</p>
         </div>
 
       </div>
@@ -379,11 +348,9 @@ footer a{color:var(--fg-2)}
       <div class="dates">
         <table>
           <tr><td>As soon as you join</td><td>All eight modules open at once, plus the practice generator. Work at whatever pace suits you.</td></tr>
-          <tr><td>Late August</td><td>The four live sessions, for the live tier. Deliberately after IGCSE results day.</td></tr>
           <tr><td>Tue 1 Sep</td><td>Enrolment closes. The modules stay yours.</td></tr>
         </table>
       </div>
-      <p class="fine">Live sessions run at 14:00 UTC. The dates are confirmed to everyone on the live tier once the group is together, so they land at a time that works for wherever people actually are. Every session is recorded either way, so a clash costs you nothing.</p>
     </div>
   </section>
 
@@ -411,16 +378,12 @@ footer a{color:var(--fg-2)}
           <p>A strong IGCSE grade shows you can do the physics. The bridge is about the numerical handling AS assumes underneath it. The honest test is the free readiness check: ten questions, scored per skill, so you see exactly which of the six are already automatic. If you score well on all of them, you do not need this course and I would rather you knew that.</p>
         </details>
         <details>
-          <summary>What is the difference between the two tiers?</summary>
-          <p>The content is identical. The &pound;99 tier adds four live sessions where I work the drills live, take answers sent in by the group and mark them on screen in the session, and answer questions. This is not homework marking and there is nothing to hand in: you send an answer, it goes up, we work through what the marks are actually for. Live places are capped at 25 so that everyone can get a word in and everyone's work gets looked at.</p>
-        </details>
-        <details>
-          <summary>What if I cannot make the live sessions?</summary>
-          <p>Every session is recorded and the replay goes to everyone on the live tier. That said, if you already know the time will never work for you, the &pound;39 tier is the better buy. You are not missing any content.</p>
+          <summary>What exactly do I get?</summary>
+          <p>All eight modules, open from the moment you join, with every drill worked through in full. There is also a practice generator: pick the modules, the length and the difficulty, and it builds a set as long as you need, with the working shown for every answer. It is yours to keep, with no expiry.</p>
         </details>
         <details>
           <summary>What if I buy it and change my mind?</summary>
-          <p>Email me within 14 days of buying and I will refund you in full, no questions asked, whether or not you have started the modules. If you bought the &pound;99 tier and want to drop to self paced instead, I will refund the difference. The full terms are on the <a href="/terms/">terms page</a>.</p>
+          <p>Email me within 14 days of buying and I will refund you in full, no questions asked, whether or not you have started the modules. The full terms are on the <a href="/terms/">terms page</a>.</p>
         </details>
         <details>
           <summary>Is this teaching me the AS syllabus?</summary>
@@ -444,7 +407,7 @@ footer a{color:var(--fg-2)}
       <h2>Four weeks now, or two terms of catching up.</h2>
       <p>The bridge is open now. If you are not sure whether you need it, take the readiness check first. It is free and it answers the question honestly.</p>
       <div class="hero-cta" style="justify-content:center">
-        <a class="btn btn-primary" href="#pricing">See the two tiers, from &pound;39</a>
+        <a class="btn btn-primary" href="#pricing">See what you get, &pound;39</a>
         <a class="btn btn-secondary" href="/9702/readiness/">Take the readiness check</a>
       </div>
     </div>

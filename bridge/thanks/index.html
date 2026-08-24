@@ -187,11 +187,10 @@
     'self-paced': {
       label: 'Self paced · £39',
       message: "Your place on the bridge is booked. All eight modules are open right now, and your access is on its way to you by email."
-    },
-    'live': {
-      label: 'Self paced plus live · £99',
-      message: "Your place is booked, and one of the 25 live seats is yours. All eight modules are open right now, your access is on its way by email, and the live sessions start after IGCSE results."
     }
+    // The 'live' tier was retired 2026-08-24 (Rich's call). Its Stripe link is being
+    // deactivated, so ?tier=live can no longer be reached from a real payment. With no
+    // entry here it falls through to the default copy, which reads correctly on its own.
   };
 
   var tier = new URLSearchParams(window.location.search).get('tier');
@@ -199,10 +198,8 @@
     document.getElementById('tierLabel').textContent = TIER_COPY[tier].label;
     document.getElementById('message').textContent = TIER_COPY[tier].message;
   }
-  if (tier === 'live') {
-    document.getElementById('liveCard').hidden = false;
-    document.getElementById('stepLive').hidden = false;
-  }
+  // liveCard and stepLive stay hidden: the live tier was retired 2026-08-24. The markup is
+  // left in place, unrevealed, so a single live session can be reinstated without a rebuild.
 </script>
 
 </body>
