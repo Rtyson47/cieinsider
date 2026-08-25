@@ -66,8 +66,8 @@
         },
         {
           "@type": "Question",
-          "name": "I am resitting, or coming from a different board.",
-          "acceptedAnswer": { "@type": "Answer", "text": "Still relevant. These are the skills 9702 topic 1 expects, whatever route you took to get there, and the examples are all written in 9702 contexts." }
+          "name": "I sat 0972, I am resitting, or I am coming from a different board.",
+          "acceptedAnswer": { "@type": "Answer", "text": "Still relevant. These are the skills 9702 topic 1 expects, whatever route you took to get there, and the examples are all written in 9702 contexts. If you sat Cambridge IGCSE (9-1) Physics 0972 rather than 0625, this is for you too: Cambridge lists the two as the same title at the same level." }
         },
         {
           "@type": "Question",
@@ -160,7 +160,20 @@ p{line-height:1.6}
 
 /* pricing */
 .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:start}
-.tiers.single{grid-template-columns:minmax(0,440px);justify-content:center}
+.hidden{display:none !important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tier.waitlist{border-style:dashed;background:var(--surface)}
+.tier.waitlist .tname{color:var(--fg-2)}
+.tier.waitlist .standin{font-family:var(--font-display);font-size:26px;font-weight:500;letter-spacing:-0.02em;line-height:1.15;color:var(--fg-1)}
+.wl-form{display:flex;flex-direction:column;gap:10px}
+.wl-form input{height:48px;padding:0 14px;font:400 15px/1 var(--font-body);color:var(--fg-1);background:var(--page);border:1px solid var(--border-strong);border-radius:6px;width:100%}
+.wl-form input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+/* iOS Safari zooms the page when a focused input is under 16px. */
+@media (max-width:600px){.wl-form input{font-size:16px}}
+.wl-msg{font-size:14px;line-height:1.5;margin-top:10px}
+.wl-msg.err{color:#b3261e}
+.wl-msg.ok{color:var(--success-text)}
+.wl-done{background:var(--success-tint);border:1px solid var(--success);border-radius:6px;padding:16px 18px;font-size:15px;line-height:1.5;color:var(--success-text)}
 .tier{border:1px solid var(--border);border-radius:10px;padding:28px;background:var(--page)}
 .tier.featured{border-color:var(--accent);box-shadow:var(--shadow-card)}
 .tier .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-2);margin-bottom:14px}
@@ -316,9 +329,9 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <span class="eyebrow">What it costs</span>
       <h2>One price, and everything is in it.</h2>
-      <p class="sec-lead">All eight modules and every drill, open from the moment you join and yours to keep. There is no upsell, and no second tier to weigh up.</p>
+      <p class="sec-lead">All eight modules and every drill, open from the moment you join and yours to keep. There is no upsell and no second tier. Live teaching is a separate thing, and it is not running this summer.</p>
 
-      <div class="tiers single">
+      <div class="tiers">
 
         <div class="tier featured">
           <div class="tname">The bridge</div>
@@ -331,11 +344,32 @@ footer a{color:var(--fg-2)}
             <li>Yours to keep, no expiry</li>
           </ul>
           <!-- Live Stripe payment link, added 2026-07-30. Quantity adjustment ON, minimum enforced at 1. -->
-          <!-- The £99 live tier was retired 2026-08-24 (Rich's call): zero buyers, and the sessions
+          <!-- The £99 live tier was retired 2026-08-25 (Rich's call): zero buyers, and the sessions
                could not be honestly promised. Its Stripe link buy.stripe.com/6oU00cbY81wJf7ybVtgIo00
                must be DEACTIVATED in the Stripe dashboard so a shared URL cannot still be paid. -->
           <a class="btn btn-primary" href="https://buy.stripe.com/fZuaEQ0fqa3f0cE9NlgIo02" data-stripe="self-paced">Get the bridge</a>
           <p class="fine">One payment. Access is immediate.</p>
+        </div>
+
+        <!-- Waitlist replaced the £99 live tier on 2026-08-25. It promises a notification and
+             nothing else: no date, no price, no seat. Captures to Kit form 9454927 with tag
+             21451957 (skool-waitlist), the same public-class key the readiness check uses. -->
+        <div class="tier waitlist">
+          <div class="tname">Live teaching</div>
+          <div class="standin">Not running<br>this summer</div>
+          <p class="tdesc">I am not selling live sessions I cannot commit to dates for. Live teaching is what the CIE Insider membership is for, and that opens in September.</p>
+          <ul>
+            <li>Tell me you want it and I will email you when dates are set</li>
+            <li>No charge and no obligation</li>
+            <li>The bridge is complete on its own without it</li>
+          </ul>
+          <div class="wl-form" id="wl-form">
+            <label class="sr-only" for="wl-email">Your email address</label>
+            <input id="wl-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+            <button class="btn btn-secondary" id="wl-btn" type="button">Join the waitlist</button>
+          </div>
+          <p class="wl-msg hidden" id="wl-msg" role="status" aria-live="polite"></p>
+          <div class="wl-done hidden" id="wl-done">You are on the list. I will email you as soon as live dates are set, and not about anything else.</div>
         </div>
 
       </div>
@@ -390,8 +424,8 @@ footer a{color:var(--fg-2)}
           <p>No, and that is deliberate. Teaching the syllabus early tends to produce students who have half learned things twice. This covers the assumed skills underneath the syllabus, so the first term is about learning physics rather than fighting arithmetic.</p>
         </details>
         <details>
-          <summary>I am resitting, or coming from a different board.</summary>
-          <p>Still relevant. These are the skills 9702 topic 1 expects, whatever route you took to get there, and the examples are all written in 9702 contexts.</p>
+          <summary>I sat 0972, I am resitting, or I am coming from a different board.</summary>
+          <p>Still relevant. These are the skills 9702 topic 1 expects, whatever route you took to get there, and the examples are all written in 9702 contexts. If you sat Cambridge IGCSE (9-1) Physics 0972 rather than 0625, this is for you too: Cambridge lists the two as the same title at the same level.</p>
         </details>
         <details>
           <summary>What happens after 1 September?</summary>
@@ -422,5 +456,79 @@ footer a{color:var(--fg-2)}
   </div>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+/* ============================================================
+   Live-teaching waitlist -> Kit
+   Same transport the readiness check uses: v3 form subscribe with the
+   public-class key, so nothing secret is on the page.
+     form 9454927  = CIE Insider early (the live signup form in gate.js)
+     tag  21451957 = skool-waitlist, created 2026-07-24, confirmed against
+                     GET /v4/tags on 2026-08-25. Never invent an id here.
+   Endpoint checked the same day with a deliberately invalid address: it
+   returns 400 "Email address is invalid", which proves key, form and tag
+   all resolve without creating a subscriber.
+   ============================================================ */
+(function(){
+  var WL_FORM = '9454927';
+  var WL_TAG  = 21451957;
+  var WL_KEY  = 'BW8jYJD2dFUjrf5y-qjv6g';   // public-class key, same as the gate
+  var WL_DONE = 'cie_waitlist_joined';
+
+  var form = document.getElementById('wl-form');
+  var input= document.getElementById('wl-email');
+  var btn  = document.getElementById('wl-btn');
+  var msg  = document.getElementById('wl-msg');
+  var done = document.getElementById('wl-done');
+  if(!form || !btn) return;
+
+  function showDone(){
+    form.classList.add('hidden');
+    msg.classList.add('hidden');
+    done.classList.remove('hidden');
+  }
+
+  // Someone who already joined should not be asked twice.
+  try{ if(localStorage.getItem(WL_DONE)==='true') showDone(); }catch(e){}
+
+  function fail(text){
+    msg.textContent = text;
+    msg.classList.remove('hidden','ok');
+    msg.classList.add('err');
+    btn.disabled=false; btn.textContent='Join the waitlist';
+  }
+
+  async function submit(){
+    var email=(input.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      fail('Please enter a valid email address.');
+      input.focus();
+      return;
+    }
+    msg.classList.add('hidden');
+    btn.disabled=true; btn.textContent='One moment...';
+    try{
+      var res = await fetch('https://api.convertkit.com/v3/forms/'+WL_FORM+'/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({api_key:WL_KEY,email:email,tags:[WL_TAG]})
+      });
+      if(!res.ok) throw new Error('status '+res.status);
+    }catch(e){
+      // Unlike the readiness check, there is no content to fall back to here:
+      // if the request failed they are NOT on the list, so say so rather than
+      // showing a confirmation we cannot stand behind.
+      fail('That did not go through. Please try again, or email rich@cieinsider.com and I will add you by hand.');
+      return;
+    }
+    try{ localStorage.setItem(WL_DONE,'true'); }catch(e){}
+    showDone();
+  }
+
+  btn.addEventListener('click',submit);
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){ e.preventDefault(); submit(); }
+  });
+})();
+</script>
 </body>
 </html>
