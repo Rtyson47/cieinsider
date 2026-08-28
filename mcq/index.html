@@ -836,7 +836,7 @@
       <div class="grade-tag" id="gradeTag" style="display:none;"></div>
     </div>
 
-    <div class="topic-breakdown">
+    <div class="topic-breakdown" id="topicBreakdownWrap">
       <h3>Performance by topic</h3>
       <div id="topicBreakdown"></div>
     </div>
@@ -1249,6 +1249,11 @@ function showResults(correct, topicStats, autoSubmit) {
     `;
     breakdown.appendChild(row);
   });
+
+  // Degrade gracefully: an untagged paper produces zero rows, so hide the
+  // whole block rather than showing a dead "Performance by topic" heading.
+  document.getElementById('topicBreakdownWrap').style.display =
+    breakdown.children.length ? '' : 'none';
 
   document.getElementById('resultsModal').classList.add('show');
 }

@@ -3,6 +3,15 @@
   "name": "IGCSE Physics",
   "topics": [
     {
+      "id": "measurement",
+      "name": "Physical quantities and measurement",
+      "subtopics": [
+        { "id": "length_time", "name": "Length, time and measuring instruments" },
+        { "id": "scalars_vectors", "name": "Scalars and vectors" },
+        { "id": "density", "name": "Density" }
+      ]
+    },
+    {
       "id": "motion",
       "name": "Motion",
       "subtopics": [
@@ -20,6 +29,7 @@
         { "id": "newtons_laws", "name": "Newton's laws" },
         { "id": "weight_mass", "name": "Weight and mass" },
         { "id": "friction", "name": "Friction" },
+        { "id": "elasticity", "name": "Elasticity, springs and Hooke's law" },
         { "id": "moments", "name": "Moments and equilibrium" },
         { "id": "centre_gravity", "name": "Centre of gravity" },
         { "id": "circular_motion", "name": "Circular motion" }
