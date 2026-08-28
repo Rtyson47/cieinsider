@@ -101,7 +101,7 @@
   .dul li{margin-bottom:4px;}
   .flaws-panel{margin-top:14px;background:rgba(79,142,247,.06);border:1px solid var(--acc-b);border-radius:var(--r);padding:12px 14px;}
   .flaws-panel .dh3{color:var(--acc);margin-top:0;}
-  .flaws-panel .dp{color:rgba(200,215,255,.75);}
+  .flaws-panel .dp{color:var(--text-s);}
   .ph-header{margin-bottom:1rem;}
   .ph-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-t);margin-bottom:6px;}
   .ph-title{font-size:15px;font-weight:500;margin-bottom:4px;}
@@ -117,18 +117,22 @@
   .warn-box{background:rgba(246,173,85,.07);border:1px solid rgba(246,173,85,.3);border-radius:var(--r);padding:10px 14px;margin-bottom:1.25rem;font-size:12.5px;color:var(--amber);line-height:1.5;}
   .imp-pool{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:12px;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:8px;min-height:56px;}
   .pool-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-t);letter-spacing:.06em;text-transform:uppercase;width:100%;margin-bottom:2px;}
-  .imp-chip{padding:8px 12px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);font-size:12.5px;color:var(--text-s);cursor:grab;line-height:1.45;user-select:none;transition:border-color .15s,color .15s;}
+  .imp-chip{padding:8px 12px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);font-size:12.5px;color:var(--text-s);cursor:grab;line-height:1.45;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:border-color .15s,color .15s,background .15s;}
   .imp-chip:hover{border-color:var(--border-h);color:var(--text);}
   .imp-chip.dragging{opacity:.25;}
+  .imp-chip.armed{border-color:var(--acc);background:var(--acc-bg);color:var(--acc);box-shadow:0 0 0 1px var(--acc-b);cursor:pointer;}
   .imp-chip.used{display:none;}
+  .pool-hint{width:100%;margin-top:8px;font-size:11.5px;color:var(--text-t);line-height:1.5;}
+  .pool-hint.active{color:var(--acc);}
   .match-area{margin-bottom:1.25rem;}
   .match-pair{display:grid;grid-template-columns:1fr 28px 1fr;align-items:start;gap:8px;margin-bottom:8px;}
-  .match-lim{padding:11px 14px;border-radius:var(--r);background:var(--acc-bg);border:1px solid var(--acc-b);font-size:12.5px;color:rgba(200,215,255,.8);line-height:1.55;display:flex;gap:8px;align-items:flex-start;}
-  .match-lim.distractor{background:rgba(246,173,85,.07);border-color:rgba(246,173,85,.3);color:rgba(246,220,160,.8);}
+  .match-lim{padding:11px 14px;border-radius:var(--r);background:var(--acc-bg);border:1px solid var(--acc-b);font-size:12.5px;color:var(--text);line-height:1.55;display:flex;gap:8px;align-items:flex-start;}
+  .match-lim.distractor{background:rgba(246,173,85,.07);border-color:rgba(246,173,85,.3);color:var(--text);}
   .match-arrow{text-align:center;color:var(--text-t);font-size:16px;padding-top:11px;}
-  .match-drop{padding:11px 14px;border-radius:var(--r);border:1px dashed var(--border-h);background:var(--surface2);font-size:12.5px;color:var(--text-t);line-height:1.55;min-height:46px;transition:border-color .12s,background .12s;}
+  .match-drop{padding:11px 14px;border-radius:var(--r);border:1px dashed var(--border-h);background:var(--surface2);font-size:12.5px;color:var(--text-t);line-height:1.55;min-height:46px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:border-color .12s,background .12s;}
   .match-drop.drag-over{border-color:var(--acc);background:var(--acc-bg);border-style:solid;}
   .match-drop.filled{border-style:solid;border-color:var(--border-h);background:var(--surface);color:var(--text-s);}
+  .match-drop.awaiting{border-color:var(--acc);border-style:solid;background:var(--acc-bg);}
   .action-row{display:flex;gap:8px;margin-bottom:1rem;align-items:center;}
   .btn-p{padding:9px 22px;border-radius:var(--r);border:1px solid var(--acc-b);background:var(--acc-bg);font-size:13px;color:var(--acc);cursor:pointer;font-weight:500;font-family:'IBM Plex Sans',sans-serif;transition:background .15s;}
   .btn-p:hover{background:rgba(79,142,247,.18);}
@@ -151,6 +155,11 @@
   .fb-det{font-size:11.5px;color:var(--text-t);margin-top:4px;padding-left:24px;line-height:1.6;font-style:italic;}
   .fb-ms{font-size:11.5px;color:var(--amber);margin-top:4px;padding-left:24px;line-height:1.6;}
   .fb-ex{font-size:11px;color:var(--text-t);margin-top:3px;padding-left:24px;line-height:1.6;}
+  @media(hover:none){
+    .imp-chip{padding:11px 14px;font-size:13px;}
+    .match-drop{min-height:54px;}
+    .lim-chip{padding:12px 14px;}
+  }
   @media(max-width:620px){
     .lim-grid{grid-template-columns:1fr;}
     .match-pair{grid-template-columns:1fr;}
@@ -965,7 +974,9 @@ const EXP = [
 }
 ];
 
-let S={expIdx:0,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};
+let S={expIdx:0,phase:"select",selLims:[],drops:{},dragImp:null,armed:null,impOrder:null,showFull:false,limOpts:null};
+// wording only - the tap path itself is always live, so a wrong guess here never breaks the interaction
+const COARSE=!!(window.matchMedia&&window.matchMedia("(hover:none)").matches);
 const e=()=>EXP[S.expIdx];
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 const buildOpts=ex=>{
@@ -1030,19 +1041,30 @@ function render(){
     h+=`<div class="ph-header">
       <div class="ph-badge">Step 2 — match improvements</div>
       <div class="ph-title">Match an improvement to each limitation you selected</div>
-      <div class="ph-sub">Drag from the pool below. Watch out — some improvements are too vague or missing a key detail.</div>
+      <div class="ph-sub">${COARSE?'Tap an improvement below, then tap the slot you want it in.':'Drag an improvement onto a slot — or click it, then click the slot.'} Watch out — some improvements are too vague or missing a key detail.</div>
     </div>`;
 
     if(distSel.length>0){
       h+=`<div class="warn-box">⚠ Some of your selected limitations may not be on the mark scheme. They are shown below in amber — you can still try to match them, but review carefully after submitting.</div>`;
     }
 
-    h+=`<div class="imp-pool" id="impPool" ondragover="event.preventDefault()" ondrop="dropPool(event)">
-      <span class="pool-label">drag from here</span>`;
-    for(const imp of shuffle(ex.imp)){
-      h+=`<div class="imp-chip ${usedIds.includes(imp.id)?'used':''}" draggable="true" data-id="${imp.id}"
+    // shuffle once per attempt, not once per render - re-shuffling on every render made the
+    // pool jump under the user's finger after each placement
+    if(!S.impOrder) S.impOrder=shuffle(ex.imp).map(i=>i.id);
+    const poolImps=S.impOrder.map(id=>ex.imp.find(i=>i.id===id)).filter(Boolean);
+    const verb=COARSE?'Tap':'Click';
+    const hint=S.armed
+      ? `Picked up — now ${verb.toLowerCase()} the slot you want it in, or ${verb.toLowerCase()} this improvement again to put it back.`
+      : `${verb} an improvement to pick it up, then ${verb.toLowerCase()} a slot. ${verb} a filled slot to send it back here.`;
+
+    h+=`<div class="imp-pool" id="impPool" onclick="tapPool()" ondragover="event.preventDefault()" ondrop="dropPool(event)">
+      <span class="pool-label">${COARSE?'tap to pick up':'drag or click to pick up'}</span>`;
+    for(const imp of poolImps){
+      h+=`<div class="imp-chip ${usedIds.includes(imp.id)?'used':''} ${S.armed===imp.id?'armed':''}" draggable="true" data-id="${imp.id}"
+        onclick="armChip(event,'${imp.id}')"
         ondragstart="dStart(event,'${imp.id}')" ondragend="dEnd()">${imp.text}</div>`;
     }
+    h+=`<div class="pool-hint ${S.armed?'active':''}">${hint}</div>`;
     h+=`</div><div class="match-area">`;
     for(const limId of S.selLims){
       const allLims=[...ex.valid.map(l=>({id:l.id,text:l.text})),...ex.dist.map(d=>({id:d.id,text:d.text}))];
@@ -1057,9 +1079,10 @@ function render(){
           <span>${limText}</span>
         </div>
         <div class="match-arrow">→</div>
-        <div class="match-drop ${droppedImp?'filled':''}" id="drop_${limId}"
+        <div class="match-drop ${droppedImp?'filled':''} ${S.armed?'awaiting':''}" id="drop_${limId}"
+          onclick="tapDrop(event,'${limId}')"
           ondragover="dOver(event,'${limId}')" ondragleave="dLeave(event,'${limId}')" ondrop="dropOn(event,'${limId}')">
-          ${droppedImp?droppedImp.text:'<span style="font-size:12px">drop improvement here</span>'}
+          ${droppedImp?droppedImp.text:`<span style="font-size:12px">${S.armed?(COARSE?'tap here to place':'click here to place'):(COARSE?'tap an improvement, then tap here':'drop improvement here')}</span>`}
         </div>
       </div>`;
     }
@@ -1142,7 +1165,7 @@ function render(){
   document.getElementById("mainContent").innerHTML=h;
 }
 
-function selExp(i){S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
+function selExp(i){S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,armed:null,impOrder:null,showFull:false,limOpts:null};render();}
 function togFull(){S.showFull=!S.showFull;render();}
 function togLim(id){
   if(S.phase==="done") return;
@@ -1150,27 +1173,50 @@ function togLim(id){
   if(idx>=0) S.selLims.splice(idx,1); else S.selLims.push(id);
   render();
 }
-function goMatch(){if(S.selLims.length<4)return;S.phase="match";S.drops={};render();}
-function backSel(){S.phase="select";render();}
-function dStart(e,id){S.dragImp=id;setTimeout(()=>{const el=document.querySelector(`[data-id="${id}"]`);if(el)el.classList.add("dragging");},0);}
+function goMatch(){if(S.selLims.length<4)return;S.phase="match";S.drops={};S.armed=null;S.impOrder=null;render();}
+function backSel(){S.phase="select";S.armed=null;render();}
+// ---- shared state mutations: the drag path and the tap path both go through these ----
+function placeImp(impId,limId){
+  if(!impId)return;
+  const prev=Object.entries(S.drops).find(([k,v])=>v===impId);
+  if(prev)delete S.drops[prev[0]];
+  S.drops[limId]=impId;S.dragImp=null;S.armed=null;render();
+}
+function returnImp(impId){
+  if(!impId)return;
+  const prev=Object.entries(S.drops).find(([k,v])=>v===impId);
+  if(prev)delete S.drops[prev[0]];
+  S.dragImp=null;S.armed=null;render();
+}
+
+// ---- drag path (mouse only: HTML5 drag-and-drop has no touch backing in any mobile browser) ----
+function dStart(e,id){S.armed=null;S.dragImp=id;setTimeout(()=>{const el=document.querySelector(`[data-id="${id}"]`);if(el)el.classList.add("dragging");},0);}
 function dEnd(){document.querySelectorAll(".imp-chip").forEach(el=>el.classList.remove("dragging"));}
 function dOver(e,id){e.preventDefault();document.getElementById("drop_"+id)?.classList.add("drag-over");}
 function dLeave(e,id){document.getElementById("drop_"+id)?.classList.remove("drag-over");}
-function dropOn(e,limId){
-  e.preventDefault();if(!S.dragImp)return;
-  const prev=Object.entries(S.drops).find(([k,v])=>v===S.dragImp);
-  if(prev)delete S.drops[prev[0]];
-  S.drops[limId]=S.dragImp;S.dragImp=null;render();
+function dropOn(e,limId){e.preventDefault();if(!S.dragImp)return;placeImp(S.dragImp,limId);}
+function dropPool(e){e.preventDefault();if(!S.dragImp)return;returnImp(S.dragImp);}
+
+// ---- tap path: the only path that works on touch, and a valid second path on desktop.
+// Left ungated on purpose - touch feature-detection is unreliable on hybrid devices, and a
+// click handler cannot fire during a drag, so desktop drag behaviour is unaffected. ----
+function armChip(e,id){
+  e.stopPropagation();
+  if(S.phase!=="match")return;
+  S.armed=(S.armed===id)?null:id;
+  render();
 }
-function dropPool(e){
-  e.preventDefault();if(!S.dragImp)return;
-  const prev=Object.entries(S.drops).find(([k,v])=>v===S.dragImp);
-  if(prev)delete S.drops[prev[0]];
-  S.dragImp=null;render();
+function tapDrop(e,limId){
+  e.stopPropagation();
+  if(S.phase!=="match")return;
+  if(S.armed){placeImp(S.armed,limId);return;}
+  const cur=S.drops[limId];
+  if(cur)returnImp(cur);
 }
+function tapPool(){if(S.armed){S.armed=null;render();}}
 function doSubmit(){S.phase="done";CIEGate.track('spotter_answer');render();}
-function doReset(){S={expIdx:S.expIdx,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
-function nextExp(){const i=(S.expIdx+1)%EXP.length;S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,showFull:false,limOpts:null};render();}
+function doReset(){S={expIdx:S.expIdx,phase:"select",selLims:[],drops:{},dragImp:null,armed:null,impOrder:null,showFull:false,limOpts:null};render();}
+function nextExp(){const i=(S.expIdx+1)%EXP.length;S={expIdx:i,phase:"select",selLims:[],drops:{},dragImp:null,armed:null,impOrder:null,showFull:false,limOpts:null};render();}
 render();
 </script>
 
