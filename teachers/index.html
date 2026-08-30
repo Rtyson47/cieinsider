@@ -360,15 +360,11 @@ document.getElementById('year').textContent = new Date().getFullYear();
    signups can be told apart from students. Pattern copied from
    9702/readiness/index.html's CAP_TAG_ID approach.
 
-   TAG_ID is a PLACEHOLDER — 0 means "no tag", i.e. the form still
-   works and still subscribes correctly, it just can't be filtered
-   as a teacher yet. Replace with the real numeric id once the Kit
-   tag `teacher-facing` (or whatever name is confirmed) is created
-   via POST https://api.kit.com/v4/tags — see
-   learnings/cie-kit-bridge-tags.md for the exact method. Never
-   invent an id here; 0/null is the safe default until confirmed.
+   Tag `teacher-facing` created 2026-08-30 via POST /v4/tags and
+   confirmed by re-POSTing (idempotent call, same id and
+   created_at came back both times). Never invent an id here.
    ============================================================ */
-const TEACHER_TAG_ID = 0; // PLACEHOLDER — fill in after Kit tag is created and confirmed
+const TEACHER_TAG_ID = 22896563;
 const TEACHER_FORM = '9454927';
 const TEACHER_KEY = 'BW8jYJD2dFUjrf5y-qjv6g'; // public-class key, same as gate.js and the readiness check
 
