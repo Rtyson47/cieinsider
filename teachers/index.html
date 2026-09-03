@@ -442,18 +442,22 @@ const TEACHER_KEY = 'BW8jYJD2dFUjrf5y-qjv6g'; // public-class key, same as gate.
    ⚠️ Every id below must be READ BACK from the Kit API after
    creating the object. Never type a plausible-looking id here:
    a wrong id fails silently and the whole signal is lost.
-   Created and confirmed: (fill in date once done)
+
+   Created 2026-09-03 via POST /v4/tags and POST /v4/custom_fields
+   (free plan; both endpoints returned 201). Note Kit's tag index
+   lags the write by a minute or two -- the ids below were confirmed
+   by re-reading GET /v4/tags afterwards, not taken from the POST.
    ------------------------------------------------------------ */
-const ROOM_INTEREST_TAG = null;   // tag: teacher-room-interest
-const ROOM_NOTES_FIELD  = null;   // custom field key, e.g. 'teacher_room_notes'
+const ROOM_INTEREST_TAG = 23055302;              // tag: teacher-room-interest
+const ROOM_NOTES_FIELD  = 'teacher_room_notes';  // custom field 1355665, "Teacher room notes"
 const ROOM_WANT_TAGS = {
-  'examiner-qa':    null,   // tag: teacher-room-want-examiner-qa
-  'report-digests': null,   // tag: teacher-room-want-report-digests
-  'resources':      null,   // tag: teacher-room-want-resources
-  'practical':      null,   // tag: teacher-room-want-practical
-  'peers':          null,   // tag: teacher-room-want-peers
-  'student-access': null,   // tag: teacher-room-want-student-access
-  'sessions':       null    // tag: teacher-room-want-sessions
+  'examiner-qa':    23055303,   // tag: teacher-room-want-examiner-qa
+  'report-digests': 23055304,   // tag: teacher-room-want-report-digests
+  'resources':      23055305,   // tag: teacher-room-want-resources
+  'practical':      23055306,   // tag: teacher-room-want-practical
+  'peers':          23055307,   // tag: teacher-room-want-peers
+  'student-access': 23055308,   // tag: teacher-room-want-student-access
+  'sessions':       23055309    // tag: teacher-room-want-sessions
 };
 
 async function teacherSubmit(e){
