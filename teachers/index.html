@@ -182,7 +182,7 @@
   .form-wrap h2 { margin-bottom: 6px; }
   .form-wrap p.fw-sub { font-size: 14px; color: var(--ink-mute); margin: 0 0 20px; line-height: 1.5; }
   .form-row { display: grid; gap: 10px; max-width: 420px; }
-  .form-wrap label { display: none; }
+  .form-wrap .form-row label { display: none; }
   .form-wrap input[type="email"] {
     width: 100%;
     background: #fff;
@@ -215,6 +215,43 @@
   .form-err { font-size: 13px; color: var(--accent-deep); margin-top: 8px; }
   .form-ok { font-size: 14px; color: var(--green); font-weight: 600; }
 
+  /* Teachers' room interest block */
+  .room-block { border-top: 1px solid var(--rule); margin-top: 26px; padding-top: 24px; }
+  .room-block h3 {
+    font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 60; font-weight: 600;
+    font-size: 19px; letter-spacing: -0.01em; margin: 0 0 10px; color: var(--ink);
+  }
+  .room-block p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 8px; max-width: 62ch; }
+  .room-q {
+    font-size: 13px; font-weight: 700; color: var(--ink); margin: 18px 0 10px;
+    letter-spacing: 0.01em;
+  }
+  .room-q span { font-weight: 400; color: var(--ink-mute); }
+  .check-grid { display: grid; gap: 8px; margin: 0 0 18px; }
+  .form-wrap label.check-row {
+    display: flex; align-items: flex-start; gap: 11px;
+    background: #fff; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 11px 14px; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  }
+  .form-wrap label.check-row:hover { border-color: var(--accent-soft); }
+  .form-wrap label.check-row:has(input:checked) { border-color: var(--accent); background: #fffaf7; }
+  .form-wrap label.check-row input[type="checkbox"] {
+    margin: 2px 0 0; width: 16px; height: 16px; flex-shrink: 0;
+    accent-color: var(--accent); cursor: pointer;
+  }
+  .form-wrap label.check-row .cr-text { font-size: 14px; color: var(--ink-soft); line-height: 1.45; }
+  .room-block textarea {
+    width: 100%; background: #fff; border: 1px solid var(--rule); border-radius: 4px;
+    padding: 11px 14px; font-family: 'Inter', sans-serif; font-size: 14px;
+    color: var(--ink); line-height: 1.5; min-height: 76px; resize: vertical; outline: none;
+    transition: border-color 0.15s;
+  }
+  .room-block textarea:focus { border-color: var(--accent-soft); }
+  .room-block textarea::placeholder { color: var(--ink-mute); }
+  .room-block label.room-label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+  .room-block label.room-label span { font-weight: 400; color: var(--ink-mute); }
+  .submit-block { border-top: 1px solid var(--rule); margin-top: 24px; padding-top: 22px; }
+
   footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; margin-top: 8px; position: relative; z-index: 2; }
   .foot-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-mute); gap: 16px; flex-wrap: wrap; }
   footer a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
@@ -227,6 +264,7 @@
     .container { padding: 0 20px; }
     .form-wrap, .spotlight { padding: 24px 20px; }
     .tool-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .form-wrap label.check-row { padding: 12px; }
   }
 </style>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26a2f061d2b54fddaf66dabf1ebd0cfe"}'></script><!-- End Cloudflare Web Analytics -->
@@ -328,14 +366,40 @@
     <h2>Teaching 0625 or 9702?</h2>
     <div class="form-wrap">
       <p class="fw-sub">I'll let you know when something new goes live &mdash; a new trainer, a free tool, or anything else genuinely worth forwarding to a class. Nothing you'll need to sort through yourself.</p>
-      <form id="teacher-form" class="form-row" onsubmit="return teacherSubmit(event)">
-        <label for="teacher-email">Email address</label>
-        <input id="teacher-email" type="email" name="email_address" placeholder="you@school.ac" required>
-        <button id="teacher-btn" type="submit">Keep me posted</button>
-        <span id="teacher-err" class="form-err" style="display:none;"></span>
-        <span id="teacher-ok" class="form-ok" style="display:none;">Done &mdash; check your inbox to confirm.</span>
+
+      <form id="teacher-form" onsubmit="return teacherSubmit(event)">
+
+        <div class="room-block" style="border-top: none; margin-top: 0; padding-top: 0;">
+          <h3>And one question, while you're here</h3>
+          <p>There is no teachers' room on this site. The community I run is for students &mdash; they post their working and I mark it. You would be welcome in it, but it isn't built for you.</p>
+          <p>Whether I build a separate one depends on whether it would actually be useful, so I'd rather ask than guess. Tick anything you'd genuinely use. Skip all of it if you only want the emails.</p>
+
+          <div class="room-q">What would make a teachers' room worth your time? <span>Tick any.</span></div>
+          <div class="check-grid">
+            <label class="check-row"><input type="checkbox" name="want" value="examiner-qa"><span class="cr-text">Ask me how a specific answer would have been marked &mdash; paste the script, get the examiner's read on it</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="report-digests"><span class="cr-text">What the examiner reports actually said, sorted by topic, so you can use it in a lesson</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="resources"><span class="cr-text">Classroom resources you can edit and reuse, not just print</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="practical"><span class="cr-text">Help with the practical papers &mdash; 0625 Paper 5 and 6, 9702 Paper 3 and 5</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="peers"><span class="cr-text">Other people teaching the same syllabus, especially if you're the only physics teacher in your school</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="student-access"><span class="cr-text">A way to send my class in to get their working marked</span></label>
+            <label class="check-row"><input type="checkbox" name="want" value="sessions"><span class="cr-text">Live sessions I could sit in on, or point a class at</span></label>
+          </div>
+
+          <label class="room-label" for="teacher-notes">Anything else that would make it worthwhile? <span>Optional.</span></label>
+          <textarea id="teacher-notes" name="notes" maxlength="400" placeholder="What you'd actually want out of it, or what would stop you using it."></textarea>
+        </div>
+
+        <div class="submit-block">
+          <div class="form-row">
+            <label for="teacher-email">Email address</label>
+            <input id="teacher-email" type="email" name="email_address" placeholder="you@school.ac" required>
+            <button id="teacher-btn" type="submit">Keep me posted</button>
+            <span id="teacher-err" class="form-err" style="display:none;"></span>
+          </div>
+        </div>
       </form>
-      <span class="fine">Unsubscribe in one click, any time.</span>
+      <span id="teacher-ok" class="form-ok" style="display:none;">Thank you &mdash; check your inbox to confirm. If you ticked anything above, it's logged against your name and I'll come back to you on it.</span>
+      <span class="fine">One email address, two purposes: new free tools when they go live, and a message if the teachers' room happens. Unsubscribe in one click, any time.</span>
     </div>
   </div>
 </section>
@@ -368,6 +432,30 @@ const TEACHER_TAG_ID = 22896563;
 const TEACHER_FORM = '9454927';
 const TEACHER_KEY = 'BW8jYJD2dFUjrf5y-qjv6g'; // public-class key, same as gate.js and the readiness check
 
+/* ------------------------------------------------------------
+   TEACHERS' ROOM INTEREST
+   Ticking any box applies ROOM_INTEREST_TAG plus one tag per
+   box, so Kit's tag list reads straight off as a ranked answer
+   to "what would make it worth your time". The free-text answer
+   goes into the Kit custom field named by ROOM_NOTES_FIELD.
+
+   ⚠️ Every id below must be READ BACK from the Kit API after
+   creating the object. Never type a plausible-looking id here:
+   a wrong id fails silently and the whole signal is lost.
+   Created and confirmed: (fill in date once done)
+   ------------------------------------------------------------ */
+const ROOM_INTEREST_TAG = null;   // tag: teacher-room-interest
+const ROOM_NOTES_FIELD  = null;   // custom field key, e.g. 'teacher_room_notes'
+const ROOM_WANT_TAGS = {
+  'examiner-qa':    null,   // tag: teacher-room-want-examiner-qa
+  'report-digests': null,   // tag: teacher-room-want-report-digests
+  'resources':      null,   // tag: teacher-room-want-resources
+  'practical':      null,   // tag: teacher-room-want-practical
+  'peers':          null,   // tag: teacher-room-want-peers
+  'student-access': null,   // tag: teacher-room-want-student-access
+  'sessions':       null    // tag: teacher-room-want-sessions
+};
+
 async function teacherSubmit(e){
   e.preventDefault();
   const input = document.getElementById('teacher-email');
@@ -384,7 +472,25 @@ async function teacherSubmit(e){
   btn.disabled = true;
   btn.textContent = 'One moment...';
   const body = {api_key: TEACHER_KEY, email: email};
-  if(TEACHER_TAG_ID) body.tags = [TEACHER_TAG_ID];
+  const tags = [];
+  if(TEACHER_TAG_ID) tags.push(TEACHER_TAG_ID);
+
+  const ticked = Array.prototype.slice
+    .call(document.querySelectorAll('input[name="want"]:checked'))
+    .map(function(el){ return el.value; });
+  const notes = (document.getElementById('teacher-notes').value || '').trim();
+
+  if(ticked.length || notes){
+    if(ROOM_INTEREST_TAG) tags.push(ROOM_INTEREST_TAG);
+  }
+  ticked.forEach(function(v){
+    if(ROOM_WANT_TAGS[v]) tags.push(ROOM_WANT_TAGS[v]);
+  });
+  if(notes && ROOM_NOTES_FIELD){
+    body.fields = {};
+    body.fields[ROOM_NOTES_FIELD] = notes.slice(0, 400);
+  }
+  if(tags.length) body.tags = tags;
   try{
     await fetch('https://api.convertkit.com/v3/forms/' + TEACHER_FORM + '/subscribe', {
       method: 'POST',
