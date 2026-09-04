@@ -6,7 +6,9 @@
 <title>Physics Help Desk · CIE Insider</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://cieinsider.com/help-desk/">
-<meta http-equiv="refresh" content="0; url=https://www.skool.com/gcse-igcse-physics-help-desk-4125">
+<!-- 3s, not 0s: the no-JS fallback only. Browsers redirect via the script at the bottom,
+     which waits ~1.2s so the Cloudflare beacon can fire. See the comment there. -->
+<meta http-equiv="refresh" content="3; url=https://www.skool.com/gcse-igcse-physics-help-desk-4125">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
@@ -75,18 +77,39 @@
   .home { display:block; margin-top:22px; font-size:14px; color:var(--fg-2); }
   .home a { color:var(--fg-2); }
 </style>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26a2f061d2b54fddaf66dabf1ebd0cfe"}'></script>
 </head>
 <body>
 
 <div class="card">
   <p class="eyebrow">CIE Insider</p>
   <h1>Taking you to the Physics Help Desk</h1>
-  <p>Free physics help for GCSE, IGCSE and A Level, on Skool. If this page does not move on its own, use the button.</p>
+  <p>Free physics help for GCSE, IGCSE and A Level, on Skool. You will be taken there in a moment. If not, use the button.</p>
   <a class="btn" href="https://www.skool.com/gcse-igcse-physics-help-desk-4125">Open the Help Desk</a>
   <span class="home"><a href="https://cieinsider.com">Back to cieinsider.com</a></span>
 </div>
 
-<script>window.location.replace("https://www.skool.com/gcse-igcse-physics-help-desk-4125");</script>
+<!--
+  Why this waits instead of redirecting instantly (added 2026-09-04).
+
+  This page is the click target for every email link to the free Skool room, so it is the only
+  place a REAL human click can be counted. School mail scanners (Mimecast, Proofpoint, Defender
+  Safe Links) fetch every URL in an email before delivery, which inflated Kit's click numbers to
+  roughly 3 clicks per "clicker" across every send: exactly the number of links in the email.
+  Scanners do not execute JavaScript, so a JS-gated beacon counts people and not machines.
+
+  Previously this page redirected with meta refresh at 0s AND an immediate location.replace, and
+  carried no beacon at all. Cloudflare Web Analytics therefore had zero data for it, which read
+  as "the page is not indexed" when in fact nothing had ever been instrumented.
+
+  1200ms gives the deferred beacon time to send. Do not reduce it without checking that
+  Cloudflare still records the pageview.
+-->
+<script>
+  setTimeout(function () {
+    window.location.replace("https://www.skool.com/gcse-igcse-physics-help-desk-4125");
+  }, 1200);
+</script>
 
 </body>
 </html>
