@@ -399,16 +399,16 @@
     '9702':          19669522,
     'teacher':       22896563, // teacher-facing, created 2026-08-30
     // 9702 level — the split nothing on the list has ever recorded honestly
-    'studying-as':   null,     // NEEDS ID
-    'studying-a2':   null,     // NEEDS ID
+    'studying-as':   23100898,     // read back 2026-09-04
+    'studying-a2':   23100899,     // read back 2026-09-04
     // not a Cambridge student. Kept on the list, kept out of the CIE-specific
     // sends: a 0625 drill email to an AQA student is an unsubscribe, and a
     // wrong 0625 count is worse than a smaller true one.
-    'other-exam-board': null,  // NEEDS ID
+    'other-exam-board': 23100901,  // read back 2026-09-04
     // exam window
     'oct_nov_2026':  19669541,
     'may_jun_2027':  19669543,
-    'oct_nov_2027':  null,     // NEEDS ID
+    'oct_nov_2027':  23100900,     // read back 2026-09-04
     'exploring':     19669546,
   };
 
