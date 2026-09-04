@@ -19,7 +19,14 @@
  * so adding the AS/A2 split and a teacher escape hatch cost zero extra taps.
  *
  *   Q1 "What are you studying?"  →  tag 0625 | 9702 (+ studying-as / studying-a2)
- *                                   | teacher-facing
+ *                                   | other-exam-board | teacher-facing
+ *
+ * The 0625 pill reads "0625/0972" because they are the same syllabus: a
+ * full-text diff of both 2026-2028 PDFs found the subject content byte
+ * identical apart from one grade-scale sentence
+ * (cie analysis/0625/0625-vs-0972-syllabus-comparison.md, 2026-08-25). A
+ * separate pill would split the largest cohort over a difference that changes
+ * nothing we send. The label is there so a 9-1 student recognises themselves.
  *   Q2 "When's your next exam?"  →  tag oct_nov_2026 | may_jun_2027 |
  *                                   oct_nov_2027 | exploring   (teachers skip it)
  *
@@ -226,9 +233,10 @@
         <div class="cie-gate-field-group">
           <label class="cie-gate-label">What are you studying?</label>
           <div class="cie-gate-pills" id="cie-gate-syllabus">
-            <button type="button" class="cie-gate-pill" data-value="0625">IGCSE Physics (0625)</button>
+            <button type="button" class="cie-gate-pill" data-value="0625">IGCSE Physics (0625/0972)</button>
             <button type="button" class="cie-gate-pill" data-value="as">AS Physics (9702)</button>
             <button type="button" class="cie-gate-pill" data-value="a2">A2 Physics (9702)</button>
+            <button type="button" class="cie-gate-pill" data-value="other">Another exam board</button>
             <button type="button" class="cie-gate-pill" data-value="teacher">I teach Physics</button>
           </div>
         </div>
@@ -243,10 +251,7 @@
           </div>
         </div>
 
-        <p class="cie-gate-teacher-note" id="cie-gate-teacher-note" hidden>
-          Every trainer on this site is free for your students, and there's a
-          page written for teachers — I'll point you at it once you're in.
-        </p>
+        <p class="cie-gate-note" id="cie-gate-note" hidden></p>
 
         <div class="cie-gate-field-group">
           <label class="cie-gate-label" for="cie-gate-email">Your email</label>
@@ -272,26 +277,45 @@
         pill.addEventListener('click', () => {
           group.querySelectorAll('.cie-gate-pill').forEach(p => p.classList.remove('selected'));
           pill.classList.add('selected');
-          if (group.id === 'cie-gate-syllabus') applyRole(pill.dataset.value === 'teacher');
+          if (group.id === 'cie-gate-syllabus') applyChoice(pill.dataset.value);
         });
       });
     });
 
     /**
+     * Two answers change the rest of the form.
+     *
      * A teacher has no "next exam", so asking them to invent one is how the
-     * exam_window field fills up with noise. Hide the question instead, and
-     * clear anything already chosen so a mid-flow switch can't leave a stale
-     * student answer attached to a teacher.
+     * exam_window field fills up with noise: hide the question, and clear any
+     * answer already given so a mid-flow switch can't leave a stale student
+     * date attached to a teacher.
+     *
+     * Another board still has an exam date, so they keep the question — but
+     * they get told what this site is before they hand over an address. The
+     * note states a fact and promises nothing about what we will or won't
+     * send them, because that is a promise only Rich can keep.
      */
-    function applyRole(isTeacher) {
+    const NOTES = {
+      teacher: "Every trainer on this site is free for your students, and " +
+               "there's a page written for teachers — I'll point you at it " +
+               "once you're in.",
+      other:   "Worth knowing first: everything here is built from Cambridge " +
+               "0625 and 9702 papers. The physics is the same wherever you " +
+               "sit it. The paper structure and the mark schemes are not."
+    };
+
+    function applyChoice(value) {
       const examGroup = overlay.querySelector('#cie-gate-exam-group');
-      const note      = overlay.querySelector('#cie-gate-teacher-note');
+      const note      = overlay.querySelector('#cie-gate-note');
+      const isTeacher = value === 'teacher';
+
       examGroup.hidden = isTeacher;
-      note.hidden      = !isTeacher;
       if (isTeacher) {
         examGroup.querySelectorAll('.cie-gate-pill')
                  .forEach(p => p.classList.remove('selected'));
       }
+      note.textContent = NOTES[value] || '';
+      note.hidden      = !NOTES[value];
     }
 
     overlay.querySelector('#cie-gate-submit').addEventListener('click', handleSubmit);
@@ -358,7 +382,7 @@
    * creation — never type a plausible-looking number here, a wrong id fails
    * silently and the signal is lost for good.
    *
-   * The four marked NEEDS ID are created by
+   * The ones marked NEEDS ID are created by
    *   bash "cie insider/scripts/kit-setup-gate.sh"
    * which writes the real ids back into this file. Until it has been run they
    * stay null and are simply skipped: the gate still tags syllabus and window
@@ -377,6 +401,10 @@
     // 9702 level — the split nothing on the list has ever recorded honestly
     'studying-as':   null,     // NEEDS ID
     'studying-a2':   null,     // NEEDS ID
+    // not a Cambridge student. Kept on the list, kept out of the CIE-specific
+    // sends: a 0625 drill email to an AQA student is an unsubscribe, and a
+    // wrong 0625 count is worse than a smaller true one.
+    'other-exam-board': null,  // NEEDS ID
     // exam window
     'oct_nov_2026':  19669541,
     'may_jun_2027':  19669543,
@@ -399,6 +427,7 @@
     if (studying === '0625')    ids.push(TAG_IDS['0625']);
     if (studying === 'as')      ids.push(TAG_IDS['9702'], TAG_IDS['studying-as']);
     if (studying === 'a2')      ids.push(TAG_IDS['9702'], TAG_IDS['studying-a2']);
+    if (studying === 'other')   ids.push(TAG_IDS['other-exam-board']);
     if (studying === 'teacher') ids.push(TAG_IDS['teacher']);
     if (examWindow)             ids.push(TAG_IDS[examWindow]);
     return ids.filter(id => typeof id === 'number' && id > 0);
@@ -413,7 +442,10 @@
     const isTeacher = studying === 'teacher';
     return {
       role:        isTeacher ? 'teacher' : 'student',
-      syllabus:    isTeacher ? '' : (studying === '0625' ? '0625' : '9702'),
+      syllabus:    isTeacher ? ''
+                 : studying === '0625'  ? '0625'
+                 : studying === 'other' ? 'other'
+                 : '9702',
       level:       (studying === 'as' || studying === 'a2') ? studying : '',
       exam_window: isTeacher ? '' : (examWindow || '')
     };
@@ -585,7 +617,7 @@
         text-align: center;
         margin: 0.6rem 0 0;
       }
-      .cie-gate-teacher-note {
+      .cie-gate-note {
         font-family: 'Inter', sans-serif;
         font-size: 0.82rem;
         line-height: 1.5;
