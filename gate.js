@@ -9,6 +9,45 @@
  *  - Refresh-proof: progress counters persist in localStorage
  *  - One signup unlocks everything across the whole site
  *  - Modal matches CIE Insider design system
+ *  - Asks who you are, not just which paper (teachers get their own answer)
+ *
+ * ─────────────────────────────────────────────────────────────
+ * WHAT THIS COLLECTS, AND WHY EACH PIECE EXISTS
+ * ─────────────────────────────────────────────────────────────
+ *
+ * Two questions, three facts. Question 1 carries syllabus AND level AND role,
+ * so adding the AS/A2 split and a teacher escape hatch cost zero extra taps.
+ *
+ *   Q1 "What are you studying?"  →  tag 0625 | 9702 (+ studying-as / studying-a2)
+ *                                   | other-exam-board | teacher-facing
+ *
+ * The 0625 pill reads "0625/0972" because they are the same syllabus: a
+ * full-text diff of both 2026-2028 PDFs found the subject content byte
+ * identical apart from one grade-scale sentence
+ * (cie analysis/0625/0625-vs-0972-syllabus-comparison.md, 2026-08-25). A
+ * separate pill would split the largest cohort over a difference that changes
+ * nothing we send. The label is there so a 9-1 student recognises themselves.
+ *   Q2 "When's your next exam?"  →  tag oct_nov_2026 | may_jun_2027 |
+ *                                   oct_nov_2027 | exploring   (teachers skip it)
+ *
+ * Everything is written TWICE, on purpose:
+ *
+ *   - as TAGS, because Kit's broadcast filter can always segment on a tag, and
+ *     that is the thing Rich actually clicks when sending;
+ *   - as CUSTOM FIELDS (syllabus, level, exam_window, role), because a field
+ *     holds ONE current value and overwrites on re-submit, while tags only ever
+ *     accumulate. On 2026-09-04 twelve subscribers held two contradictory exam
+ *     windows for exactly that reason.
+ *
+ * ⚠️ A v3 `fields` write is SILENTLY DISCARDED unless the field already exists
+ * in Kit. Before 2026-09-04 this file sent `syllabus` and `exam_window` and Kit
+ * dropped both on every signup since May — the tags are the only reason that
+ * data survived at all. If you add a field here, create it in Kit first:
+ *   bash "cie insider/scripts/kit-setup-gate.sh"
+ *
+ * ⚠️ Never invent a tag id below. Create the tag via the API, then READ IT BACK
+ * (GET /v4/tags) — Kit's tag index lags a write by a minute or two, and a wrong
+ * id fails silently, losing the whole signal.
  *
  * Setup (Claude Code / Cowork — swap these two values):
  *   KIT_API_KEY  → your Kit (ConvertKit) public API key
@@ -187,28 +226,32 @@
         <div class="cie-gate-kicker">FREE ACCESS</div>
         <h2 class="cie-gate-title" id="cie-gate-title">Keep going — it's free.</h2>
         <p class="cie-gate-body">
-          All trainers stay free. Just tell us which paper you're revising so
-          we can send you the right tips at the right time.
+          All trainers stay free. Just tell me what you're working on, so what I
+          send you is the right paper at the right point in the year.
         </p>
 
         <div class="cie-gate-field-group">
-          <label class="cie-gate-label">Which syllabus?</label>
+          <label class="cie-gate-label">What are you studying?</label>
           <div class="cie-gate-pills" id="cie-gate-syllabus">
-            <button type="button" class="cie-gate-pill" data-value="0625">IGCSE Physics (0625)</button>
-            <button type="button" class="cie-gate-pill" data-value="9702">A Level Physics (9702)</button>
-            <button type="button" class="cie-gate-pill" data-value="both">Both</button>
+            <button type="button" class="cie-gate-pill" data-value="0625">IGCSE Physics (0625/0972)</button>
+            <button type="button" class="cie-gate-pill" data-value="as">AS Physics (9702)</button>
+            <button type="button" class="cie-gate-pill" data-value="a2">A2 Physics (9702)</button>
+            <button type="button" class="cie-gate-pill" data-value="other">Another exam board</button>
+            <button type="button" class="cie-gate-pill" data-value="teacher">I teach Physics</button>
           </div>
         </div>
 
-        <div class="cie-gate-field-group">
-          <label class="cie-gate-label">When's your exam?</label>
+        <div class="cie-gate-field-group" id="cie-gate-exam-group">
+          <label class="cie-gate-label">When's your next exam?</label>
           <div class="cie-gate-pills" id="cie-gate-exam">
-            <button type="button" class="cie-gate-pill" data-value="may_jun_2026">May/Jun 2026</button>
             <button type="button" class="cie-gate-pill" data-value="oct_nov_2026">Oct/Nov 2026</button>
             <button type="button" class="cie-gate-pill" data-value="may_jun_2027">May/Jun 2027</button>
-            <button type="button" class="cie-gate-pill" data-value="exploring">Just exploring</button>
+            <button type="button" class="cie-gate-pill" data-value="oct_nov_2027">Oct/Nov 2027</button>
+            <button type="button" class="cie-gate-pill" data-value="exploring">Not sure yet</button>
           </div>
         </div>
+
+        <p class="cie-gate-note" id="cie-gate-note" hidden></p>
 
         <div class="cie-gate-field-group">
           <label class="cie-gate-label" for="cie-gate-email">Your email</label>
@@ -234,30 +277,72 @@
         pill.addEventListener('click', () => {
           group.querySelectorAll('.cie-gate-pill').forEach(p => p.classList.remove('selected'));
           pill.classList.add('selected');
+          if (group.id === 'cie-gate-syllabus') applyChoice(pill.dataset.value);
         });
       });
     });
+
+    /**
+     * Two answers change the rest of the form.
+     *
+     * A teacher has no "next exam", so asking them to invent one is how the
+     * exam_window field fills up with noise: hide the question, and clear any
+     * answer already given so a mid-flow switch can't leave a stale student
+     * date attached to a teacher.
+     *
+     * Another board still has an exam date, so they keep the question — but
+     * they get told what this site is before they hand over an address. The
+     * note states a fact and promises nothing about what we will or won't
+     * send them, because that is a promise only Rich can keep.
+     */
+    const NOTES = {
+      teacher: "Every trainer on this site is free for your students, and " +
+               "there's a page written for teachers — I'll point you at it " +
+               "once you're in.",
+      other:   "Worth knowing first: everything here is built from Cambridge " +
+               "0625 and 9702 papers. The physics is the same wherever you " +
+               "sit it. The paper structure and the mark schemes are not."
+    };
+
+    function applyChoice(value) {
+      const examGroup = overlay.querySelector('#cie-gate-exam-group');
+      const note      = overlay.querySelector('#cie-gate-note');
+      const isTeacher = value === 'teacher';
+
+      examGroup.hidden = isTeacher;
+      if (isTeacher) {
+        examGroup.querySelectorAll('.cie-gate-pill')
+                 .forEach(p => p.classList.remove('selected'));
+      }
+      note.textContent = NOTES[value] || '';
+      note.hidden      = !NOTES[value];
+    }
 
     overlay.querySelector('#cie-gate-submit').addEventListener('click', handleSubmit);
     overlay.querySelector('#cie-gate-email').addEventListener('keydown', e => {
       if (e.key === 'Enter') handleSubmit();
     });
 
-    setTimeout(() => overlay.querySelector('#cie-gate-email').focus(), 100);
+    // Guarded: the overlay can be gone (or its innards replaced by the teacher
+    // confirmation) before this fires, and an unguarded focus() throws then.
+    setTimeout(() => overlay.querySelector('#cie-gate-email')?.focus(), 100);
   }
 
   async function handleSubmit() {
     const email      = document.querySelector('#cie-gate-email').value.trim();
-    const syllabus   = document.querySelector('#cie-gate-syllabus .selected')?.dataset.value;
+    const studying   = document.querySelector('#cie-gate-syllabus .selected')?.dataset.value;
     const examWindow = document.querySelector('#cie-gate-exam .selected')?.dataset.value;
     const errorEl    = document.querySelector('#cie-gate-error');
     const submitBtn  = document.querySelector('#cie-gate-submit');
+    const isTeacher  = studying === 'teacher';
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       showError('Please enter a valid email address.'); return;
     }
-    if (!syllabus)   { showError('Please select a syllabus.'); return; }
-    if (!examWindow) { showError('Please select your exam window.'); return; }
+    if (!studying) { showError('Please tell me what you\'re studying.'); return; }
+    if (!isTeacher && !examWindow) {
+      showError('Please pick when your next exam is.'); return;
+    }
 
     submitBtn.textContent = 'Saving…';
     submitBtn.disabled = true;
@@ -272,8 +357,8 @@
           body: JSON.stringify({
             api_key: KIT_API_KEY,
             email,
-            tags: buildTags(syllabus, examWindow),
-            fields: { syllabus, exam_window: examWindow }
+            tags: buildTags(studying, examWindow),
+            fields: buildFields(studying, examWindow)
           })
         }
       );
@@ -283,7 +368,7 @@
       console.log('Kit response body:', responseBody);
 
       unlock();
-      closeModal();
+      if (isTeacher) { showTeacherDone(); } else { closeModal(); }
 
     } catch (err) {
       submitBtn.textContent = 'Continue for free →';
@@ -292,21 +377,103 @@
     }
   }
 
-  function buildTags(syllabus, examWindow) {
-    /**
-     * Create matching tags in Kit, then paste their numeric IDs here.
-     * Replace each 0 with the real Kit tag ID.
-     */
-    const TAG_IDS = {
-      '0625':         19669519,
-      '9702':         19669522,
-      'both':         19669536,
-      'may_jun_2026': 19669537,
-      'oct_nov_2026': 19669541,
-      'may_jun_2027': 19669543,
-      'exploring':    19669546,
+  /**
+   * Kit tag ids. Every one of these was read back from GET /v4/tags after
+   * creation — never type a plausible-looking number here, a wrong id fails
+   * silently and the signal is lost for good.
+   *
+   * The ones marked NEEDS ID are created by
+   *   bash "cie insider/scripts/kit-setup-gate.sh"
+   * which writes the real ids back into this file. Until it has been run they
+   * stay null and are simply skipped: the gate still tags syllabus and window
+   * correctly, it just can't record the AS/A2 split. Degraded, never broken.
+   *
+   * Naming note: oct_nov_2027 is snake_case, against the kebab-case rule for
+   * new tags in CLAUDE.md. Deliberate — it joins a family of four exam-window
+   * tags and a lone kebab sibling would read as a different kind of thing in
+   * Kit's segment picker.
+   */
+  const TAG_IDS = {
+    // syllabus / role
+    '0625':          19669519,
+    '9702':          19669522,
+    'teacher':       22896563, // teacher-facing, created 2026-08-30
+    // 9702 level — the split nothing on the list has ever recorded honestly
+    'studying-as':   23100898,     // read back 2026-09-04
+    'studying-a2':   23100899,     // read back 2026-09-04
+    // not a Cambridge student. Kept on the list, kept out of the CIE-specific
+    // sends: a 0625 drill email to an AQA student is an unsubscribe, and a
+    // wrong 0625 count is worse than a smaller true one.
+    'other-exam-board': 23100901,  // read back 2026-09-04
+    // exam window
+    'oct_nov_2026':  19669541,
+    'may_jun_2027':  19669543,
+    'oct_nov_2027':  23100900,     // read back 2026-09-04
+    'exploring':     19669546,
+  };
+
+  /**
+   * RETIRED, kept as a record so nobody re-adds them:
+   *   both         19669536 — 8 of its 12 holders also picked "just exploring",
+   *                           i.e. it was being used as the escape hatch that
+   *                           "I teach Physics" now provides properly.
+   *   may_jun_2026 19669537 — that series is in the past. It was still on offer
+   *                           in September 2026 and four people picked it.
+   * Existing subscribers keep both tags. Nothing new writes them.
+   */
+
+  function buildTags(studying, examWindow) {
+    const ids = [];
+    if (studying === '0625')    ids.push(TAG_IDS['0625']);
+    if (studying === 'as')      ids.push(TAG_IDS['9702'], TAG_IDS['studying-as']);
+    if (studying === 'a2')      ids.push(TAG_IDS['9702'], TAG_IDS['studying-a2']);
+    if (studying === 'other')   ids.push(TAG_IDS['other-exam-board']);
+    if (studying === 'teacher') ids.push(TAG_IDS['teacher']);
+    if (examWindow)             ids.push(TAG_IDS[examWindow]);
+    return ids.filter(id => typeof id === 'number' && id > 0);
+  }
+
+  /**
+   * Custom fields. A field overwrites on re-submit where a tag only ever
+   * accumulates, so this is the copy to trust when someone answers twice.
+   * Silently discarded by Kit unless the field exists — see the header.
+   */
+  function buildFields(studying, examWindow) {
+    const isTeacher = studying === 'teacher';
+    return {
+      role:        isTeacher ? 'teacher' : 'student',
+      syllabus:    isTeacher ? ''
+                 : studying === '0625'  ? '0625'
+                 : studying === 'other' ? 'other'
+                 : '9702',
+      level:       (studying === 'as' || studying === 'a2') ? studying : '',
+      exam_window: isTeacher ? '' : (examWindow || '')
     };
-    return [TAG_IDS[syllabus], TAG_IDS[examWindow]].filter(id => id > 0);
+  }
+
+  /**
+   * Teachers get a different close: the modal stays up long enough to hand
+   * them the page that was written for them. Students just get their trainer
+   * back, which is what they were in the middle of.
+   */
+  function showTeacherDone() {
+    const modal = document.querySelector('.cie-gate-modal');
+    if (!modal) return;
+    modal.innerHTML = `
+      <div class="cie-gate-kicker">YOU'RE IN</div>
+      <h2 class="cie-gate-title">Thanks — everything's unlocked.</h2>
+      <p class="cie-gate-body">
+        Every trainer here is free for your students, and there's a page about
+        what I'm building for teachers: examiner report digests, and a room to
+        ask me things directly.
+      </p>
+      <a class="cie-gate-submit" id="cie-gate-teacher-link" href="/teachers/">See the teachers' page →</a>
+      <p class="cie-gate-disclaimer">
+        <a href="#" id="cie-gate-teacher-close">or carry on where you were</a>
+      </p>
+    `;
+    modal.querySelector('#cie-gate-teacher-close')
+         .addEventListener('click', e => { e.preventDefault(); closeModal(); });
   }
 
   function closeModal() {
@@ -450,6 +617,24 @@
         text-align: center;
         margin: 0.6rem 0 0;
       }
+      .cie-gate-note {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: #4a3f35;
+        background: rgba(184, 137, 58, 0.10);
+        border-left: 2px solid #b8893a;
+        padding: 0.7rem 0.85rem;
+        margin: 0 0 1.25rem;
+      }
+      a.cie-gate-submit {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      .cie-gate-disclaimer a { color: #8a7a6e; }
+      .cie-gate-disclaimer a:hover { color: #a83b1f; }
       .cie-gate-error {
         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
