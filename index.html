@@ -302,6 +302,19 @@
     color: var(--ink-mute);
     font-weight: 600;
   }
+  .syllabus-head .syllabus-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid transparent;
+  }
+  .syllabus-head .syllabus-link:hover { border-bottom-color: var(--accent-soft); }
+  @media (max-width: 560px) {
+    .syllabus-head { flex-wrap: wrap; gap: 10px; }
+    .syllabus-head .syllabus-link { white-space: normal; }
+  }
 
   .tile-grid {
     display: grid;
@@ -665,6 +678,7 @@
         <span class="code">0625</span>
         <span class="level">IGCSE</span>
       </div>
+      <a class="syllabus-link" href="/0625/">Papers &amp; assessment &rarr;</a>
     </div>
 
     <div class="tile-grid">
@@ -730,7 +744,7 @@
       </a>
 
     </div>
-    <p class="row-note">More 0625 trainers in development.</p>
+    <p class="row-note">More 0625 trainers in development. New here? Start with <a href="/0625/" style="color:var(--accent);font-style:normal;font-weight:600;text-decoration:none;">the 0625 paper guide</a>.</p>
   </section>
 
   <!-- =================== 9702 =================== -->
@@ -741,6 +755,7 @@
         <span class="code">9702</span>
         <span class="level">AS & A Level</span>
       </div>
+      <a class="syllabus-link" href="/9702/">Papers &amp; assessment &rarr;</a>
     </div>
 
     <div class="tile-grid">
@@ -846,7 +861,7 @@
       </a>
 
     </div>
-    <p class="row-note">More 9702 trainers in development.</p>
+    <p class="row-note">More 9702 trainers in development. New here? Start with <a href="/9702/" style="color:var(--accent);font-style:normal;font-weight:600;text-decoration:none;">the 9702 paper guide</a>.</p>
   </section>
 
   <!-- =================== REFERENCE =================== -->

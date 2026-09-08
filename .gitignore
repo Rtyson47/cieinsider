@@ -7,7 +7,11 @@
 
 # Internal verification reports: they quote blockers, unverified-claim post-mortems and
 # accountant/VAT notes. They belong next to the asset for working purposes, never on the site.
+# Both name shapes: the older `verification-report.md` and the dated `VERIFICATION-*.md` form.
+# The second pattern was added 2026-09-08 after a dated report slipped past the first one and
+# was committed into the web root.
 **/verification-report.md
+**/VERIFICATION-*.md
 
 # Archived page versions, kept per the versioning convention. Useful in the workspace, but in a
 # web root they are publicly readable orphan pages carrying superseded copy.
