@@ -2,50 +2,111 @@
 <html lang="en">
 <head>
 <!--
-  /marked/ - LIVE from 2026-09-11. noindex by design (see below). Copy revision v2.
+  /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v3.
 
-  THE OFFER: the first five Physics scripts received get marked free, 0625 or 9702, full past
-  paper preferred. Condition of the free marking: anonymised reuse in a paid product later.
+  THE OFFER: a Cambridge Physics past paper attempt marked mark by mark against the published
+  scheme, 0625 or 9702. The first five received are marked free; the paid version is not priced
+  yet. Condition of the free marking: anonymised reuse in a paid product later.
 
-  Why it exists, and why it is not a lead magnet: two paid tests have returned zero (bridge at
-  GBP 39/99, membership at USD 39/69) and zero is equally consistent with no-demand, wrong-price,
-  wrong-product and no-trust. Those have opposite fixes and nothing on file separates them. This
-  offer asks for effort instead of money, which does separate them, for five hours of marking.
-  It is also the supply chain for the GBP 17 annotated-script product: ask for questions and you
-  get questions, which cannot be annotated into a sellable full paper.
-  Full reasoning: product-strategy/10-consumable-audit-2026-09-11.md (addendum A4) and
-  product-strategy/11-marking-products-spec-2026-09-11.md.
+  INDEXING - CHANGED 2026-09-11, and the reasoning matters if anyone revisits it.
+  This was first built noindex on the argument that a bounded offer which closes should not
+  still be ranking in three months. Rich overruled it, correctly: the marking is a standing arm
+  of the business with seasonal peaks and troughs, not a one-off promotion, and the page will
+  keep pointing at whichever exam window is next. A standing service page should rank.
+  So: index,follow + full OG/Twitter + JSON-LD (BreadcrumbList, Service, FAQPage) + a sitemap
+  entry + a homepage tile, all added the same day.
+  CONSEQUENCE, and this is the maintenance cost of the decision: the page copy must stay
+  evergreen. "in September plenty of you will not have covered enough" became "early in the
+  course". Do NOT reintroduce a specific series, month or deadline into this page - the dated
+  material belongs in the broadcast (cie insider/emails/m1-five-free-scripts.html), which can be
+  rewritten per window at no SEO cost. If a countdown is ever wanted on-page, it needs to be one
+  clearly-marked line that someone remembers to update, and nothing else.
+  NOTE: no price is in the JSON-LD. Service rather than Product/Offer, deliberately, because the
+  paid price is not decided. When it is, add an Offer with the real price and currency.
 
-  NOINDEX IS DELIBERATE, not an oversight. A bounded offer that closes should not still be
-  ranking in three months. Consequently it is NOT in sitemap.xml and NOT in global nav. Traffic
-  comes from the broadcast (cie insider/emails/m1-five-free-scripts.html) and both Skool rooms.
-  If the offer becomes standing rather than bounded, THEN: switch to index, add a sitemap entry
-  with that day's lastmod, and link it from the homepage or a hub page.
+  COPY v2 (2026-09-11): every promise not to sell was removed - it previously said "nothing sold
+  in the reply" and "no sequence attached to this and no call to book". Rich: do not make
+  promises he may not keep. Step 4 now says he will mention something if it would help and the
+  reader can ignore it. Also a direct-prose pass: "the marks live in the working" -> "most of the
+  marks are in the working"; "scripts that land in my inbox" -> "scripts I receive"; "a number I
+  can stand behind" -> "five hours is what I can give"; "not one of them embarrassed me" ->
+  "plenty of them weak, and it is just the work".
 
-  COPY v2 (2026-09-11), two changes on Rich's instruction:
-    1. Every promise not to sell removed. It previously said "nothing sold in the reply" and
-       "no sequence attached to this and no call to book". Rich: do not make promises he may not
-       keep. Step 4 now says he will mention something if it would help, and the reader can
-       ignore it. Matches the standing rule that selling caution is not accuracy caution.
-    2. direct-prose pass: "the marks live in the working" -> "most of the marks are in the
-       working"; "scripts that land in my inbox" -> "scripts I receive"; "a number I can stand
-       behind" -> "five hours is what I can give"; "marks get lost in patterns" -> "you usually
-       lose marks the same way more than once"; "not one of them embarrassed me" -> "plenty of
-       them weak, and it is just the work"; "this is the other half" -> "this tells you".
+  COPY v3 (2026-09-11): contractions throughout, on Rich's instruction, so it reads spoken rather
+  than written. Straight apostrophes only - the funnel grep gate bans curly quotes, not
+  apostrophes.
 
   STILL OPEN (Rich's calls, escalation rule 5 / rule 6):
-    - The paid per-script product: price per paper vs flat GBP 25 (spec section 9.2), and the
-      5-pack at GBP 99 vs 109 vs 125-with-review (spec sections 5.1, 8.3). No price appears here.
+    - The paid per-script price: per-paper vs flat GBP 25 (spec 9.2), and the 5-pack at GBP 99 vs
+      109 vs 125-with-review (spec 5.1, 8.3). Blocked on Stripe links regardless.
     - Kit tag for senders. Proposed marked-script-2026-09, kebab-case. NOT created.
-    - Grade thresholds: Rich is acquiring them. Once on disk, a grade-band line can be added for
-      full past papers ONLY, and never an A* or an overall grade (spec section 9.4).
+    - Grade thresholds: being acquired. Once on disk, a grade-band line can be added for full
+      past papers ONLY, never an A* and never an overall grade (spec 9.4).
 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Send a paper, get it marked | CIE Insider</title>
-<meta name="description" content="DRAFT, not decided. Send a Cambridge Physics paper you have attempted and get it back marked the way Cambridge marks it. Free, first five received.">
-<meta name="robots" content="noindex,nofollow">
+<title>Get Your Physics Paper Marked by an Examiner | CIE Insider</title>
+<meta name="description" content="Send a Cambridge Physics past paper you have attempted, 0625 or 9702, and get it back marked mark by mark against the real scheme.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://cieinsider.com/marked/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cieinsider.com/marked/">
+<meta property="og:title" content="Get Your Physics Paper Marked by an Examiner | CIE Insider">
+<meta property="og:description" content="Send a Cambridge Physics past paper you have attempted, 0625 or 9702. Every mark located, earned or lost, and what the scheme wanted instead.">
+<meta property="og:image" content="https://cieinsider.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get Your Physics Paper Marked by an Examiner | CIE Insider">
+<meta name="twitter:description" content="Send a Cambridge Physics paper you have attempted. Every mark located, and what the scheme wanted instead.">
+<meta name="twitter:image" content="https://cieinsider.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cieinsider.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Get your paper marked", "item": "https://cieinsider.com/marked/" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Cambridge Physics paper marking",
+      "serviceType": "Exam paper marking and feedback",
+      "description": "A Cambridge Physics past paper attempt marked mark by mark against the published mark scheme, by a teacher who marked 9702 and 0625 for Cambridge. Every mark located, earned or lost, with what the mark scheme wanted instead.",
+      "provider": { "@type": "Organization", "name": "CIE Insider", "url": "https://cieinsider.com/" },
+      "areaServed": "Worldwide",
+      "audience": { "@type": "EducationalAudience", "educationalRole": "student" },
+      "url": "https://cieinsider.com/marked/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does it have to be a whole paper?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A whole paper is better, because you usually lose marks the same way more than once and one question is not enough to show that. But a single question is genuinely useful too, and early in the course plenty of students have not covered enough of the syllabus for a full paper." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my answer is bad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Then it is a more useful script to mark than a good one. The only script that cannot be marked usefully is a blank one." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which syllabuses can be marked?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cambridge IGCSE Physics 0625 and Cambridge International AS and A Level Physics 9702. Any question from a Cambridge paper between 2021 and 2025, because every question paper and mark scheme across that span is held on file." }
+        },
+        {
+          "@type": "Question",
+          "name": "What comes back?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The paper marked against the published mark scheme, mark by mark: where each mark was earned, where it was lost, and in the lost cases what the scheme was actually looking for. Plus the single thing to fix first." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
@@ -155,8 +216,8 @@ footer a{color:var(--fg-2)}
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow"><span class="dot"></span>Cambridge Physics 0625 and 9702 &middot; First five received</span>
-      <h1>Send me a paper. I will mark it properly.</h1>
-      <p class="lead">Send a full past paper you have already sat &mdash; your own working, photos of your handwriting are fine. You will get it back with every mark accounted for, earned or lost, and what the mark scheme wanted instead of what you wrote. Not covered enough for a full paper yet? Send one question. The first five that reach me get marked, free.</p>
+      <h1>Send me a paper. I'll mark it properly.</h1>
+      <p class="lead">Send a full past paper you've already sat &mdash; your own working, photos of your handwriting are fine. You'll get it back with every mark accounted for, earned or lost, and what the mark scheme wanted instead of what you wrote. Not covered enough for a full paper yet? Send one question. The first five that reach me get marked, free.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Send your paper</a>
         <a class="btn btn-secondary" href="#how">How it works</a>
@@ -167,7 +228,7 @@ footer a{color:var(--fg-2)}
 
   <section class="proof">
     <div class="wrap">
-      <p>I am Rich. I marked A Level Physics (9702) and IGCSE Physics (0625) for Cambridge, and I have read every examiner report Cambridge published for both from 2021 to 2026. I am not currently contracted as a Cambridge examiner. What I am offering here is the marking itself, done the way I did it.</p>
+      <p>I'm Rich. I marked A Level Physics (9702) and IGCSE Physics (0625) for Cambridge, and I've read every examiner report Cambridge published for both from 2021 to 2026. I'm not currently contracted as a Cambridge examiner. What I'm offering here is the marking itself, done the way I did it.</p>
     </div>
   </section>
 
@@ -177,16 +238,16 @@ footer a{color:var(--fg-2)}
       <div class="gap-grid">
         <div class="gap-item">
           <strong>What you send</strong>
-          <p>Ideally a full past paper you have attempted, with your working as you actually wrote it. If you have not covered enough of the syllabus yet, one question is fine. Not a blank paper, and not a tidied-up version. Most of the marks are in the working, so the messy original is the one I need.</p>
+          <p>Ideally a full past paper you've attempted, with your working as you actually wrote it. If you've not covered enough of the syllabus yet, one question is fine. Not a blank paper, and not a tidied-up version. Most of the marks are in the working, so the messy original is the one I need.</p>
           <p class="covers">0625 or 9702 &middot; full paper preferred &middot; photo or scan</p>
         </div>
         <div class="gap-item">
           <strong>What comes back</strong>
-          <p>Your answer marked against the published mark scheme, mark by mark. Where each one was earned, where it was lost, and in the lost cases what the scheme was actually looking for. Plus the single thing I would fix first.</p>
+          <p>Your answer marked against the published mark scheme, mark by mark. Where each one was earned, where it was lost, and in the lost cases what the scheme was actually looking for. Plus the single thing I'd fix first.</p>
           <p class="covers">Written &middot; within a week, usually sooner</p>
         </div>
         <div class="gap-item">
-          <strong>What it is not</strong>
+          <strong>What it's not</strong>
           <p>Not a tutorial, not a worked solution, and not a re-teach of the topic. You can get the physics explained in a dozen places for free. This tells you what your answer was worth to the person marking it.</p>
           <p class="covers">No lesson &middot; your paper, not a model answer</p>
         </div>
@@ -202,13 +263,13 @@ footer a{color:var(--fg-2)}
   <section class="sec" id="five">
     <div class="wrap">
       <h2>Why five, why free, and the one condition</h2>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">There are no places to claim and no form to fill in. The first five scripts I receive get marked. Marking properly, mark by mark against a real scheme, takes about an hour a script, so five is five hours, and five hours is what I can give this week. I would rather promise five and do them properly than promise fifty and do them badly.</p>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Free, because everything on this site so far <em>describes</em> what examiner marking is like, and describing it does not work. Doing it once, on your paper, does. If it turns out to be worth having, I will work out how to offer it properly rather than five at a time. If nobody wants it, that is worth knowing too, and it cost me an evening to find out.</p>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When the five are gone I will say so on this page rather than quietly keep taking them.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">There are no places to claim and no form to fill in. The first five scripts I receive get marked. Marking properly, mark by mark against a real scheme, takes about an hour a script, so five is five hours, and five hours is what I can give this week. I'd rather promise five and do them properly than promise fifty and do them badly.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Free, because everything on this site so far <em>describes</em> what examiner marking is like, and describing it doesn't work. Doing it once, on your paper, does. If it turns out to be worth having, I'll work out how to offer it properly rather than five at a time. If nobody wants it, that's worth knowing too, and it cost me an evening to find out.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When the five are gone I'll say so on this page rather than quietly keep taking them.</p>
 
       <div class="tip">
         <div class="k">The one condition</div>
-        <p>If you send me work for free marking, you are agreeing that I can use it anonymised in a paid product later &mdash; retyped, so no handwriting, no name, no candidate number, no school. I will still come back and check with you before I use your script specifically. If you would rather I did not use your work at all, say so when you send it and I will mark it anyway. That is the exchange: you get an hour of examiner marking, and I get to show other students where real answers lose marks.</p>
+        <p>If you send me work for free marking, you're agreeing that I can use it anonymised in a paid product later &mdash; retyped, so no handwriting, no name, no candidate number, no school. I'll still come back and check with you before I use your script specifically. If you would rather I didn't use your work at all, say so when you send it and I'll mark it anyway. That's the exchange: you get an hour of examiner marking, and I get to show other students where real answers lose marks.</p>
       </div>
     </div>
   </section>
@@ -217,10 +278,10 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <h2>How it works</h2>
       <div class="steps">
-        <div class="step"><span class="num"></span><p><strong>Email it to rich@cieinsider.com</strong> with the subject &ldquo;Mark my paper&rdquo;. Attach photos or a scan of your attempt. Tell me which paper it is &mdash; 9702 Paper 4, June 2024, variant 1 &mdash; and if you are not sure, send it anyway and I will work it out.</p></div>
-        <div class="step"><span class="num"></span><p><strong>I mark it against the published scheme.</strong> Mark by mark, in writing, the same way a script came back when I was marking. If the examiner report for that series commented on your question, I will tell you what it said.</p></div>
-        <div class="step"><span class="num"></span><p><strong>It comes back within a week</strong>, usually sooner. One email, nothing you need special software to open, nothing you have to reply to.</p></div>
-        <div class="step"><span class="num"></span><p><strong>Then you decide what to do with it.</strong> I will tell you the one thing I would work on next. If something I do would help with that, I will say so, and you are free to ignore it.</p></div>
+        <div class="step"><span class="num"></span><p><strong>Email it to rich@cieinsider.com</strong> with the subject &ldquo;Mark my paper&rdquo;. Attach photos or a scan of your attempt. Tell me which paper it's &mdash; 9702 Paper 4, June 2024, variant 1 &mdash; and if you're not sure, send it anyway and I'll work it out.</p></div>
+        <div class="step"><span class="num"></span><p><strong>I mark it against the published scheme.</strong> Mark by mark, in writing, the same way a script came back when I was marking. If the examiner report for that series commented on your question, I'll tell you what it said.</p></div>
+        <div class="step"><span class="num"></span><p><strong>It comes back within a week</strong>, usually sooner. One email, nothing you need special software to open, nothing you've to reply to.</p></div>
+        <div class="step"><span class="num"></span><p><strong>Then you decide what to do with it.</strong> I'll tell you the one thing I'd work on next. If something I do would help with that, I'll say so, and you're free to ignore it.</p></div>
       </div>
     </div>
   </section>
@@ -229,19 +290,19 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <h2>Questions</h2>
       <details><summary>Is this really free?<span></span></summary><p>Yes. No card, no trial that starts billing, no account to make. You email me an answer and I email you back a marked one.</p></details>
-      <details><summary>Does it have to be a whole paper?<span></span></summary><p>A whole paper is better, because you usually lose marks the same way more than once, and one question is not enough to show that. But a single question is genuinely useful too, and in September plenty of you will not have covered enough of the syllabus for a full paper. Send what you have.</p></details>
-      <details><summary>What if my answer is bad?<span></span></summary><p>Then it is a more useful script to mark than a good one. I have marked thousands of these, plenty of them weak, and it is just the work. The only script I cannot do anything with is a blank one.</p></details>
-      <details><summary>What if the five have already gone?<span></span></summary><p>Send it anyway. I will tell you straight away rather than leaving you waiting, and if enough people ask I will work out how to offer it properly. I will not pretend a place is free when it is not.</p></details>
-      <details><summary>0625 or 9702?<span></span></summary><p>Either. I marked both for Cambridge and have read every examiner report for both from 2021 to 2026. Say which one you are doing when you send it.</p></details>
-      <details><summary>Will you use my work for anything?<span></span></summary><p>Yes, possibly, and that is the condition of the free marking &mdash; it is set out above. It would be anonymised: retyped, so no handwriting, no name, no candidate number and no school. I will also come back and check with you before I use your script specifically. If you would rather I did not use your work at all, say so when you send it and I will still mark it; I would just rather you told me than assumed.</p></details>
-      <details><summary>What happens to my email address?<span></span></summary><p>It goes on my list, which is where I send physics emails roughly weekly, and there is an unsubscribe link on every one of them. I do not sell it and nobody else sees it.</p></details>
+      <details><summary>Does it have to be a whole paper?<span></span></summary><p>A whole paper is better, because you usually lose marks the same way more than once, and one question isn't enough to show that. But a single question is genuinely useful too, and early in the course plenty of you'll not have covered enough of the syllabus for a full paper. Send what you've.</p></details>
+      <details><summary>What if my answer is bad?<span></span></summary><p>Then it's a more useful script to mark than a good one. I've marked thousands of these, plenty of them weak, and it's just the work. The only script I can't do anything with is a blank one.</p></details>
+      <details><summary>What if the five have already gone?<span></span></summary><p>Send it anyway. I'll tell you straight away rather than leaving you waiting, and if enough people ask I'll work out how to offer it properly. I'll not pretend a place is free when it's not.</p></details>
+      <details><summary>0625 or 9702?<span></span></summary><p>Either. I marked both for Cambridge and have read every examiner report for both from 2021 to 2026. Say which one you're doing when you send it.</p></details>
+      <details><summary>Will you use my work for anything?<span></span></summary><p>Yes, possibly, and that's the condition of the free marking &mdash; it's set out above. It would be anonymised: retyped, so no handwriting, no name, no candidate number and no school. I'll also come back and check with you before I use your script specifically. If you would rather I didn't use your work at all, say so when you send it and I'll still mark it; I'd just rather you told me than assumed.</p></details>
+      <details><summary>What happens to my email address?<span></span></summary><p>It goes on my list, which is where I send physics emails roughly weekly, and there's an unsubscribe link on every one of them. I don't sell it and nobody else sees it.</p></details>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
       <h2>Send me a paper</h2>
-      <p>A full past paper you have attempted, 0625 or 9702, or one question if you are not that far yet. Photos of your handwriting are fine. The first five that arrive get marked.</p>
+      <p>A full past paper you've attempted, 0625 or 9702, or one question if you're not that far yet. Photos of your handwriting are fine. The first five that arrive get marked.</p>
       <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Email it to rich@cieinsider.com</a>
     </div>
   </section>
