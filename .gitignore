@@ -13,6 +13,16 @@
 **/verification-report.md
 **/VERIFICATION-*.md
 
+# Handover and working notes. Same reason as the verification reports above, and the same lesson
+# learned twice already in this file: an ignore rule written for one name shape is a rule about
+# one name shape. `SEO-NOTES-0972-2026-09-04.md` and `marked/HANDOVER-2026-09-11.md` were both
+# committed and were publicly fetchable at cieinsider.com/<path> until 2026-09-11; they are now
+# untracked but still present on disk. These three patterns cover every shape the convention
+# produces (`SEO-NOTES.md`, `SEO-NOTES-0972-2026-09-04.md`, `HANDOVER-2026-09-11.md`).
+**/HANDOVER-*.md
+**/*-NOTES.md
+**/*-NOTES-*.md
+
 # Archived page versions, kept per the versioning convention. Useful in the workspace, but in a
 # web root they are publicly readable orphan pages carrying superseded copy.
 **/_v[0-9]*.html
