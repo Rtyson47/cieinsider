@@ -1200,7 +1200,7 @@ h1.cie-page-title em {
       <button class="mode-card" data-mode="spotter" onclick="startMode('spotter')">
         <div class="mode-number">02 · SPOTTER</div>
         <div class="mode-name">What's wrong here?</div>
-        <p class="mode-desc">Real candidate answers from past exams. Identify the mistake the examiner flagged. Trains the eye for what loses marks.</p>
+        <p class="mode-desc">Real candidate answers from past exams. Identify the mistake the examiner flagged. Trains you to notice what loses marks.</p>
         <div class="mode-meta">8 scenarios</div>
       </button>
 
@@ -1926,7 +1926,7 @@ function showResults() {
   let msg = '';
   if (pct === 1) msg = 'Flawless. You\'re thinking like an examiner.';
   else if (pct >= 0.8) msg = 'Strong performance. The weak spots below are worth a second pass.';
-  else if (pct >= 0.6) msg = 'A solid foundation, but several rules need reinforcement. Focus on the skills below.';
+  else if (pct >= 0.6) msg = 'Good basic understanding, but several rules need more practice. Focus on the skills below.';
   else if (pct >= 0.4) msg = 'You\'re catching the major patterns. Take your time, re-read the rules, and try again.';
   else msg = 'Worth working through the revision guide before retrying. The skills below are where to start.';
   document.getElementById('resultsMessage').textContent = msg;

@@ -10,11 +10,11 @@
 <meta property="og:url" content="https://cieinsider.com/9702/readiness/">
 <meta property="og:site_name" content="CIE Insider">
 <meta property="og:title" content="Are You Ready for Cambridge AS Physics? Readiness Check (9702) | CIE Insider">
-<meta property="og:description" content="Ten quick questions on the maths and unit skills AS Physics assumes you already have — see where you're solid and where a summer warm-up would pay off.">
+<meta property="og:description" content="Ten quick questions on the maths and unit skills AS Physics assumes you already have — see where you're solid and where some practice over the summer would help.">
 <meta property="og:image" content="https://cieinsider.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Are You Ready for Cambridge AS Physics? Readiness Check (9702) | CIE Insider">
-<meta name="twitter:description" content="Ten quick questions on the maths and unit skills AS Physics assumes you already have — see where you're solid and where a summer warm-up would pay off.">
+<meta name="twitter:description" content="Ten quick questions on the maths and unit skills AS Physics assumes you already have — see where you're solid and where some practice over the summer would help.">
 <meta name="twitter:image" content="https://cieinsider.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -251,7 +251,7 @@ h1.cie-page-title em { font-style: italic; font-weight: 500; color: var(--cie-ac
   <div class="cie-page-hero-inner">
     <p class="cie-eyebrow">9702 · AS &amp; A Level · Readiness check</p>
     <h1 class="cie-page-title">Are you ready for <em>AS Physics?</em></h1>
-    <p class="cie-page-lede">Ten quick questions on the maths and unit skills AS assumes you already have &mdash; so you can see where you're solid and where a summer warm-up would pay off, before the course starts.</p>
+    <p class="cie-page-lede">Ten quick questions on the maths and unit skills AS assumes you already have &mdash; so you can see where you're solid and where some practice over the summer would help, before the course starts.</p>
   </div>
 </header>
 <section class="seo-intro">
@@ -534,9 +534,9 @@ function showEnd(){
   const pctEl=document.getElementById('end-score');
   pctEl.textContent=n+'/'+total;
   let band,label,desc;
-  if(n>=9){band='great';label='You’re AS-ready';desc='Your maths won’t be what holds you back. Spend the summer on the physics itself.';}
+  if(n>=9){band='great';label='You’re AS-ready';desc='Your maths won’t be the reason you struggle. Spend the summer on the physics itself.';}
   else if(n>=6){band='ok';label='Nearly there';desc='A few skills to make automatic before September, so calculations don’t cost you time or marks.';}
-  else{band='poor';label='Worth a proper warm-up';desc='These skills sit under every AS calculation, and a bit of prep now saves dropped marks later. The good news: they’re quick to fix.';}
+  else{band='poor';label='Worth some practice first';desc='These skills are used in every AS calculation, and a bit of prep now saves dropped marks later. The good news: they’re quick to fix.';}
   pctEl.className='end-pct '+band;
   document.getElementById('end-verdict').textContent=label;
   document.getElementById('end-desc').textContent=desc;
@@ -546,12 +546,12 @@ function showEnd(){
   // the same line the emails take. Flip BRIDGE_LIVE once /bridge/ is deployed.
   const foot=document.getElementById('end-foot'), next=document.getElementById('end-next');
   if(band==='great'){
-    foot.textContent='Nothing in this list is going to be what holds you back. Go and enjoy the rest of your summer, and spend September on the physics itself.';
+    foot.textContent='None of these skills is going to be a problem for you. Go and enjoy the rest of your summer, and spend September on the physics itself.';
     next.classList.add('hidden');
   } else {
     foot.textContent=(band==='ok')
-      ? 'The skills flagged "revisit" above are the ones to make automatic before September. None of them takes long, and each one sits under every calculation you will meet at AS.'
-      : 'Start with the skills flagged "revisit" above. They are quick to fix, which is exactly why they are worth fixing now: every one of them sits under calculations you will be doing from your first AS lesson.';
+      ? 'The skills flagged "revisit" above are the ones to make automatic before September. None of them takes long, and each one is used in every calculation you will meet at AS.'
+      : 'Start with the skills flagged "revisit" above. They are quick to fix, which is exactly why they are worth fixing now: every one of them is used in calculations you will be doing from your first AS lesson.';
     next.classList.toggle('hidden', !BRIDGE_LIVE);
   }
   const sk={};
