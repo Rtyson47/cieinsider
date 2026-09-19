@@ -262,7 +262,19 @@ footer a{color:var(--fg-2)}
   .sec{padding:44px 0}
   .step{flex-direction:column;gap:6px}
 }
-</style></head>
+
+    .tiers-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:100%;margin:0}
+    .tiers-3 .tier{border:1px solid var(--border);border-radius:10px;padding:24px 20px;text-align:left;box-shadow:none}
+    .tiers-3 .tier .price{display:block;font:600 28px/1 var(--font-display);color:var(--fg-1);letter-spacing:-0.02em;margin:0 0 4px}
+    .tiers-3 .tier .tname{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);margin:0 0 10px}
+    .tiers-3 .tier .tdesc{font-size:14px;line-height:1.55;color:var(--fg-1);margin:0 0 18px}
+    .tiers-3 .tier{display:flex;flex-direction:column}
+    .tiers-3 .tier .btn{margin-top:auto;height:44px;font-size:14px}
+    .pack{border:2px solid var(--accent);border-radius:10px;padding:28px;background:var(--accent-tint);margin:20px 0 0}
+    .pack .price{font:600 28px/1 var(--font-display);letter-spacing:-0.02em;color:var(--fg-1)}
+    .pack .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);display:block;margin:0 0 6px}
+    @media (max-width:720px){.tiers-3{grid-template-columns:1fr}}
+  </style></head>
 <body>
 
 
@@ -338,6 +350,51 @@ footer a{color:var(--fg-2)}
       </div>
     </div>
   </section>
+
+    <section class="sec" id="paid">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot"></span> If the five have gone</p>
+        <h2>The same marking, paid</h2>
+        <p class="lead">The free five are a one-off, and they will not last long. After them I will still mark your paper &mdash; it just costs what an hour of examiner marking is worth. Same process, same detail, same person.</p>
+
+        <div class="tiers tiers-3">
+          <div class="tier">
+            <span class="price">&pound;25</span>
+            <span class="tname">9702 P2, P3, P5 &middot; 0625 P5, P6</span>
+            <p class="tdesc">AS theory, both practicals, and planning and analysis.</p>
+            <a class="btn btn-secondary" href="https://buy.stripe.com/cNifZa6DO7V70cEf7FgIo03" aria-label="Buy marking for 9702 Paper 2, 3 or 5, or 0625 Paper 5 or 6, 25 pounds">Get this marked</a>
+          </div>
+          <div class="tier">
+            <span class="price">&pound;30</span>
+            <span class="tname">0625 P3, P4</span>
+            <p class="tdesc">IGCSE theory, Core and Extended.</p>
+            <a class="btn btn-secondary" href="https://buy.stripe.com/6oU7sE4vG3ER8Ja3oXgIo04" aria-label="Buy marking for 0625 Paper 3 or Paper 4, 30 pounds">Get this marked</a>
+          </div>
+          <div class="tier">
+            <span class="price">&pound;35</span>
+            <span class="tname">9702 P4</span>
+            <p class="tdesc">A2 theory. A hundred marks, and the longest of the eight to mark properly.</p>
+            <a class="btn btn-secondary" href="https://buy.stripe.com/aFafZa9Q03ER4sUcZxgIo05" aria-label="Buy marking for 9702 Paper 4, 35 pounds">Get this marked</a>
+          </div>
+        </div>
+
+        <p>What comes back is the same either way: your attempt marked mark by mark against the published scheme. Every mark located, earned or lost or borderline and why. For each lost mark, what the scheme wanted, in the scheme's own terms. Plus the one thing to fix first. It is not a re-teach of the physics, and it is not a grade prediction.</p>
+
+        <div class="pack">
+          <span class="tname">Five scripts, and the thing one script cannot tell you</span>
+          <p><span class="price">&pound;109</span></p>
+          <p>Five marked scripts, used whenever you like up to 30 June 2027, plus a written progress review once the fifth comes back: what you lose marks on consistently across all five, and the two things to fix next. That review is the point of the pack. It cannot be written from one script, which is the honest reason the pack exists and the single script does not come with one.</p>
+          <p style="margin:18px 0 0"><a class="btn btn-primary" href="https://buy.stripe.com/4gM14ge6g0sFf7y3oXgIo06">Get the five-script pack</a></p>
+        </div>
+
+        <div class="tip">
+          <strong>What I can and cannot mark.</strong> Any question from a Cambridge paper, 2021 to 2026, either syllabus. I hold every question paper and every mark scheme across that span, so I am marking against the real thing rather than an opinion. One exception, so you know before you pay: Cambridge has not published the mark scheme for June 2026 9702 Paper 21, so that is the single variant I cannot mark properly. Sit Paper 22, 23 or 24 from the same series instead and I can. If you have already paid for a 21, tell me and I will refund you. Send a school mock or a textbook question and I will tell you whether I can mark it against a real scheme or only give you an opinion. I will not guess at a mark scheme.
+        </div>
+
+        <p style="margin-top:28px">Not sure which one you need? Plenty of people do not know whether they sit Paper 5 or Paper 6, or Core or Extended. Email me at <a href="mailto:rich@cieinsider.com">rich@cieinsider.com</a> and I will tell you before you pay.</p>
+      </div>
+    </section>
+
 
   <section class="sec faq" id="faq">
     <div class="wrap">
