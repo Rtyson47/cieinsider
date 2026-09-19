@@ -274,9 +274,28 @@ footer a{color:var(--fg-2)}
     .pack .price{font:600 28px/1 var(--font-display);letter-spacing:-0.02em;color:var(--fg-1)}
     .pack .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);display:block;margin:0 0 6px}
     @media (max-width:720px){.tiers-3{grid-template-columns:1fr}}
+  
+    /* Wordmark bar. Added 2026-09-19: both pages are indexable and take search
+       traffic, so an arriving reader needs one door back into the site. Kept to a
+       single wordmark, not a nav: the funnel pattern removes exits on purpose. */
+    .sitebar{border-bottom:1px solid var(--border);background:var(--page)}
+    .sitebar .wrap{display:flex;align-items:center;min-height:56px}
+    .sitebar a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+      font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:-0.01em;color:var(--fg-1)}
+    .sitebar a:hover{color:var(--accent)}
+    .sitebar .sbdot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+    .sitebar .sbtag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.07em;
+      text-transform:uppercase;color:var(--fg-2);font-weight:500}
+    @media(max-width:520px){.sitebar .sbtag{display:none}}
   </style></head>
 <body>
 
+
+  <div class="sitebar">
+    <div class="wrap">
+      <a href="/"><span class="sbdot"></span>CIE Insider<span class="sbtag">Cambridge Physics</span></a>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="wrap">
