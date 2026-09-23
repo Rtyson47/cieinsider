@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
 <!--
-  /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v3.
+  /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v4.
 
   THE OFFER: a Cambridge Physics past paper attempt marked mark by mark against the published
-  scheme, 0625 or 9702. The first five received are marked free; the paid version is not priced
-  yet. Condition of the free marking: anonymised reuse in a paid product later.
+  scheme, 0625 or 9702. The first five received are marked free; after that it is paid, GBP 25 /
+  30 / 35 a script or five for GBP 109 (Stripe links in #paid, live since 2026-09-19).
+  Condition of the free marking: anonymised reuse in a paid product later.
+
+  COPY v4 (2026-09-23, Rich): (1) New #why section, "The mark you'd give yourself isn't the mark
+  you'd get": students mark their own work generously ("basically what I said"), so the product is
+  the real mark on a paper sat today. Two examples, both checked against question paper + mark
+  scheme + examiner report: 0625 "single colour" for monochromatic (Supplement 3.2.4, so tagged
+  Extended; reports w21 P43 Q7(a)(ii), w22 P41 Q6(a), s25 P41 Q5(c)(i)) and 9702 p.d. "by" vs
+  "per" unit charge (w22 P22 Q6(a)). Audit: cie insider/reddit/verification-report-2026-09-23-
+  free-marking.md, addendum 1. (2) FULL PAPERS ONLY: every "or send one question" line removed,
+  in the FAQ and its JSON-LD twin too. The free five are a demand test for the paid product,
+  which is a marked full script, so the ask must match (Rich, 2026-09-23). (3) Cut the "Free,
+  because... cost me an evening" paragraph: it was about Rich, not the reader. (4) Paid intro now
+  sells the outcome, not "what an hour of examiner marking is worth".
 
   INDEXING - CHANGED 2026-09-11, and the reasoning matters if anyone revisits it.
   This was first built noindex on the argument that a bounded offer which closes should not
@@ -112,7 +125,7 @@
           "name": "Does it have to be a whole paper?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A whole paper is better, because you usually lose marks the same way more than once, and one question isn't enough to show that. But a single question is genuinely useful too, and early in the course plenty of you'll not have covered enough of the syllabus for a full paper. Send what you have."
+            "text": "Yes. A whole paper shows where you lose marks the same way more than once, and one question can't show that. Sit it timed, in one go, and send it as you wrote it."
           }
         },
         {
@@ -301,12 +314,21 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <span class="eyebrow"><span class="dot"></span>Cambridge Physics 0625 and 9702 &middot; First five received</span>
       <h1>Send me a paper. I'll mark it properly.</h1>
-      <p class="lead">Send a full past paper you've already sat &mdash; your own working, photos of your handwriting are fine. You'll get it back with every mark accounted for, earned or lost, and what the mark scheme wanted instead of what you wrote. Not covered enough for a full paper yet? Send one question. The first five that reach me get marked, free.</p>
+      <p class="lead">Send a full past paper you've already sat &mdash; your own working, photos of your handwriting are fine. You'll get it back with every mark accounted for, earned or lost, and what the mark scheme wanted instead of what you wrote. The first five that reach me get marked, free.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Send your paper</a>
         <a class="btn btn-secondary" href="#how">How it works</a>
       </div>
       <p class="hero-meta">Free &middot; the first five received &middot; no sign-up, no card, nothing to cancel</p>
+    </div>
+  </section>
+
+  <section class="sec" id="why">
+    <div class="wrap">
+      <h2>The mark you'd give yourself isn't the mark you'd get</h2>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">When you mark your own paper, you know what you meant. So when the scheme says &ldquo;single frequency&rdquo; and you wrote &ldquo;single colour&rdquo;, it's easy to tick it &mdash; that's basically what you said. It scores zero. On IGCSE Extended papers, Cambridge's examiner reports flagged &ldquo;light of a single colour&rdquo; as not credited in November 2021, November 2022 and June 2025.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">At A Level, defining potential difference as energy transferred &ldquo;by&rdquo; a unit charge, instead of &ldquo;per&rdquo; unit charge, lost the mark on 9702 Paper 22 in November 2022. One word.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">Marking strictly is a skill, and it takes practice and someone checking you. Before the exam, what you need is the mark you'd get on a paper you sat today, and where the rest went &mdash; so the weeks you have left go on the marks you're losing.</p>
     </div>
   </section>
 
@@ -322,12 +344,12 @@ footer a{color:var(--fg-2)}
       <div class="gap-grid">
         <div class="gap-item">
           <strong>What you send</strong>
-          <p>Ideally a full past paper you've attempted, with your working as you actually wrote it. If you've not covered enough of the syllabus yet, one question is fine. Not a blank paper, and not a tidied-up version. Most of the marks are in the working, so the messy original is the one I need.</p>
-          <p class="covers">0625 or 9702 &middot; full paper preferred &middot; photo or scan</p>
+          <p>A full past paper you've attempted, with your working as you wrote it. Not a blank paper, and not a tidied-up version. Most of the marks are in the working, so the messy original is the one I need.</p>
+          <p class="covers">0625 or 9702 &middot; full paper &middot; photo or scan</p>
         </div>
         <div class="gap-item">
           <strong>What comes back</strong>
-          <p>Your answer marked against the published mark scheme, mark by mark. Where each one was earned, where it was lost, and in the lost cases what the scheme was actually looking for. Plus the single thing I'd fix first.</p>
+          <p>Your answer marked against the published mark scheme, mark by mark. Where each one was earned, where it was lost, and in the lost cases what the scheme was looking for. Plus the single thing I'd fix first.</p>
           <p class="covers">Written &middot; within a week, usually sooner</p>
         </div>
         <div class="gap-item">
@@ -346,9 +368,8 @@ footer a{color:var(--fg-2)}
 
   <section class="sec" id="five">
     <div class="wrap">
-      <h2>Why five, why free, and the one condition</h2>
+      <h2>Why five, and the one condition</h2>
       <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">There are no places to claim and no form to fill in. The first five scripts I receive get marked. Marking properly, mark by mark against a real scheme, takes about an hour a script, so five is five hours, and five hours is what I can give this week. I'd rather promise five and do them properly than promise fifty and do them badly.</p>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Free, because everything on this site so far <em>describes</em> what examiner marking is like, and describing it doesn't work. Doing it once, on your paper, does. If it turns out to be worth having, I'll work out how to offer it properly rather than five at a time. If nobody wants it, that's worth knowing too, and it cost me an evening to find out.</p>
       <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When the five are gone I'll say so on this page rather than quietly keep taking them.</p>
 
       <div class="tip">
@@ -374,7 +395,7 @@ footer a{color:var(--fg-2)}
       <div class="wrap">
         <p class="eyebrow"><span class="dot"></span> If the five have gone</p>
         <h2>The same marking, paid</h2>
-        <p class="lead">The free five are a one-off, and they will not last long. After them I will still mark your paper &mdash; it just costs what an hour of examiner marking is worth. Same process, same detail, same person.</p>
+        <p class="lead">The free five are a one-off, and they will not last long. After them I will still mark your paper, and you still find out what it would score today and where the marks went. Same process, same detail, same person.</p>
 
         <div class="tiers tiers-3">
           <div class="tier">
@@ -407,7 +428,7 @@ footer a{color:var(--fg-2)}
         </div>
 
         <div class="tip">
-          <strong>What I can and cannot mark.</strong> Any question from a Cambridge paper, 2021 to 2026, either syllabus. I hold every question paper and every mark scheme across that span, so I am marking against the real thing rather than an opinion. One exception, so you know before you pay: Cambridge has not published the mark scheme for June 2026 9702 Paper 21, so that is the single variant I cannot mark properly. Sit Paper 22, 23 or 24 from the same series instead and I can. If you have already paid for a 21, tell me and I will refund you. Send a school mock or a textbook question and I will tell you whether I can mark it against a real scheme or only give you an opinion. I will not guess at a mark scheme.
+          <strong>What I can and cannot mark.</strong> Any Cambridge paper from 2021 to 2026, either syllabus. I hold every question paper and every mark scheme across that span, so I am marking against the real thing rather than an opinion. One exception, so you know before you pay: Cambridge has not published the mark scheme for June 2026 9702 Paper 21, so that is the single variant I cannot mark properly. Sit Paper 22, 23 or 24 from the same series instead and I can. If you have already paid for a 21, tell me and I will refund you. Send a school mock and I will tell you whether I can mark it against a real scheme or only give you an opinion. I will not guess at a mark scheme.
         </div>
 
         <p style="margin-top:28px">Not sure which one you need? Plenty of people do not know whether they sit Paper 5 or Paper 6, or Core or Extended. Email me at <a href="mailto:rich@cieinsider.com">rich@cieinsider.com</a> and I will tell you before you pay.</p>
@@ -419,7 +440,7 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <h2>Questions</h2>
       <details><summary>Is this really free?<span></span></summary><p>Yes. No card, no trial that starts billing, no account to make. You email me an answer and I email you back a marked one.</p></details>
-      <details><summary>Does it have to be a whole paper?<span></span></summary><p>A whole paper is better, because you usually lose marks the same way more than once, and one question isn't enough to show that. But a single question is genuinely useful too, and early in the course plenty of you'll not have covered enough of the syllabus for a full paper. Send what you have.</p></details>
+      <details><summary>Does it have to be a whole paper?<span></span></summary><p>Yes. A whole paper shows where you lose marks the same way more than once, and one question can't show that. Sit it timed, in one go, and send it as you wrote it.</p></details>
       <details><summary>What if my answer is bad?<span></span></summary><p>Then it's a more useful script to mark than a good one. I've marked thousands of these, plenty of them weak, and it's just the work. The only script I can't do anything with is a blank one.</p></details>
       <details><summary>What if the five have already gone?<span></span></summary><p>Send it anyway. I'll tell you straight away rather than leaving you waiting, and I'll not pretend a place is free when it's not. After the five, the same marking is paid: &pound;25 to &pound;35 depending on the paper, or five for &pound;109 with a written progress review. It is <a href="#paid">set out above</a>.</p></details>
       <details><summary>0625 or 9702?<span></span></summary><p>Either. I marked both for Cambridge and have read every examiner report for both from 2021 to 2026. Say which one you're doing when you send it.</p></details>
@@ -431,7 +452,7 @@ footer a{color:var(--fg-2)}
   <section class="final">
     <div class="wrap">
       <h2>Send me a paper</h2>
-      <p>A full past paper you've attempted, 0625 or 9702, or one question if you're not that far yet. Photos of your handwriting are fine. The first five that arrive get marked.</p>
+      <p>A full past paper you've attempted, 0625 or 9702. Photos of your handwriting are fine. The first five that arrive get marked.</p>
       <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Email it to rich@cieinsider.com</a>
     </div>
   </section>
