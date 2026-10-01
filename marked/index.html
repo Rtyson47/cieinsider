@@ -4,6 +4,13 @@
 <!--
   /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v5b.
 
+  COPY v7 (2026-10-01, sales audit critiques/marked-page-sales-audit-2026-10-01.md): hero CTA goes
+  to #paid, not mailto (email kept as a text line for the unsure); "three free places left" out of
+  the hero meta, replaced by the late-refund guarantee from /terms/; #paid moved straight after the
+  samples and retitled "Get your paper marked"; new "After you pay" box with the subjects the Stripe
+  after-payment messages use ("Marked script" singles, "Script pack" pack, set 2026-09-19); how-it-
+  works step 1 now says pay-then-email, free/unsure email first; pack states its saving; final CTA
+  to #paid; Cloudflare beacon added (the page had none); JSON-LD Offers.
   COPY v6b (2026-10-02 00:00 MYT): the 0625/43 w25 sample (free script 1 of 5, 68/80, retyped in
   Caveat, student agreed 2026-09-24, check-in promised nothing before 2 Oct) added as the second
   card, with note 6 quoted verbatim; the 9702 report note points to it for how report quotes look.
@@ -53,8 +60,7 @@
   material belongs in the broadcast (cie insider/emails/m1-five-free-scripts.html), which can be
   rewritten per window at no SEO cost. If a countdown is ever wanted on-page, it needs to be one
   clearly-marked line that someone remembers to update, and nothing else.
-  NOTE: no price is in the JSON-LD. Service rather than Product/Offer, deliberately, because the
-  paid price is not decided. When it is, add an Offer with the real price and currency.
+  NOTE (updated 2026-10-01): prices are decided and live, so the Service now carries four Offers.
 
   COPY v2 (2026-09-11): every promise not to sell was removed - it previously said "nothing sold
   in the reply" and "no sequence attached to this and no call to book". Rich: do not make
@@ -126,7 +132,13 @@
         "@type": "EducationalAudience",
         "educationalRole": "student"
       },
-      "url": "https://cieinsider.com/marked/"
+      "url": "https://cieinsider.com/marked/",
+      "offers": [
+        { "@type": "Offer", "name": "Marked script: 9702 Paper 2, 3 or 5, 0625 Paper 5 or 6", "price": "25.00", "priceCurrency": "GBP", "url": "https://buy.stripe.com/cNifZa6DO7V70cEf7FgIo03" },
+        { "@type": "Offer", "name": "Marked script: 0625 Paper 3 or 4", "price": "30.00", "priceCurrency": "GBP", "url": "https://buy.stripe.com/6oU7sE4vG3ER8Ja3oXgIo04" },
+        { "@type": "Offer", "name": "Marked script: 9702 Paper 4", "price": "35.00", "priceCurrency": "GBP", "url": "https://buy.stripe.com/aFafZa9Q03ER4sUcZxgIo05" },
+        { "@type": "Offer", "name": "Five marked scripts with a written progress review", "price": "109.00", "priceCurrency": "GBP", "url": "https://buy.stripe.com/4gM14ge6g0sFf7y3oXgIo06" }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -236,7 +248,9 @@ p{line-height:1.6}
 .hero h1{font-size:48px;line-height:1.05;margin:20px 0 22px;max-width:16ch}
 .hero .lead{font-size:18px;line-height:1.55;color:var(--fg-2);max-width:580px;margin-bottom:26px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.hero-meta{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--fg-2);letter-spacing:0.02em}
+.hero-alt{margin-top:16px;font-size:15px;color:var(--fg-2)}
+.hero-alt a{color:var(--accent)}
+.hero-meta{margin-top:14px;font-family:var(--font-mono);font-size:12px;color:var(--fg-2);letter-spacing:0.02em}
 
 .sec{padding:64px 0;border-bottom:1px solid var(--border)}
 
@@ -291,6 +305,8 @@ p{line-height:1.6}
 .final{padding:72px 0;text-align:center}
 .final h2{margin-bottom:12px}
 .final p{color:var(--fg-2);max-width:52ch;margin:0 auto 26px;font-size:17px}
+.final .final-alt{margin:18px auto 0;font-size:15px}
+.final-alt a{color:var(--accent)}
 
 footer{border-top:1px solid var(--border);padding:36px 0;font-size:13px;color:var(--fg-2)}
 footer a{color:var(--fg-2)}
@@ -311,6 +327,11 @@ footer a{color:var(--fg-2)}
     .tiers-3 .tier{display:flex;flex-direction:column}
     .tiers-3 .tier .btn{margin-top:auto;height:44px;font-size:14px}
     .pack{border:2px solid var(--accent);border-radius:10px;padding:28px;background:var(--accent-tint);margin:20px 0 0}
+    .afterpay{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin:20px 0 0}
+    .afterpay strong{display:block;font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:8px;color:var(--fg-1)}
+    .afterpay p{font-size:15px;color:var(--fg-1);max-width:70ch}
+    .afterpay p+p{margin-top:10px}
+    .afterpay a{color:var(--accent)}
     .pack .price{font:600 28px/1 var(--font-display);letter-spacing:-0.02em;color:var(--fg-1)}
     .pack .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);display:block;margin:0 0 6px}
     @media (max-width:720px){.tiers-3{grid-template-columns:1fr}}
@@ -343,10 +364,11 @@ footer a{color:var(--fg-2)}
       <h1>Send me a paper. I'll mark it properly.</h1>
       <p class="lead">Send a full past paper you've already sat, with your working as you wrote it. Photos of your handwriting are fine. It comes back with every mark placed where you earned or lost it, and for every mark you lost: what you wrote, what the marker needed to see, and how to fix it. From &pound;25 a paper.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Send your paper</a>
-        <a class="btn btn-secondary" href="#how">How it works</a>
+        <a class="btn btn-primary" href="#paid">Get your paper marked</a>
+        <a class="btn btn-secondary" href="#sample">See two I marked</a>
       </div>
-      <p class="hero-meta">From &pound;25 a paper &middot; three free places left &middot; no sign-up, nothing to cancel</p>
+      <p class="hero-alt">Not sure which paper you sit? Email me first: <a href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">rich@cieinsider.com</a></p>
+      <p class="hero-meta">From &pound;25 a paper &middot; back within a week or your money back &middot; no sign-up, nothing to cancel</p>
     </div>
   </section>
 
@@ -440,36 +462,11 @@ footer a{color:var(--fg-2)}
     </div>
   </section>
 
-  <section class="sec" id="five">
-    <div class="wrap">
-      <h2>Three free places, and the one condition</h2>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Two of the five free places have gone, to an IGCSE Paper 4 and an A Level Paper 4. I'm keeping the other three for the papers I don't have a marked example of yet: one 9702 Paper 2, one 9702 Paper 5 and one 0625 Paper 6, the first of each to arrive. Anything else, Paper 4 included, is the <a href="#paid">paid marking below</a>.</p>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When they've gone I'll say so on this page.</p>
-
-      <div class="tip">
-        <div class="k">The one condition</div>
-        <p>If you send me work for free marking, you're agreeing that I can use it anonymised later, on this page or in a paid product: no name, no candidate number, no school. I'll check with you before I use your script specifically, and you choose whether it's shown in your own handwriting or retyped. If you'd rather I didn't use it at all, say so when you send it and I'll still mark it. That's the exchange: you get an hour of examiner marking, and I get to show other students where real answers lose marks.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="how">
-    <div class="wrap">
-      <h2>How it works</h2>
-      <div class="steps">
-        <div class="step"><span class="num"></span><p><strong>Email it to rich@cieinsider.com</strong> with the subject "Mark my paper". Attach photos or a scan of your attempt. Tell me which paper it is, for example 9702 Paper 4, June 2024, variant 1. If you're not sure, send it anyway and I'll work it out.</p></div>
-        <div class="step"><span class="num"></span><p><strong>I mark it against the published scheme.</strong> Mark by mark, in writing, the same way a script came back when I was marking. If the examiner report for that series commented on your question, I'll tell you what it said.</p></div>
-        <div class="step"><span class="num"></span><p><strong>It comes back within a week</strong>, usually sooner. If your exam is less than a week away, tell me the date and I'll mark yours first and send it back within two days. One email, nothing to install, nothing you have to reply to.</p></div>
-        <div class="step"><span class="num"></span><p><strong>Then you decide what to do with it.</strong> I'll tell you the one thing I'd work on next. If something I do would help with that, I'll say so, and you're free to ignore it.</p></div>
-      </div>
-    </div>
-  </section>
-
     <section class="sec" id="paid">
       <div class="wrap">
-        <p class="eyebrow"><span class="dot"></span> Every other paper</p>
-        <h2>The same marking, paid</h2>
-        <p class="lead">Paper 4s, and anything outside the three free places, are marked paid. You get the same breakdown: what it would score today, where every mark went, and how to get the lost ones back. Same process, same detail, same person.</p>
+        <p class="eyebrow"><span class="dot"></span> Prices</p>
+        <h2>Get your paper marked</h2>
+        <p class="lead">The same breakdown as the two above: what it would score today, where every mark went, and how to get the lost ones back. Pick your paper, pay, then email it to me.</p>
 
         <div class="tiers tiers-3">
           <div class="tier">
@@ -497,8 +494,14 @@ footer a{color:var(--fg-2)}
         <div class="pack">
           <span class="tname">Five scripts, and the thing one script cannot tell you</span>
           <p><span class="price">&pound;109</span></p>
-          <p>Five marked scripts, used whenever you like up to 30 June 2027, plus a written progress review once the fifth comes back: what you lose marks on consistently across all five, and the two things to fix next. That review needs all five: one script can't show you what you keep losing marks on, so a single script doesn't come with one.</p>
+          <p>Five marked scripts, used whenever you like up to 30 June 2027, plus a written progress review once the fifth comes back. Bought one at a time, five would cost &pound;125 to &pound;175. The review covers what you lose marks on consistently across all five, and the two things to fix next. That review needs all five: one script can't show you what you keep losing marks on, so a single script doesn't come with one.</p>
           <p style="margin:18px 0 0"><a class="btn btn-primary" href="https://buy.stripe.com/4gM14ge6g0sFf7y3oXgIo06">Get the five-script pack</a></p>
+        </div>
+
+        <div class="afterpay">
+          <strong>After you pay</strong>
+          <p>Email your paper to <a href="mailto:rich@cieinsider.com?subject=Marked%20script">rich@cieinsider.com</a> with the subject "Marked script", or "Script pack" if you bought the five. Send it from the address you paid with, so I can match the two up. Photos or a scan are fine.</p>
+          <p>It comes back within a week, usually sooner. If it takes longer, ask and I'll refund you, and you keep the marking. Change your mind before it comes back and I'll refund you too. The detail is in the <a href="/terms/">terms</a>.</p>
         </div>
 
         <div class="tip">
@@ -509,6 +512,31 @@ footer a{color:var(--fg-2)}
       </div>
     </section>
 
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step"><span class="num"></span><p><strong>Pay for your paper above, then email it</strong> to rich@cieinsider.com with the subject "Marked script", from the address you paid with. Attach photos or a scan of your attempt, and tell me which paper it is, for example 9702 Paper 4, June 2024, variant 1. Going for one of the free places below, or not sure which paper you sit? Email it first with the subject "Mark my paper" and I'll tell you before I start.</p></div>
+        <div class="step"><span class="num"></span><p><strong>I mark it against the published scheme.</strong> Mark by mark, in writing, the same way a script came back when I was marking. If the examiner report for that series commented on your question, I'll tell you what it said.</p></div>
+        <div class="step"><span class="num"></span><p><strong>It comes back within a week</strong>, usually sooner. If your exam is less than a week away, tell me the date and I'll mark yours first and send it back within two days. One email, nothing to install, nothing you have to reply to.</p></div>
+        <div class="step"><span class="num"></span><p><strong>Then you decide what to do with it.</strong> I'll tell you the one thing I'd work on next. If something I do would help with that, I'll say so, and you're free to ignore it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="five">
+    <div class="wrap">
+      <h2>Three free places, and the one condition</h2>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Two of the five free places have gone, to an IGCSE Paper 4 and an A Level Paper 4. I'm keeping the other three for the papers I don't have a marked example of yet: one 9702 Paper 2, one 9702 Paper 5 and one 0625 Paper 6, the first of each to arrive. Anything else, Paper 4 included, is the <a href="#paid">paid marking above</a>.</p>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When they've gone I'll say so on this page.</p>
+
+      <div class="tip">
+        <div class="k">The one condition</div>
+        <p>If you send me work for free marking, you're agreeing that I can use it anonymised later, on this page or in a paid product: no name, no candidate number, no school. I'll check with you before I use your script specifically, and you choose whether it's shown in your own handwriting or retyped. If you'd rather I didn't use it at all, say so when you send it and I'll still mark it. That's the exchange: you get an hour of examiner marking, and I get to show other students where real answers lose marks.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="sec faq" id="faq">
     <div class="wrap">
@@ -527,7 +555,8 @@ footer a{color:var(--fg-2)}
     <div class="wrap">
       <h2>Send me a paper</h2>
       <p>A full past paper you've attempted, 0625 or 9702. Photos of your handwriting are fine. From &pound;25, or free for the first 9702 Paper 2, 9702 Paper 5 and 0625 Paper 6 to arrive.</p>
-      <a class="btn btn-primary" href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">Email it to rich@cieinsider.com</a>
+      <a class="btn btn-primary" href="#paid">Get your paper marked</a>
+      <p class="final-alt">Free place, or not sure which paper? Email it to <a href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">rich@cieinsider.com</a></p>
     </div>
   </section>
 
@@ -537,5 +566,6 @@ footer a{color:var(--fg-2)}
     </div>
   </footer>
 
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26a2f061d2b54fddaf66dabf1ebd0cfe"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
