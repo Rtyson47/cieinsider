@@ -4,6 +4,8 @@
 <!--
   /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v5b.
 
+  COPY v7b (2026-10-01, Rich): pack price anchored - singles total GBP 125 to 175 struck through beside
+  GBP 109, "Save up to GBP 66" (5 x 9702 P4 = 175 - 109), GBP 21.80 a script. All real list prices.
   COPY v7 (2026-10-01, sales audit critiques/marked-page-sales-audit-2026-10-01.md): hero CTA goes
   to #paid, not mailto (email kept as a text line for the unsure); "three free places left" out of
   the hero meta, replaced by the late-refund guarantee from /terms/; #paid moved straight after the
@@ -333,6 +335,12 @@ footer a{color:var(--fg-2)}
     .afterpay p+p{margin-top:10px}
     .afterpay a{color:var(--accent)}
     .pack .price{font:600 28px/1 var(--font-display);letter-spacing:-0.02em;color:var(--fg-1)}
+    .pack-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:4px 0 6px}
+    .pack-price .was{font:500 20px/1 var(--font-display);color:var(--fg-2);text-decoration-thickness:2px}
+    .pack-price .price{font-size:40px}
+    .pack-price .save{align-self:center;background:var(--success-tint);color:var(--success-text);font:500 12px/1 var(--font-mono);letter-spacing:0.04em;padding:6px 12px;border-radius:20px}
+    .pack-sub{font-size:15px;font-weight:500;color:var(--fg-1);margin:0 0 14px}
+    .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
     .pack .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);display:block;margin:0 0 6px}
     @media (max-width:720px){.tiers-3{grid-template-columns:1fr}}
   
@@ -493,8 +501,9 @@ footer a{color:var(--fg-2)}
 
         <div class="pack">
           <span class="tname">Five scripts, and the thing one script cannot tell you</span>
-          <p><span class="price">&pound;109</span></p>
-          <p>Five marked scripts, used whenever you like up to 30 June 2027, plus a written progress review once the fifth comes back. Bought one at a time, five would cost &pound;125 to &pound;175. The review covers what you lose marks on consistently across all five, and the two things to fix next. That review needs all five: one script can't show you what you keep losing marks on, so a single script doesn't come with one.</p>
+          <p class="pack-price"><s class="was"><span class="vh">Bought one at a time: </span>&pound;125 to &pound;175</s> <span class="price">&pound;109</span> <span class="save">Save up to &pound;66</span></p>
+          <p class="pack-sub">&pound;21.80 a script, and a progress review a single script doesn't come with.</p>
+          <p>Five marked scripts, used whenever you like up to 30 June 2027, plus a written progress review once the fifth comes back. The review covers what you lose marks on consistently across all five, and the two things to fix next. That review needs all five: one script can't show you what you keep losing marks on.</p>
           <p style="margin:18px 0 0"><a class="btn btn-primary" href="https://buy.stripe.com/4gM14ge6g0sFf7y3oXgIo06">Get the five-script pack</a></p>
         </div>
 
