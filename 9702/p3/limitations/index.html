@@ -1296,15 +1296,16 @@ render();
 <!-- FAQ (SEO) -->
 <section class="cie-faqx-d">
   <style>
-    .cie-faqx-d{max-width:780px;margin:0 auto;padding:48px 24px 56px;}
-    .cie-faqx-d h2{font-weight:700;font-size:26px;color:#e8eaf0;margin:0 0 6px;letter-spacing:-0.01em;}
-    .cie-faqx-d .sub{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#8892a4;font-weight:700;margin:0 0 14px;}
-    .cie-faqx-d details{border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 0;}
-    .cie-faqx-d summary{cursor:pointer;font-weight:600;font-size:17px;color:#e8eaf0;list-style:none;display:flex;gap:12px;align-items:baseline;}
+    .cie-faqx-d{max-width:780px;margin:0 auto;padding:56px 32px 56px;position:relative;z-index:2;}
+    .cie-faqx-d h2{font-family:'Fraunces',serif;font-weight:600;font-size:28px;color:#1f1a14;margin:0 0 6px;letter-spacing:-0.01em;}
+    .cie-faqx-d .sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#6b5e4d;font-weight:700;margin:0 0 18px;}
+    .cie-faqx-d details{border-bottom:1px solid #d8ccb4;padding:16px 0;}
+    .cie-faqx-d summary{cursor:pointer;font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#1f1a14;list-style:none;display:flex;gap:12px;align-items:baseline;}
     .cie-faqx-d summary::-webkit-details-marker{display:none;}
-    .cie-faqx-d summary::before{content:'+';color:#4f8ef7;font-weight:700;}
+    .cie-faqx-d summary::before{content:'+';color:#a83b1f;font-weight:700;font-family:'Inter',sans-serif;}
     .cie-faqx-d details[open] summary::before{content:'–';}
-    .cie-faqx-d details p{margin:12px 0 0 24px;color:#b6bdcc;line-height:1.7;}
+    .cie-faqx-d details p{margin:12px 0 0 24px;color:#3a3127;line-height:1.7;font-family:'Inter',sans-serif;font-size:16px;}
+    @media (max-width:600px){.cie-faqx-d{padding:48px 16px 48px;}}
   </style>
   <h2>Frequently asked questions</h2>
   <p class="sub">Paper 3 limitations &amp; improvements</p>
