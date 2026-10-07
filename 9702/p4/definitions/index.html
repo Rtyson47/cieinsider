@@ -46,7 +46,7 @@
     {
       "@type": "WebApplication",
       "name": "Cambridge A2 Level Physics Definitions & Formulae Flashcards (9702 Paper 4)",
-      "description": "Every Cambridge A2 Level Physics definition tested on Paper 4 — 108 items covering SHM, fields, nuclear physics, and quantum phenomena.",
+      "description": "Every Cambridge A Level Physics 9702 definition and formula for Paper 4 (2025–2027 syllabus), with data-sheet formulae marked and a filter for the ones you have to learn.",
       "url": "https://cieinsider.com/9702/p4/definitions/",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Web Browser",
@@ -511,9 +511,10 @@ h1.cie-page-title em {
   <details>
     <summary>About this tool</summary>
       <div class="seo-intro-inner">
-    <h2>Cambridge A2 Level Physics definitions and formulae &mdash; every term tested on Paper 4</h2>
-    <p>Cambridge A Level Physics 9702 Paper 4 (A Level Structured Questions) tests A2-only material alongside some revisited AS content. Definitions form a reliable source of marks: &ldquo;define gravitational field strength&rdquo;, &ldquo;explain what is meant by simple harmonic motion&rdquo;, &ldquo;define the becquerel&rdquo;, and &ldquo;state what is meant by the photoelectric effect&rdquo; appear regularly. The mark scheme is precise: &ldquo;force on a mass&rdquo; is insufficient for gravitational field strength (it must be &ldquo;force per unit mass on a small test mass&rdquo;); omitting the proportionality condition from the SHM definition loses the mark.</p>
-    <p>This deck covers 108 recall items from the A2 component of the 9702 specification (2025&ndash;2027), organised by topic: <strong>Motion in a Circle</strong> (angular velocity, centripetal acceleration, centripetal force); <strong>Gravitational Fields</strong> (gravitational field strength, Newton&rsquo;s law of gravitation, gravitational potential, orbital velocity, escape velocity); <strong>Oscillations</strong> (SHM definition and conditions, angular frequency, period, energy relationships, damping types); <strong>Thermal Physics</strong> (internal energy, first law of thermodynamics, specific heat capacity, ideal gas laws, kinetic theory); <strong>Capacitance</strong> (definition, energy stored, time constant); <strong>Magnetic Fields</strong> (magnetic flux density, tesla, force on current, Hall effect, Faraday&rsquo;s and Lenz&rsquo;s laws); <strong>Alternating Currents</strong> (r.m.s. values, rectification, smoothing); <strong>Quantum Physics</strong> (photon energy, photoelectric effect, de Broglie wavelength, energy levels, line spectra); and <strong>Nuclear Physics</strong> (binding energy, mass defect, nuclear radius, fission, fusion, decay constant, half-life, activity).</p>
+    <h2>Cambridge A Level Physics definitions and formulae for Paper 4</h2>
+    <p>Every Paper 4 set from March 2021 to June 2026 asks for at least one definition or law, and most ask for several. Examples are &ldquo;Define gravitational potential at a point&rdquo; (June 2024, Paper 41) and &ldquo;State what is meant by simple harmonic motion&rdquo; (June 2025, Paper 42). The wording is marked closely. In the March 2026 report, the examiner noted that candidates usually knew acceleration is proportional to displacement in simple harmonic motion, but often needed to be clearer that the two &ldquo;always have the opposite direction to each other&rdquo;.</p>
+    <p>Paper 4 prints the AS data sheet plus a page of A Level formulae, including gravitational and electric potential, capacitor discharge and radioactive decay. Cards for formulae on either sheet are marked &ldquo;on data sheet&rdquo;. Pick <strong>Formulae to learn</strong> to drill only the ones you have to memorise.</p>
+    <p>The deck covers every A Level topic in the 2025&ndash;2027 syllabus, and the topic buttons above the cards let you drill one at a time.</p>
     <p>Use alongside the <a href="/9702/p2/definitions/">Paper 2 (AS) flashcard deck</a> to cover the full 9702 definition list, and the <a href="/9702/uncertainties/">uncertainties trainer</a> for practical paper preparation.</p>
   </div>
   </details>
@@ -524,12 +525,13 @@ h1.cie-page-title em {
   <div class="header">
     <div class="header-eyebrow">Cambridge 9702 · Paper 4 · A Level · 2025–2027</div>
     <div class="header-title">Definitions &amp; Formulae</div>
-    <div class="header-sub" id="deck-info">108 items · all topics</div>
+    <div class="header-sub" id="deck-info">135 items · all topics</div>
   </div>
   <div class="filter-bar" id="section-filters">
     <button class="filter-btn active" data-sec="all" onclick="setSec(this,'all')">All</button>
     <button class="filter-btn" data-sec="def" onclick="setSec(this,'def')">Definitions</button>
     <button class="filter-btn" data-sec="form" onclick="setSec(this,'form')">Formulae</button>
+    <button class="filter-btn" data-sec="learn" onclick="setSec(this,'learn')" title="Only the formulae that are not printed on the exam data sheet">Formulae to learn</button>
     <div class="filter-divider"></div>
     <button class="filter-btn active-blue" onclick="shuffleDeck()">&#8644; Shuffle</button>
     <button class="filter-btn" onclick="resetSession()">&#8635; Reset</button>
@@ -587,14 +589,17 @@ const ALL=[
   {s:"def",t:"Circular motion",q:"Define: The radian",a:"Unit of angle; angle subtended at the centre of a circle by an arc equal in length to the radius; 1\u202frad \u2248 57.3\u00b0"},
   {s:"def",t:"Circular motion",q:"Define: Angular velocity \u03c9",a:"Angle swept per unit time; \u03c9 = \u03b8/t = 2\u03c0/T = 2\u03c0f"},
   {s:"def",t:"Gravitational fields",q:"Define: Gravitational field strength g",a:"Force per unit mass (acting on a small test mass)"},
+  {s:"def",t:"Gravitational fields",q:"State: Newton\u2019s law of gravitation",a:"The gravitational force between two point masses is proportional to the product of their masses and inversely proportional to the square of their separation"},
   {s:"def",t:"Gravitational fields",q:"Define: Gravitational potential \u03d5",a:"Work done per unit mass in bringing a small test mass from infinity to that point"},
-  {s:"def",t:"Gravitational fields",q:"State: Gravitational potential energy (two masses)",a:"EP = \u2212GMm/r"},
   {s:"def",t:"Gravitational fields",q:"Define: Equipotential surface",a:"Surface on which the gravitational potential is the same at all points"},
-  {s:"def",t:"Temperature",q:"Define: Absolute zero",a:"The lowest possible temperature; 0\u202fK / \u2212273.15\u202f\u00b0C; temperature at which particles have minimum internal energy"},
+  {s:"def",t:"Gravitational fields",q:"Describe: Geostationary orbit",a:"Equatorial orbit, west to east, period 24 hours, so the satellite stays above the same point on the Earth\u2019s surface"},
+  {s:"def",t:"Temperature",q:"Define: Absolute zero",a:"The lowest possible temperature: zero kelvin on the thermodynamic scale (0\u202fK = \u2212273.15\u202f\u00b0C)"},
+  {s:"def",t:"Temperature",q:"Define: Thermal equilibrium",a:"Objects in thermal contact are at the same temperature, so there is no net transfer of thermal energy between them"},
   {s:"def",t:"Temperature",q:"Define: Specific heat capacity",a:"Energy required per unit mass to raise the temperature by 1\u202fK (with no change of state)"},
   {s:"def",t:"Temperature",q:"Define: Specific latent heat of fusion",a:"Energy required per unit mass to change state from solid to liquid at constant temperature"},
   {s:"def",t:"Temperature",q:"Define: Specific latent heat of vaporisation",a:"Energy required per unit mass to change state from liquid to gas at constant temperature"},
   {s:"def",t:"Ideal gases",q:"State all five assumptions of an ideal gas",a:"1. Molecules have negligible volume compared to container\n2. Collisions are perfectly elastic\n3. No intermolecular forces except during collisions\n4. Time of collision negligible compared to time between collisions\n5. Large number of molecules in random motion"},
+  {s:"def",t:"Ideal gases",q:"Define: Ideal gas",a:"A gas that obeys pV \u221d T, where T is the thermodynamic temperature"},
   {s:"def",t:"Ideal gases",q:"Define: Avogadro constant NA",a:"Number of atoms / molecules in one mole of a substance (6.02 \u00d7 10\u00b2\u00b3 mol\u207b\u00b9)"},
   {s:"def",t:"Ideal gases",q:"Define: Boltzmann constant k",a:"k = R / NA; relates mean kinetic energy of a molecule to temperature"},
   {s:"def",t:"Thermodynamics",q:"Define: Internal energy",a:"Sum of the random kinetic and potential energies of all the molecules / atoms of the system"},
@@ -609,32 +614,47 @@ const ALL=[
   {s:"def",t:"Oscillations",q:"Describe: Heavy damping",a:"Returns to equilibrium slowly without oscillating"},
   {s:"def",t:"Electric fields",q:"Define: Electric field strength E",a:"Force per unit positive charge (acting on a small stationary test charge)"},
   {s:"def",t:"Electric fields",q:"Define: Electric potential V",a:"Work done per unit positive charge in bringing a small test charge from infinity to that point"},
-  {s:"def",t:"Electric fields",q:"State: Electric potential energy (two charges)",a:"EP = Qq / (4\u03c0\u03b5\u2080r)"},
+  {s:"def",t:"Electric fields",q:"State: Link between electric field strength and potential",a:"Electric field strength at a point = \u2212(potential gradient) at that point"},
   {s:"def",t:"Capacitance",q:"Define: Capacitance",a:"Charge stored per unit potential difference (across the capacitor)"},
   {s:"def",t:"Capacitance",q:"Define: Time constant \u03c4",a:"Time for charge / voltage / current to fall to 1/e (\u224837%) of its initial value; \u03c4 = RC"},
+  {s:"def",t:"Magnetic fields",q:"Define: Magnetic field",a:"Region where a force is exerted on a current-carrying conductor, a moving charge or a magnetic material"},
   {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux density B",a:"Force per unit current per unit length on a straight conductor placed at right angles to the field; unit tesla (T)"},
+  {s:"def",t:"Magnetic fields",q:"Define: The tesla",a:"The magnetic flux density that gives a force of 1\u202fN per metre on a wire carrying 1\u202fA at right angles to the field (1\u202fT = 1\u202fN\u202fA\u207b\u00b9\u202fm\u207b\u00b9)"},
+  {s:"def",t:"Magnetic fields",q:"State: Fleming\u2019s left-hand rule",a:"First finger: field. Second finger: current. Thumb: force (motion). All three at right angles"},
   {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux \u03a6",a:"Product of magnetic flux density and the area perpendicular to the field: \u03a6 = BA"},
   {s:"def",t:"Magnetic fields",q:"Define: Magnetic flux linkage",a:"Product of magnetic flux and number of turns: N\u03a6"},
   {s:"def",t:"Magnetic fields",q:"State: Faraday\u2019s law",a:"The magnitude of the induced e.m.f. is proportional to the rate of change of magnetic flux linkage"},
   {s:"def",t:"Magnetic fields",q:"State: Lenz\u2019s law",a:"The induced current / e.m.f. is in a direction that opposes the change causing it"},
   {s:"def",t:"Alternating currents",q:"Define: Root-mean-square (r.m.s.) current",a:"The steady direct current that would deliver the same power as the alternating current in a resistive load"},
   {s:"def",t:"Alternating currents",q:"Define: Peak value (I\u2080 or V\u2080)",a:"Maximum value of the alternating current or voltage"},
+  {s:"def",t:"Alternating currents",q:"State: Mean power in a resistive load (sinusoidal a.c.)",a:"Half the maximum power: \u27e8P\u27e9 = \u00bdI\u2080V\u2080"},
+  {s:"def",t:"Alternating currents",q:"Define: Rectification",a:"Conversion of alternating current (a.c.) to direct current (d.c.)"},
+  {s:"def",t:"Alternating currents",q:"Describe: Half-wave rectification",a:"A single diode lets current through in only one half of each cycle"},
+  {s:"def",t:"Alternating currents",q:"Describe: Full-wave rectification",a:"A bridge of four diodes makes the current through the load flow in the same direction in both halves of each cycle"},
   {s:"def",t:"Quantum physics",q:"Define: Photon",a:"Quantum of electromagnetic energy"},
+  {s:"def",t:"Quantum physics",q:"Define: Photoelectric effect",a:"Emission of electrons from a (metal) surface when electromagnetic radiation of high enough frequency is incident on it"},
   {s:"def",t:"Quantum physics",q:"Define: Work function \u03a6",a:"Minimum energy required to remove an electron from the surface of a metal"},
   {s:"def",t:"Quantum physics",q:"Define: Threshold frequency",a:"Minimum frequency of incident radiation required to emit an electron from a metal surface"},
+  {s:"def",t:"Quantum physics",q:"Define: Threshold wavelength",a:"Maximum wavelength of incident radiation that can cause photoelectric emission from a metal surface"},
   {s:"def",t:"Quantum physics",q:"Define: de Broglie wavelength",a:"Wavelength associated with a moving particle; \u03bb = h/p"},
+  {s:"def",t:"Quantum physics",q:"Explain: Wave\u2013particle duality",a:"Both radiation and particles show wave and particle behaviour: the photoelectric effect is evidence for the particle nature of EM radiation; interference and diffraction (including electron diffraction) are evidence for wave nature"},
   {s:"def",t:"Quantum physics",q:"Define: Electronvolt (eV)",a:"Energy gained by an electron accelerated through a potential difference of 1\u202fV; 1\u202feV = 1.6 \u00d7 10\u207b\u00b9\u2079\u202fJ"},
   {s:"def",t:"Nuclear physics",q:"Define: Radioactive decay",a:"Spontaneous and random disintegration of an unstable nucleus"},
+  {s:"def",t:"Nuclear physics",q:"Explain: Random (radioactive decay)",a:"You cannot predict when a particular nucleus will decay, or which nucleus will decay next"},
+  {s:"def",t:"Nuclear physics",q:"Explain: Spontaneous (radioactive decay)",a:"The decay is not affected by external factors (such as temperature or pressure)"},
   {s:"def",t:"Nuclear physics",q:"Define: Activity",a:"Number of disintegrations per unit time"},
   {s:"def",t:"Nuclear physics",q:"Define: Decay constant \u03bb",a:"Probability of decay of a nucleus per unit time"},
   {s:"def",t:"Nuclear physics",q:"Define: Half-life",a:"Time for the activity (or number of undecayed nuclei) to fall to half its initial value"},
   {s:"def",t:"Nuclear physics",q:"Define: Mass defect",a:"Difference between the mass of the separated nucleons and the mass of the nucleus"},
   {s:"def",t:"Nuclear physics",q:"Define: Binding energy",a:"Energy required to separate a nucleus into its constituent nucleons / energy released when nucleus is assembled from its nucleons"},
   {s:"def",t:"Nuclear physics",q:"Define: Binding energy per nucleon",a:"Total binding energy divided by the number of nucleons in the nucleus"},
+  {s:"def",t:"Nuclear physics",q:"Define: Nuclear fission",a:"Splitting of a heavy nucleus into two smaller nuclei, releasing energy"},
+  {s:"def",t:"Nuclear physics",q:"Define: Nuclear fusion",a:"Joining of two light nuclei to form a heavier nucleus, releasing energy"},
   {s:"def",t:"Medical physics",q:"Define: Specific acoustic impedance Z",a:"Z = \u03c1c, where \u03c1 is the density of the medium and c is the speed of sound in the medium"},
   {s:"def",t:"Medical physics",q:"Define: Attenuation coefficient \u03bc",a:"Measure of how rapidly ultrasound or X-ray intensity decreases in a medium; used in I = I\u2080e\u207b\u03bcx"},
   {s:"def",t:"Medical physics",q:"Define: Tracer (medical)",a:"Substance containing radioactive nuclei introduced into the body and absorbed by the tissue being studied"},
   {s:"def",t:"Medical physics",q:"Define: Annihilation",a:"When a particle meets its antiparticle; mass\u2013energy and momentum are conserved; produces two gamma photons travelling in opposite directions"},
+  {s:"def",t:"Medical physics",q:"Define: Contrast (X-ray image)",a:"Difference in degree of blackening between different tissues in the image"},
   {s:"def",t:"Astronomy",q:"Define: Luminosity L",a:"Total power of electromagnetic radiation emitted by a star"},
   {s:"def",t:"Astronomy",q:"Define: Radiant flux intensity F",a:"Power of radiation received per unit area perpendicular to direction of travel; F = L / (4\u03c0d\u00b2)"},
   {s:"def",t:"Astronomy",q:"Define: Standard candle",a:"Object of known luminosity; used to determine distances to galaxies"},
@@ -647,50 +667,59 @@ const ALL=[
   {s:"form",t:"Circular motion",q:"Formula: Centripetal force (2 forms)",a:"F = mr\u03c9\u00b2 = mv\u00b2/r"},
   {s:"form",t:"Gravitational fields",q:"Formula: Newton\u2019s law of gravitation",a:"F = Gm\u2081m\u2082 / r\u00b2"},
   {s:"form",t:"Gravitational fields",q:"Formula: Gravitational field strength (point mass)",a:"g = GM / r\u00b2"},
-  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential",a:"\u03d5 = \u2212GM / r"},
-  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential energy (two masses)",a:"EP = \u2212GMm / r"},
+  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential",a:"\u03d5 = \u2212GM / r",g:1},
+  {s:"form",t:"Gravitational fields",q:"Formula: Gravitational potential energy (two masses)",a:"EP = \u2212GMm / r",g:1},
   {s:"form",t:"Temperature",q:"Formula: Specific heat capacity",a:"\u0394E = mc\u0394T"},
+  {s:"form",t:"Temperature",q:"Formula: Kelvin and Celsius",a:"T/K = \u03b8/\u00b0C + 273.15"},
   {s:"form",t:"Temperature",q:"Formula: Specific latent heat",a:"E = mL"},
   {s:"form",t:"Ideal gases",q:"Formula: Ideal gas equation (both forms)",a:"pV = nRT   and   pV = NkT"},
   {s:"form",t:"Ideal gases",q:"Formula: Boltzmann constant",a:"k = R / NA"},
-  {s:"form",t:"Ideal gases",q:"Formula: Kinetic theory of gases",a:"pV = \u2153Nm\u27e8c\u00b2\u27e9"},
-  {s:"form",t:"Ideal gases",q:"Formula: Mean kinetic energy of a molecule",a:"\u00bdm\u27e8c\u00b2\u27e9 = \u00b3\u2082kT"},
+  {s:"form",t:"Ideal gases",q:"Formula: Kinetic theory of gases",a:"pV = \u2153Nm\u27e8c\u00b2\u27e9",g:1},
+  {s:"form",t:"Ideal gases",q:"Formula: Mean kinetic energy of a molecule",a:"\u00bdm\u27e8c\u00b2\u27e9 = (3/2)kT"},
+  {s:"form",t:"Ideal gases",q:"Formula: Root-mean-square speed",a:"c(r.m.s.) = \u221a\u27e8c\u00b2\u27e9"},
   {s:"form",t:"Thermodynamics",q:"Formula: Work done by a gas at constant pressure",a:"W = p\u0394V"},
   {s:"form",t:"Thermodynamics",q:"Formula: First law of thermodynamics",a:"\u0394U = q + W"},
-  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 acceleration",a:"a = \u2212\u03c9\u00b2x"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 acceleration",a:"a = \u2212\u03c9\u00b2x",g:1},
   {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 displacement",a:"x = x\u2080 sin(\u03c9t)"},
   {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 maximum velocity",a:"v\u2080 = \u03c9x\u2080"},
-  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 velocity at displacement x",a:"v = \u00b1\u03c9\u221a(x\u2080\u00b2 \u2212 x\u00b2)"},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 velocity against time",a:"v = v\u2080 cos(\u03c9t)",g:1},
+  {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 velocity at displacement x",a:"v = \u00b1\u03c9\u221a(x\u2080\u00b2 \u2212 x\u00b2)",g:1},
   {s:"form",t:"Oscillations",q:"Formula: SHM \u2014 total energy",a:"E = \u00bdm\u03c9\u00b2x\u2080\u00b2"},
   {s:"form",t:"Electric fields",q:"Formula: Coulomb\u2019s law",a:"F = Q\u2081Q\u2082 / (4\u03c0\u03b5\u2080r\u00b2)"},
+  {s:"form",t:"Electric fields",q:"Formula: Force on a charge in an electric field",a:"F = qE"},
   {s:"form",t:"Electric fields",q:"Formula: Electric field strength (radial)",a:"E = Q / (4\u03c0\u03b5\u2080r\u00b2)"},
   {s:"form",t:"Electric fields",q:"Formula: Electric field strength (uniform)",a:"E = \u0394V / \u0394d"},
-  {s:"form",t:"Electric fields",q:"Formula: Electric potential (point charge)",a:"V = Q / (4\u03c0\u03b5\u2080r)"},
+  {s:"form",t:"Electric fields",q:"Formula: Electric potential (point charge)",a:"V = Q / (4\u03c0\u03b5\u2080r)",g:1},
+  {s:"form",t:"Electric fields",q:"Formula: Electric potential energy (two charges)",a:"EP = Qq / (4\u03c0\u03b5\u2080r)",g:1},
   {s:"form",t:"Capacitance",q:"Formula: Capacitance",a:"C = Q/V"},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitors in series",a:"1/C = 1/C\u2081 + 1/C\u2082 + \u2026",g:1},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitors in parallel",a:"C = C\u2081 + C\u2082 + \u2026",g:1},
   {s:"form",t:"Capacitance",q:"Formula: Energy stored in capacitor (all 3 forms)",a:"W = \u00bdQV = \u00bdCV\u00b2 = Q\u00b2/2C"},
-  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 charge",a:"Q = Q\u2080 e\u207b\u1d57\u141f\u1d3f\u1d9c\u1d30"},
-  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 voltage",a:"V = V\u2080 e\u207b\u1d57\u141f\u1d3f\u1d9c\u1d30"},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 charge",a:"Q = Q\u2080 e^(\u2212t/RC)",g:1},
+  {s:"form",t:"Capacitance",q:"Formula: Capacitor discharge \u2014 voltage",a:"V = V\u2080 e^(\u2212t/RC)",g:1},
   {s:"form",t:"Capacitance",q:"Formula: Time constant",a:"\u03c4 = RC"},
   {s:"form",t:"Magnetic fields",q:"Formula: Magnetic flux",a:"\u03a6 = BA cos\u03b8"},
   {s:"form",t:"Magnetic fields",q:"Formula: Induced e.m.f. (Faraday\u2019s law)",a:"\u03b5 = \u2212N(\u0394\u03a6/\u0394t)"},
   {s:"form",t:"Magnetic fields",q:"Formula: Force on a current-carrying conductor",a:"F = BIL sin\u03b8"},
   {s:"form",t:"Magnetic fields",q:"Formula: Force on a moving charge",a:"F = BQv sin\u03b8"},
-  {s:"form",t:"Magnetic fields",q:"Formula: Hall voltage",a:"VH = BI / (ntq)"},
+  {s:"form",t:"Magnetic fields",q:"Formula: Hall voltage",a:"VH = BI / (ntq)",g:1},
   {s:"form",t:"Alternating currents",q:"Formula: r.m.s. current and voltage",a:"Ir.m.s. = I\u2080/\u221a2   and   Vr.m.s. = V\u2080/\u221a2"},
   {s:"form",t:"Quantum physics",q:"Formula: Photon energy",a:"E = hf"},
+  {s:"form",t:"Quantum physics",q:"Formula: Photon momentum",a:"p = E/c"},
   {s:"form",t:"Quantum physics",q:"Formula: Photoelectric effect",a:"hf = \u03a6 + \u00bdmv\u00b2\u2098\u2090\u02e3"},
   {s:"form",t:"Quantum physics",q:"Formula: de Broglie wavelength",a:"\u03bb = h/p"},
   {s:"form",t:"Quantum physics",q:"Formula: Energy level transition",a:"hf = E\u2081 \u2212 E\u2082"},
   {s:"form",t:"Nuclear physics",q:"Formula: Mass\u2013energy equivalence",a:"E = mc\u00b2"},
-  {s:"form",t:"Nuclear physics",q:"Formula: Radioactive decay equation",a:"x = x\u2080 e\u207b\u03bbt  (x = activity, N, or count rate)"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Radioactive decay equation",a:"x = x\u2080 e\u207b\u03bbt  (x = activity, N, or count rate)",g:1},
   {s:"form",t:"Nuclear physics",q:"Formula: Activity",a:"A = \u03bbN"},
-  {s:"form",t:"Nuclear physics",q:"Formula: Half-life and decay constant",a:"t\u00bd = ln\u202f2 / \u03bb = 0.693 / \u03bb"},
+  {s:"form",t:"Nuclear physics",q:"Formula: Half-life and decay constant",a:"t\u00bd = ln\u202f2 / \u03bb = 0.693 / \u03bb",g:1},
   {s:"form",t:"Medical physics",q:"Formula: Acoustic impedance",a:"Z = \u03c1c"},
-  {s:"form",t:"Medical physics",q:"Formula: Intensity reflection coefficient",a:"IR/I\u2080 = (Z\u2081 \u2212 Z\u2082)\u00b2 / (Z\u2081 + Z\u2082)\u00b2"},
+  {s:"form",t:"Medical physics",q:"Formula: Intensity reflection coefficient",a:"IR/I\u2080 = (Z\u2081 \u2212 Z\u2082)\u00b2 / (Z\u2081 + Z\u2082)\u00b2",g:1},
   {s:"form",t:"Medical physics",q:"Formula: Attenuation (ultrasound / X-ray)",a:"I = I\u2080 e\u207b\u03bcx"},
+  {s:"form",t:"Medical physics",q:"Formula: Minimum wavelength of X-rays",a:"\u03bb(min) = hc/eV (an electron\u2019s whole kinetic energy eV becomes one photon)"},
   {s:"form",t:"Astronomy",q:"Formula: Radiant flux intensity",a:"F = L / (4\u03c0d\u00b2)"},
-  {s:"form",t:"Astronomy",q:"Formula: Stefan\u2013Boltzmann law",a:"L = 4\u03c0\u03c3r\u00b2T\u2074"},
-  {s:"form",t:"Astronomy",q:"Formula: Redshift",a:"\u0394\u03bb/\u03bb \u2248 \u0394f/f \u2248 v/c"},
+  {s:"form",t:"Astronomy",q:"Formula: Stefan\u2013Boltzmann law",a:"L = 4\u03c0\u03c3r\u00b2T\u2074",g:1},
+  {s:"form",t:"Astronomy",q:"Formula: Redshift",a:"\u0394\u03bb/\u03bb \u2248 \u0394f/f \u2248 v/c",g:1},
   {s:"form",t:"Astronomy",q:"Formula: Hubble\u2019s law",a:"v \u2248 H\u2080d"},
 ];
 
@@ -725,7 +754,7 @@ function hideAll(){
 
 function buildDeck(){
   isRetest=false;retestRound=1;
-  deck=ALL.filter(i=>(activeSec==='all'||i.s===activeSec)&&activeTopics.has(i.t));
+  deck=ALL.filter(i=>(activeSec==='all'||(activeSec==='learn'?(i.s==='form'&&!i.g):i.s===activeSec))&&activeTopics.has(i.t));
   idx=0;results={got:0,missed:0};missedItems=[];updateStats();showCard();
 }
 function shuffleDeck(){buildDeck();for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}showCard();}
@@ -739,7 +768,7 @@ function showCard(){
   revealed=false;
   const item=deck[idx];
   document.getElementById('card-topic').textContent=item.t;
-  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':'formula';badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
+  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':(item.g?'formula \u00b7 on data sheet':'formula');badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
   document.getElementById('question').textContent=item.q;document.getElementById('answer').textContent=item.a;
   document.getElementById('answer-box').style.display='none';
   document.getElementById('actions-before').classList.remove('hidden');
@@ -755,7 +784,7 @@ function updateStats(){
   document.getElementById('s-total').textContent=deck.length;document.getElementById('s-done').textContent=done;document.getElementById('s-got').textContent=results.got;document.getElementById('s-missed').textContent=results.missed;
   document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
   const topicLabel=(allTopicsMode||activeTopics.size===TOPICS.length)?'all topics':activeTopics.size+' topic'+(activeTopics.size!==1?'s':'');
-  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+topicLabel+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
+  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+topicLabel+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':activeSec==='learn'?'formulae to learn':'formulae');
   if(isRetest)info+=' \u00b7 retest '+retestRound;
   document.getElementById('deck-info').textContent=info;
   if(isRetest)document.getElementById('retest-label').textContent=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 round '+retestRound;

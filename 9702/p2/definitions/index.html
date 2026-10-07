@@ -46,7 +46,7 @@
     {
       "@type": "WebApplication",
       "name": "Cambridge AS Level Physics Definitions & Formulae Flashcards (9702 Paper 2)",
-      "description": "Every Cambridge AS Level Physics definition and formula tested on Paper 2 — 121 items across 10 topic areas including mechanics, waves, electricity, and quantum physics.",
+      "description": "Every Cambridge AS Physics 9702 definition and formula for Paper 2 (2025–2027 syllabus), with data-sheet formulae marked and a filter for the ones you have to learn.",
       "url": "https://cieinsider.com/9702/p2/definitions/",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Web Browser",
@@ -511,10 +511,11 @@ h1.cie-page-title em {
   <details>
     <summary>About this tool</summary>
       <div class="seo-intro-inner">
-    <h2>Cambridge AS Level Physics definitions and formulae &mdash; every term tested on Paper 2</h2>
-    <p>Definitions carry reliable marks on Cambridge A Level Physics 9702 Paper 2 (AS Level Structured Questions). Questions like &ldquo;define the pascal&rdquo;, &ldquo;state what is meant by Young modulus&rdquo;, or &ldquo;state Newton&rsquo;s second law in terms of momentum&rdquo; appear every series. The mark scheme requires precise wording: omitting &ldquo;per unit cross-sectional area&rdquo; from the definition of stress, or writing &ldquo;rate of change of distance&rdquo; instead of &ldquo;rate of change of displacement&rdquo; for velocity, loses the mark. Examiner reports consistently note that candidates understand the concepts but fail the definition.</p>
-    <p>This deck covers 121 recall items from the AS-level component of the 9702 specification (2025&ndash;2027), organised by topic: <strong>Physical Quantities</strong> (base units, SI prefixes, scalars and vectors); <strong>Kinematics</strong> (displacement, velocity, acceleration, equations of uniform motion, projectile motion); <strong>Dynamics</strong> (Newton&rsquo;s three laws, linear momentum, impulse, conservation of momentum); <strong>Forces and Pressure</strong> (upthrust, Archimedes&rsquo; principle, torque, equilibrium); <strong>Work, Energy and Power</strong> (work done, gravitational potential energy, kinetic energy, efficiency); <strong>Deformation of Solids</strong> (Hooke&rsquo;s law, Young modulus, stress, strain, elastic limit); <strong>Waves</strong> (progressive and stationary waves, phase difference, coherence, polarisation, refractive index, critical angle); <strong>Superposition</strong> (path difference, interference, diffraction grating equation); <strong>Electricity</strong> (current, potential difference, EMF, resistance, Kirchhoff&rsquo;s laws, resistivity); and <strong>Particle Physics</strong> (quarks, leptons, hadrons, conservation laws).</p>
-    <p>Cards use a shuffle mode and missed-item retest system. Work through the full deck once early in revision, then return to flagged items before the exam. Complements the <a href="/9702/p4/definitions/">Paper 4 (A2) flashcard deck</a> and the <a href="/9702/uncertainties/">uncertainties trainer</a>.</p>
+    <h2>Cambridge AS Level Physics definitions and formulae for Paper 2</h2>
+    <p>Definitions and laws come up on almost every AS paper. Of the 42 Paper 2s set from March 2021 to June 2026, 41 ask for at least one. Examples are &ldquo;Define density&rdquo; (June 2021, Paper 21) and &ldquo;State Newton&rsquo;s second law of motion&rdquo; (June 2023, Paper 21). The wording is marked closely. In the November 2021 Paper 23 report, the examiner wrote that velocity as &ldquo;the rate of change of displacement&rdquo; is correct, while &ldquo;rate of change of distance&rdquo; or &ldquo;speed in a particular direction&rdquo; is not.</p>
+    <p>Some formulae are printed on the data sheet in the exam, such as the Doppler equation and I = Anvq. Those cards are marked &ldquo;on data sheet&rdquo;. Pick <strong>Formulae to learn</strong> to drill only the ones you have to memorise.</p>
+    <p>The deck covers every AS topic in the 2025&ndash;2027 syllabus, and the topic buttons above the cards let you drill one at a time.</p>
+    <p>Shuffle the deck, and cards you miss go into a retest round until you get them all right. Work through the full deck once early in revision, then return to the ones you missed before the exam. Use it with the <a href="/9702/p4/definitions/">Paper 4 (A Level) flashcard deck</a> and the <a href="/9702/uncertainties/">uncertainties trainer</a>.</p>
   </div>
   </details>
 </section>
@@ -524,12 +525,13 @@ h1.cie-page-title em {
   <div class="header">
     <div class="header-eyebrow">Cambridge 9702 · Paper 2 · AS Level · 2025–2027</div>
     <div class="header-title">Definitions &amp; Formulae</div>
-    <div class="header-sub" id="deck-info">121 items · all topics</div>
+    <div class="header-sub" id="deck-info">154 items · all topics</div>
   </div>
   <div class="filter-bar" id="section-filters">
     <button class="filter-btn active" data-sec="all" onclick="setSec(this,'all')">All</button>
     <button class="filter-btn" data-sec="def" onclick="setSec(this,'def')">Definitions</button>
     <button class="filter-btn" data-sec="form" onclick="setSec(this,'form')">Formulae</button>
+    <button class="filter-btn" data-sec="learn" onclick="setSec(this,'learn')" title="Only the formulae that are not printed on the exam data sheet">Formulae to learn</button>
     <div class="filter-divider"></div>
     <button class="filter-btn active-blue" onclick="shuffleDeck()">&#8644; Shuffle</button>
     <button class="filter-btn" onclick="resetSession()">&#8635; Reset</button>
@@ -586,30 +588,40 @@ h1.cie-page-title em {
 const ALL=[
   {s:"def",t:"Measurement",q:"Define: Scalar",a:"Quantity with magnitude only"},
   {s:"def",t:"Measurement",q:"Define: Vector",a:"Quantity with both magnitude and direction"},
+  {s:"def",t:"Measurement",q:"State: SI base quantities and their units",a:"mass (kg), length (m), time (s), current (A), temperature (K), amount of substance (mol)"},
+  {s:"def",t:"Measurement",q:"State: SI prefixes from pico to tera",a:"pico p 10\u207b\u00b9\u00b2, nano n 10\u207b\u2079, micro \u03bc 10\u207b\u2076, milli m 10\u207b\u00b3, centi c 10\u207b\u00b2, deci d 10\u207b\u00b9, kilo k 10\u00b3, mega M 10\u2076, giga G 10\u2079, tera T 10\u00b9\u00b2"},
   {s:"def",t:"Measurement",q:"Define: Random error",a:"Unpredictable variation about a mean; reduced by repeating and averaging"},
   {s:"def",t:"Measurement",q:"Define: Systematic error",a:"Consistent error in one direction; cannot be reduced by repeating measurements"},
+  {s:"def",t:"Measurement",q:"Define: Zero error",a:"Systematic error where an instrument gives a non-zero reading when the true value is zero"},
   {s:"def",t:"Measurement",q:"Define: Precision",a:"Results clustered closely together / small range of values"},
   {s:"def",t:"Measurement",q:"Define: Accuracy",a:"Result close to the true / accepted value"},
   {s:"def",t:"Measurement",q:"Define: Uncertainty",a:"Range of values within which the true value is expected to lie"},
   {s:"def",t:"Kinematics",q:"Define: Displacement",a:"Distance moved in a specified direction"},
+  {s:"def",t:"Kinematics",q:"Define: Distance",a:"Total length of the path travelled (a scalar)"},
   {s:"def",t:"Kinematics",q:"Define: Speed",a:"Distance travelled per unit time"},
   {s:"def",t:"Kinematics",q:"Define: Velocity",a:"Rate of change of displacement"},
   {s:"def",t:"Kinematics",q:"Define: Acceleration",a:"Rate of change of velocity"},
   {s:"def",t:"Kinematics",q:"Define: Free fall",a:"Motion under gravity alone (no air resistance / other forces)"},
   {s:"def",t:"Dynamics",q:"Define: Linear momentum",a:"Product of mass and velocity"},
+  {s:"def",t:"Dynamics",q:"Define: Force",a:"Rate of change of momentum"},
+  {s:"def",t:"Dynamics",q:"State what is meant by: Mass",a:"The property of an object that resists change in its motion"},
   {s:"def",t:"Dynamics",q:"State: Newton\u2019s first law",a:"A body remains at rest or continues with constant velocity unless acted on by a resultant force"},
   {s:"def",t:"Dynamics",q:"State: Newton\u2019s second law",a:"The resultant force on a body is proportional to its rate of change of momentum (and acts in the same direction)"},
   {s:"def",t:"Dynamics",q:"State: Newton\u2019s third law",a:"When body A exerts a force on body B, body B exerts an equal and opposite force on body A (of the same type)"},
   {s:"def",t:"Dynamics",q:"Define: Impulse",a:"Product of force and the time for which it acts; equal to change in momentum"},
   {s:"def",t:"Dynamics",q:"State: Principle of conservation of momentum",a:"The total momentum of a system remains constant provided no external resultant force acts on it"},
-  {s:"def",t:"Dynamics",q:"Define: Elastic collision",a:"Collision in which total kinetic energy is conserved"},
+  {s:"def",t:"Dynamics",q:"Define: Elastic collision",a:"Collision in which total kinetic energy is conserved; relative speed of approach = relative speed of separation"},
   {s:"def",t:"Dynamics",q:"Define: Inelastic collision",a:"Collision in which total kinetic energy is not conserved (momentum is still conserved)"},
+  {s:"def",t:"Dynamics",q:"Explain: Terminal velocity",a:"Constant velocity reached when the resistive (drag) force has increased to equal the driving force, so the resultant force is zero"},
   {s:"def",t:"Forces",q:"Define: Density",a:"Mass per unit volume"},
   {s:"def",t:"Forces",q:"Define: Pressure",a:"Force per unit area (acting perpendicularly to the surface)"},
+  {s:"def",t:"Forces",q:"Define: Moment of a force",a:"Force \u00d7 perpendicular distance from the pivot (point) to the line of action of the force"},
+  {s:"def",t:"Forces",q:"Define: Couple",a:"A pair of equal and opposite forces whose lines of action are not the same; produces rotation only"},
   {s:"def",t:"Forces",q:"Define: Torque of a couple",a:"Product of one of the forces and the perpendicular distance between the forces"},
   {s:"def",t:"Forces",q:"State: Principle of moments",a:"For a body in equilibrium, the sum of clockwise moments about any point equals the sum of anticlockwise moments about the same point"},
   {s:"def",t:"Forces",q:"Define: Centre of gravity",a:"Point at which the entire weight of the body may be considered to act"},
   {s:"def",t:"Forces",q:"State: Conditions for equilibrium (both)",a:"Resultant force is zero AND resultant torque / moment about any point is zero"},
+  {s:"def",t:"Forces",q:"Explain: Origin of upthrust",a:"Hydrostatic pressure increases with depth, so the pressure on the bottom of the object is greater than on the top; the difference gives an upward force"},
   {s:"def",t:"Work & Energy",q:"Define: Work done",a:"Product of force and displacement in the direction of the force"},
   {s:"def",t:"Work & Energy",q:"Define: Power",a:"Work done per unit time / rate of energy transfer"},
   {s:"def",t:"Work & Energy",q:"State: Principle of conservation of energy",a:"Energy cannot be created or destroyed; it can only be converted from one form to another"},
@@ -620,11 +632,13 @@ const ALL=[
   {s:"def",t:"Deformation",q:"Define: Tensile strain",a:"Extension per unit original length"},
   {s:"def",t:"Deformation",q:"Define: Young modulus",a:"Tensile stress divided by tensile strain (within the limit of proportionality)"},
   {s:"def",t:"Deformation",q:"State: Hooke\u2019s law",a:"Extension is proportional to the applied force provided the limit of proportionality is not exceeded"},
+  {s:"def",t:"Deformation",q:"Define: Spring constant",a:"Force per unit extension"},
   {s:"def",t:"Deformation",q:"Define: Elastic deformation",a:"Deformation from which the material returns to its original shape when the load is removed"},
   {s:"def",t:"Deformation",q:"Define: Plastic deformation",a:"Deformation which is permanent; material does not return to its original shape when the load is removed"},
   {s:"def",t:"Deformation",q:"Define: Elastic limit",a:"The maximum force / stress beyond which the material does not return to its original length when the load is removed"},
   {s:"def",t:"Deformation",q:"Define: Limit of proportionality",a:"Point beyond which extension is no longer proportional to the applied force"},
   {s:"def",t:"Waves",q:"Define: Displacement (waves)",a:"Distance and direction of a particle from its equilibrium position"},
+  {s:"def",t:"Waves",q:"Define: Progressive wave",a:"A wave that transfers energy (in the direction of propagation)"},
   {s:"def",t:"Waves",q:"Define: Amplitude",a:"Maximum displacement from equilibrium"},
   {s:"def",t:"Waves",q:"Define: Period",a:"Time for one complete oscillation"},
   {s:"def",t:"Waves",q:"Define: Frequency",a:"Number of complete oscillations per unit time"},
@@ -635,49 +649,70 @@ const ALL=[
   {s:"def",t:"Waves",q:"Define: Transverse wave",a:"Oscillations perpendicular to the direction of energy transfer"},
   {s:"def",t:"Waves",q:"Define: Longitudinal wave",a:"Oscillations parallel to the direction of energy transfer"},
   {s:"def",t:"Waves",q:"Define: Polarisation",a:"Restriction of transverse wave oscillations to one plane"},
+  {s:"def",t:"Waves",q:"State: Properties of all electromagnetic waves in free space",a:"All are transverse and all travel at the same speed c (3.00 \u00d7 10\u2078\u202fm/s) in free space"},
+  {s:"def",t:"Waves",q:"State: Wavelength range of visible light",a:"400\u2013700\u202fnm (in free space)"},
+  {s:"def",t:"Waves",q:"State: Approximate wavelengths of the EM spectrum",a:"Typical orders of magnitude: radio above about 10\u207b\u00b9\u202fm; microwaves 10\u207b\u00b3 to 10\u207b\u00b9\u202fm; infrared 7 \u00d7 10\u207b\u2077 to 10\u207b\u00b3\u202fm; visible 4 to 7 \u00d7 10\u207b\u2077\u202fm; ultraviolet 10\u207b\u2078 to 4 \u00d7 10\u207b\u2077\u202fm; X-rays 10\u207b\u00b9\u00b2 to 10\u207b\u2078\u202fm; \u03b3-rays below about 10\u207b\u00b9\u00b9\u202fm (X-ray and \u03b3 ranges overlap)"},
   {s:"def",t:"Superposition",q:"State: Principle of superposition",a:"When two or more waves meet, the resultant displacement is the vector sum of the individual displacements"},
   {s:"def",t:"Superposition",q:"Define: Coherence",a:"Constant phase difference (and same frequency) between two sources"},
   {s:"def",t:"Superposition",q:"Define: Interference",a:"Superposition of waves from two coherent sources"},
-  {s:"def",t:"Superposition",q:"Define: Constructive interference",a:"Superposition resulting in larger amplitude; path difference = n\u03bb"},
-  {s:"def",t:"Superposition",q:"Define: Destructive interference",a:"Superposition resulting in reduced / zero amplitude; path difference = (n + \u00bd)\u03bb"},
+  {s:"def",t:"Superposition",q:"Define: Constructive interference",a:"Waves meet in phase, giving maximum amplitude; for sources in phase, path difference = n\u03bb"},
+  {s:"def",t:"Superposition",q:"Define: Destructive interference",a:"Waves meet in antiphase, giving minimum (or zero) amplitude; for sources in phase, path difference = (n + \u00bd)\u03bb"},
   {s:"def",t:"Superposition",q:"Define: Diffraction",a:"Spreading of a wave as it passes through a gap or around an obstacle"},
   {s:"def",t:"Superposition",q:"Define: Standing wave",a:"Wave pattern formed by superposition of two waves of the same frequency and amplitude travelling in opposite directions"},
-  {s:"def",t:"Superposition",q:"Define: Node",a:"Point of minimum / zero displacement on a standing wave"},
-  {s:"def",t:"Superposition",q:"Define: Antinode",a:"Point of maximum amplitude on a standing wave"},
+  {s:"def",t:"Superposition",q:"Define: Node",a:"Point on a stationary wave where the amplitude is zero"},
+  {s:"def",t:"Superposition",q:"Define: Antinode",a:"Point on a stationary wave where the amplitude is maximum"},
   {s:"def",t:"Electricity",q:"Define: Electric current",a:"Rate of flow of charge"},
+  {s:"def",t:"Electricity",q:"State: Charge is quantised",a:"Charge exists only in whole-number multiples of the elementary charge e (1.60 \u00d7 10\u207b\u00b9\u2079\u202fC)"},
   {s:"def",t:"Electricity",q:"Define: Potential difference",a:"Work done per unit charge moved between two points"},
   {s:"def",t:"Electricity",q:"Define: Resistance",a:"Ratio of potential difference across a component to the current through it: R = V/I"},
+  {s:"def",t:"Electricity",q:"Define: The ohm",a:"Resistance of a component with a p.d. of 1\u202fV across it when the current is 1\u202fA (1\u202f\u03a9 = 1\u202fV\u202fA\u207b\u00b9)"},
   {s:"def",t:"Electricity",q:"State: Ohm\u2019s law",a:"Current is directly proportional to potential difference provided temperature (and other physical conditions) remain constant"},
-  {s:"def",t:"Electricity",q:"Define: Resistivity",a:"Property of a material relating resistance to dimensions: R = \u03c1L/A"},
-  {s:"def",t:"Electricity",q:"Define: Electromotive force (e.m.f.)",a:"Energy transferred per unit charge by the source (from other forms to electrical)"},
+  {s:"def",t:"Electricity",q:"Explain: Why the resistance of a filament lamp increases as the current increases",a:"A larger current heats the filament; its temperature rises, so its resistance increases"},
+  {s:"def",t:"Electricity",q:"Describe: Light-dependent resistor (LDR)",a:"Resistance decreases as light intensity increases"},
+  {s:"def",t:"Electricity",q:"Describe: Thermistor (NTC)",a:"Resistance decreases as temperature increases"},
+  {s:"def",t:"Electricity",q:"Define: Electromotive force (e.m.f.)",a:"Energy transferred per unit charge in driving charge around a complete circuit (from other forms to electrical)"},
   {s:"def",t:"Electricity",q:"Define: Internal resistance",a:"Resistance to current flow within the source itself"},
   {s:"def",t:"D.C. Circuits",q:"State: Kirchhoff\u2019s first law",a:"The sum of currents entering a junction equals the sum of currents leaving it (conservation of charge)"},
   {s:"def",t:"D.C. Circuits",q:"State: Kirchhoff\u2019s second law",a:"The sum of the e.m.f.s around a closed loop equals the sum of the p.d.s around the same loop (conservation of energy)"},
   {s:"def",t:"D.C. Circuits",q:"Define: Terminal potential difference",a:"Potential difference across the terminals of a source when current is flowing; equal to e.m.f. minus the lost volts (V = \u03b5 \u2212 Ir)"},
+  {s:"def",t:"D.C. Circuits",q:"Explain: Null method (potentiometer / galvanometer)",a:"Adjust the circuit until the galvanometer reads zero; the two potential differences being compared are then equal"},
   {s:"def",t:"Particle physics",q:"Define: Nucleon number A (mass number)",a:"Total number of protons and neutrons in the nucleus"},
   {s:"def",t:"Particle physics",q:"Define: Proton number Z (atomic number)",a:"Number of protons in the nucleus"},
   {s:"def",t:"Particle physics",q:"Define: Isotopes",a:"Atoms of the same element with the same proton number but different nucleon numbers (different numbers of neutrons)"},
+  {s:"def",t:"Particle physics",q:"State: Quantities conserved in nuclear processes",a:"Nucleon number and charge"},
+  {s:"def",t:"Particle physics",q:"Define: Unified atomic mass unit (u)",a:"One twelfth of the mass of a carbon-12 atom; 1\u202fu = 1.66 \u00d7 10\u207b\u00b2\u2077\u202fkg"},
   {s:"def",t:"Particle physics",q:"Describe: Alpha particle (\u03b1)",a:"Helium nucleus: 2 protons and 2 neutrons; relative charge +2, relative mass 4"},
   {s:"def",t:"Particle physics",q:"Describe: Beta-minus particle (\u03b2\u207b)",a:"Fast-moving electron; relative charge \u22121, negligible mass"},
   {s:"def",t:"Particle physics",q:"Describe: Beta-plus particle (\u03b2\u207a)",a:"Fast-moving positron; relative charge +1, negligible mass"},
   {s:"def",t:"Particle physics",q:"Describe: Gamma radiation (\u03b3)",a:"High-frequency electromagnetic radiation from nucleus; no charge, no mass"},
+  {s:"def",t:"Particle physics",q:"State: The extra particle emitted in \u03b2\u207b and in \u03b2\u207a decay",a:"\u03b2\u207b decay: an (electron) antineutrino. \u03b2\u207a decay: an (electron) neutrino"},
+  {s:"def",t:"Particle physics",q:"Explain: Why \u03b1-particles have discrete energies but \u03b2-particles have a continuous range",a:"In \u03b2-decay an (anti)neutrino is also emitted and shares the energy released, so \u03b2-particle energies vary; \u03b1-decay has no third particle"},
   {s:"def",t:"Particle physics",q:"Define: Antiparticle",a:"Particle with the same mass but opposite charge to its corresponding particle"},
+  {s:"def",t:"Particle physics",q:"Define: Fundamental particle",a:"A particle that cannot be divided into smaller particles (has no internal structure), e.g. quarks, leptons"},
   {s:"def",t:"Particle physics",q:"Define: Quark (name all 6 flavours)",a:"Fundamental particle; six flavours: up (u), down (d), strange (s), charm (c), top (t), bottom (b)"},
   {s:"def",t:"Particle physics",q:"State: Quark charges (up, down, strange, charm, top, bottom)",a:"up: +\u2154e  |  down: \u2212\u2153e  |  strange: \u2212\u2153e  |  charm: +\u2154e  |  top: +\u2154e  |  bottom: \u2212\u2153e"},
+  {s:"def",t:"Particle physics",q:"State: Charge of an antiquark",a:"Opposite to the charge of its quark (e.g. anti-up \u2212\u2154e, anti-down +\u2153e)"},
   {s:"def",t:"Particle physics",q:"State: Proton quark composition",a:"uud  (two up quarks, one down quark)"},
   {s:"def",t:"Particle physics",q:"State: Neutron quark composition",a:"udd  (one up quark, two down quarks)"},
+  {s:"def",t:"Particle physics",q:"State: Quark change in \u03b2\u207b decay",a:"A down quark changes to an up quark (neutron udd \u2192 proton uud)"},
+  {s:"def",t:"Particle physics",q:"State: Quark change in \u03b2\u207a decay",a:"An up quark changes to a down quark (proton uud \u2192 neutron udd)"},
   {s:"def",t:"Particle physics",q:"Define: Hadron",a:"Particle made of quarks; either a baryon (3 quarks) or a meson (quark + antiquark)"},
   {s:"def",t:"Particle physics",q:"Define: Lepton",a:"Fundamental particle not made of quarks; e.g. electron, neutrino"},
+  {s:"form",t:"Kinematics",q:"Formula: suvat (no s)",a:"v = u + at"},
+  {s:"form",t:"Kinematics",q:"Formula: suvat (no a)",a:"s = \u00bd(u + v)t"},
+  {s:"form",t:"Kinematics",q:"Formula: suvat (no v)",a:"s = ut + \u00bdat\u00b2",g:1},
+  {s:"form",t:"Kinematics",q:"Formula: suvat (no t)",a:"v\u00b2 = u\u00b2 + 2as",g:1},
   {s:"form",t:"Dynamics",q:"Formula: Linear momentum",a:"p = mv"},
   {s:"form",t:"Dynamics",q:"Formula: Impulse",a:"J = F\u0394t = \u0394p"},
   {s:"form",t:"Dynamics",q:"Formula: Weight",a:"W = mg"},
   {s:"form",t:"Dynamics",q:"Formula: F = ma (Newton\u2019s 2nd law)",a:"F = ma"},
   {s:"form",t:"Forces",q:"Formula: Density",a:"\u03c1 = m/V"},
   {s:"form",t:"Forces",q:"Formula: Pressure",a:"p = F/A"},
-  {s:"form",t:"Forces",q:"Formula: Pressure in a fluid",a:"\u0394p = \u03c1g\u0394h"},
-  {s:"form",t:"Forces",q:"Formula: Upthrust (Archimedes\u2019 principle)",a:"F = \u03c1gV"},
+  {s:"form",t:"Forces",q:"Formula: Pressure in a fluid",a:"\u0394p = \u03c1g\u0394h",g:1},
+  {s:"form",t:"Forces",q:"Formula: Upthrust (Archimedes\u2019 principle)",a:"F = \u03c1gV",g:1},
   {s:"form",t:"Forces",q:"Formula: Torque of a couple",a:"T = Fd"},
   {s:"form",t:"Work & Energy",q:"Formula: Work done",a:"W = Fd\u202fcos\u03b8"},
+  {s:"form",t:"Work & Energy",q:"Formula: Power (work done per unit time)",a:"P = W/t"},
   {s:"form",t:"Work & Energy",q:"Formula: Power (from force and velocity)",a:"P = Fv"},
   {s:"form",t:"Work & Energy",q:"Formula: Efficiency",a:"\u03b7 = (useful output energy / total input energy) \u00d7 100%"},
   {s:"form",t:"Work & Energy",q:"Formula: Gravitational potential energy",a:"\u0394Ep = mg\u0394h"},
@@ -693,16 +728,16 @@ const ALL=[
   {s:"form",t:"Waves",q:"Formula: Intensity and amplitude relationship",a:"I \u221d A\u00b2"},
   {s:"form",t:"Superposition",q:"Formula: Double-slit fringe spacing (\u03bb = ax/D form)",a:"\u03bb = ax/D"},
   {s:"form",t:"Superposition",q:"Formula: Diffraction grating equation",a:"d\u202fsin\u03b8 = n\u03bb"},
-  {s:"form",t:"Waves",q:"Formula: Doppler effect (moving source)",a:"f\u2080 = f\u209bv\u202f/\u202f(v \u00b1 v\u209b)"},
+  {s:"form",t:"Waves",q:"Formula: Doppler effect (moving source)",a:"f\u2080 = f\u209bv\u202f/\u202f(v \u00b1 v\u209b)",g:1},
   {s:"form",t:"Waves",q:"Formula: Malus\u2019s law",a:"I = I\u2080\u202fcos\u00b2\u03b8"},
   {s:"form",t:"Electricity",q:"Formula: Electric charge",a:"Q = It"},
-  {s:"form",t:"Electricity",q:"Formula: Drift velocity",a:"I = Anvq"},
+  {s:"form",t:"Electricity",q:"Formula: Drift velocity",a:"I = Anvq",g:1},
   {s:"form",t:"Electricity",q:"Formula: Potential difference",a:"V = W/Q"},
   {s:"form",t:"Electricity",q:"Formula: Resistance",a:"R = V/I"},
   {s:"form",t:"Electricity",q:"Formula: Resistivity",a:"R = \u03c1L/A"},
   {s:"form",t:"Electricity",q:"Formula: Electrical power (all 3 forms)",a:"P = VI = I\u00b2R = V\u00b2/R"},
-  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in series",a:"R = R\u2081 + R\u2082 + \u2026"},
-  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in parallel",a:"1/R = 1/R\u2081 + 1/R\u2082 + \u2026"},
+  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in series",a:"R = R\u2081 + R\u2082 + \u2026",g:1},
+  {s:"form",t:"D.C. Circuits",q:"Formula: Resistors in parallel",a:"1/R = 1/R\u2081 + 1/R\u2082 + \u2026",g:1},
   {s:"form",t:"D.C. Circuits",q:"Formula: E.m.f. and terminal p.d.",a:"\u03b5 = V + Ir   or   \u03b5 = I(R + r)"},
   {s:"form",t:"D.C. Circuits",q:"Formula: Potential divider output voltage",a:"V\u2092\u1d58\u209c = R\u2082\u202f/\u202f(R\u2081 + R\u2082) \u00d7 V\u1d62\u2099"},
 ];
@@ -738,7 +773,7 @@ function hideAll(){
 
 function buildDeck(){
   isRetest=false;retestRound=1;
-  deck=ALL.filter(i=>(activeSec==='all'||i.s===activeSec)&&activeTopics.has(i.t));
+  deck=ALL.filter(i=>(activeSec==='all'||(activeSec==='learn'?(i.s==='form'&&!i.g):i.s===activeSec))&&activeTopics.has(i.t));
   idx=0;results={got:0,missed:0};missedItems=[];updateStats();showCard();
 }
 function shuffleDeck(){buildDeck();for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}showCard();}
@@ -752,7 +787,7 @@ function showCard(){
   revealed=false;
   const item=deck[idx];
   document.getElementById('card-topic').textContent=item.t;
-  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':'formula';badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
+  const badge=document.getElementById('card-badge');badge.textContent=item.s==='def'?'definition':(item.g?'formula \u00b7 on data sheet':'formula');badge.className='card-badge '+(item.s==='def'?'badge-def':'badge-form');
   document.getElementById('question').textContent=item.q;document.getElementById('answer').textContent=item.a;
   document.getElementById('answer-box').style.display='none';
   document.getElementById('actions-before').classList.remove('hidden');
@@ -768,7 +803,7 @@ function updateStats(){
   document.getElementById('s-total').textContent=deck.length;document.getElementById('s-done').textContent=done;document.getElementById('s-got').textContent=results.got;document.getElementById('s-missed').textContent=results.missed;
   document.getElementById('progress').style.width=(deck.length?(done/deck.length)*100:0)+'%';
   const topicLabel=(allTopicsMode||activeTopics.size===TOPICS.length)?'all topics':activeTopics.size+' topic'+(activeTopics.size!==1?'s':'');
-  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+topicLabel+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':'formulae');
+  let info=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 '+topicLabel+' \u00b7 '+(activeSec==='all'?'all':activeSec==='def'?'definitions':activeSec==='learn'?'formulae to learn':'formulae');
   if(isRetest)info+=' \u00b7 retest '+retestRound;
   document.getElementById('deck-info').textContent=info;
   if(isRetest)document.getElementById('retest-label').textContent=deck.length+' item'+(deck.length!==1?'s':'')+' \u00b7 round '+retestRound;
