@@ -1291,17 +1291,17 @@ const DRILLS = [
   },
   {
     skill: "Tolerance rule",
-    prompt: "You calculate two values: f₁ = 12.4 cm and f₂ = 13.8 cm. Are they 'equal within experimental accuracy'?",
+    prompt: "You calculate two values: f₁ = 12.4 cm and f₂ = 14.2 cm. The question says they are equal if they are within 10% of each other. Are they?",
     options: [
       { text: "No — they are obviously different numbers", correct: false,
         quote: "Most candidates were able to state whether or not their results supported the statement given. However, not all candidates were able to go on and give a convincing justification for their statements.",
         source: "Jun 2021",
         rule: "You must calculate the percentage difference, not eyeball it." },
-      { text: "Yes — because the difference is 1.4 cm which is small", correct: false,
-        rule: "'Small' isn't a measurement. Work out how far apart the values are as a percentage: within 10% of each other counts as equal within experimental accuracy." },
-      { text: "Calculate (1.4 ÷ 12.4) × 100 = 11.3%. This is >10%, so no — they are different.", correct: true },
+      { text: "Yes — because the difference is only 1.8 cm", correct: false,
+        rule: "'Only 1.8 cm' isn't a test. Compare the values as a ratio or a percentage against the 10% the question gives." },
+      { text: "Smaller ÷ larger = 12.4 ÷ 14.2 = 0.87. That is below 0.90, so no: they are more than 10% apart.", correct: true },
       { text: "Yes — because all experiments have errors", correct: false,
-        rule: "Show the calculation. Within 10% of each other (or smaller ÷ larger ≥ 0.9) = equal within experimental accuracy; more than 10% apart = not equal. Many questions state the 10% for you." }
+        rule: "Show the calculation and let it decide: smaller ÷ larger of 0.90 or more means equal within experimental accuracy. Mark schemes since 2022 use 10%, and recent questions state it." }
     ]
   },
   {
@@ -1418,12 +1418,12 @@ const DRILLS = [
       { text: "Work in a darkened room", correct: false,
         quote: "A significant number of candidates incorrectly suggested carrying out the experiment in a darkened room. Successful candidates made valid suggestions such as viewing the bases of the pins.",
         source: "Jun 2021",
-        rule: "A darkened room is not credited for the pin experiment (June 2021, November 2021). The reports do credit it in the lens image experiment (June 2024, November 2024), so match the precaution to the experiment." },
+        rule: "A darkened room earns nothing in the pin experiment (June 2021, November 2021). It is credited only when the question is about seeing an image clearly, such as the sharpest image from a lens (June 2024)." },
       { text: "Use thick pins so they're easy to see", correct: false,
         rule: "Thin pins are what the mark scheme credits (June 2025, March 2025). Thick pins blur the position of the ray." },
       { text: "View the bases of the pins when aligning them", correct: true },
       { text: "Place the pins close together so they are easy to line up", correct: false,
-        rule: "Mark schemes credit pins far apart, at least 5 cm (June 2025, June 2023). Pins close together make the ray direction less certain." }
+        rule: "Mark schemes credit pins far apart, at least 5 cm (June 2025, June 2023). Go well beyond 5 cm: in November 2021, pins drawn exactly 5.0 cm apart risked being just too short." }
     ]
   }
 ];
