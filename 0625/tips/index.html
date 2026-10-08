@@ -540,8 +540,8 @@ h1.cie-page-title em {
     <summary>About this tool</summary>
       <div class="seo-intro-inner">
     <h2>What Cambridge examiners flag in IGCSE Physics 0625 &mdash; topic by topic</h2>
-    <p>After every examination series, Cambridge publishes examiner reports for IGCSE Physics (syllabus 0625). These reports name specific mistakes that cost candidates marks &mdash; not broad guidance, but precise observations: the phrasing that doesn&rsquo;t score, the graph conventions that get penalised, the calculation errors that appear on every single series. This tool collects those observations into a filterable reference organised by topic.</p>
-    <p>Tips span all six topic areas: <strong>General Physics</strong> (measurement, scalar and vector quantities, kinematics, dynamics, energy and work, pressure); <strong>Thermal Physics</strong> (temperature, specific heat capacity, specific latent heat, gas laws); <strong>Properties of Waves</strong> (transverse and longitudinal waves, light, sound, electromagnetic spectrum); <strong>Electricity and Magnetism</strong> (current, voltage, resistance, series and parallel circuits, electromagnetic induction, transformers); <strong>Atomic Physics</strong> (radioactive decay, half-life, nuclear reactions); and <strong>Space Physics</strong> (solar system, stars, universe). Core and Extended content is flagged separately so you can target supplementary marks without re-reading shared material.</p>
+    <p>After every examination series, Cambridge publishes examiner reports for IGCSE Physics (syllabus 0625). These reports name specific mistakes that cost candidates marks &mdash; not broad guidance, but precise observations: the phrasing that doesn&rsquo;t score, the graph conventions that get penalised, the calculation errors that keep recurring. This tool collects those observations into a filterable reference organised by topic.</p>
+    <p>Tips span all six topic areas: <strong>General Physics</strong> (measurement, scalar and vector quantities, kinematics, dynamics, energy and work, pressure); <strong>Thermal Physics</strong> (temperature, specific heat capacity, melting and boiling, gas pressure and volume); <strong>Properties of Waves</strong> (transverse and longitudinal waves, light, sound, electromagnetic spectrum); <strong>Electricity and Magnetism</strong> (current, voltage, resistance, series and parallel circuits, electromagnetic induction, transformers); <strong>Atomic Physics</strong> (radioactive decay, half-life, nuclear reactions); and <strong>Space Physics</strong> (solar system, stars, universe). Core and Extended content is flagged separately so you can target supplementary marks without re-reading shared material.</p>
     <p>Recurring examiner observations across recent series: candidates describe effects too vaguely (&ldquo;resistance increases&rdquo; rather than &ldquo;resistance increases because more collisions occur between electrons and ions&rdquo;); copy values from graphs without showing a substitution; omit units on derived quantities; and confuse transverse with longitudinal wave properties. Each tip names the mistake and states exactly what a mark-winning answer looks like instead. Pair with the <a href="/0625/definitions/">0625 definitions flashcard deck</a> and the <a href="/0625/p5/guide/">Paper 5 practical guide</a> to cover theory, vocabulary, and practical skills together.</p>
   </div>
   </details>
@@ -594,29 +594,29 @@ h1.cie-page-title em {
 const TIPS_DATA = [
   { topic: "Topic 1 — Motion, Forces and Energy", topicNum: "1", subtopics: [
     { name: "1.1 Physical Quantities and Measurement", tips: [
-      { text: "When asked to 'state' whether a quantity is a scalar or vector, do not just give an example — you must explicitly say 'scalar' or 'vector' and refer to direction.", extended: false },
+      { text: "When asked to 'state' whether a quantity is a scalar or vector, do not just give an example — you must explicitly say 'scalar' or 'vector' and refer to direction.", extended: true },
       { text: "The word 'describe' requires you to say HOW the measurement is made (e.g. use a ruler aligned with the object, read at eye level) — not just name the instrument.", extended: false },
       { text: "Timing errors: always state that you measure MULTIPLE oscillations and DIVIDE by the number. Timing a single swing is penalised as it does not reduce reaction time error.", extended: false },
       { text: "When using a measuring cylinder: always read the BOTTOM of the meniscus and hold the cylinder upright at EYE LEVEL. State both points to gain full marks on method questions.", extended: false },
       { text: "Vector resultant (Extended): do not confuse the resultant magnitude (Pythagoras) with the direction (tan). The question will ask for both; omitting the angle loses a mark.", extended: true },
       { text: "Always state the direction of a resultant vector with reference to one of the components (e.g. '53° north of east', not just '53°').", extended: true },
-      { text: "Command word trap: 'define' requires a precise statement (e.g. 'A scalar quantity has magnitude only'). 'Give an example' is not a definition.", extended: false }
+      { text: "Command word trap: 'define' requires a precise statement (e.g. 'Density is mass per unit volume'). 'Give an example' is not a definition.", extended: false }
     ]},
     { name: "1.2 Motion", tips: [
-      { text: "g = 9.8 m/s² is the only accepted value in the 2026–2028 specification. Writing g = 10 m/s² will lose the mark on any question that asks you to state its value.", extended: false },
+      { text: "g = 9.8 m/s² is the specification value (the syllabus says 'approximately 9.8 m/s²'). Use 9.8 unless the question gives another value. The June 2026 Extended mark schemes also accepted g = 10 where it was clearly shown in the working.", extended: false },
       { text: "Speed vs velocity: always use the word 'direction' when defining velocity. Saying 'velocity is how fast something moves' does not gain the mark.", extended: false },
-      { text: "Gradient trap: the gradient of a distance–time graph gives SPEED. The gradient of a speed–time graph gives ACCELERATION. Confusing the two is the most common error in this topic.", extended: false },
+      { text: "Gradient trap: the gradient of a distance–time graph gives SPEED. (Extended: the gradient of a speed–time graph gives ACCELERATION.) Do not mix the two graphs up.", extended: false },
       { text: "Area under a speed–time graph: split complex shapes into rectangles and triangles. Show each area calculation separately before adding to minimise arithmetic errors.", extended: false },
-      { text: "Terminal velocity: many candidates say 'gravity decreases' as terminal velocity is approached. Gravity (weight) is constant. It is the drag force that increases.", extended: false },
+      { text: "Terminal velocity: weight stays constant while the drag force increases. At terminal velocity the drag force equals the weight, so the resultant force is zero and the speed is constant.", extended: true },
       { text: "'Describe' the motion from a graph: you must describe EACH section of the graph in order. A general statement about the whole graph scores zero.", extended: false },
-      { text: "Deceleration: the spec states deceleration is negative acceleration. In calculations, substitute a = −3.0 m/s² (with minus sign) rather than writing 'deceleration = 3.0 m/s²' and using a positive value.", extended: false }
+      { text: "Deceleration: the spec states deceleration is negative acceleration. In calculations, substitute a = −3.0 m/s² (with minus sign) rather than writing 'deceleration = 3.0 m/s²' and using a positive value.", extended: true }
     ]},
     { name: "1.3 Mass and Weight", tips: [
-      { text: "Mass and weight are not the same. Mass is measured in kg and is a scalar. Weight is a force measured in N and is a vector. Confusing these is the most penalised error in this topic.", extended: false },
+      { text: "Mass and weight are not the same. Mass is measured in kg. Weight is a force measured in N.", extended: false },
       { text: "The equation is W = mg. When asked to 'recall and use' this equation, you must show the substitution, not just write the final answer.", extended: false },
-      { text: "g = 9.8 N/kg on Earth's surface. This is the accepted value; g = 10 N/kg is not awarded the mark in the 2026–2028 specification.", extended: false },
+      { text: "g = 9.8 N/kg on Earth's surface is the specification value. Use it unless the question tells you otherwise. The June 2026 Extended mark schemes also accepted g = 10 where it was clearly shown in the working.", extended: false },
       { text: "When asked to 'define' gravitational field strength, you must say 'force per unit mass' — do not say 'how strong gravity is'.", extended: false },
-      { text: "When discussing the Moon vs Earth, always state that MASS IS UNCHANGED. Candidates who say mass decreases on the Moon lose the mark.", extended: true },
+      { text: "When discussing the Moon vs Earth, always state that MASS IS UNCHANGED. Only the weight changes, because g is different.", extended: true },
       { text: "A spring balance measures weight (force); a beam balance compares masses directly. This distinction is tested both directly and in extended writing questions.", extended: false }
     ]},
     { name: "1.4 Density", tips: [
@@ -630,28 +630,28 @@ const TIPS_DATA = [
       { text: "The moment equation requires the PERPENDICULAR distance from the pivot — not the slant distance. If the force is not perpendicular to the beam, you must resolve it first.", extended: false },
       { text: "Principle of moments: always take moments about the pivot. Show clockwise moments = anticlockwise moments explicitly in your working.", extended: false },
       { text: "F = ma requires the RESULTANT force, not any individual force. If other forces act (e.g. friction), you must subtract them before using F = ma.", extended: true },
-      { text: "Spring constant units: if extension is given in cm, convert to metres (m) before calculating k in N/m. A very common error is leaving extension in cm, giving k in N/cm rather than N/m.", extended: false },
+      { text: "Spring constant units: if extension is given in cm, convert to metres (m) before calculating k in N/m. Leaving extension in cm gives k in N/cm, not N/m.", extended: true },
       { text: "Centre of gravity method: you must describe at least TWO suspension points and state that the centre of gravity is where the two plumb lines CROSS. One suspension point is not sufficient.", extended: false },
       { text: "Stability: a lower centre of gravity and a wider base increases stability. If asked to 'explain' stability, reference BOTH the centre of gravity position AND the base width.", extended: false }
     ]},
     { name: "1.6 Momentum", tips: [
-      { text: "Momentum is a VECTOR quantity. Always assign a positive direction at the start of a calculation and apply signs consistently.", extended: false },
-      { text: "Conservation of momentum applies only when there is NO external resultant force on the system. Always state this condition if asked to 'state the principle'.", extended: false },
+      { text: "Momentum is a VECTOR quantity. Always assign a positive direction at the start of a calculation and apply signs consistently.", extended: true },
+      { text: "Conservation of momentum applies only when there is NO external resultant force on the system. Always state this condition if asked to 'state the principle'.", extended: true },
       { text: "Impulse = FΔt = Δ(mv). Questions often give force and time and ask for velocity — the route is: impulse first, then divide by mass.", extended: true },
-      { text: "When an object rebounds off a wall, the change in momentum is (final − initial), not just the final value. A ball bouncing back reverses its velocity, so Δv involves a sign change.", extended: false },
+      { text: "When an object rebounds off a wall, the change in momentum is (final − initial), not just the final value. A ball bouncing back reverses its velocity, so Δv involves a sign change.", extended: true },
       { text: "Units: kg m/s and N s are both correct for momentum/impulse. Show that they are equivalent if asked (N s = kg m/s² × s = kg m/s).", extended: true }
     ]},
     { name: "1.7 Energy, Work and Power", tips: [
       { text: "When asked to 'state the principle of conservation of energy', use the Cambridge phrasing: energy cannot be created or destroyed, only transferred. Do not say 'total energy stays the same' without the transferred clause.", extended: false },
       { text: "Work done = force × distance IN THE DIRECTION OF THE FORCE. If a horizontal force moves an object horizontally, use the horizontal distance.", extended: false },
-      { text: "Ek = ½mv²: be careful with order of operations. Evaluate v² first, then multiply by m, then halve. A very common error is calculating (mv)² / 2.", extended: true },
-      { text: "Efficiency: the answer must be between 0 and 100%. If you get above 100%, you have the fraction inverted. Always check: useful output < total input.", extended: false },
+      { text: "Ek = ½mv²: be careful with order of operations. Evaluate v² first, then multiply by m, then halve. (mv)² / 2 is a different quantity.", extended: true },
+      { text: "Efficiency: the answer must be between 0 and 100%. If you get above 100%, you have the fraction inverted. Always check: useful output < total input.", extended: true },
       { text: "Energy resources: 'describe advantages and disadvantages' requires you to comment on renewability, reliability, AND environmental impact. A one-word answer ('clean') scores nothing without context.", extended: false }
     ]},
     { name: "1.8 Pressure", tips: [
       { text: "'Define pressure' requires the exact phrase 'force per unit area'. Saying 'force on a surface' or 'how hard something pushes' will not score. The per unit area part is what makes it a definition.", extended: false },
-      { text: "Spec point 1.8–3 asks you to 'describe qualitatively'. You must name BOTH factors: depth and density. Examiners frequently give two marks here — one per factor. Only naming depth scores 1/2.", extended: false },
-      { text: "In p = F/A calculations, the force must be in newtons. If given a mass in kg, calculate weight first: F = mg, using g = 9.8 N/kg (not 10). Using g = 10 will cost the accuracy mark.", extended: false },
+      { text: "Syllabus 1.8.3 asks you to describe qualitatively how the pressure beneath the surface of a liquid changes with depth and density. Name BOTH factors: depth and density.", extended: false },
+      { text: "In p = F/A calculations, the force must be in newtons. If given a mass in kg, calculate weight first: F = mg, using g = 9.8 N/kg, and show the substitution.", extended: false },
       { text: "Δp = ρgΔh gives the pressure CHANGE due to depth, not the absolute pressure at a point.", extended: true },
       { text: "Units check: Pa = N/m². Answers to Δp = ρgΔh are often large numbers (tens of thousands of Pa). If the answer line says kPa, divide by 1000. Always check the unit requested.", extended: true }
     ]}
@@ -659,29 +659,29 @@ const TIPS_DATA = [
   { topic: "Topic 2 — Thermal Physics", topicNum: "2", subtopics: [
     { name: "2.1 Kinetic Particle Model", tips: [
       { text: "When describing particle arrangements, the spec requires three aspects: arrangement (regular/irregular), separation (close/far), and motion (vibrate/flow/random). Missing any one costs a mark.", extended: false },
-      { text: "Brownian motion questions demand two linked ideas: (1) the smoke/pollen particles are hit by invisible fast-moving molecules, and (2) this provides evidence for the particle model.", extended: false },
-      { text: "'Explain why pressure increases when temperature increases at constant volume': faster particles (KE increases), more frequent collisions with walls, greater force per collision. All three ideas are needed for full marks.", extended: false },
+      { text: "Brownian motion questions demand two linked ideas: (1) the smoke/pollen particles are hit by invisible fast-moving molecules, and (2) this provides evidence for the particle model.", extended: true },
+      { text: "'Explain why pressure increases when temperature increases at constant volume': faster particles (KE increases), more frequent collisions with walls, greater force per collision. All three ideas are needed for full marks.", extended: true },
       { text: "Absolute zero: the spec requires both the value (−273 °C / 0 K) and the particle-level meaning (particles have least kinetic energy). Stating only the temperature value typically scores 1/2.", extended: false },
-      { text: "Temperature conversion: T(K) = θ(°C) + 273. Common error: students subtract 273 instead of adding. Kelvin temperatures are always larger than the same temperature in Celsius.", extended: false }
+      { text: "Temperature conversion: T(K) = θ(°C) + 273. Kelvin temperatures are always larger than the same temperature in Celsius, so use that to check your answer.", extended: false }
     ]},
     { name: "2.2 Thermal Properties and Temperature", tips: [
-      { text: "Thermal expansion order: gas > liquid > solid. Always link this to particle separation and intermolecular forces — simply stating the order without explanation scores zero.", extended: false },
+      { text: "Thermal expansion order: gas > liquid > solid. Always link this to particle separation and intermolecular forces — simply stating the order without explanation scores zero.", extended: true },
       { text: "Do not confuse internal energy with temperature: temperature measures average KE per particle; internal energy is the total KE + PE of all particles.", extended: false },
-      { text: "Specific heat capacity: ΔE = mcΔθ for calculation questions. Δθ is the temperature CHANGE, not the final temperature.", extended: false },
+      { text: "Specific heat capacity: ΔE = mcΔθ for calculation questions. Δθ is the temperature CHANGE, not the final temperature.", extended: true },
       { text: "Melting and boiling: energy is put in but temperature stays constant. The energy breaks intermolecular bonds (increases potential energy), not kinetic energy.", extended: false },
       { text: "Evaporation vs boiling: key differences are location (surface vs bulk), temperature (any vs fixed boiling point), and whether the liquid cools. Learn all three differences.", extended: false },
-      { text: "In the SHC experiment, always mention lagging (insulation) to reduce heat loss — without it, the calculated value of c will be too high.", extended: false }
+      { text: "In the SHC experiment, always mention lagging (insulation) to reduce heat loss — without it, the calculated value of c will be too high.", extended: true }
     ]},
     { name: "2.3 Thermal Processes", tips: [
-      { text: "Conduction: in metals, say 'free electrons transfer energy rapidly'. In non-metals, say 'vibrating atoms pass energy to neighbours'. Never say 'heat moves through the metal'.", extended: false },
+      { text: "Conduction: in metals, say 'free electrons transfer energy rapidly'. In non-metals, say 'vibrating atoms pass energy to neighbours'. Never say 'heat moves through the metal'.", extended: true },
       { text: "Convection only in fluids: the exam mark scheme requires 'density change' in the explanation. 'Warm air rises' alone scores partial credit; 'warm air expands, becomes less dense, rises' is the full answer.", extended: false },
       { text: "Radiation surface rules (memorise): dull/matt black = best emitter AND best absorber; shiny/white = poorest emitter AND poorest absorber. The same rule applies to both emission and absorption.", extended: false },
-      { text: "Vacuum flask questions: address all three processes and link each to a structural feature. Most marks are lost by giving the feature without explaining which thermal process it reduces.", extended: false }
+      { text: "Vacuum flask questions: address all three processes and link each feature to the thermal process it reduces.", extended: false }
     ]}
   ]},
   { topic: "Topic 3 — Waves", topicNum: "3", subtopics: [
     { name: "3.1 General Wave Properties", tips: [
-      { text: "The spec lists seven wave features: wavefront, wavelength, frequency, crest (peak), trough, amplitude and wave speed. Crest, trough and wave speed are commonly omitted.", extended: false },
+      { text: "The syllabus lists seven wave features: wavefront, wavelength, frequency, crest (peak), trough, amplitude and wave speed. Learn all seven.", extended: false },
       { text: "S-waves are transverse (Secondary = Side-to-side); P-waves are longitudinal (Primary = Push-pull). Examiners use these to test whether you know the definition, not just 'light' and 'sound'.", extended: false },
       { text: "For refraction in a ripple tank: frequency NEVER changes. Write the chain — v decreases (shallower water) → λ decreases (since f constant, v = fλ) → direction bends towards normal.", extended: false },
       { text: "Diffraction (Extended): maximum when gap ≈ λ. If gap >> λ, wavefronts are nearly straight. To increase diffraction: decrease gap width OR increase wavelength (decrease frequency).", extended: true },
@@ -691,19 +691,19 @@ const TIPS_DATA = [
       { text: "Always draw the normal first when drawing reflection or refraction diagrams. All angles (i and r) are measured from the normal, not from the surface.", extended: false },
       { text: "Plane mirror image: 'virtual' means it cannot be projected on a screen. Always state all three characteristics: same size, same distance, virtual.", extended: false },
       { text: "Critical angle formula: n = 1 / sin c. The higher the refractive index, the smaller the critical angle, so TIR occurs more easily.", extended: true },
-      { text: "Optical fibres: the key phrase is 'total internal reflection'. Explain that the angle of incidence at the fibre wall always exceeds the critical angle, so the light cannot escape.", extended: false },
+      { text: "Optical fibres: the key phrase is 'total internal reflection'. Explain that the angle of incidence at the fibre wall always exceeds the critical angle, so the light cannot escape.", extended: true },
       { text: "Dispersion: violet = shortest wavelength = highest frequency = refracted most. Red = longest wavelength = lowest frequency = refracted least. Memorise ROY G BIV order.", extended: false }
     ]},
     { name: "3.3 Electromagnetic Spectrum", tips: [
       { text: "EM spectrum order (low f → high f): Radio, Micro, Infrared, Visible, UV, X-ray, Gamma. Memory aid: 'Raging Martians Invaded Venus Using X-ray Guns'.", extended: false },
-      { text: "All EM waves share two properties: (1) they are transverse waves, (2) they travel at 3.0 × 10⁸ m/s in a vacuum. These two facts appear in almost every EM spectrum question.", extended: false },
-      { text: "Digital vs analogue: the key advantage of digital is regeneration — a digital signal can be cleaned up perfectly at a repeater because it only has two values (0 and 1). Analogue noise cannot be removed.", extended: false }
+      { text: "All EM waves share two properties: (1) they are transverse waves, (2) they travel at 3.0 × 10⁸ m/s in a vacuum.", extended: false },
+      { text: "Digital vs analogue: the key advantage of digital is regeneration — a digital signal can be cleaned up perfectly at a repeater because it only has two values (0 and 1). Analogue noise cannot be removed.", extended: true }
     ]},
     { name: "3.4 Sound", tips: [
-      { text: "Sound is longitudinal (particles vibrate parallel to wave travel); light is transverse. Sound cannot travel in a vacuum. These two differences come up in almost every 'compare sound and light' question.", extended: false },
+      { text: "Sound is longitudinal (particles vibrate parallel to wave travel); light is transverse. Sound cannot travel in a vacuum.", extended: false },
       { text: "Amplitude → loudness; frequency → pitch. On an oscilloscope: taller trace = louder; more cycles per unit time = higher pitch. These are separate changes — don't confuse them.", extended: false },
       { text: "Echo calculation: sound travels to the reflector AND back, so total distance = 2 × distance to reflector. Always divide the total distance by 2 to find the one-way distance.", extended: false },
-      { text: "Ultrasound sonar/depth: d = v × t / 2. The divide-by-2 is the most common error. The pulse travels to the bottom and back, so the time recorded is for twice the depth.", extended: false }
+      { text: "Ultrasound sonar/depth: d = v × t / 2. The pulse travels to the bottom and back, so the time recorded is for twice the depth.", extended: true }
     ]}
   ]},
   { topic: "Topic 4 — Electricity and Magnetism", topicNum: "4", subtopics: [
@@ -716,7 +716,7 @@ const TIPS_DATA = [
       { text: "R = V/I: always check which quantity you are solving for. If asked for current, rearrange to I = V/R. If asked for p.d., use V = IR.", extended: false },
       { text: "kWh cost: Energy (kWh) = power (kW) × time (h). Cost = energy (kWh) × price per kWh. Don't forget to convert minutes to hours and watts to kilowatts.", extended: false },
       { text: "E.m.f. vs p.d. (Extended): e.m.f. is a property of a source (energy input per coulomb); p.d. is a property of a component (energy output per coulomb). Both measured in volts.", extended: true },
-      { text: "Conventional current goes from + to − (positive to negative); electron flow is from − to + (negative to positive). They are opposite.", extended: false },
+      { text: "Conventional current goes from + to − (positive to negative); electron flow is from − to + (negative to positive). They are opposite.", extended: true },
       { text: "I–V graphs (Extended): straight line through origin = constant resistance (Ohmic). Curve with decreasing gradient = increasing resistance (filament lamp). Near-zero then steep = diode (forward bias).", extended: true },
       { text: "Wire resistance (Extended): R ∝ L means doubling the length doubles the resistance. R ∝ 1/A means doubling the cross-sectional area halves the resistance.", extended: true },
       { text: "Electrostatic charging by friction: only electrons transfer — never protons. The object gaining electrons becomes negatively charged; the object losing electrons becomes positively charged.", extended: false }
@@ -738,7 +738,7 @@ const TIPS_DATA = [
     { name: "4.5 Electromagnetic Effects", tips: [
       { text: "Transformer equation: Vp/Vs = Np/Ns. The voltage ratio equals the turns ratio. Step-up: more turns on secondary (Ns > Np). Step-down: fewer turns on secondary (Ns < Np).", extended: false },
       { text: "High-voltage transmission (Extended): the key equation is P_loss = I²R. High voltage means low current; low current squared means very small power loss.", extended: true },
-      { text: "A.c. generator: peaks occur when the coil plane is PARALLEL to the field (cutting flux at max rate). Zeros occur when the coil plane is perpendicular to the field.", extended: false },
+      { text: "A.c. generator: peaks occur when the coil plane is PARALLEL to the field (cutting flux at max rate). Zeros occur when the coil plane is perpendicular to the field.", extended: true },
       { text: "Fleming's left-hand rule (motor rule, Extended): First finger = Field, seCond finger = Current, thuMb = Motion (force). Practise until automatic.", extended: true },
       { text: "Relay: a small control current in an electromagnet closes a switch in a separate high-current circuit. The two circuits are electrically isolated.", extended: false }
     ]}
@@ -771,7 +771,7 @@ const TIPS_DATA = [
       { text: "Redshift definition: an INCREASE in the observed WAVELENGTH of EM radiation from a receding source. Don't say 'shift to red light' — it applies to all EM radiation, not just visible light.", extended: false },
       { text: "Big Bang evidence (Extended): (1) redshift of distant galaxies — Universe is expanding; (2) CMBR — relic radiation from the early Universe. Know both.", extended: true },
       { text: "Life cycle of a star (Extended): less massive (like Sun): cloud → protostar → main sequence → red giant → planetary nebula + white dwarf. More massive: → red supergiant → supernova → neutron star or black hole.", extended: true },
-      { text: "Main sequence stability: gravitational inward force is BALANCED by outward force due to the high temperature in the centre (from fusion). When balance breaks → star evolves.", extended: false },
+      { text: "Main sequence stability: gravitational inward force is BALANCED by outward force due to the high temperature in the centre (from fusion). When balance breaks → star evolves.", extended: true },
       { text: "Hubble constant (Extended): H₀ = v/d. Age of Universe ≈ 1/H₀ ≈ 14 billion years.", extended: true }
     ]}
   ]}

@@ -1154,8 +1154,8 @@ h1.cie-page-title em {
     <summary>About this tool</summary>
       <div class="seo-intro-inner">
     <h2>Train for Cambridge IGCSE Physics Paper 5 by answering like an examiner, not a student</h2>
-    <p>Cambridge IGCSE Physics Paper 5 (Alternative to Practical) is a 40-mark written paper that tests practical skills without a laboratory. Candidates answer four structured questions: a measurement question (reading instruments, calculating derived quantities, estimating uncertainties), a graph question (plotting data, drawing a best-fit line, finding gradients and intercepts), an optics or thermal question (ray tracing or temperature analysis), and a planning question (designing an experiment with variables, method, and sources of error). All six variants &mdash; 51, 52, 53, 61, 62, and 63 &mdash; test the same underlying skills in different experimental contexts.</p>
-    <p>The drill works by presenting each question prompt before revealing the model answer. Write your response first, on paper or aloud, then compare it against the mark scheme. This trains the habit that makes the difference at A* and A: anticipating what an examiner needs to see, rather than recognising a good answer after the fact. Common stumbling points include writing the uncertainty as &plusmn; half the smallest division rather than &plusmn; the full smallest division for a metre rule; omitting &ldquo;anomalous point excluded&rdquo; when describing a best-fit line; and failing to give control variables in a planning question.</p>
+    <p>Cambridge IGCSE Physics Paper 5 is the Practical Test: a hands-on, 40-mark paper sat in 1 hour 15 minutes, in which you handle the apparatus yourself. It has four questions. Questions 1 to 3 are short experiments (the June 2025 variant 51 paper, for example, has a density measurement, a cooling experiment and a plane-mirror experiment). Question 4 asks you to plan an investigation: variables, method, and how you would reach a conclusion. The variants are 51, 52 and 53. Paper 6, the written Alternative to Practical, tests the same skills with the experiments described on paper.</p>
+    <p>The drill works by presenting each question prompt before revealing the model answer. Write your response first, on paper or aloud, then compare it against the mark scheme. This trains the habit that makes the difference at A* and A: anticipating what an examiner needs to see, rather than recognising a good answer after the fact. The examiner reports keep returning to the same few habits: recording lengths to the nearest millimetre, drawing a best-fit line that balances the points instead of joining them, and stating the variables explicitly in a planning question.</p>
     <p>Work through questions sequentially to cover all four question types, or jump to whichever area costs you most marks in practice. Each answer card shows the mark-scheme wording alongside a plain-English explanation of why each phrase is required. See the companion <a href="/0625/p5/guide/">Paper 5 guide</a> for the full reference on rules and ranked mistakes, or <a href="/0625/tips/">IGCSE examiner tips</a> for topic-by-topic observations across all papers.</p>
   </div>
   </details>
@@ -1186,7 +1186,7 @@ h1.cie-page-title em {
   <section class="intro" id="introScreen">
     <div class="intro-eyebrow">Practical exam preparation</div>
     <h2 class="intro-title">Train like you've <em>marked</em> the paper.</h2>
-    <p class="intro-sub">Three modes built from Cambridge examiner reports 2021–2025. Every wrong answer shows you exactly what the examiner said.</p>
+    <p class="intro-sub">Three modes built around what the Cambridge examiner reports 2021–2025 flag. A wrong answer shows you the rule, and the examiner&rsquo;s own words where the reports say it.</p>
     <p class="intro-meta">Pick a mode to begin. Each session takes 8–15 minutes.</p>
 
     <div class="mode-grid">
@@ -1200,7 +1200,7 @@ h1.cie-page-title em {
       <button class="mode-card" data-mode="spotter" onclick="startMode('spotter')">
         <div class="mode-number">02 · SPOTTER</div>
         <div class="mode-name">What's wrong here?</div>
-        <p class="mode-desc">Real candidate answers from past exams. Identify the mistake the examiner flagged. Trains you to notice what loses marks.</p>
+        <p class="mode-desc">Typical candidate answers. Spot the mistake that loses the mark. Trains you to notice what costs marks.</p>
         <div class="mode-meta">8 scenarios</div>
       </button>
 
@@ -1279,13 +1279,9 @@ const DRILLS = [
     prompt: "Your data shows resistance increasing with wire length. What's the correct way to prove it's a directly proportional relationship?",
     options: [
       { text: "Show that as length increases, resistance also increases", correct: false,
-        quote: "The most common misconception was that because T² increased as d increased, the two quantities were directly proportional.",
-        source: "Nov 2023",
         rule: "Both quantities increasing only proves positive correlation, not direct proportion." },
       { text: "Plot R against L and check the line is straight AND passes through the origin", correct: true },
       { text: "Take the average of all R values and divide by the average of all L values", correct: false,
-        quote: "Some candidates thought that a straight line was sufficient to show proportionality.",
-        source: "Jun 2021",
         rule: "An average is just one value — you can't show proportionality without the full data pattern." },
       { text: "Show that the line through the data is straight", correct: false,
         quote: "Very few candidates realised that the line must pass through the origin to show a proportional relationship.",
@@ -1302,14 +1298,10 @@ const DRILLS = [
         source: "Jun 2021",
         rule: "You must calculate the percentage difference, not eyeball it." },
       { text: "Yes — because the difference is 1.4 cm which is small", correct: false,
-        quote: "The idea of experimental tolerances was not well understood by the majority of candidates.",
-        source: "Jun 2021",
-        rule: "'Small' isn't a measurement. Use the 5%/10% rule based on percentage difference." },
+        rule: "'Small' isn't a measurement. Work out how far apart the values are as a percentage: within 10% of each other counts as equal within experimental accuracy." },
       { text: "Calculate (1.4 ÷ 12.4) × 100 = 11.3%. This is >10%, so no — they are different.", correct: true },
       { text: "Yes — because all experiments have errors", correct: false,
-        quote: "Candidates could state a yes/no conclusion but could not justify it using percentage difference and the 5%/10% threshold.",
-        source: "Nov 2021",
-        rule: "The tolerance rule is precise: ≤5% same, >10% different, 5–10% with justification." }
+        rule: "Show the calculation. Within 10% of each other (or smaller ÷ larger ≥ 0.9) = equal within experimental accuracy; more than 10% apart = not equal. Many questions state the 10% for you." }
     ]
   },
   {
@@ -1326,8 +1318,6 @@ const DRILLS = [
         source: "Nov 2023",
         rule: "Timing one oscillation gives a much larger percentage error than timing ten." },
       { text: "Time 10 oscillations to eliminate reaction time error", correct: false,
-        quote: "Treating 20 oscillations as 20 separate averages is a persistent misconception. Reaction time is NOT eliminated by timing 20 oscillations.",
-        source: "Nov 2022",
         rule: "Reaction time is REDUCED as a percentage, NEVER eliminated." }
     ]
   },
@@ -1340,13 +1330,9 @@ const DRILLS = [
         source: "Jun 2021",
         rule: "Don't force the line through the origin — the line follows YOUR data." },
       { text: "Connecting each data point in order (dot-to-dot)", correct: false,
-        quote: "Best-fit line drawn as dot-to-dot.",
-        source: "Jun 2021",
         rule: "A best-fit line is smooth and straight (if data is linear) — never dot-to-dot." },
       { text: "A smooth straight line with an even distribution of points on each side", correct: true },
       { text: "From the first point to the last point", correct: false,
-        quote: "Best-fit lines must show an even distribution of points on either side of the line.",
-        source: "Jun 2021",
         rule: "A best-fit line balances ALL points, not just the endpoints." }
     ]
   },
@@ -1355,13 +1341,9 @@ const DRILLS = [
     prompt: "You measure a length with a ruler. It looks exactly 5 cm. How should you record it?",
     options: [
       { text: "5 cm", correct: false,
-        quote: "Distance y was exactly 2 centimetres, but candidates were expected to write 2.0 cm to indicate measurement to the nearest millimetre.",
-        source: "Jun 2022",
         rule: "Writing '5 cm' implies precision only to the nearest cm. A ruler gives mm precision." },
       { text: "5.0 cm", correct: true },
       { text: "5 cm exactly", correct: false,
-        quote: "When using a ruler, always record to the nearest mm — one decimal place in cm.",
-        source: "Jun 2022",
         rule: "Precision is shown by the decimal places — write 5.0 cm, not '5 cm exactly'." },
       { text: "0.05 m", correct: false,
         quote: "The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.",
@@ -1374,17 +1356,11 @@ const DRILLS = [
     prompt: "In a careful experiment with a marble and measuring cylinder, what's a valid source of inaccuracy?",
     options: [
       { text: "Parallax error when reading the scale", correct: false,
-        quote: "Most candidates gave general examples of poor experimental practice despite the question stating the experiment was carried out carefully.",
-        source: "Mar 2023",
         rule: "'Parallax' alone is a technique error — not credited when the experiment was 'carefully' performed." },
       { text: "Measuring cylinder scale divisions are too large relative to the marble volume", correct: true },
       { text: "Human error in reading the level", correct: false,
-        quote: "Generic answers like 'human error' gain no credit.",
-        source: "Nov 2021",
         rule: "'Human error' is never credited. Be specific about what makes the reading uncertain." },
       { text: "The marble wasn't fully submerged", correct: false,
-        quote: "If the question states the experiment was done carefully, answers about poor technique are wrong.",
-        source: "Mar 2022",
         rule: "If the question specifies careful technique, only inherent apparatus limits count." }
     ]
   },
@@ -1397,13 +1373,9 @@ const DRILLS = [
         source: "Jun 2022",
         rule: "That's a PREDICTION — what you expect. A CONCLUSION method is HOW you'd use the data." },
       { text: "I will use my physics knowledge to interpret the results", correct: false,
-        quote: "Many candidates incorrectly predicted a conclusion, often quoting theory to support this.",
-        source: "Mar 2022",
         rule: "Theory doesn't replace data. State how the RESULTS will tell you the answer." },
       { text: "Plot a graph of cooling rate against volume. If a straight line through the origin is obtained, cooling rate is proportional to volume.", correct: true },
       { text: "Compare my results to the expected value from textbook data", correct: false,
-        quote: "Conclusions must come from your own data, not from comparison to external sources.",
-        source: "Jun 2022",
         rule: "Your conclusion uses YOUR experimental data — not a textbook value." }
     ]
   },
@@ -1412,17 +1384,11 @@ const DRILLS = [
     prompt: "You have a resistor and a lamp in series. You need to measure the p.d. across BOTH together. Where does the voltmeter go?",
     options: [
       { text: "In parallel with just the resistor", correct: false,
-        quote: "Voltmeter placed across one component only in series circuit — must span whole series combination.",
-        source: "Nov 2021",
         rule: "If the question asks for p.d. across both, the voltmeter must span both." },
       { text: "In parallel across both the resistor and lamp together", correct: true },
       { text: "In series with the resistor", correct: false,
-        quote: "Voltmeter: connected in parallel with the component; ammeter in series.",
-        source: "Jun 2021",
         rule: "Voltmeter is ALWAYS in parallel. Ammeter is always in series." },
       { text: "Across the battery terminals", correct: false,
-        quote: "Common errors included placing the voltmeter across the power supply terminals.",
-        source: "Nov 2025",
         rule: "Across the battery measures the e.m.f., not the p.d. across your test components." }
     ]
   },
@@ -1452,16 +1418,12 @@ const DRILLS = [
       { text: "Work in a darkened room", correct: false,
         quote: "A significant number of candidates incorrectly suggested carrying out the experiment in a darkened room. Successful candidates made valid suggestions such as viewing the bases of the pins.",
         source: "Jun 2021",
-        rule: "Darkened room is the WRONG precaution for ray tracing. It's correct for lens experiments only." },
+        rule: "A darkened room is not credited for the pin experiment (June 2021, November 2021). The reports do credit it in the lens image experiment (June 2024, November 2024), so match the precaution to the experiment." },
       { text: "Use thick pins so they're easy to see", correct: false,
-        quote: "Suggestions could include using thin pins.",
-        source: "Jun 2025",
-        rule: "THIN pins give a more accurate line. Thick pins blur the position." },
+        rule: "Thin pins are what the mark scheme credits (June 2025, March 2025). Thick pins blur the position of the ray." },
       { text: "View the bases of the pins when aligning them", correct: true },
-      { text: "Place the pins exactly 5.0 cm apart", correct: false,
-        quote: "Pins placed at exactly 5.0 cm risked being just too short.",
-        source: "Nov 2021",
-        rule: "Pins must be CLEARLY more than 5 cm apart — exactly 5.0 cm is risky." }
+      { text: "Place the pins close together so they are easy to line up", correct: false,
+        rule: "Mark schemes credit pins far apart, at least 5 cm (June 2025, June 2023). Pins close together make the ray direction less certain." }
     ]
   }
 ];
@@ -1471,20 +1433,14 @@ const SPOTTER = [
     skill: "Graph work",
     context: "On a question asking what 1 small division on the speed axis represents.",
     candidateAnswer: "The student's graph has axes labelled 'speed' and 'time' with no units, and the y-axis goes from 0 to 100 in increments of 7.",
-    prompt: "What did the examiner flag as wrong?",
+    prompt: "What is wrong with this answer?",
     options: [
       { text: "The graph should be plotted on log-log paper", correct: false,
-        quote: "Always use linear graph paper for IGCSE 0625 unless specified.",
-        source: "General",
         rule: "Log paper is never the answer for IGCSE Paper 5." },
       { text: "Two errors: missing units on axes, and awkward scale (increments of 7)", correct: true },
       { text: "The line of best fit was forced through the origin", correct: false,
-        quote: "This is a real error elsewhere, but the question here is about axis setup.",
-        source: "Jun 2021",
         rule: "Read the question carefully — it asks about a specific student error." },
       { text: "The plot points are too small to see", correct: false,
-        quote: "Plots should be no larger than half a small square — but small is fine, not 'too small'.",
-        source: "Jun 2021",
         rule: "The issue here is axis labels and scale choice, not plot size." }
     ]
   },
@@ -1492,20 +1448,14 @@ const SPOTTER = [
     skill: "Tolerance",
     context: "A question asked whether two refractive index values (1.42 and 1.51) are 'equal within experimental accuracy'.",
     candidateAnswer: "Yes, both values are close to 1.5 so they're approximately equal.",
-    prompt: "What did the examiner say was missing?",
+    prompt: "What is missing from this answer?",
     options: [
-      { text: "The candidate should have written the calculation: (0.09 ÷ 1.42) × 100 = 6.3%, which is between 5% and 10%, so 'yes, equal within experimental accuracy'.", correct: true },
+      { text: "The candidate should have written the calculation: (0.09 ÷ 1.42) × 100 = 6.3%, which is within 10%, so 'yes, equal within experimental accuracy'.", correct: true },
       { text: "The candidate should have said 'no, they're different'", correct: false,
-        quote: "The percentage difference is 6.3% — between 5% and 10%, so EITHER answer is acceptable with justification.",
-        source: "Jun 2021",
-        rule: "In the 5–10% range, both yes and no are valid IF justified by calculation." },
+        rule: "6.3% is within 10%, so 'no, they're different' contradicts the numbers. The calculation is what earns the mark." },
       { text: "The candidate should have given the values to more decimal places", correct: false,
-        quote: "The issue is not precision but the missing percentage calculation.",
-        source: "Jun 2021",
         rule: "The tolerance rule requires SHOWING the percentage difference." },
       { text: "The candidate should have averaged the two values", correct: false,
-        quote: "Averaging doesn't show whether values agree within tolerance.",
-        source: "Jun 2021",
         rule: "Use percentage difference — that's what proves agreement or disagreement." }
     ]
   },
@@ -1516,17 +1466,11 @@ const SPOTTER = [
     prompt: "Why didn't this answer score?",
     options: [
       { text: "Parallax isn't a real source of error in physics", correct: false,
-        quote: "Parallax IS a real source — but it's a technique error, not an inherent apparatus limitation.",
-        source: "Mar 2023",
         rule: "Parallax is real, but it's a technique issue — not credited when the experiment is 'carefully done'." },
       { text: "The question specified the experiment was 'carefully carried out', so technique errors don't apply", correct: true },
       { text: "Parallax should have been spelled 'paralax'", correct: false,
-        quote: "Spelling errors are rarely the issue — the answer's substance is what matters.",
-        source: "General",
         rule: "Focus on the physics: technique vs inherent limits." },
       { text: "The candidate should have said 'paral­lax in the meniscus reading'", correct: false,
-        quote: "Even with that detail, parallax is still a technique error.",
-        source: "Mar 2023",
         rule: "When the experiment is 'carefully done', the answer must be an INHERENT apparatus limit." }
     ]
   },
@@ -1538,16 +1482,10 @@ const SPOTTER = [
     options: [
       { text: "Cooling rate isn't measured by final temperature — it's measured by temperature CHANGE per unit time", correct: true },
       { text: "Beaker A actually cooled slower because it lost more heat", correct: false,
-        quote: "Beaker A cooled 20°C; Beaker B cooled 15°C. A did cool faster, but the candidate's REASONING was wrong.",
-        source: "Mar 2021",
         rule: "The conclusion might be correct but the reasoning given is wrong." },
       { text: "The starting temperatures should have been equal", correct: false,
-        quote: "The reasoning error is comparing FINAL temperatures, not the comparison of starting points.",
-        source: "Mar 2021",
         rule: "The student's logic was wrong — they used the wrong quantity to judge cooling rate." },
       { text: "The candidate should have used Newton's law of cooling", correct: false,
-        quote: "Newton's law isn't required for IGCSE — just the basic concept that cooling rate = ΔT/time.",
-        source: "General",
         rule: "Keep it simple: cooling rate = temperature change ÷ time." }
     ]
   },
@@ -1559,16 +1497,10 @@ const SPOTTER = [
     options: [
       { text: "Multiple things: no number of values specified, 'repeat' is vague, no instruments named, no conclusion method", correct: true },
       { text: "The candidate should have included a labelled diagram", correct: false,
-        quote: "Diagrams help but aren't always required — the missing METHOD content is the bigger issue.",
-        source: "Jun 2021",
         rule: "A diagram is a nice-to-have. The missing essentials are the bigger problem." },
       { text: "The candidate should have stated the expected result", correct: false,
-        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
-        source: "Mar 2022",
         rule: "A prediction is not what's needed — the method itself has gaps." },
       { text: "The candidate should have used a different angle", correct: false,
-        quote: "The issue is the method's vagueness, not the angle value.",
-        source: "Mar 2023",
         rule: "The plan needs structure: instruments, number of values, repeats, conclusion." }
     ]
   },
@@ -1580,16 +1512,10 @@ const SPOTTER = [
     options: [
       { text: "The screen position is fixed once the object-to-screen distance is set — you must move the LENS", correct: true },
       { text: "The candidate should have said 'use a brighter lamp'", correct: false,
-        quote: "Brightness isn't the issue — the procedure is.",
-        source: "Jun 2025",
         rule: "The error is procedural: which component to move." },
       { text: "The candidate should have specified a particular screen position", correct: false,
-        quote: "The screen position has been fixed by the experimental setup.",
-        source: "Jun 2025",
         rule: "When the screen-object distance is fixed, only the LENS can adjust." },
       { text: "The candidate should have said 'work in a darkened room'", correct: false,
-        quote: "Darkened room is credited for SEEING the image — but the question asked HOW to obtain a sharp image, which is about which component moves.",
-        source: "Nov 2023",
         rule: "Darkened room is for image visibility — moving the lens is for sharpness." }
     ]
   },
@@ -1601,16 +1527,10 @@ const SPOTTER = [
     options: [
       { text: "Overwriting makes the original answer ambiguous — the examiner can't tell which value was intended", correct: true },
       { text: "The new value is wrong", correct: false,
-        quote: "The examiner has no way to know — but the issue is PRESENTATION not VALUE.",
-        source: "Jun 2021",
         rule: "The complaint is about how the change was made, not the value itself." },
       { text: "The student should have used pen, not pencil", correct: false,
-        quote: "Pencil is fine for tables — that's not the issue.",
-        source: "Jun 2021",
         rule: "Overwriting is the problem regardless of pen or pencil." },
       { text: "The student should have used a different colour", correct: false,
-        quote: "Cross out completely and rewrite — not change colour.",
-        source: "Jun 2021",
         rule: "The fix is: one clean line through the old value, write new value next to it." }
     ]
   },
@@ -1622,16 +1542,10 @@ const SPOTTER = [
     options: [
       { text: "It's a PREDICTION — the question asked how to reach a conclusion from the data, not what you expect to find", correct: true },
       { text: "The prediction is wrong — hotter water boils slower", correct: false,
-        quote: "The prediction's accuracy isn't the issue — the type of statement is.",
-        source: "Jun 2022",
         rule: "A prediction is what you expect; a conclusion is HOW you use the data." },
       { text: "The candidate should have written it in past tense", correct: false,
-        quote: "Tense isn't the issue — the statement's TYPE is.",
-        source: "Jun 2022",
         rule: "Whether predicted or past, this isn't a conclusion method." },
       { text: "The candidate should have included specific temperatures", correct: false,
-        quote: "Specific numbers wouldn't fix it — it's still a prediction.",
-        source: "Jun 2022",
         rule: "Add: 'Plot temperature against boil time. If a clear pattern is seen, this shows the relationship.'" }
     ]
   }
@@ -1647,12 +1561,8 @@ const PLANNING = [
     options: [
       { text: "Voltmeter, ammeter, ruler, and micrometer (or vernier callipers)", correct: true },
       { text: "Voltmeter and ammeter only — the rest is provided", correct: false,
-        quote: "Many candidates did not state that both a protractor and a ruler were needed as extra apparatus.",
-        source: "Jun 2025",
         rule: "You need to MEASURE the diameter — and the wire length. Name those instruments." },
       { text: "Just a voltmeter — current can be calculated", correct: false,
-        quote: "Candidates needed to include all measuring devices for initial credit.",
-        source: "Jun 2021",
         rule: "Every measurement needs an instrument. Don't omit measuring tools." },
       { text: "A complete list of everything mentioned in the question", correct: false,
         quote: "A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.",
@@ -1669,16 +1579,10 @@ const PLANNING = [
     options: [
       { text: "Length of wire", correct: true },
       { text: "The same beaker (apparatus)", correct: false,
-        quote: "Reference to the apparatus was not accepted as a control variable.",
-        source: "Mar 2022",
         rule: "Apparatus is not a control variable. Use measurable physical quantities." },
       { text: "Keep current constant", correct: false,
-        quote: "Saying 'keep current constant' was penalised — it is self-contradictory.",
-        source: "Jun 2023",
         rule: "Current is the dependent variable being measured. You can't 'keep it constant'." },
       { text: "View the meter perpendicularly", correct: false,
-        quote: "Precautions ≠ control variables.",
-        source: "Mar 2022",
         rule: "Viewing perpendicularly is a PRECAUTION, not a control variable." }
     ]
   },
@@ -1699,8 +1603,6 @@ const PLANNING = [
         source: "Jun 2021",
         rule: "Three is not enough — five values minimum." },
       { text: "Repeat the experiment many times", correct: false,
-        quote: "'Repeat the experiment' is too vague — must say 'repeat with a different angle' or 'repeat each angle measurement and take an average'.",
-        source: "Mar 2023",
         rule: "'Repeat' alone is vague. Be specific about WHAT you're varying." }
     ]
   },
@@ -1713,16 +1615,10 @@ const PLANNING = [
     options: [
       { text: "The wire diameter may not be perfectly uniform along its length", correct: true },
       { text: "Parallax error when reading the meters", correct: false,
-        quote: "Most candidates gave general examples of poor experimental practice despite the question stating the experiment was carried out carefully.",
-        source: "Mar 2023",
         rule: "Parallax is a TECHNIQUE error — not credited for 'careful' experiments." },
       { text: "Human error in connecting the circuit", correct: false,
-        quote: "Generic answers like 'human error' gain no credit.",
-        source: "Nov 2021",
         rule: "'Human error' is never credited. It's a non-answer." },
       { text: "The wire might break during the experiment", correct: false,
-        quote: "Sources of inaccuracy relate to MEASUREMENT — not equipment failure.",
-        source: "Jun 2021",
         rule: "Inaccuracy is about how reliably you can MEASURE — not whether something might go wrong." }
     ]
   },
@@ -1735,8 +1631,6 @@ const PLANNING = [
     options: [
       { text: "Plot a graph of resistance against 1/diameter². If a straight line through the origin is obtained, R is proportional to 1/d².", correct: true },
       { text: "If the resistance increases with smaller diameter, this confirms the theory", correct: false,
-        quote: "Candidates must conclude from their data, not from physics theory.",
-        source: "Mar 2021",
         rule: "Conclude from the data pattern, not from comparison to expected theory." },
       { text: "I predict that thinner wires will have higher resistance", correct: false,
         quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
@@ -1883,10 +1777,10 @@ function selectOption(index) {
     fb.innerHTML = `
       <div class="feedback-incorrect">
         <div class="feedback-title">Not credited.</div>
-        <div class="examiner-quote">
+        ${opt.quote ? `<div class="examiner-quote">
           <div class="examiner-quote-text">"${opt.quote}"</div>
           <div class="examiner-quote-source">— Examiner Report, ${opt.source}</div>
-        </div>
+        </div>` : ''}
         <div class="feedback-rule"><strong>The rule:</strong> ${opt.rule}</div>
       </div>
     `;
