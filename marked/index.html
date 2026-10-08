@@ -4,6 +4,8 @@
 <!--
   /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v5b.
 
+  COPY v8c (2026-10-08, Rich): 72px round photo of Rich in the .proof strip (marked/rich.jpg, 240px crop of
+  a casual photo Rich supplied as "for now"; swap the file when a proper headshot exists).
   COPY v8b (2026-10-08, Rich): first student quote under the sample cards, from the 9702 P2 student
   (email 2026-10-08 19:42 BST: "Yes you can quote what I said earlier"; agreed attribution "AS student,
   9702", no name). His words verbatim, one cut marked "...". Lucas (0625 P4) asked the same day,
@@ -275,6 +277,9 @@ p{line-height:1.6}
 
 .proof{background:var(--surface);border-bottom:1px solid var(--border);padding:36px 0}
 .proof p{max-width:64ch;font-size:16px;color:var(--fg-1)}
+.proof-row{display:flex;align-items:center;gap:20px}
+.proof-photo{flex:none;width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--page);box-shadow:var(--shadow-card)}
+@media (max-width:480px){.proof-row{align-items:flex-start;gap:14px}.proof-photo{width:56px;height:56px}}
 
 .tip{background:var(--signal-tint);border-left:3px solid var(--signal);border-radius:0 6px 6px 0;padding:20px 22px;margin:28px 0}
 .tip .k{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--signal-text);margin-bottom:8px}
@@ -413,7 +418,8 @@ footer a{color:var(--fg-2)}
   </section>
 
   <section class="proof">
-    <div class="wrap">
+    <div class="wrap proof-row">
+      <img class="proof-photo" src="/marked/rich.jpg" width="72" height="72" alt="Rich, who marks every paper himself">
       <p>I'm Rich. I marked A Level Physics (9702) and IGCSE Physics (0625) for Cambridge, and I've read every examiner report Cambridge published for both from 2021 to 2026. I'm not currently contracted as a Cambridge examiner. What I'm offering here is the marking itself, done the way I did it.</p>
     </div>
   </section>
