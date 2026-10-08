@@ -1,0 +1,12 @@
+title = "CIE Insider gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Kit form API key (public-class; ships to every browser in gate.js and the form pages)"
+regexTarget = "secret"
+regexes = [
+  '''^BW8jYJD2dFUjrf5y\-qjv6g$''',
+  '''^ReOz_79RGfHrPiRHkMrACg$''',
+]
