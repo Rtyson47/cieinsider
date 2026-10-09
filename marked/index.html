@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <!--
+ COPY v8g (2026-10-09, Rich): fourth sample card, 0625 Paper 6 (Lucas, 0625/62 s26, 38/40, free script 4, own handwriting, permission 2026-10-09). Grid 4 across on desktop, 2 at tablet, rows on phone. One line under the grid to /marked/paper-6/ (remove with the offer line after Tue 20 Oct 2026). "three" -> "four" in h2, hero button, #paid.
   /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v5b.
 
   COPY v8f (2026-10-09, branch p6-offer-15, NOT LIVE): 0625 P6 free place gone (Lucas, 0625/62 s26, 38/40), so
@@ -300,13 +301,14 @@ p{line-height:1.6}
 .sample-grid figcaption{font-size:14px;color:var(--fg-2);margin-top:10px;line-height:1.45}
 .sample-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:var(--fg-2);margin-top:12px}
 @media (max-width:640px){.sample-grid{grid-template-columns:1fr}}
-.samples3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:26px 0 8px}
+.samples3{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:26px 0 8px}
 .samples3 a{display:block;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;text-decoration:none;color:inherit;transition:border-color var(--duration) var(--ease)}
 .samples3 a:hover{border-color:var(--border-strong)}
 .samples3 img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:3px;background:#fff;box-shadow:var(--shadow-card)}
 .samples3 h3{font-size:16px;margin:12px 0 4px}
 .samples3 p{font-size:14px;color:var(--fg-2);line-height:1.45}
 .samples3 .sample-meta{margin-top:8px;white-space:nowrap}
+@media (max-width:900px) and (min-width:641px){.samples3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.samples3{grid-template-columns:1fr;gap:12px}.samples3 a{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}.samples3 h3{margin-top:0}}
 .student-quote{background:var(--page);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:22px 24px;margin:26px 0;max-width:72ch;box-shadow:var(--shadow-card)}
 .student-quote p{font-size:17px;line-height:1.6;color:var(--fg-1)}
@@ -418,7 +420,7 @@ footer a{color:var(--fg-2)}
       <p class="lead">Send a full past paper you've already sat, with your working as you wrote it. Photos of your handwriting are fine. It comes back with every mark placed where you earned or lost it, and for every mark you lost: what you wrote, what the marker needed to see, and how to fix it. From &pound;25 a paper.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#paid">Get your paper marked</a>
-        <a class="btn btn-secondary" href="#sample">See three I marked</a>
+        <a class="btn btn-secondary" href="#sample">See four I marked</a>
       </div>
       <p class="hero-alt">Not sure which paper you sit? Email me first: <a href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">rich@cieinsider.com</a></p>
       <p class="hero-meta">From &pound;25 a paper &middot; back within a week or your money back &middot; no sign-up, nothing to cancel</p>
@@ -471,7 +473,7 @@ footer a{color:var(--fg-2)}
 
   <section class="sec" id="sample">
     <div class="wrap">
-      <h2>Three I marked</h2>
+      <h2>Four I marked</h2>
       <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">Real attempts, exactly as the students got them back: a feedback sheet with the one thing I'd fix first and a note on every lost mark, then their whole script with every mark placed where it was earned or lost. Tap one to open the full PDF.</p>
 
       <div class="samples3">
@@ -493,7 +495,14 @@ footer a{color:var(--fg-2)}
           <p>A note on every one of the 12 marks dropped, with what the examiner report said wherever it commented.</p>
           <p class="sample-meta">PDF &middot; 19 pages &middot; 0.6 MB</p></div>
         </a>
+        <a href="/marked/sample-marked-script-0625-paper-6.pdf" target="_blank" rel="noopener">
+          <img src="/marked/sample-0625-p6-feedback-sheet.jpg" width="909" height="1287" loading="lazy" alt="Page 1 of a marked IGCSE Physics Paper 6: 38 out of 40, a worst-case mark of 36, marks for each of the four questions, and the one thing to fix first.">
+          <div><h3>IGCSE &middot; 0625 Paper 6 &middot; 38/40</h3>
+          <p>Every plotted point measured against the grid. His printer had shrunk the paper, so I marked his readings on his copy.</p>
+          <p class="sample-meta">PDF &middot; 16 pages &middot; 3.7 MB</p></div>
+        </a>
       </div>
+      <p style="font-size:15px;color:var(--fg-2);margin:0 0 18px">Sitting 0625 Paper 6? It's &pound;15 instead of &pound;25 until your exam, back within two days. <a href="/marked/paper-6/">See the Paper 6 offer</a>.</p>
 
       <div class="tip" style="margin-bottom:8px">
         <div class="k">What a note looks like &middot; IGCSE Paper 4 &middot; 6(a)(ii) &middot; 1 mark</div>
@@ -513,7 +522,7 @@ footer a{color:var(--fg-2)}
         <p class="who">IGCSE Physics student &middot; marked free &middot; the IGCSE Paper 4 above</p>
       </blockquote>
       </div>
-      <p style="max-width:66ch;font-size:15px;color:var(--fg-2)">Shown with each student's permission, names removed. The two A Level scripts are in the students' own handwriting. The IGCSE one is retyped word for word in a handwriting font.</p>
+      <p style="max-width:66ch;font-size:15px;color:var(--fg-2)">Shown with each student's permission, names removed. The two A Level scripts and the IGCSE Paper 6 are in the students' own handwriting. The IGCSE Paper 4 is retyped word for word in a handwriting font.</p>
     </div>
   </section>
 
@@ -521,7 +530,7 @@ footer a{color:var(--fg-2)}
       <div class="wrap">
         <p class="eyebrow"><span class="dot"></span> Prices</p>
         <h2>Get your paper marked</h2>
-        <p class="lead">The same breakdown as the three above: what it would score today, where every mark went, and how to get the lost ones back. Pick your paper, pay, then email it to me.</p>
+        <p class="lead">The same breakdown as the four above: what it would score today, where every mark went, and how to get the lost ones back. Pick your paper, pay, then email it to me.</p>
         <!-- P6 OFFER LINE (added 2026-10-09, branch p6-offer-15): remove after the Oct/Nov 2026 Paper 6 (centre timetables: Tue 20 Oct), with /marked/paper-6/. -->
         <p class="offer-line"><strong>Paper 6 offer:</strong> 0625 Paper 6 is &pound;15 instead of &pound;25 until your exam, back within two days. <a href="/marked/paper-6/">See the offer</a></p>
 
