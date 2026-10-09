@@ -4,6 +4,9 @@
 <!--
   /marked/ - LIVE from 2026-09-11. INDEXED. Copy revision v5b.
 
+  COPY v8f (2026-10-09, branch p6-offer-15, NOT LIVE): 0625 P6 free place gone (Lucas, 0625/62 s26, 38/40), so
+  free places = one (9702 P5) in #five, FAQ, its JSON-LD twin and the final CTA. Plus ONE clearly-marked dated line in
+  #paid pointing at /marked/paper-6/ (the GBP 15 offer, noindex). Remove that line after 14 Oct 2026.
   COPY v8e (2026-10-09, Rich): second student quote, from the 0625 P4 student (email 2026-10-09 11:37 BST:
   "You can go ahead and quote my words, but just have it as \"IGCSE Physics student\", without my name").
   Two of the three sentences he approved, verbatim, joined with "...".
@@ -168,7 +171,7 @@
           "name": "Is any of it free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Two places left: one 9702 Paper 5 and one 0625 Paper 6, the first of each to reach me. No card and no account for those. Everything else is paid, from £25 a paper."
+            "text": "One place left: one 9702 Paper 5, the first to reach me. No card and no account for it. Everything else is paid, from £25 a paper."
           }
         },
         {
@@ -380,6 +383,8 @@ footer a{color:var(--fg-2)}
     .pack-price .price{font-size:40px}
     .pack-price .save{align-self:center;background:var(--success-tint);color:var(--success-text);font:500 12px/1 var(--font-mono);letter-spacing:0.04em;padding:6px 12px;border-radius:20px}
     .pack-sub{font-size:15px;font-weight:500;color:var(--fg-1);margin:0 0 14px}
+    .offer-line{background:var(--success-tint);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:0 0 20px;font-size:15px;color:var(--fg-1)}
+    .offer-line a{color:var(--accent)}
     .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
     .pack .tname{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);display:block;margin:0 0 6px}
     @media (max-width:720px){.tiers-3{grid-template-columns:1fr}}
@@ -517,6 +522,8 @@ footer a{color:var(--fg-2)}
         <p class="eyebrow"><span class="dot"></span> Prices</p>
         <h2>Get your paper marked</h2>
         <p class="lead">The same breakdown as the three above: what it would score today, where every mark went, and how to get the lost ones back. Pick your paper, pay, then email it to me.</p>
+        <!-- P6 OFFER LINE (added 2026-10-09, branch p6-offer-15): remove after Wed 14 October 2026, with /marked/paper-6/. -->
+        <p class="offer-line"><strong>Paper 6 offer:</strong> 0625 Paper 6 is &pound;15 instead of &pound;25 until Wednesday 14 October, back within two days. <a href="/marked/paper-6/">See the offer</a></p>
 
         <div class="tiers tiers-3">
           <div class="tier">
@@ -578,8 +585,8 @@ footer a{color:var(--fg-2)}
 
   <section class="sec" id="five">
     <div class="wrap">
-      <h2>Two free places left, and the one condition</h2>
-      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Three of the five free places have gone, to an IGCSE Paper 4, an A Level Paper 4 and an AS Paper 2. I'm keeping the last two for the papers I don't have a marked example of yet: one 9702 Paper 5 and one 0625 Paper 6, the first of each to arrive. Anything else, Paper 4 included, is the <a href="#paid">paid marking above</a>.</p>
+      <h2>One free place left, and the one condition</h2>
+      <p style="max-width:66ch;font-size:17px;color:var(--fg-2);margin-bottom:18px">Four of the five free places have gone, to an IGCSE Paper 4, an A Level Paper 4, an AS Paper 2 and an IGCSE Paper 6. I'm keeping the last one for the paper I don't have a marked example of yet: one 9702 Paper 5, the first to arrive. Anything else, Paper 4 included, is the <a href="#paid">paid marking above</a>.</p>
       <p style="max-width:66ch;font-size:17px;color:var(--fg-2)">When they've gone I'll say so on this page.</p>
 
       <div class="tip">
@@ -592,7 +599,7 @@ footer a{color:var(--fg-2)}
   <section class="sec faq" id="faq">
     <div class="wrap">
       <h2>Questions</h2>
-      <details><summary>Is any of it free?<span></span></summary><p>Two places left: one 9702 Paper 5 and one 0625 Paper 6, the first of each to reach me. No card and no account for those. Everything else is paid, from &pound;25 a paper.</p></details>
+      <details><summary>Is any of it free?<span></span></summary><p>One place left: one 9702 Paper 5, the first to reach me. No card and no account for it. Everything else is paid, from &pound;25 a paper.</p></details>
       <details><summary>Does it have to be a whole paper?<span></span></summary><p>Yes. A whole paper shows where you lose marks the same way more than once, and one question can't show that. Sit it timed, in one go, and send it as you wrote it.</p></details>
       <details><summary>What if my answer is bad?<span></span></summary><p>Then you'll get more out of it. Every mark you lose comes back with a note: what you wrote, what the marker needed, and the physics behind it. A near-perfect paper tells you your mark and not much else. A messy one shows you where your marks go and how to get them back, so don't tidy it up first. The only script that can't teach you anything is a blank one.</p></details>
       <details><summary>What if the free place for my paper has gone?<span></span></summary><p>Send it anyway. I'll tell you before I start. The same marking is paid: &pound;25 to &pound;35 depending on the paper, or five for &pound;109 with a written progress review. It is <a href="#paid">set out above</a>.</p></details>
@@ -605,7 +612,7 @@ footer a{color:var(--fg-2)}
   <section class="final">
     <div class="wrap">
       <h2>Send me a paper</h2>
-      <p>A full past paper you've attempted, 0625 or 9702. Photos of your handwriting are fine. From &pound;25, or free for the first 9702 Paper 5 and 0625 Paper 6 to arrive.</p>
+      <p>A full past paper you've attempted, 0625 or 9702. Photos of your handwriting are fine. From &pound;25, or free for the first 9702 Paper 5 to arrive.</p>
       <a class="btn btn-primary" href="#paid">Get your paper marked</a>
       <p class="final-alt">Free place, or not sure which paper? Email it to <a href="mailto:rich@cieinsider.com?subject=Mark%20my%20paper">rich@cieinsider.com</a></p>
     </div>
