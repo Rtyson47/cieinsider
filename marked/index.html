@@ -309,6 +309,13 @@ p{line-height:1.6}
 .student-quote p{font-size:17px;line-height:1.6;color:var(--fg-1)}
 @media (max-width:640px){.student-quote{padding:18px 18px}.student-quote p{font-size:15px}}
 .student-quote p.who{font-size:11px;line-height:1.4;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-2);margin-top:12px}
+.quotes-h{font-family:var(--font-display);font-size:24px;margin:34px 0 4px}
+.quotes2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:14px 0 18px;align-items:stretch}
+.quotes2 .student-quote{margin:0;max-width:none;display:flex;flex-direction:column}
+.quotes2 .student-quote p{font-size:15px}
+.quotes2 .student-quote p.pull{font-family:var(--font-display);font-size:21px;line-height:1.3;color:var(--accent);margin-bottom:12px}
+.quotes2 .student-quote p.who{margin-top:auto;padding-top:12px}
+@media (max-width:760px){.quotes2{grid-template-columns:1fr}}
 
 .tiers{display:grid;grid-template-columns:1fr;max-width:420px;margin:0 auto}
 .tier{border:2px solid var(--accent);border-radius:10px;padding:32px;background:var(--page);box-shadow:var(--shadow-card);text-align:center}
@@ -483,18 +490,23 @@ footer a{color:var(--fg-2)}
         </a>
       </div>
 
+      <div class="tip" style="margin-bottom:8px">
+        <div class="k">What a note looks like &middot; IGCSE Paper 4 &middot; 6(a)(ii) &middot; 1 mark</div>
+        <p>You wrote that the current "remains the same". It doesn't. In the dark the LDR's resistance goes up, so the total resistance goes up and the current falls. The voltmeter reading rises because the LDR now takes a bigger share of the 5.0&nbsp;V. That share is the mark.</p>
+      </div>
+
+      <h3 class="quotes-h">How did students find it?</h3>
+      <div class="quotes2">
       <blockquote class="student-quote">
+        <p class="pull">&ldquo;Definitely more valuable than the marking I usually give to myself.&rdquo;</p>
         <p>"Before sending my paper I was hoping to see if my own marking had been fair, and whether or not I was ready for my final exam. The marking revealed to me my gaps in content and diagrams allowing me to take quick precautions on topics like Particle Physics to make sure I don't lose small marks so quickly. The feedback and marking I received was definitely more valuable than the marking I usually give to myself ... I would definitely recommend any student to give this marking a try to get an idea of where you really stand, and improve on your weaknesses."</p>
         <p class="who">AS student, 9702 &middot; the Paper 2 above</p>
       </blockquote>
       <blockquote class="student-quote">
+        <p class="pull">&ldquo;I was quite surprised to see that my explanation was wrong.&rdquo;</p>
         <p>"I had frequently marked one of the explanations for the question as correct, so I was quite surprised to see that my explanation was wrong. ... The explanations provided were particularly useful, alongside with quotes from the examiner report, which really eased my understanding of the topic."</p>
         <p class="who">IGCSE Physics student &middot; the IGCSE Paper 4 above</p>
       </blockquote>
-
-      <div class="tip" style="margin-bottom:18px">
-        <div class="k">What a note looks like &middot; IGCSE Paper 4 &middot; 6(a)(ii) &middot; 1 mark</div>
-        <p>You wrote that the current "remains the same". It doesn't. In the dark the LDR's resistance goes up, so the total resistance goes up and the current falls. The voltmeter reading rises because the LDR now takes a bigger share of the 5.0&nbsp;V. That share is the mark.</p>
       </div>
       <p style="max-width:66ch;font-size:15px;color:var(--fg-2)">Shown with each student's permission, names removed. The two A Level scripts are in the students' own handwriting. The IGCSE one is retyped word for word in a handwriting font.</p>
     </div>
