@@ -68,6 +68,9 @@
       a.style.bottom = (14 + h) + 'px';
     }
     lift();
+    // Trainers build their bottom bars after the first paint, so measure again.
+    window.addEventListener('load', lift);
+    setTimeout(lift, 1500);
     window.addEventListener('resize', lift);
     window.addEventListener('scroll', lift, { passive: true });
   }
