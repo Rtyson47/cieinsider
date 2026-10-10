@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IGCSE & A Level Physics MCQ Practice | CIE Insider</title>
-<meta name="description" content="Free MCQ practice for Cambridge IGCSE Physics (0625) & AS Physics (9702). Real past papers 2023–2025, timed exam mode, instant marking and topic breakdown.">
+<meta name="description" content="Free MCQ practice for Cambridge IGCSE Physics (0625) & AS Physics (9702). Real past papers 2023–2025, every variant, with timed exam mode and instant marking.">
 <link rel="canonical" href="https://cieinsider.com/mcq/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cieinsider.com/mcq/">
 <meta property="og:site_name" content="CIE Insider">
 <meta property="og:title" content="Cambridge IGCSE & A Level Physics Multiple Choice Practice (0625 & 9702) | CIE Insider">
-<meta property="og:description" content="Multiple choice practice trainer for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Timed paper mode and topic drill — past papers from 2024 and 2025 series.">
+<meta property="og:description" content="Multiple choice practice trainer for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Timed exam mode and instant marking, on past papers from the 2023 to 2025 series.">
 <meta property="og:image" content="https://cieinsider.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cambridge IGCSE & A Level Physics Multiple Choice Practice (0625 & 9702) | CIE Insider">
-<meta name="twitter:description" content="Multiple choice practice trainer for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Timed paper mode and topic drill — past papers from 2024 and 2025 series.">
+<meta name="twitter:description" content="Multiple choice practice trainer for Cambridge IGCSE Physics (0625) and A Level Physics (9702). Timed exam mode and instant marking, on past papers from the 2023 to 2025 series.">
 <meta name="twitter:image" content="https://cieinsider.com/og-image.png">
 <script type="application/ld+json">
 {
@@ -629,6 +629,21 @@
   ::-webkit-scrollbar-track { background: var(--panel); }
   ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+  /* PHONES: embedded PDFs don't display on most phones, so open the paper in its own tab
+     and stack the answer sheet under the header. */
+  .pdf-open { display: none; }
+  @media (max-width: 760px) {
+    .header { height: auto; flex-wrap: wrap; padding: 10px 12px; gap: 8px; }
+    .header-spacer { display: none; }
+    .type-tabs { flex: 1 1 100%; overflow-x: auto; }
+    .paper-picker { flex: 1 1 100%; max-width: none; }
+    .workspace { display: block; height: auto; }
+    .pdf-pane { border-right: none; border-bottom: 1px solid var(--border); padding: 12px; }
+    .pdf-pane embed, #pdfFallback { display: none !important; }
+    .pdf-open { display: block; text-align: center; padding: 12px; border: 1px solid var(--accent-deep);
+      border-radius: 6px; color: var(--accent); text-decoration: none; font-weight: 500; }
+    .answer-pane { overflow: visible; }
+  }
 </style>
 <script src="/gate.js"></script>
 <script src="/report.js" defer></script>
@@ -670,6 +685,7 @@
 
   <div class="pdf-pane">
     <embed id="pdfEmbed" src="" type="application/pdf">
+    <a class="pdf-open" id="pdfOpen" href="#" target="_blank" rel="noopener">Open the question paper (PDF) &#8599;</a>
     <div class="pdf-fallback" id="pdfFallback" style="display:none;">
       <h3>Paper PDF</h3>
       <p>Place the PDF at the expected path and reload.</p>
@@ -729,8 +745,8 @@
   <p>
     A free multiple-choice trainer for <strong>Cambridge IGCSE Physics (0625)</strong> and
     <strong>AS &amp; A Level Physics (9702)</strong>. Work through real past-paper questions with the
-    question paper open beside the answer grid, mark instantly, and get a topic-by-topic breakdown of
-    where you dropped marks — so your next revision session targets the right gaps instead of guessing.
+    question paper open beside the answer grid, and mark it instantly. On the seven 2025 papers tagged so far, you also get a topic-by-topic
+    breakdown of where you dropped marks.
   </p>
   <p>
     Every question comes from a genuine Cambridge past paper. The trainer currently covers the
@@ -745,10 +761,10 @@
 
   <h2>How the trainer works</h2>
   <ul>
-    <li><strong>Practice mode</strong> — answer at your own pace, pause the timer, and reveal an examiner's note on any question you get wrong.</li>
+    <li><strong>Practice mode</strong> — answer at your own pace and pause the timer. the 9702 Oct/Nov 2025 paper 11 (Paper 1, variant 1) also has an examiner's note on 20 of its questions, shown when you get one wrong.</li>
     <li><strong>Exam-conditions mode</strong> — the timer runs without pausing and the paper auto-submits at zero, so you rehearse real pacing.</li>
-    <li><strong>Instant marking</strong> — your score appears the moment you submit, with every wrong answer explained.</li>
-    <li><strong>Topic breakdown</strong> — see which syllabus topics cost you marks, ranked, after every attempt.</li>
+    <li><strong>Instant marking</strong> — your score and the correct answers appear the moment you submit.</li>
+    <li><strong>Topic breakdown</strong> — on the seven 2025 papers tagged so far, see which syllabus topics cost you marks.</li>
   </ul>
 
   <h2>Frequently asked questions</h2>
@@ -763,7 +779,7 @@
     </details>
     <details>
       <summary>What's the difference between Core and Extended?</summary>
-      <p>Core candidates sit Paper 1 and target grades C–G; Extended candidates sit Paper 2 and can reach grades A*–E. Extended covers the full syllabus, including supplement content Core students don't take.</p>
+      <p>Core candidates sit Paper 1 and target grades C–G; Extended candidates sit Paper 2 and are eligible for grades A*–G. Extended covers the full syllabus, including supplement content Core students don't take.</p>
     </details>
     <details>
       <summary>Are these real Cambridge past papers?</summary>
@@ -792,7 +808,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "How long is Cambridge IGCSE Physics Paper 1?", "acceptedAnswer": { "@type": "Answer", "text": "IGCSE Physics 0625 Paper 1 is the Core multiple-choice paper: 40 questions in 45 minutes. Extended candidates instead sit Paper 2, also 40 multiple-choice questions in 45 minutes." } },
     { "@type": "Question", "name": "How many questions are on AS Physics Paper 1 (9702)?", "acceptedAnswer": { "@type": "Answer", "text": "Cambridge AS Level Physics 9702 Paper 1 is a multiple-choice paper with 40 questions sat in 1 hour 15 minutes, and it counts towards both your AS and full A Level grade." } },
-    { "@type": "Question", "name": "What is the difference between Core and Extended IGCSE Physics?", "acceptedAnswer": { "@type": "Answer", "text": "Core candidates sit Paper 1 and target grades C to G; Extended candidates sit Paper 2 and can reach grades A* to E. Extended covers the full syllabus, including supplement content Core students do not take." } },
+    { "@type": "Question", "name": "What is the difference between Core and Extended IGCSE Physics?", "acceptedAnswer": { "@type": "Answer", "text": "Core candidates sit Paper 1 and target grades C to G; Extended candidates sit Paper 2 and are eligible for grades A* to G. Extended covers the full syllabus, including supplement content Core students do not take." } },
     { "@type": "Question", "name": "Are these real Cambridge past papers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every question is taken from genuine Cambridge IGCSE and AS Physics past papers from the 2023 to 2025 exam series." } },
     { "@type": "Question", "name": "Is the MCQ trainer free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is completely free to use. CIE Insider builds free, examiner-grade revision tools for Cambridge Physics students." } }
   ]
@@ -1058,6 +1074,7 @@ async function loadPaper(paperId) {
 
   if (State.paper.pdfPath) {
     newEmbed.src = State.paper.pdfPath;
+    document.getElementById('pdfOpen').href = State.paper.pdfPath;
     newEmbed.style.display = 'block';
     fallback.style.display = 'none';
     document.getElementById('expectedPath').textContent = State.paper.pdfPath;
@@ -1168,6 +1185,8 @@ function markPaper(autoSubmit = false) {
 
   let correct = 0;
   const topicStats = {};
+  // A question Cambridge discounted has answer null and is left out of the total.
+  const scorable = State.paper.questions.filter(q => q.answer !== null).length;
 
   State.paper.questions.forEach((q, i) => {
     const userAns = State.answers[i];
@@ -1197,14 +1216,15 @@ function markPaper(autoSubmit = false) {
   showResults(correct, topicStats, autoSubmit);
   document.getElementById('btnSubmit').style.display = 'none';
   document.getElementById('answeredCount').textContent =
-    `Scored ${correct}/${State.paper.questionCount} — click any question for the examiner's note`;
+    `Scored ${correct}/${scorable}` +
+    (State.paper.questions.some(q => q.explanation) ? ' — tap a wrong answer marked with a dot for its examiner\'s note' : '');
 
   // History
   const history = JSON.parse(localStorage.getItem('cieinsider_history') || '[]');
   history.push({
     paper: State.paper.id,
     score: correct,
-    total: State.paper.questionCount,
+    total: scorable,
     date: new Date().toISOString(),
     examMode: State.examMode,
     autoSubmitted: autoSubmit,
@@ -1215,8 +1235,9 @@ function markPaper(autoSubmit = false) {
 
 function showResults(correct, topicStats, autoSubmit) {
   document.getElementById('scoreNum').textContent = correct;
-  document.getElementById('scoreTotal').textContent = State.paper.questionCount;
-  const pct = Math.round((correct / State.paper.questionCount) * 100);
+  const scorable = State.paper.questions.filter(q => q.answer !== null).length;
+  document.getElementById('scoreTotal').textContent = scorable;
+  const pct = Math.round((correct / scorable) * 100);
   document.getElementById('scorePct').textContent =
     `${pct}%${autoSubmit ? ' — time expired' : ''}`;
 
