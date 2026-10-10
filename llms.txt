@@ -1,0 +1,42 @@
+# CIE Insider
+
+> Free revision tools and paid script marking for Cambridge IGCSE Physics (0625, and the 9-1 graded 0972) and Cambridge International AS & A Level Physics (9702). Built by Rich Tyson, a physics teacher who marked 0625 and 9702 for Cambridge, from every examiner report Cambridge published for both syllabuses from 2021 to 2026. Independent: not affiliated with or endorsed by Cambridge International.
+
+## Who runs it
+- Rich Tyson, sole trader, UK. BSc Physics (Hons); PGCE Physics with Mathematics.
+- Former Cambridge examiner for 0625 and 9702. Not currently contracted as an examiner.
+- Contact: rich@cieinsider.com
+
+## The papers (from the Cambridge syllabuses)
+- 0625 Cambridge IGCSE Physics: Paper 1 Multiple Choice (Core), Paper 2 Multiple Choice (Extended), Paper 3 Theory (Core), Paper 4 Theory (Extended), Paper 5 Practical Test, Paper 6 Alternative to Practical.
+- 0972 is the same syllabus content as 0625, graded 9-1 instead of A*-G: https://cieinsider.com/blog/is-0972-the-same-as-0625/
+- 9702 Cambridge International AS & A Level Physics: Paper 1 Multiple Choice, Paper 2 AS Level Structured Questions, Paper 3 Advanced Practical Skills, Paper 4 A Level Structured Questions, Paper 5 Planning, Analysis and Evaluation.
+
+## Free tools: A Level Physics 9702
+- Paper 5 planning and analysis guide: https://cieinsider.com/9702/p5/
+- Paper 5 checklist: https://cieinsider.com/9702/p5/checklist/
+- Paper 5 cheatsheet: https://cieinsider.com/9702/p5/cheatsheet/
+- Linearisation trainer (Paper 5): https://cieinsider.com/9702/p5/linearisation/
+- Uncertainties trainer (Papers 3 and 5): https://cieinsider.com/9702/uncertainties/
+- Paper 3 limitations and improvements trainer: https://cieinsider.com/9702/p3/limitations/
+- AS definitions and formulae (Paper 2): https://cieinsider.com/9702/p2/definitions/
+- A2 definitions and formulae (Paper 4): https://cieinsider.com/9702/p4/definitions/
+- Maths readiness check for A Level Physics: https://cieinsider.com/9702/readiness/
+
+## Free tools: IGCSE Physics 0625
+- Paper 5 practical guide: https://cieinsider.com/0625/p5/guide/
+- Paper 6 alternative to practical guide: https://cieinsider.com/0625/p6/guide/
+- Paper 5 question drill: https://cieinsider.com/0625/p5/drill/
+- Examiner tips by topic: https://cieinsider.com/0625/tips/
+- Definitions and formulae: https://cieinsider.com/0625/definitions/
+
+## Both syllabuses
+- Timed multiple-choice practice on real past papers (0625 Papers 1 and 2, 9702 Paper 1): https://cieinsider.com/mcq/
+- What the June 2025 examiner reports said, paper by paper: https://cieinsider.com/blog/examiner-report-2025/
+- Revision booklets and one-page MCQ survival sheets: https://cieinsider.com/resources/
+- For teachers: https://cieinsider.com/teachers/
+
+## Paid
+- Script marking: a full past paper you have attempted, marked against the published mark scheme by a former examiner, with what the examiner report said where it commented on your question. GBP 25 to 35 depending on the paper, or five for GBP 109. Back within a week or your money back. https://cieinsider.com/marked/
+- The Maths Behind A Level Physics (9702): self-paced course on the numerical and unit skills 9702 assumes. GBP 39, one payment, 14-day refund. https://cieinsider.com/bridge/
+- Terms, refunds and privacy: https://cieinsider.com/terms/
