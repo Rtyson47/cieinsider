@@ -537,9 +537,9 @@ h1.cie-page-title em {
     <summary>About this tool</summary>
       <div class="seo-intro-inner">
     <h2>Cambridge A Level Physics Paper 3: how to answer limitations and improvements questions</h2>
-    <p>In Cambridge A Level Physics 9702, Paper 3 (Advanced Practical Skills) ends each experiment with a question awarding up to four marks for identifying limitations of the method and suggesting corresponding improvements. These marks are widely dropped &mdash; not because candidates don&rsquo;t understand the physics, but because their answers use language the mark scheme rejects. Phrases like &ldquo;do more repeats&rdquo; or &ldquo;use better equipment&rdquo; score zero; a creditable limitation names the specific source of error, and a creditable improvement gives a concrete, feasible solution that addresses it directly.</p>
-    <p>Valid limitations accepted by Cambridge examiners fall into four main categories: <strong>too few readings</strong> (only two or three measurements taken, insufficient to verify a relationship); <strong>difficulty measuring a specific quantity</strong> (naming what is hard to measure and why &mdash; for example, judging the exact moment a pendulum passes its lowest point); <strong>a systematic source of error</strong> (friction at a pivot, parallax when reading a scale, heat loss to surroundings); and <strong>human reaction error</strong> (for timing experiments, naming the specific action that introduces it). A corresponding improvement must address the same limitation: a light gate or fiducial marker for pendulum timing, a second thermometer for ambient temperature, a fixed pointer to eliminate parallax.</p>
-    <p>This trainer presents real past-paper experimental scenarios from 9702 Paper 3 &mdash; mechanics experiments (moments, SHM, collisions), electrical experiments (resistance variation, capacitor discharge), and thermal experiments &mdash; with validated answer cards showing which responses score and which common phrasings receive zero. Use alongside the <a href="/9702/uncertainties/">uncertainties trainer</a> to cover the practical assessment skills Paper 3 tests.</p>
+    <p>In Cambridge A Level Physics 9702, Paper 3 (Advanced Practical Skills) ends each experiment with a question awarding up to four marks for identifying limitations of the method and suggesting corresponding improvements. The mark scheme lists the points it will credit, one mark each. &ldquo;Repeat readings&rdquo; on its own is ruled out in the scheme itself, and the November 2021 Paper 35 report turned down &ldquo;faulty apparatus&rdquo;, &ldquo;keep eye level&rdquo; and &ldquo;fix the rule&rdquo; as too vague. A creditable limitation names what was hard to measure and why; a creditable improvement is a concrete method that fixes that same problem.</p>
+    <p>In the eight schemes behind these cards, the credited limitations fall into four groups: <strong>two readings are not enough</strong> to draw a valid conclusion (on every scheme); <strong>difficulty measuring a named quantity, with a reason</strong> (the rubber cord moves when the rule touches it; the calipers squash the cord); <strong>a change too small to measure well</strong>, so its percentage uncertainty is large; and <strong>a problem with the set-up</strong> (the magnet hits the side of the tube; the mass of the putty is not counted). &ldquo;Reaction time&rdquo; or &ldquo;human error&rdquo; on its own does not score: the June 2023 Paper 32 report says so. Each improvement must fix the limitation it is paired with: a marker at the centre of the oscillation for timing, a clamped rule for a length, a micrometer for a cord the calipers squash.</p>
+    <p>This trainer presents real past-paper experimental scenarios from 9702 Paper 3 &mdash; balance and centre of gravity, oscillations, a compass in a solenoid, a magnet in a coil, a lens in sugar solution and the thermal expansion of a pipe &mdash; with validated answer cards showing which responses score and which common phrasings receive zero. Use alongside the <a href="/9702/uncertainties/">uncertainties trainer</a> to cover the practical assessment skills Paper 3 tests.</p>
   </div>
   </details>
 </section>
@@ -617,13 +617,13 @@ const EXP = [
   ],
   imp:[
     {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Measure d at several different orientations and calculate the average diameter.",cor:"B"},
+    {id:"IB",text:"Use an improved method to make the clay into a perfect sphere.",cor:"B"},
     {id:"IC",text:"Use calipers to measure d / measure between two flat parallel blocks.",cor:"C"},
     {id:"ID",text:"Use a denser/different material or improved mounting to prevent clay covering coils.",cor:"D"},
     {id:"IE",text:"Use a fiducial marker placed at the centre (equilibrium position) of the oscillation.",cor:"E"},
     {id:"IF",text:"Use video recording with a timer in view, then review footage frame by frame.",cor:"F"},
     {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Measure the diameter more carefully.",cor:null,note:"Too vague — does not specify measuring at multiple orientations."},
+    {id:"IX2",text:"Measure the diameter more carefully.",cor:null,note:"On the right lines, but no method. The scheme credits a better way to make the sphere, or a named way to measure d (calipers, or measuring between two blocks)."},
     {id:"IX3",text:"Use a fiducial marker.",cor:null,note:"Incomplete — must specify it is placed at the centre/equilibrium position."},
     {id:"IX4",text:"Use a more accurate stopwatch.",cor:null,note:"Does not address the difficulty of counting short-period oscillations."},
     {id:"IX5",text:"Use calipers.",cor:null,note:"Incomplete — must state what is being measured or why calipers help (parallax)."}
@@ -649,7 +649,7 @@ const EXP = [
     {id:"D1",text:"The lens may move slightly when the solution is poured in."},
     {id:"D2",text:"The screen may not be exactly perpendicular to the axis of the lens."},
     {id:"D3",text:"The sugar solution may not be perfectly transparent."},
-    {id:"D4",text:"The room may not be dark enough to see the image clearly."},
+    {id:"D4",text:"The torch batteries may run down during the experiment."},
     {id:"D5",text:"The temperature of the solution affects its refractive index."}
   ],
   imp:[
@@ -660,10 +660,10 @@ const EXP = [
     {id:"IE",text:"Clean the lens and container between readings / use a new container for the second solution.",cor:"E"},
     {id:"IF",text:"Remove the glass from the front of the torch so LEDs are at the front.",cor:"F"},
     {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Use a darkened room.",cor:null,note:"Incomplete — must explain this helps judge image sharpness."},
-    {id:"IX3",text:"Use a ruler more carefully to measure u.",cor:null,note:"Too vague — does not address parallax or the difficulty of locating the lens position."},
-    {id:"IX4",text:"Wash the container between readings.",cor:null,note:"Incomplete — must also mention cleaning the lens, or the improvement is insufficient."},
-    {id:"IX5",text:"Mount the torch on a stand.",cor:null,note:"Incomplete — must specify this keeps the torch aligned with the lens axis."}
+    {id:"IX2",text:"Make it darker so the image is easier to see.",cor:null,note:"On the right lines, but no method. The scheme credits a way to cut out unwanted light: screens around the image, or a darkroom."},
+    {id:"IX3",text:"Use a ruler more carefully to measure u.",cor:null,note:"Too vague. The scheme wants a method: a set square next to the rule as a pointer, or a mark on the container at the lens position."},
+    {id:"IX4",text:"Make sure the two solutions do not mix.",cor:null,note:"On the right lines, but no method. The scheme credits cleaning the lens or the container, or using a new container."},
+    {id:"IX5",text:"Hold the torch more steadily.",cor:null,note:"On the right lines, but no method. The scheme credits mounting the torch on a block or stand, or using an optical bench."}
   ]
 },
 {
@@ -711,16 +711,17 @@ const EXP = [
     {t:"h3",v:"Procedure"},{t:"list",v:["Measure h₀ (pointer height, no magnet). Attach magnet and measure h. Calculate dm = h₀ – h. Estimate % uncertainty in dm.","Calculate spring stiffness proxy S = mg/dm.","Connect coil to power supply via variable resistor and ammeter. Set I ≈ 0.3 A. Measure pointer height H and record I.","Repeat at I ≈ 0.7 A. Second H should be smaller than first.","Calculate k = S(h – H)/I for both readings and compare within 20% to test relationship."]},
     {t:"h3",v:"Key relationship"},{t:"p",v:"S(h – H) = kI, where S = mg/dm is the spring constant proxy, h is height with magnet only, H is height with magnet and current, and I is the current."},
     {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"The core problem is that only two (I, H) readings are taken — too few to validate any relationship. The pointer oscillates when the switch is closed, making H hard to read. The pointer is thick and the ruler is hand-held, creating difficulty measuring height. The change (h – H) is very small, so uncertainties are proportionally large. The current fluctuates. The magnet may touch the tube wall."}
+    {t:"p",v:"The core problem is that only two (I, H) readings are taken — too few to validate any relationship. The pointer oscillates when the switch is closed, making H hard to read. The pointer is thick and the ruler is hand-held, creating difficulty measuring height. The deflection dm and the change (h – H) are both small, so their percentage uncertainties are large. The current fluctuates. The magnet may touch the tube wall."}
   ],
-  flaws:"Only two readings taken — cannot draw a valid conclusion. Pointer oscillates when current flows, making H difficult to read. Difficult to measure height accurately — pointer is thick, ruler moves. Change in height (h – H) is very small so percentage uncertainty is large. Current/ammeter reading fluctuates. Magnet may hit the side of the tube.",
+  flaws:"Only two readings taken — cannot draw a valid conclusion. Pointer oscillates when current flows, making H difficult to read. Difficult to measure height accurately — pointer is thick, ruler moves. Deflection dm is small, so its percentage uncertainty is large. Change in height (h – H) is very small. Current/ammeter reading fluctuates. Magnet may hit the side of the tube.",
   valid:[
     {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
     {id:"B",text:"Pointer oscillates when current flows — difficult to read a steady value of H."},
     {id:"C",text:"Difficult to measure the height of the pointer accurately — pointer is thick / ruler not vertical / ruler moves."},
-    {id:"D",text:"Change in height (h – H) is very small, so the percentage uncertainty in (h – H) is large."},
-    {id:"E",text:"Current/ammeter reading fluctuates — difficult to record a reliable value of I."},
-    {id:"F",text:"Magnet hits the side of the tube during measurement."}
+    {id:"D",text:"The deflection dm is small, so the percentage uncertainty in dm is large."},
+    {id:"E",text:"The change in height (h – H) caused by the current is very small."},
+    {id:"F",text:"Current/ammeter reading fluctuates — difficult to record a reliable value of I."},
+    {id:"G",text:"Magnet hits the side of the tube during measurement."}
   ],
   dist:[
     {id:"D1",text:"The mass of the magnet is difficult to measure accurately."},
@@ -733,14 +734,15 @@ const EXP = [
     {id:"IA",text:"Take more readings at different currents and plot a graph of H against I (or calculate more k values and compare).",cor:"A"},
     {id:"IB",text:"Take a video with a scale/ruler in view to estimate the mean position, or use a wind shield / damping to reduce oscillation.",cor:"B"},
     {id:"IC",text:"Use a pointed/thinner pointer or pin, or clamp the ruler to prevent it moving.",cor:"C"},
-    {id:"ID",text:"Use a heavier magnet, a less stiff spring, or a longer spring to increase the deflection and reduce percentage uncertainty.",cor:"D"},
-    {id:"IE",text:"Clean the connections/crocodile clips (e.g. with wire wool) or use soldered connections to stabilise the current.",cor:"E"},
-    {id:"IF",text:"Use a wider tube so the magnet does not touch the sides.",cor:"F"},
+    {id:"ID",text:"Use a heavier magnet, a less stiff spring, or a longer spring to increase the deflection dm.",cor:"D"},
+    {id:"IE",text:"Use a larger current, more turns on the coil, or a stronger magnet to increase (h – H).",cor:"E"},
+    {id:"IF",text:"Clean the connections/crocodile clips (e.g. with wire wool) or use soldered connections to stabilise the current.",cor:"F"},
+    {id:"IG",text:"Use a wider tube so the magnet does not touch the sides.",cor:"G"},
     {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
     {id:"IX2",text:"Use a more accurate ammeter.",cor:null,note:"Does not address the fluctuating reading — the issue is instability, not instrument precision."},
-    {id:"IX3",text:"Use a pointer with a sharp tip.",cor:null,note:"Incomplete — must state this makes it easier to measure the height accurately."},
-    {id:"IX4",text:"Use a larger current.",cor:null,note:"Does not directly address the small (h – H) issue; a stiffer spring or heavier magnet is more targeted."},
-    {id:"IX5",text:"Use a wider tube.",cor:null,note:"Incomplete — must state this prevents the magnet from touching the sides."}
+    {id:"IX3",text:"Read the pointer at eye level.",cor:null,note:"On the right lines, but too vague. The November 2021 Paper 35 report names \u2018keep eye level\u2019 as an improvement that cannot be credited. The scheme wants a pointed or thinner pointer, a pin, or a clamped rule."},
+    {id:"IX4",text:"Use a stiffer spring.",cor:null,note:"Wrong direction. A stiffer spring makes the deflection smaller. The scheme credits a less stiff or longer spring, or a heavier magnet."},
+    {id:"IX5",text:"Use a larger tube.",cor:null,note:"The scheme says \u201cUse wider tube (not \u2018larger\u2019)\u201d."}
   ]
 },
 {
@@ -780,7 +782,7 @@ const EXP = [
     {id:"IG",text:"Use a waterproof string such as nylon, plastic-coated wire, or metal wire.",cor:"G"},
     {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
     {id:"IX2",text:"Use a more accurate thermometer.",cor:null,note:"Does not address the temperature varying with position or the timing problem."},
-    {id:"IX3",text:"Use a longer pipe.",cor:null,note:"Incomplete — must explain this increases (x₁ – x₂) and therefore reduces the percentage uncertainty."},
+    {id:"IX3",text:"Make (x₁ – x₂) bigger.",cor:null,note:"Right goal, but no method. The scheme credits how: increase the length of the rod or pipe."},
     {id:"IX4",text:"Measure T₀ at the start.",cor:null,note:"Incomplete — must state this is done just before the water is added, to account for any drift in room temperature."},
     {id:"IX5",text:"Use waterproof string.",cor:null,note:"Incomplete — must name a specific waterproof material (e.g. nylon, metal wire)."}
   ]
@@ -814,7 +816,7 @@ const EXP = [
     {id:"D1",text:"The sheet may not be perfectly rectangular, making x difficult to define."},
     {id:"D2",text:"The plumb line may be affected by draughts in the room, making the line inaccurate."},
     {id:"D3",text:"The two cardboard sheets may have different densities, affecting the results."},
-    {id:"D4",text:"Parallax error when measuring y between points P and Q."},
+    {id:"D4",text:"The cardboard may absorb moisture from the air during the experiment."},
     {id:"D5",text:"The nail hole may stretch with use, changing the position from which the card hangs."}
   ],
   imp:[
@@ -827,7 +829,7 @@ const EXP = [
     {id:"IX2",text:"Use a spirit level to check the card is vertical.",cor:null,note:"Does not address the core difficulty of drawing on a hanging card — the card should be taken down and placed flat."},
     {id:"IX3",text:"Use a more accurate ruler to measure y.",cor:null,note:"Too vague — does not address the specific difficulty of locating the centre of gravity accurately."},
     {id:"IX4",text:"Weigh the putty.",cor:null,note:"Incomplete — must state that the putty mass is added to m (or that a lighter adhesive replaces putty)."},
-    {id:"IX5",text:"Use a pin instead of a nail.",cor:null,note:"Incomplete — must explain this allows the card to swing freely, reducing friction at the pivot."}
+    {id:"IX5",text:"Reduce the friction at the nail.",cor:null,note:"On the right lines, but no method. The scheme credits thinner string, a thinner nail, a pin, or a bigger or smoother hole."}
   ]
 }
 ,
@@ -866,7 +868,7 @@ const EXP = [
   ],
   imp:[
     {id:"IA",text:"Take more readings (different holes or additional masses) and plot a graph / calculate more C values and compare.",cor:"A"},
-    {id:"IB",text:"Use two stands so that the strip and pendulum can be released simultaneously / use a video with a timer in view and review frame by frame.",cor:"B"},
+    {id:"IB",text:"Use two stands so that the strip and the pendulum can oscillate at the same time and be compared directly.",cor:"B"},
     {id:"IC",text:"Draw a scale on the strip / mark the pivot position on both sides of the strip / roughen the lower surface to prevent slipping.",cor:"C"},
     {id:"ID",text:"Use a rule with pointers / clamp the ruler in position / measure the diameter of the bob and halve it to find the radius.",cor:"D"},
     {id:"IE",text:"Use a fiducial marker placed at the centre/equilibrium position of the oscillation / use video recording with a timer in view.",cor:"E"},
@@ -899,7 +901,6 @@ const EXP = [
   valid:[
     {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
     {id:"B",text:"Difficult to measure a — masses not parallel to each other / masses too wide / hard to judge the centre of each mass / parallax error / rod not straight."},
-    {id:"C",text:"Oscillations occur in planes other than torsional — vertical or side-to-side oscillations contaminate the period measurement."},
     {id:"D",text:"Difficult to measure T — hard to judge the start and/or end of an oscillation / amplitude decreases quickly / oscillations are heavily damped."},
     {id:"E",text:"Wire or masses move on the rod during oscillation / rod is unbalanced or difficult to make horizontal / difficult to position wire at the centre of rod."},
     {id:"F",text:"Mass of adhesive putty not taken into account in m / putty mass different on each side of the rod."},
@@ -915,7 +916,6 @@ const EXP = [
   imp:[
     {id:"IA",text:"Take more readings at different values of L or m and plot a graph / calculate more k values and compare.",cor:"A"},
     {id:"IB",text:"Use thinner masses / use calipers to measure a / take readings from both sides of each mass and average.",cor:"B"},
-    {id:"IC",text:"Ensure the rod is released gently and exactly horizontally / use a guide to constrain the rod to the horizontal plane.",cor:"C"},
     {id:"ID",text:"Use a fiducial marker placed at the equilibrium position / use video recording with a timer in view and review frame by frame.",cor:"D"},
     {id:"IE",text:"Make a notch or groove in the rod to locate the wire / glue or tape the wire to the rod to prevent it moving.",cor:"E"},
     {id:"IF",text:"Measure the mass of the adhesive putty and add it to m / measure the putty mass on each side separately and correct m accordingly.",cor:"F"},
@@ -953,7 +953,7 @@ const EXP = [
     {id:"F",text:"Oscillations occur in more than one mode — vertical or side-to-side oscillations / rubber cord not attached at the centre of the lower clip."}
   ],
   dist:[
-    {id:"D1",text:"The rubber cord may not be exactly circular in cross-section, making d difficult to define."},
+    {id:"D1",text:"The clamp stand may topple if the masses are too heavy."},
     {id:"D2",text:"The slotted masses may not have exactly the stated mass."},
     {id:"D3",text:"The temperature of the rubber cord affects its elastic properties, altering k."},
     {id:"D4",text:"Parallax error when reading the ammeter."},
@@ -970,7 +970,7 @@ const EXP = [
     {id:"IX2",text:"Use a more accurate ruler.",cor:null,note:"Does not address the parallax or the cord moving when touched — clamping the ruler is the targeted improvement."},
     {id:"IX3",text:"Use calipers to measure d.",cor:null,note:"Calipers are the instrument causing the problem — the improvement must specify a non-compressing method such as a micrometer or travelling microscope."},
     {id:"IX4",text:"Use a video camera.",cor:null,note:"Incomplete — must state a timer is in view and that the footage is reviewed frame by frame, or specify a fiducial marker at the equilibrium point."},
-    {id:"IX5",text:"Twist to a larger angle.",cor:null,note:"Incomplete — must explain this increases the amplitude so oscillations last longer / are easier to count, or reduces the effect of damping."}
+    {id:"IX5",text:"Make the oscillations last longer.",cor:null,note:"On the right lines, but no method. The scheme credits twisting the masses through a larger angle before release, a marker at the equilibrium point, or a video with a timer in view."}
   ]
 }
 ];
