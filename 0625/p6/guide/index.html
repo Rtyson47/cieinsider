@@ -1533,10 +1533,6 @@
   <!-- =================== EMAIL CAPTURE =================== -->
 
   <!-- =================== AS READINESS CROSS-LINK =================== -->
-  <!-- Added 2026-08-10. Identical block on every 0625 page: the site already takes
-       organic IGCSE traffic and none of it was pointed at /9702/readiness/.
-       Self-contained literal hex rather than this page's CSS variables, because the
-       token names differ from page to page (--cream vs --cie-cream vs --bg). -->
   <style>
   .as-next {
     margin-top: 72px;
@@ -1591,18 +1587,6 @@
       <p>No spam, no daily nudges. Just a note when Paper 4 or the 9702 trainers are ready — plus the occasional examiner tip the week before an exam window.</p>
     </div>
 
-    <!--
-      ============================================================
-      CONVERTKIT FORM
-      ============================================================
-      To wire this up:
-        1. In ConvertKit, create a form and grab its FORM ID.
-        2. Replace 9454927 below in TWO places (action= and the hidden input is not needed for v3 forms).
-        3. ConvertKit form action URL pattern: https://app.kit.com/forms/FORM_ID/subscriptions
-           (or the older: https://app.convertkit.com/forms/FORM_ID/subscriptions)
-        4. Check your form's embed code in ConvertKit for the exact action URL — they've changed it twice.
-      ============================================================
-    -->
     <form
       action="https://app.kit.com/forms/9454927/subscriptions"
       method="post"
@@ -1626,7 +1610,6 @@
 
 </main>
 
-  <!-- =================== MARKED: get a full paper marked (added 2026-10-06) =================== -->
   <aside class="cie-marked" aria-label="Get a past paper marked by an examiner">
   <style>
     .cie-marked{max-width:780px;margin:64px auto 0;padding:0;position:relative;z-index:2;}
