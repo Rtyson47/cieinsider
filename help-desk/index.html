@@ -6,8 +6,6 @@
 <title>Physics Help Desk · CIE Insider</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://cieinsider.com/help-desk/">
-<!-- 3s, not 0s: the no-JS fallback only. Browsers redirect via the script at the bottom,
-     which waits ~1.2s so the Cloudflare beacon can fire. See the comment there. -->
 <meta http-equiv="refresh" content="3; url=https://www.skool.com/gcse-igcse-physics-help-desk-4125">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,22 +87,6 @@
   <span class="home"><a href="https://cieinsider.com">Back to cieinsider.com</a></span>
 </div>
 
-<!--
-  Why this waits instead of redirecting instantly (added 2026-09-04).
-
-  This page is the click target for every email link to the free Skool room, so it is the only
-  place a REAL human click can be counted. School mail scanners (Mimecast, Proofpoint, Defender
-  Safe Links) fetch every URL in an email before delivery, which inflated Kit's click numbers to
-  roughly 3 clicks per "clicker" across every send: exactly the number of links in the email.
-  Scanners do not execute JavaScript, so a JS-gated beacon counts people and not machines.
-
-  Previously this page redirected with meta refresh at 0s AND an immediate location.replace, and
-  carried no beacon at all. Cloudflare Web Analytics therefore had zero data for it, which read
-  as "the page is not indexed" when in fact nothing had ever been instrumented.
-
-  1200ms gives the deferred beacon time to send. Do not reduce it without checking that
-  Cloudflare still records the pageview.
--->
 <script>
   setTimeout(function () {
     window.location.replace("https://www.skool.com/gcse-igcse-physics-help-desk-4125");
