@@ -3,3 +3,10 @@ repos:
     rev: v8.30.1
     hooks:
       - id: gitleaks
+  - repo: local
+    hooks:
+      - id: no-html-notes
+        name: No internal notes in HTML comments
+        entry: python3 .pre-commit-hooks/no-html-notes.py
+        language: system
+        files: \.html$
