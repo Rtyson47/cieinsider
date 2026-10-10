@@ -887,7 +887,7 @@
       <h2>Cambridge A Level Physics uncertainty rules for Papers 3 and 5 &mdash; reference, combining rules, and drill in one tool</h2>
       <p>Uncertainty calculations appear on every Cambridge A Level Physics 9702 practical paper. Paper 3 (AS Level) asks you to estimate the absolute uncertainty in a reading you took yourself and turn it into a percentage uncertainty &mdash; and the mark scheme wants a realistic estimate for a hand-taken length (2&#8288;&ndash;&#8288;10&nbsp;mm on the June 2024 Paper 31 scheme), not the 1&nbsp;mm precision of the rule. It then asks you to test two values of a constant against a percentage-uncertainty criterion. Paper 5 (A Level) goes further: error bars on every point, a worst acceptable line, the uncertainty in the gradient (line of best fit minus worst acceptable line), and the combining rules to carry that uncertainty into your final answer. Examiner reports name the same errors again and again: underestimating the absolute uncertainty in a hand-taken reading (Paper 3, June 2021&ndash;2024), not halving the range of repeated readings (Paper 3, June 2021), confusing percentage difference with percentage uncertainty (Paper 3, June and November 2025), adding percentage uncertainties where absolute ones were needed (Paper 5, June and November 2021) and, on Paper 2, mixing up absolute and percentage uncertainty (November 2021, June 2022) and not rounding the final absolute uncertainty to one significant figure with the value to match (November 2021, June 2022).</p>
       <p>This tool combines a reference section and a drill. The reference covers what uncertainty means and why every measurement has one, reading instrument uncertainties (ruler, vernier caliper, micrometer, stopwatch, ammeter, voltmeter), the four combining rules (addition/subtraction; multiplication/division; raising to a power; functions), finding gradient uncertainty from maximum and minimum gradient lines, and the significant-figure conventions for uncertainty expressions. The drill generates numerical uncertainty problems with step-by-step worked solutions so you can practice the calculation mechanics until they are automatic.</p>
-      <p>Read the reference first, then switch to drill once you can work through the combining rules without prompting. Focus particularly on the gradient-uncertainty method and percentage uncertainty combining &mdash; these appear on almost every Paper 5 Q2 and are among the most frequently dropped mark points.</p>
+      <p>Read the reference first, then switch to drill once you can work through the combining rules without prompting. Focus particularly on the gradient-uncertainty method and percentage uncertainty combining &mdash; every one of the 42 Paper 5 mark schemes from 2021 to 2026 has a mark for a worst acceptable line and the uncertainty that comes from it.</p>
     </div>
   </details>
 </section>
@@ -979,7 +979,7 @@
     <!-- SECTION 3: Combining uncertainties -->
     <div class="ref-section">
       <div class="ref-section-title">Combining Uncertainties</div>
-      <div class="ref-section-sub">The rules Cambridge tests most frequently — know these from memory</div>
+      <div class="ref-section-sub">The four combining rules — know these from memory</div>
 
       <div class="rule-card">
         <div class="rule-card-header">
@@ -996,7 +996,7 @@
           z = x − y = 8.0 cm,  Δz = 0.5 + 0.5 = 1.0 cm<br>
           z = (8.0 ± 1.0) cm
         </div>
-        <div class="rule-warning"><strong>Key point:</strong> Subtracting two similar values makes the % uncertainty very large — this is why Cambridge often penalises poor experimental design where a small difference between large numbers is taken.</div>
+        <div class="rule-warning"><strong>Key point:</strong> Subtracting two similar values makes the % uncertainty very large — Paper 3 schemes credit this as a limitation: the June 2023 Paper 34 scheme lists “(x₁ – x₂) is small so large % uncertainty”.</div>
       </div>
 
       <div class="rule-card">
@@ -1398,12 +1398,12 @@ const QUESTIONS = [
       {
         label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
         question: 'Convert the percentage uncertainty to an absolute uncertainty.',
-        answer: ['0.054', '0.054 s', '±0.054 s', '±0.054', '0.05', '0.05 s', '0.054 s'],
-        exact: '0.054 s',
+        answer: ['0.05', '0.05 s', '±0.05 s', '±0.05', '0.054', '0.054 s', '±0.054 s', '±0.054'],
+        exact: '±0.05 s',
         unit: 's',
         hint1: 'Absolute uncertainty = (% uncertainty / 100) × value.',
-        hint2: '(3 / 100) × 1.80 = 0.054 s',
-        worked: 'Δt = (3% / 100) × 1.80 s = 0.054 s. T = (1.80 ± 0.054) s.',
+        hint2: '(3 / 100) × 1.80 = 0.054 s, then round the uncertainty to 1 significant figure.',
+        worked: 'Δt = (3% / 100) × 1.80 s = 0.054 s ≈ 0.05 s. Give an absolute uncertainty to 1 significant figure and the value to the same decimal places: T = (1.80 ± 0.05) s.',
       }
     ]
   },
@@ -1432,12 +1432,12 @@ const QUESTIONS = [
       {
         label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
         question: 'Convert the percentage uncertainty to an absolute uncertainty in the refractive index.',
-        answer: ['0.0228', '0.023', '0.0228', '±0.023', '±0.0228', '0.02'],
-        exact: '0.0228',
+        answer: ['0.02', '±0.02', '0.0228', '±0.0228', '0.023', '±0.023'],
+        exact: '±0.02',
         unit: '',
         hint1: 'Absolute uncertainty = (% / 100) × value. Refractive index has no units.',
-        hint2: '(1.5 / 100) × 1.52 = 0.0228',
-        worked: 'Δn = (1.5 / 100) × 1.52 = 0.0228. n = 1.52 ± 0.0228 (no units).',
+        hint2: '(1.5 / 100) × 1.52 = 0.0228, then round the uncertainty to 1 significant figure.',
+        worked: 'Δn = (1.5 / 100) × 1.52 = 0.0228 ≈ 0.02. n = 1.52 ± 0.02 (no units).',
       }
     ]
   },
@@ -1537,7 +1537,7 @@ const QUESTIONS = [
         unit: '%',
         hint1: '% uncertainty = (ΔT / T) × 100%.',
         hint2: '(0.01 / 1.42) × 100% = 0.704% ≈ 0.70%',
-        worked: '% uncertainty = (0.01 / 1.42) × 100% = 0.704% ≈ 0.70%. Taking multiple oscillations dramatically reduces the % uncertainty — this is why Cambridge always asks students to time 20+ oscillations.',
+        worked: '% uncertainty = (0.01 / 1.42) × 100% = 0.704% ≈ 0.70%. Timing 20 oscillations instead of one divides the absolute uncertainty in T by 20, which is why timing many oscillations is worth the effort.',
       }
     ]
   },
@@ -1588,12 +1588,12 @@ const QUESTIONS = [
       {
         label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN ρ',
         question: 'ρ = 2.50 g/cm³. What is the absolute uncertainty?',
-        answer: ['0.115', '0.12', '0.115 g/cm³', '0.12 g/cm³', '±0.115', '±0.12', '0.1 g/cm³', '0.1'],
-        exact: '0.115 g/cm³',
+        answer: ['0.1', '0.1 g/cm³', '±0.1', '±0.1 g/cm³', '0.115', '0.115 g/cm³', '0.12', '0.12 g/cm³', '±0.115', '±0.12'],
+        exact: '±0.1 g/cm³',
         unit: 'g/cm³',
         hint1: 'Absolute uncertainty = (% / 100) × value.',
-        hint2: '(4.6 / 100) × 2.50 = 0.115 g/cm³.',
-        worked: 'Δρ = (4.6/100) × 2.50 = 0.115 g/cm³. ρ = (2.50 ± 0.115) g/cm³.',
+        hint2: '(4.6 / 100) × 2.50 = 0.115 g/cm³, then round the uncertainty to 1 significant figure.',
+        worked: 'Δρ = (4.6/100) × 2.50 = 0.115 ≈ 0.1 g/cm³. The value takes the same number of decimal places as the uncertainty: ρ = (2.5 ± 0.1) g/cm³.',
       }
     ]
   },
@@ -1617,27 +1617,37 @@ const QUESTIONS = [
   {
     id: 17, skill: 'mul-div', difficulty: 'hard',
     skillLabel: 'Combining: Multiplication & Division',
-    context: `Refractive index n = sin(θ₁) / sin(θ₂). The angles are measured as θ₁ = (45.0 ± 1.0)° and θ₂ = (28.0 ± 1.0)°. Note: use the actual angle values to find % uncertainties for this question.`,
+    context: `Refractive index n = sin(θ₁) / sin(θ₂). The angles are measured as θ₁ = (45.0 ± 1.0)° and θ₂ = (28.0 ± 1.0)°. The % uncertainty in an angle is not the % uncertainty in its sine, so use the max/min method. Keep 4 significant figures in your working.`,
     steps: [
       {
-        label: 'STEP 1 — % UNCERTAINTIES IN THE ANGLES',
-        question: 'What are the % uncertainties in θ₁ and θ₂? Give both values separated by a comma.',
-        answer: ['2.2%, 3.6%', '2.2, 3.6', '2.22%, 3.57%', '2.22, 3.57', '2.2% and 3.6%'],
-        exact: '2.2%, 3.6%',
+        label: 'STEP 1 — BEST VALUE OF n',
+        question: 'Calculate n from the measured angles.',
+        answer: ['1.506', '1.51', '1.5062', '1.5'],
+        exact: '1.506',
         unit: '',
-        hint1: '% uncertainty in each angle = (1.0 / angle) × 100%.',
-        hint2: '%(θ₁) = (1/45)×100 = 2.22% ≈ 2.2%. %(θ₂) = (1/28)×100 = 3.57% ≈ 3.6%.',
-        worked: '%Δθ₁ = (1.0/45.0)×100 = 2.22%. %Δθ₂ = (1.0/28.0)×100 = 3.57%.',
+        hint1: 'n = sin 45.0° / sin 28.0°. Check your calculator is in degrees.',
+        hint2: 'sin 45.0° = 0.7071, sin 28.0° = 0.4695. n = 0.7071 / 0.4695 = 1.506.',
+        worked: 'n = sin 45.0° / sin 28.0° = 0.7071 / 0.4695 = 1.506.',
       },
       {
-        label: 'STEP 2 — % UNCERTAINTY IN n',
-        question: 'Calculate the % uncertainty in the refractive index n.',
-        answer: ['5.8%', '5.79%', '5.8', '5.79', '6%'],
-        exact: '5.8%',
+        label: 'STEP 2 — LARGEST POSSIBLE n',
+        question: 'Which angle values give the largest possible n? Calculate n_max.',
+        answer: ['1.584', '1.58', '1.585', '1.5845'],
+        exact: '1.584',
+        unit: '',
+        hint1: 'To make a fraction as large as possible, make the top as large as possible and the bottom as small as possible.',
+        hint2: 'Use θ₁ = 46.0° and θ₂ = 27.0°: n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540.',
+        worked: 'n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540 = 1.584.',
+      },
+      {
+        label: 'STEP 3 — % UNCERTAINTY IN n',
+        question: 'Calculate the % uncertainty in n from n_max and n.',
+        answer: ['5.2%', '5.2', '5.18%', '5.18', '5.20%', '5%'],
+        exact: '5.2%',
         unit: '%',
-        hint1: 'For a ratio: %Δn = %Δ(sin θ₁) + %Δ(sin θ₂). For small uncertainties, use the angle % uncertainty as an approximation.',
-        hint2: '%Δn ≈ %Δθ₁ + %Δθ₂ = 2.22 + 3.57 = 5.79% ≈ 5.8%.',
-        worked: 'Treating the angle % uncertainty as the % uncertainty in its sine (Cambridge approximation for small Δθ): %Δn = 2.22 + 3.57 = 5.79% ≈ 5.8%.',
+        hint1: 'Δn = n_max − n. Then % uncertainty = (Δn / n) × 100%.',
+        hint2: 'Δn = 1.584 − 1.506 = 0.078. (0.078 / 1.506) × 100% = 5.2%.',
+        worked: 'Δn = 1.584 − 1.506 = 0.078, so %Δn = (0.078 / 1.506) × 100% = 5.2%. Adding the angle percentages (2.2% + 3.6% = 5.8%) would overstate it: near 45° a 1° change alters sin θ by about 1.7%, not 2.2%, because sin θ changes more slowly than θ.',
       }
     ]
   },
@@ -1827,7 +1837,7 @@ const QUESTIONS = [
   {
     id: 25, skill: 'largest', difficulty: 'medium',
     skillLabel: 'Identifying the Largest Uncertainty Source',
-    context: `Terminal velocity v of a ball bearing: v = (2r²g(ρ−ρ_f)) / (9η), where r = radius (% uncertainty 3%), g = exact, ρ = density (% uncertainty 1.5%), ρ_f = fluid density (% uncertainty 2%), η = viscosity (% uncertainty 4%).`,
+    context: `Terminal velocity v of a ball bearing: v = (2r²g(ρ−ρ_f)) / (9η), where r = radius (% uncertainty 3%), g = exact, the density difference (ρ − ρ_f) has a % uncertainty of 2.5%, and η = viscosity (% uncertainty 4%).`,
     steps: [
       {
         label: 'STEP 1 — CONTRIBUTIONS TO % UNCERTAINTY IN v',
@@ -1845,9 +1855,9 @@ const QUESTIONS = [
         answer: ['r', 'r²', 'radius', 'r squared', 'r (6%)'],
         exact: 'r² (radius)',
         unit: '',
-        hint1: 'Compare each contribution: r² = 6%, ρ−ρ_f (approximate separately), η = 4%.',
-        hint2: 'r² contributes 6%, η contributes 4%. r² is the dominant source.',
-        worked: 'r² contributes 6%, η contributes 4%. The radius (through the r² term) is the dominant source of uncertainty.',
+        hint1: 'Compare each contribution: r² = 6%, (ρ − ρ_f) = 2.5%, η = 4%. A difference gets its % uncertainty from the absolute uncertainties of both terms, which is why it is given to you here.',
+        hint2: 'r² contributes 6%, η 4%, (ρ − ρ_f) 2.5%. r² is the dominant source.',
+        worked: 'r² contributes 6%, η 4% and (ρ − ρ_f) 2.5%. The radius (through the r² term) is the dominant source of uncertainty.',
       }
     ]
   },
@@ -1981,8 +1991,8 @@ const QUESTIONS = [
       {
         label: 'STEP 2 — VALUE AND UNCERTAINTY OF g',
         question: 'T² = (4π²/g)L, so g = 4π²/gradient. Using gradient = (4.03 ± 4.0%), calculate g and its absolute uncertainty.',
-        answer: ['9.79 m/s², 0.39 m/s²', '9.79, 0.39', '9.8 m/s², 0.4 m/s²', '9.79 m/s² ± 0.39', '9.8 ± 0.4 m/s²'],
-        exact: '9.79 m/s²; ±0.39 m/s²',
+        answer: ['9.80 m/s², 0.39 m/s²', '9.80, 0.39', '9.8 m/s², 0.4 m/s²', '9.80 m/s² ± 0.39', '9.8 ± 0.4 m/s²', '9.8, 0.4', '9.80 ± 0.39 m/s²', '9.79 m/s², 0.39 m/s²', '9.79, 0.39'],
+        exact: '9.80 m/s²; ±0.39 m/s²',
         unit: 'm/s²',
         hint1: 'g = 4π²/4.03. Then %Δg = %Δ(gradient) = 4.0%. Δg = (4.0/100) × g.',
         hint2: 'g = 39.478/4.03 = 9.797 ≈ 9.80 m/s². Δg = 0.040 × 9.80 = 0.39 m/s².',
@@ -2020,21 +2030,21 @@ const QUESTIONS = [
   {
     id: 32, skill: 'graph', difficulty: 'hard',
     skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A P5 question: a student plots I (y-axis, A) vs V (x-axis, V) for a thermistor. Best-fit gradient = −0.0420 A/V. Worst lines give gradients of −0.0380 A/V and −0.0455 A/V.`,
+    context: `A P5-style question: a student plots lg(R / Ω) (y-axis) against temperature θ / °C (x-axis) for a thermistor. Best-fit gradient = −0.0420 °C⁻¹. Worst acceptable lines give gradients of −0.0380 °C⁻¹ and −0.0455 °C⁻¹.`,
     steps: [
       {
         label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
         question: 'Calculate the absolute uncertainty in the gradient. Take the larger difference.',
-        answer: ['0.0035', '0.0035 A/V', '±0.0035 A/V', '±0.0035', '0.004 A/V', '0.004'],
-        exact: '0.0035 A/V',
-        unit: 'A/V',
+        answer: ['0.0040', '0.0040 °C⁻¹', '±0.0040 °C⁻¹', '±0.0040', '0.004', '0.004 °C⁻¹', '±0.004'],
+        exact: '±0.0040 °C⁻¹',
+        unit: '°C⁻¹',
         hint1: 'Compare both differences: |−0.0420 − (−0.0380)| and |−0.0420 − (−0.0455)|.',
-        hint2: 'Diff 1: 0.0040. Diff 2: 0.0035. Larger is 0.0040... wait: |−0.0420+0.0380|=0.0040, |−0.0420+0.0455|=0.0035. Take 0.0040.',
-        worked: '|−0.0420 − (−0.0380)| = 0.0040. |−0.0420 − (−0.0455)| = 0.0035. Largest difference = 0.0040 A/V. However Cambridge may accept 0.0035—check both carefully with your own triangle readings.',
+        hint2: '|−0.0420 + 0.0380| = 0.0040. |−0.0420 + 0.0455| = 0.0035. Take the larger: 0.0040.',
+        worked: '|−0.0420 − (−0.0380)| = 0.0040. |−0.0420 − (−0.0455)| = 0.0035. Larger difference = 0.0040 °C⁻¹. On a real Paper 5 you draw one worst acceptable line, the steepest or the shallowest that still passes through all the error bars, and the scheme credits the difference from either.',
       },
       {
         label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
-        question: 'Using Δm = 0.0040 A/V, calculate the % uncertainty in the gradient.',
+        question: 'Using Δm = 0.0040 °C⁻¹, calculate the % uncertainty in the gradient.',
         answer: ['9.5%', '9.52%', '9.5', '9.52', '10%'],
         exact: '9.5%',
         unit: '%',
