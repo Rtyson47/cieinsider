@@ -93,7 +93,8 @@
       "subtopics": [
         { "id": "kirchhoff", "name": "Kirchhoff's laws" },
         { "id": "potential_dividers", "name": "Potential dividers" },
-        { "id": "internal_resistance", "name": "Internal resistance" }
+        { "id": "internal_resistance", "name": "Internal resistance" },
+        { "id": "circuit_symbols", "name": "Circuit symbols and diagrams" }
       ]
     },
     {

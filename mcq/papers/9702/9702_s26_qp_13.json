@@ -45,7 +45,7 @@
     { "n": 34, "answer": "C", "topic": "electricity_al", "subtopic": "current_charge", "difficulty": null, "explanation": null },
     { "n": 35, "answer": "D", "topic": "dc_circuits", "subtopic": "potential_dividers", "difficulty": null, "explanation": null },
     { "n": 36, "answer": "C", "topic": "dc_circuits", "subtopic": "kirchhoff", "difficulty": null, "explanation": null },
-    { "n": 37, "answer": "D", "topic": "dc_circuits", "subtopic": null, "difficulty": null, "explanation": null },
+    { "n": 37, "answer": "D", "topic": "dc_circuits", "subtopic": "circuit_symbols", "difficulty": null, "explanation": null },
     { "n": 38, "answer": "C", "topic": "particle_physics", "subtopic": "fundamental_particles", "difficulty": null, "explanation": null },
     { "n": 39, "answer": "A", "topic": "particle_physics", "subtopic": "antiparticles", "difficulty": null, "explanation": null },
     { "n": 40, "answer": "C", "topic": "particle_physics", "subtopic": "nucleons_electrons", "difficulty": null, "explanation": null }
