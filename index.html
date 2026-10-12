@@ -252,6 +252,13 @@
   .spot-btn.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
   .spot-btn.secondary { background: transparent; color: var(--accent); }
   .spot-btn.secondary:hover { background: var(--cream-deep); }
+  .spotlight .spot-price {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 34px; line-height: 1;
+    color: var(--ink); text-align: center; margin: 0 0 4px;
+  }
+  .spotlight .spot-price s { font-size: 22px; font-weight: 400; color: var(--ink-mute); margin-right: 6px; text-decoration-thickness: 2px; }
+  .spotlight .spot-price span { display: block; font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-top: 8px; }
+  .spot-note a { color: var(--accent-deep); font-weight: 600; white-space: nowrap; }
   .spot-note {
     font-family: 'Inter', sans-serif;
     font-size: 12.5px;
@@ -661,17 +668,17 @@
   </div>
 </header>
 
-<section class="spotlight">
+<section class="spotlight" data-until="2026-10-20">
   <div class="container spotlight-inner">
     <div>
-      <div class="eyebrow"><span class="dot"></span>November exams &middot; IGCSE Paper 6</div>
+      <div class="eyebrow"><span class="dot"></span>November offer &middot; IGCSE Paper 6</div>
       <h2>Do a proper dry run before your exam. <em>Fix what it shows in time for the real one.</em></h2>
       <p>Sit a 0625 Paper 6 past paper, timed, and send me photos of your attempt. It comes back marked within two days: every mark placed where you earned or lost it, and a note on each lost mark saying what the mark scheme needed. Send it at least two days before your exam and you'll have the fixes in hand before you sit the real paper.</p>
     </div>
     <div class="spotlight-actions">
-      <a class="spot-btn primary" href="/marked/paper-6/">Get my Paper 6 marked, &pound;15 &rarr;</a>
-      <a class="spot-btn secondary" href="/marked/">Another paper, 0625 or 9702 &rarr;</a>
-      <p class="spot-note">Usually &pound;25. &pound;15 until your exam. No sign-up, nothing to cancel.</p>
+      <p class="spot-price"><s>&pound;25</s> &pound;15 <span>Paper 6, until your exam</span></p>
+      <a class="spot-btn primary" href="/marked/paper-6/">Get my Paper 6 marked &rarr;</a>
+      <p class="spot-note">The offer is for Paper 6. I mark any Cambridge Physics paper from 2021 to 2026, 0625 or 9702, from &pound;25. <a href="/marked/">See every paper &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -1074,5 +1081,6 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
+<script src="/promo.js" defer></script>
 </body>
 </html>
