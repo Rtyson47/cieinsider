@@ -12,320 +12,320 @@
     {
       "n": 1,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "measurement",
+      "subtopic": "scalars_vectors",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 2,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "motion",
+      "subtopic": "free_fall",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 3,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "motion",
+      "subtopic": "graphs_motion",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 4,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces",
+      "subtopic": "weight_mass",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 5,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces",
+      "subtopic": "weight_mass",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 6,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "measurement",
+      "subtopic": "density",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 7,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces",
+      "subtopic": "newtons_laws",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 8,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces",
+      "subtopic": "moments",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 9,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "momentum",
+      "subtopic": "momentum_basic",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 10,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "energy",
+      "subtopic": "work_done",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 11,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "energy",
+      "subtopic": "efficiency",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 12,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "energy",
+      "subtopic": "power",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 13,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "pressure",
+      "subtopic": "pressure_fluids",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 14,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "thermal_matter",
+      "subtopic": "kinetic_theory",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 15,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "thermal_matter",
+      "subtopic": "thermal_expansion",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 16,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "thermal_matter",
+      "subtopic": "heat_transfer",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 17,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "waves_general",
+      "subtopic": "wave_basics",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 18,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "light",
+      "subtopic": "refraction_light",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 19,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "light",
+      "subtopic": "dispersion",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 20,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "light",
+      "subtopic": "dispersion",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 21,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "light",
+      "subtopic": "em_spectrum",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 22,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "sound",
+      "subtopic": "speed_sound",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 23,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "magnetism",
+      "subtopic": "magnetic_fields",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 24,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_basics",
+      "subtopic": "static",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 25,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_basics",
+      "subtopic": "current",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 26,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_basics",
+      "subtopic": "resistance",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 27,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_basics",
+      "subtopic": "current",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 28,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "circuits",
+      "subtopic": "series_parallel",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 29,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "circuits",
+      "subtopic": "circuit_calc",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 30,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "em_induction",
+      "subtopic": "transformers",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 31,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "magnetism",
+      "subtopic": "magnetic_fields",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 32,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "magnetism",
+      "subtopic": "electromagnets",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 33,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "atomic",
+      "subtopic": "atomic_model",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 34,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "atomic",
+      "subtopic": "isotopes",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 35,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "atomic",
+      "subtopic": "radioactivity",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 36,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "atomic",
+      "subtopic": "half_life",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 37,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "space",
+      "subtopic": "solar_system",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 38,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "space",
+      "subtopic": "orbits",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 39,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "space",
+      "subtopic": "stars_galaxies",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 40,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "space",
+      "subtopic": "universe",
       "difficulty": null,
       "explanation": null
     }
