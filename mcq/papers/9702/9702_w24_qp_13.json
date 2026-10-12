@@ -12,320 +12,320 @@
     {
       "n": 1,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "physical_quantities",
+      "subtopic": "si_units",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 2,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "density_pressure_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 3,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "physical_quantities",
+      "subtopic": "si_units",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 4,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "kinematics",
+      "subtopic": "projectile",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 5,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "upthrust",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 6,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "equilibrium",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 7,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "newtons_laws_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 8,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "newtons_laws_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 9,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "linear_momentum",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 10,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "collisions",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 11,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "collisions",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 12,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dynamics",
+      "subtopic": "newtons_laws_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 13,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "turning_effects",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 14,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "turning_effects",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 15,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "equilibrium",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 16,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "forces_density_pressure",
+      "subtopic": "density_pressure_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 17,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "work_energy_power",
+      "subtopic": "ke_pe_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 18,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "work_energy_power",
+      "subtopic": "power_efficiency",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 19,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "work_energy_power",
+      "subtopic": "work_done_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 20,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "work_energy_power",
+      "subtopic": "ke_pe_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 21,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "deformation",
+      "subtopic": "elastic_plastic",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 22,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "deformation",
+      "subtopic": "stress_strain",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 23,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "deformation",
+      "subtopic": "elastic_plastic",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 24,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "waves_al",
+      "subtopic": "doppler",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 25,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "waves_al",
+      "subtopic": "em_waves_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 26,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "waves_al",
+      "subtopic": "progressive_waves",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 27,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "waves_al",
+      "subtopic": "progressive_waves",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 28,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "superposition",
+      "subtopic": "stationary_waves",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 29,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "superposition",
+      "subtopic": "interference",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 30,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "superposition",
+      "subtopic": "diffraction_al",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 31,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_al",
+      "subtopic": "current_charge",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 32,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_al",
+      "subtopic": "current_charge",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 33,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_al",
+      "subtopic": "iv_characteristics",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 34,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_al",
+      "subtopic": "resistance_resistivity",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 35,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dc_circuits",
+      "subtopic": "potential_dividers",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 36,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "electricity_al",
+      "subtopic": "pd_emf",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 37,
       "answer": "C",
-      "topic": null,
-      "subtopic": null,
+      "topic": "dc_circuits",
+      "subtopic": "internal_resistance",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 38,
       "answer": "B",
-      "topic": null,
-      "subtopic": null,
+      "topic": "particle_physics",
+      "subtopic": "nucleons_electrons",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 39,
       "answer": "A",
-      "topic": null,
-      "subtopic": null,
+      "topic": "particle_physics",
+      "subtopic": "fundamental_particles",
       "difficulty": null,
       "explanation": null
     },
     {
       "n": 40,
       "answer": "D",
-      "topic": null,
-      "subtopic": null,
+      "topic": "particle_physics",
+      "subtopic": "antiparticles",
       "difficulty": null,
       "explanation": null
     }
