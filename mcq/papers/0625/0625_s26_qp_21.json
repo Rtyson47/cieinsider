@@ -36,7 +36,7 @@
     { "n": 25, "answer": "D", "topic": "magnetism", "subtopic": "magnetic_materials", "difficulty": null, "explanation": null },
     { "n": 26, "answer": "C", "topic": "magnetism", "subtopic": "motor_effect", "difficulty": null, "explanation": null },
     { "n": 27, "answer": "B", "topic": "circuits", "subtopic": "power_electrical", "difficulty": null, "explanation": null },
-    { "n": 28, "answer": "C", "topic": "electricity_basics", "subtopic": "ohms_law", "difficulty": null, "explanation": null },
+    { "n": 28, "answer": "C", "topic": "electricity_basics", "subtopic": "resistance", "difficulty": null, "explanation": null },
     { "n": 29, "answer": "A", "topic": "electricity_basics", "subtopic": "resistance", "difficulty": null, "explanation": null },
     { "n": 30, "answer": "B", "topic": "circuits", "subtopic": "series_parallel", "difficulty": null, "explanation": null },
     { "n": 31, "answer": "D", "topic": "circuits", "subtopic": "circuit_calc", "difficulty": null, "explanation": null },

@@ -28,7 +28,7 @@
     { "n": 17, "answer": "A", "topic": "waves_general", "subtopic": "transverse_longitudinal", "difficulty": null, "explanation": null },
     { "n": 18, "answer": "D", "topic": "waves_general", "subtopic": "diffraction", "difficulty": null, "explanation": null },
     { "n": 19, "answer": "D", "topic": "light", "subtopic": "refraction_light", "difficulty": null, "explanation": null },
-    { "n": 20, "answer": "C", "topic": "light", "subtopic": "em_spectrum", "difficulty": null, "explanation": null },
+    { "n": 20, "answer": "C", "topic": "light", "subtopic": "dispersion", "difficulty": null, "explanation": null },
     { "n": 21, "answer": "B", "topic": "light", "subtopic": "em_spectrum", "difficulty": null, "explanation": null },
     { "n": 22, "answer": "D", "topic": "sound", "subtopic": "sound_waves", "difficulty": null, "explanation": null },
     { "n": 23, "answer": "A", "topic": "sound", "subtopic": "ultrasound", "difficulty": null, "explanation": null },

@@ -11,7 +11,7 @@
   "questions": [
     { "n": 1,  "answer": "D", "topic": "physical_quantities", "subtopic": "si_units", "difficulty": null, "explanation": null },
     { "n": 2,  "answer": "C", "topic": "physical_quantities", "subtopic": "errors_uncertainties", "difficulty": null, "explanation": null },
-    { "n": 3,  "answer": "C", "topic": "physical_quantities", "subtopic": "si_units", "difficulty": null, "explanation": null },
+    { "n": 3,  "answer": "C", "topic": "physical_quantities", "subtopic": "estimates", "difficulty": null, "explanation": null },
     { "n": 4,  "answer": "B", "topic": "physical_quantities", "subtopic": "si_units", "difficulty": null, "explanation": null },
     { "n": 5,  "answer": "D", "topic": "kinematics", "subtopic": "motion_graphs_al", "difficulty": null, "explanation": null },
     { "n": 6,  "answer": "C", "topic": "kinematics", "subtopic": "equations_motion", "difficulty": null, "explanation": null },
@@ -43,7 +43,7 @@
     { "n": 32, "answer": "B", "topic": "electricity_al", "subtopic": "pd_emf", "difficulty": null, "explanation": null },
     { "n": 33, "answer": "B", "topic": "electricity_al", "subtopic": "current_charge", "difficulty": null, "explanation": null },
     { "n": 34, "answer": "A", "topic": "electricity_al", "subtopic": "iv_characteristics", "difficulty": null, "explanation": null },
-    { "n": 35, "answer": "D", "topic": "electricity_al", "subtopic": "resistance_resistivity", "difficulty": null, "explanation": null },
+    { "n": 35, "answer": "D", "topic": "dc_circuits", "subtopic": "kirchhoff", "difficulty": null, "explanation": null },
     { "n": 36, "answer": "B", "topic": "dc_circuits", "subtopic": "internal_resistance", "difficulty": null, "explanation": null },
     { "n": 37, "answer": "C", "topic": "dc_circuits", "subtopic": "kirchhoff", "difficulty": null, "explanation": null },
     { "n": 38, "answer": "C", "topic": "particle_physics", "subtopic": "atomic_structure_al", "difficulty": null, "explanation": null },

@@ -6,6 +6,7 @@
       "id": "physical_quantities",
       "name": "Physical quantities and units",
       "subtopics": [
+        { "id": "estimates", "name": "Estimating physical quantities" },
         { "id": "si_units", "name": "SI units and prefixes" },
         { "id": "scalars_vectors", "name": "Scalars and vectors" },
         { "id": "errors_uncertainties", "name": "Errors and uncertainties" }

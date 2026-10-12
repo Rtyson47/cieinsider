@@ -44,7 +44,7 @@
     { "n": 33, "answer": "D", "topic": "electricity_al",            "subtopic": "iv_characteristics",      "difficulty": null, "explanation": null },
     { "n": 34, "answer": "D", "topic": "dc_circuits",               "subtopic": "kirchhoff",               "difficulty": null, "explanation": null },
     { "n": 35, "answer": "A", "topic": "electricity_al",            "subtopic": "iv_characteristics",      "difficulty": null, "explanation": null },
-    { "n": 36, "answer": "B", "topic": "electricity_al",            "subtopic": "resistance_resistivity",  "difficulty": null, "explanation": null },
+    { "n": 36, "answer": "B", "topic": "dc_circuits",            "subtopic": "kirchhoff",  "difficulty": null, "explanation": null },
     { "n": 37, "answer": "C", "topic": "dc_circuits",               "subtopic": "internal_resistance",     "difficulty": null, "explanation": null },
     { "n": 38, "answer": "D", "topic": "particle_physics",          "subtopic": "fundamental_particles",   "difficulty": null, "explanation": null },
     { "n": 39, "answer": "C", "topic": "particle_physics",          "subtopic": "fundamental_particles",   "difficulty": null, "explanation": null },

@@ -44,7 +44,7 @@
     { "n": 33, "answer": "C", "topic": "magnetism",         "subtopic": "magnetic_fields",       "difficulty": null, "explanation": null },
     { "n": 34, "answer": "B", "topic": "atomic",            "subtopic": "safety_uses",           "difficulty": null, "explanation": null },
     { "n": 35, "answer": "C", "topic": "atomic",            "subtopic": "radioactivity",         "difficulty": null, "explanation": null },
-    { "n": 36, "answer": "C", "topic": "electricity_basics","subtopic": "static",                "difficulty": null, "explanation": null },
+    { "n": 36, "answer": "C", "topic": "atomic","subtopic": "atomic_model",                "difficulty": null, "explanation": null },
     { "n": 37, "answer": "A", "topic": "atomic",            "subtopic": "isotopes",              "difficulty": null, "explanation": null },
     { "n": 38, "answer": "B", "topic": "space",             "subtopic": "orbits",                "difficulty": null, "explanation": null },
     { "n": 39, "answer": "B", "topic": "space",             "subtopic": "universe",              "difficulty": null, "explanation": null },

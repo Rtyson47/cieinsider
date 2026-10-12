@@ -35,7 +35,7 @@
     { "n": 24, "answer": "C", "topic": "sound", "subtopic": "sound_waves", "difficulty": null, "explanation": null },
     { "n": 25, "answer": "A", "topic": "magnetism", "subtopic": "magnetic_fields", "difficulty": null, "explanation": null },
     { "n": 26, "answer": "D", "topic": "magnetism", "subtopic": "electromagnets", "difficulty": null, "explanation": null },
-    { "n": 27, "answer": "B", "topic": "electricity_basics", "subtopic": "resistance", "difficulty": null, "explanation": null },
+    { "n": 27, "answer": "B", "topic": "electricity_basics", "subtopic": "ohms_law", "difficulty": null, "explanation": null },
     { "n": 28, "answer": "A", "topic": "circuits", "subtopic": "power_electrical", "difficulty": null, "explanation": null },
     { "n": 29, "answer": "C", "topic": "circuits", "subtopic": "circuit_calc", "difficulty": null, "explanation": null },
     { "n": 30, "answer": "D", "topic": "circuits", "subtopic": "domestic", "difficulty": null, "explanation": null },
