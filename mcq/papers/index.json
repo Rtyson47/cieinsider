@@ -5,6 +5,62 @@
       "code": "0625",
       "papers": [
         {
+          "id": "0625_s26_qp_11",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 1 (Core)",
+          "paperType": "core",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_s26_qp_12",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_s26_qp_13",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 3 (Core)",
+          "paperType": "core",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_s26_qp_21",
+          "label": "May/June 2026 \u2014 Paper 2 Variant 1 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_s26_qp_22",
+          "label": "May/June 2026 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_s26_qp_23",
+          "label": "May/June 2026 \u2014 Paper 2 Variant 3 (Extended)",
+          "paperType": "extended",
+          "session": "May/June 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_m26_qp_12",
+          "label": "March 2026 \u2014 Paper 1 Variant 2 (Core)",
+          "paperType": "core",
+          "session": "March 2026",
+          "duration": 45
+        },
+        {
+          "id": "0625_m26_qp_22",
+          "label": "March 2026 \u2014 Paper 2 Variant 2 (Extended)",
+          "paperType": "extended",
+          "session": "March 2026",
+          "duration": 45
+        },
+        {
           "id": "0625_w25_qp_11",
           "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 1 (Core)",
           "paperType": "core",
@@ -304,6 +360,41 @@
       "name": "A Level Physics",
       "code": "9702",
       "papers": [
+        {
+          "id": "9702_s26_qp_11",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 1 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "May/June 2026",
+          "duration": 75
+        },
+        {
+          "id": "9702_s26_qp_12",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "May/June 2026",
+          "duration": 75
+        },
+        {
+          "id": "9702_s26_qp_13",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 3 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "May/June 2026",
+          "duration": 75
+        },
+        {
+          "id": "9702_s26_qp_14",
+          "label": "May/June 2026 \u2014 Paper 1 Variant 4 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "May/June 2026",
+          "duration": 75
+        },
+        {
+          "id": "9702_m26_qp_12",
+          "label": "March 2026 \u2014 Paper 1 Variant 2 (AS Multiple Choice)",
+          "paperType": "AS",
+          "session": "March 2026",
+          "duration": 75
+        },
         {
           "id": "9702_w25_qp_11",
           "label": "Oct/Nov 2025 \u2014 Paper 1 Variant 1 (AS Multiple Choice)",
