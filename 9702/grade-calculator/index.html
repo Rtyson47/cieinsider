@@ -858,8 +858,9 @@
   // Marking card: pitch the written papers the student is still guessing at, with their own target.
   function renderCard(r) {
     var P = DATA.markPrices, shown = papersShown();
-    var open = r.rows.length && !r.needAsTotal ? r.unsat.filter(function (p) { return P[p]; }) : [];
-    var mine = (state.route === 'CF' ? [4, 5] : [2, 3, 4, 5]).filter(function (p) { return shown.indexOf(p) !== -1; });
+    // Paper 3 is a lab practical, so it is never pitched as a paper to sit at home (see the note below).
+    var open = r.rows.length && !r.needAsTotal ? r.unsat.filter(function (p) { return P[p] && p !== 3; }) : [];
+    var mine = (state.route === 'CF' ? [4, 5] : [2, 4, 5]).filter(function (p) { return shown.indexOf(p) !== -1; });
     var pitch = open.length ? open : mine;
     var names = function (ps) {
       var n = ps.map(function (p) { return 'Paper ' + p; });
@@ -876,7 +877,9 @@
       body = 'I&rsquo;ll mark a past paper against the mark scheme: every mark placed where you earned or lost it, and what the scheme needed for each one you lost, so you know what to fix before the exam.';
     }
     var prices = pitch.map(function (p) { return 'Paper ' + p + ' ' + P[p]; }).join(' · ');
-    var p1 = shown.indexOf(1) !== -1 ? '<p class="mc-note">Paper 1 marks itself, free, in the <a href="/mcq/">MCQ trainer</a>.</p>' : '';
+    var asOpen = state.route !== 'CF';  // with AS done already, Paper 1 and Paper 3 offers don't apply
+    var p1 = !asOpen ? '' : (shown.indexOf(3) !== -1 ? '<p class="mc-note">Done a Paper 3 practical in school? I can mark that too, ' + P[3] + '.</p>' : '') +
+      (shown.indexOf(1) !== -1 ? '<p class="mc-note">Paper 1 marks itself, free, in the <a href="/mcq/">MCQ trainer</a>.</p>' : '');
     $('mark-card').innerHTML = '<p class="mc-head">' + head + '</p><p>' + body + '</p>' +
       '<p class="mc-price">' + prices + '</p><a class="mc-btn" href="/marked/?via=calc">Get a paper marked &rarr;</a>' + p1;
   }
