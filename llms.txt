@@ -35,6 +35,7 @@
 - 9702 grade thresholds (grade boundaries), every series March 2021 to June 2026, from Cambridge's published documents: https://cieinsider.com/9702/grade-thresholds/
 - 9702 grade calculator: enter your paper marks and see your total against every real boundary since March 2023, with per-paper targets for the papers left: https://cieinsider.com/9702/grade-calculator/
 - 0625 grade thresholds (grade boundaries), every series March 2021 to June 2026, from Cambridge's published documents: https://cieinsider.com/0625/grade-thresholds/
+- 0625 grade calculator: enter your past-paper or mock marks (Extended or Core, Paper 5 or 6) and see your total against every real boundary since March 2023, with per-paper targets for the papers not done yet: https://cieinsider.com/0625/grade-calculator/
 - What the June 2025 examiner reports said, paper by paper: https://cieinsider.com/blog/examiner-report-2025/
 - Revision booklets and one-page MCQ survival sheets: https://cieinsider.com/resources/
 - For teachers: https://cieinsider.com/teachers/
