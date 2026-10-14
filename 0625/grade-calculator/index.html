@@ -887,8 +887,11 @@
   function renderCard(r) {
     var shown = papersShown();
     var priced = function (p) { return C.priceFor(p, DATA.markPrices, DATA.offer, iso); };
-    var open = r.rows.length ? r.unsat.filter(priced) : [];
-    var pitch = open.length ? open : shown.filter(priced);
+    // Paper 5 is a lab practical, so it is never pitched as a paper to sit at home (same rule as the
+    // 9702 page's Paper 3, commit 1a0121b); it gets the "done in school?" note below instead.
+    var home = function (p) { return priced(p) && p !== 5; };
+    var open = r.rows.length ? r.unsat.filter(home) : [];
+    var pitch = open.length ? open : shown.filter(home);
     var names = function (ps) {
       var n = ps.map(function (p) { return 'Paper ' + p; });
       return n.length > 1 ? n.slice(0, -1).join(', ') + ' or ' + n[n.length - 1] : n[0];
@@ -913,9 +916,10 @@
     var mcqP = shown.filter(function (p) { return p <= 2; })[0];
     var mcq = '<p class="mc-note">Paper ' + mcqP + ' marks itself, free, in the <a href="/mcq/?paper=' + DATA.mcqPaper[state.route] +
       '">MCQ trainer</a>: real 0625 papers from ' + DATA.mcqRange + '.</p>';
+    var p5 = shown.indexOf(5) !== -1 ? '<p class="mc-note">Done a Paper 5 practical in school? I can mark that too, ' + priced(5).price + '.</p>' : '';
     $('mark-card').innerHTML = '<p class="mc-head">' + head + '</p><p>' + body + '</p>' +
       '<p class="mc-price">' + prices + '</p><a class="mc-btn" href="/marked/?via=calc0625">Get a paper marked &rarr;</a>' +
-      offerNote + mcq;
+      offerNote + p5 + mcq;
   }
 
   function clear(ids) { ids.forEach(function (id) { $(id).innerHTML = ''; }); }
