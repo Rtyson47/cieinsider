@@ -572,13 +572,20 @@
     return { perSeries: per, counts: counts, n: per.length };
   }
 
+  // Highest and lowest come from the published rows themselves, so "highest (safe)" is a boundary
+  // Cambridge really set (Rich, 2026-10-14; was the highest per-series median). Typical is the median
+  // of the per-series medians, so each series counts once. A tie names the latest series.
   function gradeStats(rows) {
     var sts = seriesThresholds(rows), out = {};
     GRADES.forEach(function (k) {
       var pts = sts.filter(function (s) { return s.g[k] != null; });
+      var rs = rows.filter(function (r) { return r.g[k] != null; });
       if (!pts.length) return;
-      var lo = pts[0], hi = pts[0];
-      pts.forEach(function (s) { if (s.g[k] < lo.g[k]) lo = s; if (s.g[k] > hi.g[k]) hi = s; });
+      var lo = rs[0], hi = rs[0];
+      rs.forEach(function (r) {
+        if (r.g[k] < lo.g[k] || (r.g[k] === lo.g[k] && seriesKey(r.series) > seriesKey(lo.series))) lo = r;
+        if (r.g[k] > hi.g[k] || (r.g[k] === hi.g[k] && seriesKey(r.series) > seriesKey(hi.series))) hi = r;
+      });
       out[k] = { min: lo.g[k], minSeries: lo.series, median: median(pts.map(function (s) { return s.g[k]; })),
                  max: hi.g[k], maxSeries: hi.series, n: pts.length };
     });
@@ -971,6 +978,7 @@
       '</li>');
     if (r.projected % 1) w.push('<li>Paper 3 is scaled, so totals can end in .25, .5 or .75. Cambridge&rsquo;s documents don&rsquo;t say how a candidate&rsquo;s scaled total is rounded, so a total within 1 mark of a boundary could fall either side.</li>');
     w.push('<li>Each series counts once. Where several variants match your filters, its boundary is their median: choose your variant for your own rows.</li>');
+    w.push('<li>The highest and lowest boundaries are real combinations Cambridge published; typical is the median series. With &ldquo;Not sure&rdquo;, a total can clear a series in the list above and still be short of its strictest variant.</li>');
     $('r-working').innerHTML = w.join('');
     setSticky(r);
   }
