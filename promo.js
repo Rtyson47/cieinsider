@@ -18,7 +18,7 @@
       body: 'Sit a 0625 Paper 6 past paper, timed, and send me photos of your attempt. It comes back marked within two days: every mark placed where you earned or lost it, and a note on each lost mark saying what the mark scheme needed. Send it at least two days before your exam and you&rsquo;ll have the fixes in hand before you sit the real paper.',
       was: '&pound;25', now: '&pound;15', priceNote: 'Paper 6, until your exam',
       cta: 'Get my Paper 6 marked &rarr;', href: '/marked/paper-6/',
-      note: 'The offer is for Paper 6. I mark any Cambridge Physics paper from 2021 to 2026, 0625 or 9702, from &pound;25. <a href="/marked/">See every paper &rarr;</a>'
+      note: 'The offer is for Paper 6. Multiple-choice papers mark themselves, free, in the <a href="/mcq/">MCQ trainer</a>, and I mark 0625 Papers 3 to 6 and 9702 Papers 2 to 5, from &pound;25. <a href="/marked/">See prices &rarr;</a>'
     },
     // 9702 P1: Tue 10 Nov 2026 in all six zones. P2/P5 (14 Oct) are too close to market marking for.
     {
@@ -28,7 +28,7 @@
       body: 'The MCQ trainer has real 9702 Paper 1 past papers from 2023 to 2026: 40 questions in 75 minutes, the paper beside the answer panel, marked the moment you submit. Do one under exam conditions and you&rsquo;ll see where the marks are going.',
       now: 'Free', priceNote: 'Real past papers, marked instantly',
       cta: 'Sit a Paper 1 now &rarr;', href: '/mcq/?paper=9702_w25_qp_11&type=AS',
-      note: 'Want a written paper marked? I mark any 9702 paper from 2021 to 2026, mark by mark against the scheme, from &pound;25. <a href="/marked/">See how it works &rarr;</a>'
+      note: 'Want a paper marked? Paper 1 marks itself, free, in the <a href="/mcq/">MCQ trainer</a>. I mark Papers 2 to 5 myself, mark by mark against the scheme, from &pound;25. <a href="/marked/">See how it works &rarr;</a>'
     }
   ];
 
