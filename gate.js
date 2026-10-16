@@ -463,9 +463,9 @@
       <div class="cie-gate-kicker">YOU'RE IN</div>
       <h2 class="cie-gate-title">Thanks — everything's unlocked.</h2>
       <p class="cie-gate-body">
-        Every trainer here is free for your students, and there's a page about
-        what I'm building for teachers: examiner report digests, and a room to
-        ask me things directly.
+        Every trainer here is free for your students, and there's a page for
+        teachers with a free maths check for new AS groups and 0625 topic
+        booklets with mark schemes.
       </p>
       <a class="cie-gate-submit" id="cie-gate-teacher-link" href="/teachers/">See the teachers' page →</a>
       <p class="cie-gate-disclaimer">
