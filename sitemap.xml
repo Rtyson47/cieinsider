@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://cieinsider.com/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -30,13 +30,13 @@
   </url>
   <url>
     <loc>https://cieinsider.com/0625/p5/guide/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/0625/p6/guide/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://cieinsider.com/9702/p5/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -150,37 +150,37 @@
   </url>
   <url>
     <loc>https://cieinsider.com/blog/common-mistakes-igcse-physics/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/blog/is-0972-the-same-as-0625/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/blog/igcse-physics-paper-6-june-2026-examiner-report/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/blog/examiner-report-2025/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/blog/how-to-get-a-star-igcse-physics/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cieinsider.com/blog/things-i-wish-id-seen-before-a-level-physics/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -220,7 +220,7 @@
 
   <url>
     <loc>https://cieinsider.com/about/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
