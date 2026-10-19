@@ -266,7 +266,12 @@
   .bundle .single a { color: var(--accent-soft); }
   .bundle .buy.alt { background: transparent; color: var(--cream-warm); border: 1px solid var(--accent-soft); padding: 12px 21px; }
   .bundle .buy.alt:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
-  @media (max-width: 600px) { .bk-free { grid-template-columns: 1fr; } .bundle { padding: 24px 20px; } .bundle ul { columns: 1; } }
+  .bk-img { display: block; width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--rule); margin: 0 0 16px; }
+  .bk-top { display: grid; grid-template-columns: 1fr 210px; gap: 0 26px; align-items: start; }
+  .bk-top .bk-img { margin: 4px 0 16px; }
+  .bundle .bk-img { border-color: #4a3f33; }
+  @media (max-width: 600px) { .bk-free { grid-template-columns: 1fr; } .bundle { padding: 24px 20px; } .bundle ul { columns: 1; }
+    .bk-top { grid-template-columns: 1fr; } .bk-top .bk-img { order: -1; max-width: 300px; } }
 </style>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26a2f061d2b54fddaf66dabf1ebd0cfe"}'></script><!-- End Cloudflare Web Analytics -->
     <!-- Microsoft Clarity -->
@@ -307,6 +312,7 @@
 
     <div class="bk-free">
       <div class="bk-card">
+        <img class="bk-img" src="/resources/booklets/img/1-2_motion.webp" width="640" height="640" loading="lazy" alt="Pages from the free 1.2 Motion booklet: the syllabus checklist, a practice question, the examiner tips and the mark scheme">
         <span class="tag">Free</span>
         <h3>1.2 Motion</h3>
         <p>Booklet (11 pages) and mark scheme (5 pages), PDF.</p>
@@ -316,6 +322,7 @@
         </div>
       </div>
       <div class="bk-card">
+        <img class="bk-img" src="/resources/booklets/img/3-2_light.webp" width="640" height="640" loading="lazy" alt="Pages from the free 3.2 Light booklet: the syllabus checklist, a practice question, the examiner tips and the mark scheme">
         <span class="tag">Free</span>
         <h3>3.2 Light</h3>
         <p>Booklet (13 pages) and mark scheme (7 pages), PDF.</p>
@@ -327,10 +334,15 @@
     </div>
 
     <div class="bundle">
-      <span class="tag">All 24 topics</span>
-      <h3>The full booklet bundle &mdash; &pound;29</h3>
-      <p class="was"><span><s>22 booklets separately: &pound;109.78</s></span> <strong>Save &pound;80</strong></p>
-      <p>Every topic in the 0625 syllabus, each as a booklet plus mark scheme, in PDF. Teachers: one licence covers you and your own classes, printed or shared on your school&rsquo;s learning platform.</p>
+      <div class="bk-top">
+        <div>
+          <span class="tag">All 24 topics</span>
+          <h3>The full booklet bundle &mdash; &pound;29</h3>
+          <p class="was"><span><s>22 booklets separately: &pound;109.78</s></span> <strong>Save &pound;80</strong></p>
+          <p>Every topic in the 0625 syllabus, each as a booklet plus mark scheme, in PDF. Teachers: one licence covers you and your own classes, printed or shared on your school&rsquo;s learning platform.</p>
+        </div>
+        <img class="bk-img" src="/resources/booklets/img/bundle-pdf.webp" width="640" height="640" loading="lazy" alt="24 topic booklets for IGCSE Physics 0625, PDF, with mark schemes: a booklet page beside its mark scheme page">
+      </div>
       <ul>
           <li>1.1 Physical quantities and measurement techniques</li>
           <li>1.2 Motion</li>
@@ -360,9 +372,14 @@
       <a class="buy" href="https://buy.stripe.com/aFadR2aU44IV9Nee3BgIo08" aria-label="Buy the full 0625 booklet bundle, 29 pounds">Buy the bundle, &pound;29 &rarr;</a>
       <p class="single">Just one topic? <a href="https://buy.stripe.com/28EeV69Q0grDe3ugbJgIo0a">Booklet and mark scheme, &pound;4.99</a></p>
       <div class="teach">
-        <span class="tag">For teachers</span>
-        <h4>Editable Word versions &mdash; &pound;49</h4>
-        <p>The same 24 booklets and 24 mark schemes as Word (DOCX) files, so you can change questions, add your own or reorder sections for your classes. The PDFs are included. Same licence as above.</p>
+        <div class="bk-top">
+          <div>
+            <span class="tag">For teachers</span>
+            <h4>Editable Word versions &mdash; &pound;49</h4>
+            <p>The same 24 booklets and 24 mark schemes as Word (DOCX) files, so you can change questions, add your own or reorder sections for your classes. The PDFs are included. Same licence as above.</p>
+          </div>
+          <img class="bk-img" src="/resources/booklets/img/bundle-word.webp" width="640" height="640" loading="lazy" alt="24 topic booklets for IGCSE Physics 0625 as editable Word and PDF files, with mark schemes">
+        </div>
         <a class="buy alt" href="https://buy.stripe.com/28EaEQ3rC6R3cZq7FdgIo09" aria-label="Buy the editable Word versions of all 24 booklets, 49 pounds">Buy the Word versions, &pound;49 &rarr;</a>
       </div>
       <p class="fine-b">Secure checkout by Stripe. Your download link is emailed to the address you paid with within 24 hours. Any problem, email rich@cieinsider.com.</p>
