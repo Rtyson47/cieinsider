@@ -861,6 +861,16 @@
         })(window, document, "clarity", "script", "y8nr84sy0c");
     </script>
     <!-- End Microsoft Clarity -->
+<style>
+.js .unc-static{display:none}
+.unc-static{max-width:880px;margin:32px auto;padding:0 20px;color:#3a3127;font-size:15px;line-height:1.6;position:relative;z-index:2}
+.unc-static h2{font-family:'Fraunces',serif;font-size:24px;color:#1f1a14;margin:32px 0 8px}
+.unc-static h3{font-size:16px;font-weight:600;color:#1f1a14;margin:0 0 6px}
+.unc-static .xg-list{list-style:none;padding:0;margin:0}
+.unc-static .xg-list .xg-list{padding-left:16px;border-left:2px solid #e6dcc6;margin:8px 0}
+.unc-static .xg-o{padding:10px 0;border-bottom:1px solid #e6dcc6}.unc-static .xg-p{margin:4px 0}
+</style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -1213,6 +1223,146 @@
 
 
 <script>
+function fromDOM(el){
+  const own=(o,k)=>[...o.querySelectorAll('[data-f="'+k+'"]')].find(n=>n.parentElement.closest(".xg-o,.xg-root")===o);
+  const val=n=>n.dataset.arr?list(n):n.dataset.keys!==undefined?obj(n):n.textContent;
+  const list=u=>[...u.children].map(li=>{const k=u.dataset.arr;return k==="s"?li.textContent:k==="o"?obj(li):k==="a"?list(li.firstElementChild):(li.hasAttribute("data-num")?Number(li.textContent):li.textContent);});
+  const obj=o=>{const j=o.dataset.j?JSON.parse(o.dataset.j):{},r={};
+    for(const k of o.dataset.keys.split(",")){ if(k in j) r[k]=j[k]; else r[k]=val(own(o,k)); }
+    return r;};
+  return list(el.querySelector(":scope > ul"));
+}
+</script>
+<div class="unc-static">
+<section class="xg-root xg-QUESTIONS" id="xs-QUESTIONS">
+<h2>All 32 uncertainties questions, with worked solutions</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,svgType,svgValue,steps" data-j='{"id":1,"skill":"reading","difficulty":"easy","svgType":"ruler","svgValue":83}'><h3 data-f="skillLabel">Reading from an Instrument</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A ruler has graduations every 1 mm. A student measures the length of a piece of wire and reads one end at 0.0 mm and the other at 83.0 mm.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1","1 mm","±1 mm","±1","1.0","1.0 mm","±1.0 mm"],"exact":"±1 mm","unit":"mm"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the length measurement? (A length requires two readings.)</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For an analogue scale, the uncertainty in one reading is ½ × smallest division. A length uses two readings.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Smallest division = 1 mm. Uncertainty per reading = 0.5 mm. Two readings → 0.5 + 0.5 = 1 mm.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Uncertainty per reading = ½ × 1 mm = 0.5 mm. Length uses two readings: Δℓ = 0.5 + 0.5 = 1 mm. So ℓ = (83 ± 1) mm.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.2%","1.2","~1.2%","1.20%","1.20"],"exact":"1.2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the length.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (absolute uncertainty / value) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(1 / 83) × 100% = 1.204...% ≈ 1.2%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (1 / 83.0) × 100% = 1.20% ≈ 1.2%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,svgType,svgValue,svgMax,steps" data-j='{"id":2,"skill":"reading","difficulty":"easy","svgType":"ammeter","svgValue":1.4,"svgMax":3}'><h3 data-f="skillLabel">Reading from an Instrument</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">An analogue ammeter has a scale with divisions every 0.2 A. A student reads the current as 1.4 A.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.1","0.1 A","±0.1 A","±0.1"],"exact":"±0.1 A","unit":"A"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the ammeter reading?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For an analogue instrument, uncertainty = ½ × smallest division.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Smallest division = 0.2 A. Uncertainty = ½ × 0.2 = 0.1 A.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δ I = ½ × 0.2 A = 0.1 A. So I = (1.4 ± 0.1) A.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["7%","7.1%","7.14%","7","7.1","7.14"],"exact":"7.1%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the current.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (absolute uncertainty / value) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.1 / 1.4) × 100% = 7.14% ≈ 7.1%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.1 / 1.4) × 100% = 7.14% ≈ 7.1%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":3,"skill":"reading","difficulty":"medium"}'><h3 data-f="skillLabel">Reading from an Instrument</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A thermometer has divisions every 0.5 °C. A student records the temperature of water as 42.5 °C.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.25","0.25 °C","±0.25 °C","±0.25","0.3","0.3 °C"],"exact":"±0.25 °C","unit":"°C"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in a single temperature reading?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For an analogue scale, uncertainty = ½ × smallest division.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Smallest division = 0.5 °C. Uncertainty = ½ × 0.5 = 0.25 °C.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δ T = ½ × 0.5 °C = 0.25 °C. So T = (42.5 ± 0.25) °C.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.59%","0.6%","0.59","0.6"],"exact":"0.59%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in this temperature reading.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (absolute uncertainty / value) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.25 / 42.5) × 100% = 0.588% ≈ 0.59%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.25 / 42.5) × 100% = 0.588% ≈ 0.59%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":4,"skill":"reading","difficulty":"medium"}'><h3 data-f="skillLabel">Reading from an Instrument</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A digital voltmeter displays 5.63 V.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.01","0.01 V","±0.01 V","±0.01"],"exact":"±0.01 V","unit":"V"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the voltmeter reading?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For a digital instrument, the uncertainty is ±1 in the last displayed digit.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Last digit is in the hundredths place (0.01 V), so uncertainty = ±0.01 V.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δ V = 0.01 V (±1 in last digit). So V = (5.63 ± 0.01) V.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.18%","0.178%","0.18","0.2%","0.2"],"exact":"0.18%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.01 / 5.63) × 100%</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.01 / 5.63) × 100% = 0.178% ≈ 0.18%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.01 / 5.63) × 100% = 0.178% ≈ 0.18%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":5,"skill":"reading","difficulty":"hard"}'><h3 data-f="skillLabel">Reading from an Instrument</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A vernier calliper (precision ±0.02 mm) measures the diameter of a metal rod as 8.24 mm.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.02","0.02 mm","±0.02 mm","±0.02"],"exact":"±0.02 mm","unit":"mm"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the diameter?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">The stated precision of the instrument is taken as the uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Precision = 0.02 mm, so Δd = 0.02 mm.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">For a vernier calliper, uncertainty = stated precision = 0.02 mm.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.24%","0.243%","0.24","0.2%","0.2"],"exact":"0.24%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the diameter.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.02 / 8.24) × 100%</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.02 / 8.24) × 100% = 0.2427% ≈ 0.24%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.02 / 8.24) × 100% = 0.24%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":6,"skill":"convert","difficulty":"easy"}'><h3 data-f="skillLabel">Converting: Absolute ↔ Percentage</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A mass is measured as (250 ± 5) g.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["2%","2.0%","2","2.0"],"exact":"2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Convert the absolute uncertainty to a percentage uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (absolute uncertainty / value) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(5 / 250) × 100% = 2%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (5 / 250) × 100% = 2.0%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":7,"skill":"convert","difficulty":"easy"}'><h3 data-f="skillLabel">Converting: Absolute ↔ Percentage</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A time period is measured as 1.80 s with a percentage uncertainty of 3%.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.05","0.05 s","±0.05 s","±0.05","0.054","0.054 s","±0.054 s","±0.054"],"exact":"±0.05 s","unit":"s"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Convert the percentage uncertainty to an absolute uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Absolute uncertainty = (% uncertainty / 100) × value.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(3 / 100) × 1.80 = 0.054 s, then round the uncertainty to 1 significant figure.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δt = (3% / 100) × 1.80 s = 0.054 s ≈ 0.05 s. Give an absolute uncertainty to 1 significant figure and the value to the same decimal places: T = (1.80 ± 0.05) s.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":8,"skill":"convert","difficulty":"medium"}'><h3 data-f="skillLabel">Converting: Absolute ↔ Percentage</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A resistance is measured as 470 Ω. The absolute uncertainty is ±15 Ω.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["3.2%","3.19%","3.2","3.19","3%"],"exact":"3.2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the resistance.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (Δ R / R) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(15 / 470) × 100% = 3.19% ≈ 3.2%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (15 / 470) × 100% = 3.19% ≈ 3.2%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":9,"skill":"convert","difficulty":"medium"}'><h3 data-f="skillLabel">Converting: Absolute ↔ Percentage</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">The refractive index of glass is measured as 1.52 with a percentage uncertainty of 1.5%.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.02","±0.02","0.0228","±0.0228","0.023","±0.023"],"exact":"±0.02","unit":""}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Convert the percentage uncertainty to an absolute uncertainty in the refractive index.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Absolute uncertainty = (% / 100) × value. Refractive index has no units.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(1.5 / 100) × 1.52 = 0.0228, then round the uncertainty to 1 significant figure.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δn = (1.5 / 100) × 1.52 = 0.0228 ≈ 0.02. n = 1.52 ± 0.02 (no units).</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":10,"skill":"add-sub","difficulty":"easy"}'><h3 data-f="skillLabel">Combining: Addition &amp; Subtraction</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student measures two lengths: L₁ = (45.0 ± 0.5) cm and L₂ = (12.0 ± 0.5) cm. They calculate the total length L = L₁ + L₂.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1","1 cm","±1 cm","±1","1.0","1.0 cm"],"exact":"±1.0 cm","unit":"cm"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY IN SUM</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the total length L?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For addition: ΔL = ΔL₁ + ΔL₂.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">ΔL = 0.5 + 0.5 = 1.0 cm.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">ΔL = ΔL₁ + ΔL₂ = 0.5 + 0.5 = 1.0 cm. L = (57.0 ± 1.0) cm.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":11,"skill":"add-sub","difficulty":"easy"}'><h3 data-f="skillLabel">Combining: Addition &amp; Subtraction</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Two temperatures are recorded: T₁ = (100.0 ± 0.5) °C and T₂ = (20.0 ± 0.5) °C. The temperature change ΔT = T₁ − T₂.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1","1 °C","±1 °C","±1","1.0 °C"],"exact":"±1.0 °C","unit":"°C"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in ΔT?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For subtraction: uncertainty adds — ΔT_err = ΔT₁ + ΔT₂.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">ΔT_err = 0.5 + 0.5 = 1.0 °C.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Uncertainties always add for both + and −. ΔT_err = 0.5 + 0.5 = 1.0 °C. ΔT = (80.0 ± 1.0) °C.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.25%","1.3%","1.25","1.3"],"exact":"1.25%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in ΔT.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (absolute uncertainty / value) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(1.0 / 80.0) × 100% = 1.25%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">(1.0 / 80.0) × 100% = 1.25%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":12,"skill":"add-sub","difficulty":"medium"}'><h3 data-f="skillLabel">Combining: Addition &amp; Subtraction</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student measures the extension of a spring. Initial length: (12.0 ± 0.1) cm. Final length: (14.5 ± 0.1) cm.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.2","0.2 cm","±0.2 cm","±0.2"],"exact":"±0.2 cm","unit":"cm"}'><p class="xg-p"><span data-f="label">STEP 1 — EXTENSION AND UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the extension and its absolute uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Extension = final − initial. Uncertainty in a subtraction: add the two absolute uncertainties.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Δextension = 0.1 + 0.1 = 0.2 cm. Extension = (2.5 ± 0.2) cm.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Extension = 14.5 − 12.0 = 2.5 cm. Δextension = 0.1 + 0.1 = 0.2 cm.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["8%","8.0%","8","8.0"],"exact":"8%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the extension.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.2 / 2.5) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.2 / 2.5) × 100% = 8%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.2 / 2.5) × 100% = 8.0%</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":13,"skill":"add-sub","difficulty":"hard"}'><h3 data-f="skillLabel">Combining: Addition &amp; Subtraction</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student measures the time for 20 oscillations as (28.4 ± 0.2) s. They divide by 20 to find the period T. (Note: dividing by a pure number does not affect % uncertainty.)</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.01","0.01 s","±0.01 s","±0.01"],"exact":"±0.01 s","unit":"s"}'><p class="xg-p"><span data-f="label">STEP 1 — PERIOD AND UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">What is the absolute uncertainty in the period T?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">T = total time / 20. A pure number (constant) does not contribute uncertainty, but it scales the absolute uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">T = 28.4 / 20 = 1.42 s. ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.70%","0.7%","0.704%","0.70","0.7"],"exact":"0.70%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — PERCENTAGE UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the % uncertainty in T.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (ΔT / T) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.01 / 1.42) × 100% = 0.704% ≈ 0.70%</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.01 / 1.42) × 100% = 0.704% ≈ 0.70%. Timing 20 oscillations instead of one divides the absolute uncertainty in T by 20, which is why timing many oscillations is worth the effort.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":14,"skill":"mul-div","difficulty":"easy"}'><h3 data-f="skillLabel">Combining: Multiplication &amp; Division</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student calculates voltage using V = IR. Current I = (2.0 ± 0.1) A. Resistance R = (15.0 ± 0.5) Ω.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["8.3%","8.33%","8.3","8.33","8%"],"exact":"8.3%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — PERCENTAGE UNCERTAINTIES</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in V. State your answer as a % value.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For multiplication: % ΔV = % ΔI + % ΔR.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">% ΔI = (0.1/2.0)×100 = 5%. % ΔR = (0.5/15.0)×100 = 3.33%. Total = 8.33% ≈ 8.3%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔI = 5.0%, %ΔR = 3.33%. %ΔV = 5.0 + 3.33 = 8.33% ≈ 8.3%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["2.5","2.5 V","±2.5 V","±2.5","2.49","2.49 V","2.4 V","2.4"],"exact":"2.5 V","unit":"V"}'><p class="xg-p"><span data-f="label">STEP 2 — ABSOLUTE UNCERTAINTY IN V</span></p><p class="xg-p"><span data-f="question">If V = 30.0 V, what is the absolute uncertainty in V?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Absolute uncertainty = (% uncertainty / 100) × value.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(8.33 / 100) × 30.0 = 2.5 V.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">ΔV = (8.33% / 100) × 30.0 V = 2.5 V. V = (30.0 ± 2.5) V.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":15,"skill":"mul-div","difficulty":"easy"}'><h3 data-f="skillLabel">Combining: Multiplication &amp; Division</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Density ρ = m / V. Mass m = (125 ± 2) g. Volume V = (50.0 ± 1.5) cm³.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["4.6%","4.60%","4.6","4.60","5%"],"exact":"4.6%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTY IN DENSITY</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in ρ.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For division: %Δρ = %Δm + %ΔV.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%Δm = (2/125)×100 = 1.6%. %ΔV = (1.5/50.0)×100 = 3.0%. Total = 4.6%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δm = 1.6%, %ΔV = 3.0%, %Δρ = 1.6 + 3.0 = 4.6%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.1","0.1 g/cm³","±0.1","±0.1 g/cm³","0.115","0.115 g/cm³","0.12","0.12 g/cm³","±0.115","±0.12"],"exact":"±0.1 g/cm³","unit":"g/cm³"}'><p class="xg-p"><span data-f="label">STEP 2 — ABSOLUTE UNCERTAINTY IN ρ</span></p><p class="xg-p"><span data-f="question">ρ = 2.50 g/cm³. What is the absolute uncertainty?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Absolute uncertainty = (% / 100) × value.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(4.6 / 100) × 2.50 = 0.115 g/cm³, then round the uncertainty to 1 significant figure.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δρ = (4.6/100) × 2.50 = 0.115 ≈ 0.1 g/cm³. The value takes the same number of decimal places as the uncertainty: ρ = (2.5 ± 0.1) g/cm³.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":16,"skill":"mul-div","difficulty":"medium"}'><h3 data-f="skillLabel">Combining: Multiplication &amp; Division</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Young modulus E = (F × L) / (A × e), where F = force, L = original length, A = cross-sectional area, e = extension. Percentage uncertainties: F = 2%, L = 0.5%, A = 4%, e = 6%.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["12.5%","12.5","13%","12%"],"exact":"12.5%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTY IN E</span></p><p class="xg-p"><span data-f="question">Calculate the total percentage uncertainty in E.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">E involves both multiplication and division. Add all percentage uncertainties.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔE = %ΔF + %ΔL + %ΔA + %Δe = 2 + 0.5 + 4 + 6 = 12.5%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">All terms multiply or divide in E, so: %ΔE = 2 + 0.5 + 4 + 6 = 12.5%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":17,"skill":"mul-div","difficulty":"hard"}'><h3 data-f="skillLabel">Combining: Multiplication &amp; Division</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Refractive index n = sin(θ₁) / sin(θ₂). The angles are measured as θ₁ = (45.0 ± 1.0)° and θ₂ = (28.0 ± 1.0)°. The % uncertainty in an angle is not the % uncertainty in its sine, so use the max/min method. Keep 4 significant figures in your working.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.506","1.51","1.5062","1.5"],"exact":"1.506","unit":""}'><p class="xg-p"><span data-f="label">STEP 1 — BEST VALUE OF n</span></p><p class="xg-p"><span data-f="question">Calculate n from the measured angles.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">n = sin 45.0° / sin 28.0°. Check your calculator is in degrees.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">sin 45.0° = 0.7071, sin 28.0° = 0.4695. n = 0.7071 / 0.4695 = 1.506.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">n = sin 45.0° / sin 28.0° = 0.7071 / 0.4695 = 1.506.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.584","1.58","1.585","1.5845"],"exact":"1.584","unit":""}'><p class="xg-p"><span data-f="label">STEP 2 — LARGEST POSSIBLE n</span></p><p class="xg-p"><span data-f="question">Which angle values give the largest possible n? Calculate n_max.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">To make a fraction as large as possible, make the top as large as possible and the bottom as small as possible.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Use θ₁ = 46.0° and θ₂ = 27.0°: n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540 = 1.584.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["5.2%","5.2","5.18%","5.18","5.20%","5%"],"exact":"5.2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 3 — % UNCERTAINTY IN n</span></p><p class="xg-p"><span data-f="question">Calculate the % uncertainty in n from n_max and n.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Δn = n_max − n. Then % uncertainty = (Δn / n) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Δn = 1.584 − 1.506 = 0.078. (0.078 / 1.506) × 100% = 5.2%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δn = 1.584 − 1.506 = 0.078, so %Δn = (0.078 / 1.506) × 100% = 5.2%. Adding the angle percentages (2.2% + 3.6% = 5.8%) would overstate it: near 45° a 1° change alters sin θ by about 1.7%, not 2.2%, because sin θ changes more slowly than θ.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":18,"skill":"power","difficulty":"easy"}'><h3 data-f="skillLabel">Powers &amp; Roots</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">The volume of a sphere is V = (4/3)πr³. The radius r = (5.00 ± 0.05) cm.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1%","1.0%","1","1.0"],"exact":"1%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTY IN r</span></p><p class="xg-p"><span data-f="question">What is the percentage uncertainty in r?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.05 / 5.00) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.05 / 5.00) × 100% = 1.0%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δr = (0.05 / 5.00) × 100% = 1.0%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["3%","3.0%","3","3.0"],"exact":"3%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN V</span></p><p class="xg-p"><span data-f="question">What is the percentage uncertainty in V? (Note: 4/3 and π are constants.)</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">For V = r³ (ignoring constants): %ΔV = 3 × %Δr.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔV = 3 × 1.0% = 3.0%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Constants (4/3 and π) contribute no uncertainty. %ΔV = 3 × %Δr = 3 × 1.0% = 3.0%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":19,"skill":"power","difficulty":"easy"}'><h3 data-f="skillLabel">Powers &amp; Roots</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">The period of a simple pendulum T = 2π√(L/g). The length L = (0.800 ± 0.004) m. Take g as exact.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.5%","0.5","0.50%","0.50"],"exact":"0.5%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTY IN L</span></p><p class="xg-p"><span data-f="question">What is the percentage uncertainty in L?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.004 / 0.800) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.004 / 0.800) × 100% = 0.5%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔL = (0.004 / 0.800) × 100% = 0.5%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.25%","0.25","0.3%","0.3"],"exact":"0.25%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN T</span></p><p class="xg-p"><span data-f="question">What is the percentage uncertainty in T? (Note: 2π is a constant; √ means power of ½.)</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">T ∝ L^(½), so %ΔT = ½ × %ΔL.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔT = ½ × 0.5% = 0.25%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">T ∝ √L = L^(½). %ΔT = ½ × %ΔL = ½ × 0.5% = 0.25%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":20,"skill":"power","difficulty":"medium"}'><h3 data-f="skillLabel">Powers &amp; Roots</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Kinetic energy E = ½mv². Mass m = (0.200 ± 0.002) kg. Speed v = (3.0 ± 0.1) m/s.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1% and 6.7%","1%, 6.7%","1, 6.7","1% and 6.67%","1 and 6.7"],"exact":"1% and 6.7%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTIES</span></p><p class="xg-p"><span data-f="question">Calculate %Δm and %Δ(v²). Give both values.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%Δm = (0.002/0.200)×100%. For v²: %Δ(v²) = 2 × %Δv.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%Δm = 1%. %Δv = (0.1/3.0)×100 = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δm = 1.0%. %Δv = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["7.7%","7.67%","7.7","7.67","8%"],"exact":"7.7%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN E</span></p><p class="xg-p"><span data-f="question">Calculate the total % uncertainty in E.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%ΔE = %Δm + %Δ(v²). The ½ is a constant.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔE = 1.0 + 6.67 = 7.67% ≈ 7.7%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔE = %Δm + %Δ(v²) = 1.0 + 6.67 = 7.67% ≈ 7.7%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":21,"skill":"power","difficulty":"hard"}'><h3 data-f="skillLabel">Powers &amp; Roots</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">The speed of sound is found using v = fλ. Frequency f = (512 ± 5) Hz. Wavelength λ = (0.680 ± 0.010) m.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["2.45%","2.4%","2.5%","2.45","2.4","2.5"],"exact":"2.45%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTY IN v</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in v.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">v = f × λ, so %Δv = %Δf + %Δλ.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%Δf = (5/512)×100 = 0.977%. %Δλ = (0.010/0.680)×100 = 1.47%. Total = 2.45%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δf = 0.977%, %Δλ = 1.47%, %Δv = 0.977 + 1.47 = 2.45%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["8.5","8.5 m/s","±8.5","±8.5 m/s","8.53","8.53 m/s","8 m/s","8"],"exact":"8.5 m/s","unit":"m/s"}'><p class="xg-p"><span data-f="label">STEP 2 — ABSOLUTE UNCERTAINTY IN v</span></p><p class="xg-p"><span data-f="question">v = 348.2 m/s. What is the absolute uncertainty in v?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Absolute uncertainty = (% / 100) × v.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(2.45 / 100) × 348.2 = 8.53 ≈ 8.5 m/s.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δv = (2.45/100) × 348.2 = 8.53 m/s ≈ 8.5 m/s.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":22,"skill":"power","difficulty":"hard"}'><h3 data-f="skillLabel">Powers &amp; Roots</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Specific heat capacity: c = Q / (mΔT). Q = energy supplied = (4500 ± 50) J. m = (0.500 ± 0.005) kg. ΔT = (18.0 ± 0.5) °C.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.1%, 1.0%, 2.8%","1.11%, 1.0%, 2.78%","1.1, 1.0, 2.8"],"exact":"1.1%, 1.0%, 2.8%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — ALL % UNCERTAINTIES</span></p><p class="xg-p"><span data-f="question">Calculate %ΔQ, %Δm, and %ΔT. Give all three values.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%ΔQ = (50/4500)×100%. %Δm = (0.005/0.500)×100%. %ΔT = (0.5/18.0)×100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["4.9%","4.89%","4.9","4.89","5%"],"exact":"4.9%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN c</span></p><p class="xg-p"><span data-f="question">Calculate the total % uncertainty in c.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%Δc = %ΔQ + %Δm + %ΔT.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δc = %ΔQ + %Δm + %ΔT = 1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":23,"skill":"largest","difficulty":"easy"}'><h3 data-f="skillLabel">Identifying the Largest Uncertainty Source</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Power P = IV. Current I = (0.50 ± 0.05) A (% uncertainty = 10%). Voltage V = (12.0 ± 0.2) V (% uncertainty = 1.7%).</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["current, 11.7%","current; 11.7%","I, 11.7%","current 11.7%","I; 11.7%","current, 12%"],"exact":"current; 11.7%","unit":""}'><p class="xg-p"><span data-f="label">STEP 1 — DOMINANT SOURCE</span></p><p class="xg-p"><span data-f="question">Which measurement contributes the largest uncertainty to P, and what is the total % uncertainty in P?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Compare the % uncertainties: %ΔI vs %ΔV. The dominant source is the larger one.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔI = 10%, %ΔV = 1.7%. Current dominates. Total %ΔP = 10 + 1.7 = 11.7%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Current has %ΔI = 10%, far larger than %ΔV = 1.7%. Current is the dominant source. %ΔP = 11.7%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":24,"skill":"largest","difficulty":"medium"}'><h3 data-f="skillLabel">Identifying the Largest Uncertainty Source</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Resistivity ρ = RA/L, where R = (15.0 ± 0.3) Ω, A = (2.5 × 10⁻⁷ ± 1.0 × 10⁻⁸) m², L = (1.200 ± 0.002) m.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["2%, 4%, 0.17%","2.0%, 4.0%, 0.17%","2, 4, 0.17","2%, 4%, 0.2%"],"exact":"2%, 4%, 0.17%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTIES IN EACH QUANTITY</span></p><p class="xg-p"><span data-f="question">Calculate the % uncertainty in each of R, A and L.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Apply % uncertainty = (abs uncertainty / value) × 100% to each.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔR = 2.0%, %ΔA = 4.0%, %ΔL = 0.167%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔR = (0.3/15.0)×100 = 2.0%. %ΔA = (1.0×10⁻⁸/2.5×10⁻⁷)×100 = 4.0%. %ΔL = (0.002/1.200)×100 = 0.167%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["A, 6.17%","area, 6.17%","A; 6.17%","A, 6.2%","area, 6.2%","A 6.2%"],"exact":"A; 6.2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — DOMINANT SOURCE &amp; TOTAL</span></p><p class="xg-p"><span data-f="question">Which is the dominant source of uncertainty? What is the total % uncertainty in ρ?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">A has the largest % uncertainty. Total = %ΔR + %ΔA + %ΔL.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Total = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%. A is dominant.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">A dominates with 4.0%. Total %Δρ = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":25,"skill":"largest","difficulty":"medium"}'><h3 data-f="skillLabel">Identifying the Largest Uncertainty Source</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">Terminal velocity v of a ball bearing: v = (2r²g(ρ−ρ_f)) / (9η), where r = radius (% uncertainty 3%), g = exact, the density difference (ρ − ρ_f) has a % uncertainty of 2.5%, and η = viscosity (% uncertainty 4%).</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["6%","6.0%","6"],"exact":"6%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — CONTRIBUTIONS TO % UNCERTAINTY IN v</span></p><p class="xg-p"><span data-f="question">What is the contribution of r² to the % uncertainty in v?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">r² is a power of 2. %Δ(r²) = 2 × %Δr.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">2 × 3% = 6%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δ(r²) = 2 × 3% = 6%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["r","r²","radius","r squared","r (6%)"],"exact":"r² (radius)","unit":""}'><p class="xg-p"><span data-f="label">STEP 2 — DOMINANT SOURCE</span></p><p class="xg-p"><span data-f="question">Which single source contributes the largest % uncertainty to v?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Compare each contribution: r² = 6%, (ρ − ρ_f) = 2.5%, η = 4%. A difference gets its % uncertainty from the absolute uncertainties of both terms, which is why it is given to you here.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">r² contributes 6%, η 4%, (ρ − ρ_f) 2.5%. r² is the dominant source.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">r² contributes 6%, η 4% and (ρ − ρ_f) 2.5%. The radius (through the r² term) is the dominant source of uncertainty.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":26,"skill":"largest","difficulty":"hard"}'><h3 data-f="skillLabel">Identifying the Largest Uncertainty Source</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student measures g using g = 4π²L/T². L = (1.000 ± 0.005) m. T = (2.006 ± 0.012) s.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.5% and 1.2%","0.5%, 1.2%","0.5 and 1.2","0.5%, 1.20%"],"exact":"0.5% and 1.2%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 1 — % UNCERTAINTIES</span></p><p class="xg-p"><span data-f="question">Calculate %ΔL and the contribution of T² to the % uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%ΔL = (0.005/1.000)×100%. For T²: contribution = 2 × %ΔT.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%ΔL = 0.5%. %ΔT = (0.012/2.006)×100 = 0.598%. 2 × 0.598 = 1.196% ≈ 1.2%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%ΔL = 0.5%. %ΔT = 0.598%. T² contribution = 2 × 0.598 = 1.196% ≈ 1.2%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["1.7%, T","1.7% T","1.70%, T²","1.7%; T","1.7% and T"],"exact":"1.7%; T is dominant","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — TOTAL &amp; DOMINANT SOURCE</span></p><p class="xg-p"><span data-f="question">What is the total % uncertainty in g, and which is the dominant source?</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">%Δg = %ΔL + 2×%ΔT. Compare the two contributions.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2% vs L contributing 0.5%, so T dominates.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2%, L contributes 0.5%. T is the dominant source.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,svgType,svgData,steps" data-j='{"id":27,"skill":"graph","difficulty":"easy","svgType":"graph","svgData":{"bestGrad":25,"worstGrad":27.5,"worstGrad2":22.5,"xLabel":"x / m","yLabel":"F / N","title":"Force vs Extension"}}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student draws a graph of F vs x (extension). The best-fit line has gradient 25.0 N/m. The steepest acceptable line has gradient 27.5 N/m and the shallowest has gradient 22.5 N/m.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["2.5","2.5 N/m","±2.5","±2.5 N/m"],"exact":"±2.5 N/m","unit":"N/m"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Calculate the absolute uncertainty in the gradient.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Uncertainty = |gradient(best) − gradient(worst)|.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Take the larger difference: |25.0 − 22.5| = 2.5 N/m or |27.5 − 25.0| = 2.5 N/m.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Uncertainty in gradient = |25.0 − 22.5| = 2.5 N/m. (or |27.5 − 25.0| = 2.5 N/m). Gradient = (25.0 ± 2.5) N/m.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["10%","10.0%","10"],"exact":"10%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Calculate the percentage uncertainty in the gradient.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (2.5 / 25.0) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(2.5 / 25.0) × 100% = 10%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (2.5 / 25.0) × 100% = 10%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":28,"skill":"graph","difficulty":"medium"}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A graph of ln(I) vs time t gives a best-fit gradient of −0.0350 s⁻¹. The steepest worst-case line gives −0.0380 s⁻¹ and the shallowest gives −0.0325 s⁻¹.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.0030","0.003","0.003 s⁻¹","0.0030 s⁻¹","±0.003","±0.003 s⁻¹","±0.0030 s⁻¹"],"exact":"0.0030 s⁻¹","unit":"s⁻¹"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Calculate the absolute uncertainty in the gradient. Take the larger of the two possible differences.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Compare |best − worst1| and |best − worst2|, take the larger.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">|−0.0350 − (−0.0380)| = 0.0030. |−0.0350 − (−0.0325)| = 0.0025. Larger = 0.0030.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Difference 1: |−0.0350 + 0.0380| = 0.0030. Difference 2: |−0.0350 + 0.0325| = 0.0025. Take larger: Δm = 0.0030 s⁻¹.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["8.6%","8.57%","8.6","8.57","9%"],"exact":"8.6%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Calculate the % uncertainty in the gradient.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.0030 / 0.0350) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.003 / 0.035) × 100% = 8.57% ≈ 8.6%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.0030 / 0.0350) × 100% = 8.57% ≈ 8.6%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":29,"skill":"graph","difficulty":"medium"}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A graph of V (y-axis) against I (x-axis) gives: best-fit intercept = 6.00 V. Worst-line intercepts: 5.60 V and 6.40 V.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.40","0.40 V","0.4","0.4 V","±0.40 V","±0.4 V"],"exact":"±0.40 V","unit":"V"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY IN INTERCEPT</span></p><p class="xg-p"><span data-f="question">Calculate the absolute uncertainty in the y-intercept.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Uncertainty = |intercept(best) − intercept(worst)|.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">|6.00 − 5.60| = 0.40 V. Both worst-lines give 0.40 V difference.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δintercept = |6.00 − 5.60| = 0.40 V. EMF = (6.00 ± 0.40) V.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["6.7%","6.67%","6.7","6.67","7%"],"exact":"6.7%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN INTERCEPT</span></p><p class="xg-p"><span data-f="question">Calculate the % uncertainty in the intercept (EMF).</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (0.40 / 6.00) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":30,"skill":"graph","difficulty":"hard"}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A student plots T² (y-axis, s²) vs L (x-axis, m) to find g. The best-fit gradient = 4.03 s²/m. Worst-case gradients: 3.89 s²/m and 4.19 s²/m.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.16 s²/m, 4.0%","0.16, 4.0%","±0.16 s²/m, 4.0%","0.16 s²/m and 4.0%"],"exact":"0.16 s²/m; 4.0%","unit":""}'><p class="xg-p"><span data-f="label">STEP 1 — GRADIENT UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Calculate the absolute and % uncertainty in the gradient.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">|4.03 − 3.89| = 0.14. |4.03 − 4.19| = 0.16. Take the larger. Then % = (Δm/m)×100.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Δm = 0.16 s²/m. % = (0.16/4.03)×100 = 3.97% ≈ 4.0%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Largest difference: |4.03 − 4.19| = 0.16 s²/m. % uncertainty = (0.16/4.03)×100 = 3.97% ≈ 4.0%.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["9.80 m/s², 0.39 m/s²","9.80, 0.39","9.8 m/s², 0.4 m/s²","9.80 m/s² ± 0.39","9.8 ± 0.4 m/s²","9.8, 0.4","9.80 ± 0.39 m/s²","9.79 m/s², 0.39 m/s²","9.79, 0.39"],"exact":"9.80 m/s²; ±0.39 m/s²","unit":"m/s²"}'><p class="xg-p"><span data-f="label">STEP 2 — VALUE AND UNCERTAINTY OF g</span></p><p class="xg-p"><span data-f="question">T² = (4π²/g)L, so g = 4π²/gradient. Using gradient = (4.03 ± 4.0%), calculate g and its absolute uncertainty.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">g = 4π²/4.03. Then %Δg = %Δ(gradient) = 4.0%. Δg = (4.0/100) × g.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">g = 39.478/4.03 = 9.797 ≈ 9.80 m/s². Δg = 0.040 × 9.80 = 0.39 m/s².</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">g = 4π²/4.03 = 9.797 m/s². %Δg = %Δm = 4.0% (since g ∝ 1/m). Δg = 0.040 × 9.797 = 0.39 m/s². g = (9.80 ± 0.39) m/s².</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":31,"skill":"graph","difficulty":"hard"}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A straight-line graph of ln(N) vs t gives: best-fit gradient = −0.0693 s⁻¹ and best-fit intercept = 8.52. Worst-case gradient = −0.0750 s⁻¹ and worst-case intercept = 8.70.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.0057 s⁻¹, 0.18","0.0057, 0.18","±0.0057 s⁻¹ and ±0.18","0.006 s⁻¹, 0.18"],"exact":"0.0057 s⁻¹; 0.18","unit":""}'><p class="xg-p"><span data-f="label">STEP 1 — UNCERTAINTIES IN BOTH GRADIENT AND INTERCEPT</span></p><p class="xg-p"><span data-f="question">Calculate the absolute uncertainty in the gradient and in the intercept.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Δ gradient = |−0.0693 − (−0.0750)|. Δ intercept = |8.52 − 8.70|.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Δ gradient = 0.0057 s⁻¹. Δ intercept = 0.18.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">Δm = |−0.0693 + 0.0750| = 0.0057 s⁻¹. Δc = |8.52 − 8.70| = 0.18.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.82 s","0.82","±0.82 s","±0.82","0.8 s","0.8"],"exact":"0.82 s","unit":"s"}'><p class="xg-p"><span data-f="label">STEP 2 — HALF-LIFE AND ITS UNCERTAINTY</span></p><p class="xg-p"><span data-f="question">Half-life t₁/₂ = −ln(2)/gradient = −0.693/gradient. If t₁/₂ = 10.0 s and %Δ(gradient) = 8.2%, state the absolute uncertainty in t₁/₂.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Since t₁/₂ = constant / gradient, %Δt₁/₂ = %Δgradient = 8.2%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">Δt₁/₂ = (8.2/100) × 10.0 = 0.82 s.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">t₁/₂ ∝ 1/gradient, so %Δt₁/₂ = %Δm = 8.2%. Δt₁/₂ = 0.082 × 10.0 = 0.82 s.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,skill,difficulty,skillLabel,context,steps" data-j='{"id":32,"skill":"graph","difficulty":"hard"}'><h3 data-f="skillLabel">Graph: Gradient &amp; Intercept Uncertainty</h3><p class="xg-p"><b>Question Context:</b> <span data-f="context">A P5-style question: a student plots lg(R / Ω) (y-axis) against temperature θ / °C (x-axis) for a thermistor. Best-fit gradient = −0.0420 °C⁻¹. Worst acceptable lines give gradients of −0.0380 °C⁻¹ and −0.0455 °C⁻¹.</span></p><ul class="xg-list" data-f="steps" data-arr="o">
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["0.0040","0.0040 °C⁻¹","±0.0040 °C⁻¹","±0.0040","0.004","0.004 °C⁻¹","±0.004"],"exact":"±0.0040 °C⁻¹","unit":"°C⁻¹"}'><p class="xg-p"><span data-f="label">STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Calculate the absolute uncertainty in the gradient. Take the larger difference.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">Compare both differences: |−0.0420 − (−0.0380)| and |−0.0420 − (−0.0455)|.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">|−0.0420 + 0.0380| = 0.0040. |−0.0420 + 0.0455| = 0.0035. Take the larger: 0.0040.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">|−0.0420 − (−0.0380)| = 0.0040. |−0.0420 − (−0.0455)| = 0.0035. Larger difference = 0.0040 °C⁻¹. On a real Paper 5 you draw one worst acceptable line, the steepest or the shallowest that still passes through all the error bars, and the scheme credits the difference from either.</span></p></li>
+<li class="xg-o" data-keys="label,question,answer,exact,unit,hint1,hint2,worked" data-j='{"answer":["9.5%","9.52%","9.5","9.52","10%"],"exact":"9.5%","unit":"%"}'><p class="xg-p"><span data-f="label">STEP 2 — % UNCERTAINTY IN GRADIENT</span></p><p class="xg-p"><span data-f="question">Using Δm = 0.0040 °C⁻¹, calculate the % uncertainty in the gradient.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint1">% uncertainty = (Δm / |m_best|) × 100%.</span></p><p class="xg-p"><b>Hint:</b> <span data-f="hint2">(0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.</span></p><p class="xg-p"><b>Worked Solution:</b> <span data-f="worked">% uncertainty = (0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.</span></p></li>
+</ul></li>
+</ul>
+</section>
+</div>
+<script>
 // ══════════════════════════════════════════════
 // VIEW SWITCHING
 // ══════════════════════════════════════════════
@@ -1231,832 +1381,7 @@ function switchView(v) {
 // Skills: 'reading' | 'convert' | 'add-sub' | 'mul-div' | 'power' | 'largest' | 'graph'
 // Difficulty: 'easy' | 'medium' | 'hard'
 
-const QUESTIONS = [
-  // ── READING FROM INSTRUMENT ──────────────────────────────────────
-  {
-    id: 1, skill: 'reading', difficulty: 'easy',
-    skillLabel: 'Reading from an Instrument',
-    context: `A ruler has graduations every 1 mm. A student measures the length of a piece of wire and reads one end at 0.0 mm and the other at 83.0 mm.`,
-    svgType: 'ruler',
-    svgValue: 83,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in the length measurement? (A length requires two readings.)',
-        answer: ['1', '1 mm', '±1 mm', '±1', '1.0', '1.0 mm', '±1.0 mm'],
-        exact: '±1 mm',
-        unit: 'mm',
-        hint1: 'For an analogue scale, the uncertainty in one reading is ½ × smallest division. A length uses two readings.',
-        hint2: 'Smallest division = 1 mm. Uncertainty per reading = 0.5 mm. Two readings → 0.5 + 0.5 = 1 mm.',
-        worked: 'Uncertainty per reading = ½ × 1 mm = 0.5 mm. Length uses two readings: Δℓ = 0.5 + 0.5 = 1 mm. So ℓ = (83 ± 1) mm.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in the length.',
-        answer: ['1.2%', '1.2', '~1.2%', '1.20%', '1.20'],
-        exact: '1.2%',
-        unit: '%',
-        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
-        hint2: '(1 / 83) × 100% = 1.204...% ≈ 1.2%',
-        worked: '% uncertainty = (1 / 83.0) × 100% = 1.20% ≈ 1.2%',
-      }
-    ]
-  },
-  {
-    id: 2, skill: 'reading', difficulty: 'easy',
-    skillLabel: 'Reading from an Instrument',
-    context: `An analogue ammeter has a scale with divisions every 0.2 A. A student reads the current as 1.4 A.`,
-    svgType: 'ammeter',
-    svgValue: 1.4,
-    svgMax: 3,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in the ammeter reading?',
-        answer: ['0.1', '0.1 A', '±0.1 A', '±0.1'],
-        exact: '±0.1 A',
-        unit: 'A',
-        hint1: 'For an analogue instrument, uncertainty = ½ × smallest division.',
-        hint2: 'Smallest division = 0.2 A. Uncertainty = ½ × 0.2 = 0.1 A.',
-        worked: 'Δ I = ½ × 0.2 A = 0.1 A. So I = (1.4 ± 0.1) A.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in the current.',
-        answer: ['7%', '7.1%', '7.14%', '7', '7.1', '7.14'],
-        exact: '7.1%',
-        unit: '%',
-        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
-        hint2: '(0.1 / 1.4) × 100% = 7.14% ≈ 7.1%',
-        worked: '% uncertainty = (0.1 / 1.4) × 100% = 7.14% ≈ 7.1%',
-      }
-    ]
-  },
-  {
-    id: 3, skill: 'reading', difficulty: 'medium',
-    skillLabel: 'Reading from an Instrument',
-    context: `A thermometer has divisions every 0.5 °C. A student records the temperature of water as 42.5 °C.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in a single temperature reading?',
-        answer: ['0.25', '0.25 °C', '±0.25 °C', '±0.25', '0.3', '0.3 °C'],
-        exact: '±0.25 °C',
-        unit: '°C',
-        hint1: 'For an analogue scale, uncertainty = ½ × smallest division.',
-        hint2: 'Smallest division = 0.5 °C. Uncertainty = ½ × 0.5 = 0.25 °C.',
-        worked: 'Δ T = ½ × 0.5 °C = 0.25 °C. So T = (42.5 ± 0.25) °C.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in this temperature reading.',
-        answer: ['0.59%', '0.6%', '0.59', '0.6'],
-        exact: '0.59%',
-        unit: '%',
-        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
-        hint2: '(0.25 / 42.5) × 100% = 0.588% ≈ 0.59%',
-        worked: '% uncertainty = (0.25 / 42.5) × 100% = 0.588% ≈ 0.59%',
-      }
-    ]
-  },
-  {
-    id: 4, skill: 'reading', difficulty: 'medium',
-    skillLabel: 'Reading from an Instrument',
-    context: `A digital voltmeter displays 5.63 V.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in the voltmeter reading?',
-        answer: ['0.01', '0.01 V', '±0.01 V', '±0.01'],
-        exact: '±0.01 V',
-        unit: 'V',
-        hint1: 'For a digital instrument, the uncertainty is ±1 in the last displayed digit.',
-        hint2: 'Last digit is in the hundredths place (0.01 V), so uncertainty = ±0.01 V.',
-        worked: 'Δ V = 0.01 V (±1 in last digit). So V = (5.63 ± 0.01) V.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty.',
-        answer: ['0.18%', '0.178%', '0.18', '0.2%', '0.2'],
-        exact: '0.18%',
-        unit: '%',
-        hint1: '% uncertainty = (0.01 / 5.63) × 100%',
-        hint2: '(0.01 / 5.63) × 100% = 0.178% ≈ 0.18%',
-        worked: '% uncertainty = (0.01 / 5.63) × 100% = 0.178% ≈ 0.18%',
-      }
-    ]
-  },
-  {
-    id: 5, skill: 'reading', difficulty: 'hard',
-    skillLabel: 'Reading from an Instrument',
-    context: `A vernier calliper (precision ±0.02 mm) measures the diameter of a metal rod as 8.24 mm.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in the diameter?',
-        answer: ['0.02', '0.02 mm', '±0.02 mm', '±0.02'],
-        exact: '±0.02 mm',
-        unit: 'mm',
-        hint1: 'The stated precision of the instrument is taken as the uncertainty.',
-        hint2: 'Precision = 0.02 mm, so Δd = 0.02 mm.',
-        worked: 'For a vernier calliper, uncertainty = stated precision = 0.02 mm.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in the diameter.',
-        answer: ['0.24%', '0.243%', '0.24', '0.2%', '0.2'],
-        exact: '0.24%',
-        unit: '%',
-        hint1: '% uncertainty = (0.02 / 8.24) × 100%',
-        hint2: '(0.02 / 8.24) × 100% = 0.2427% ≈ 0.24%',
-        worked: '% uncertainty = (0.02 / 8.24) × 100% = 0.24%',
-      }
-    ]
-  },
-
-  // ── CONVERTING ABS ↔ % ──────────────────────────────────────────
-  {
-    id: 6, skill: 'convert', difficulty: 'easy',
-    skillLabel: 'Converting: Absolute ↔ Percentage',
-    context: `A mass is measured as (250 ± 5) g.`,
-    steps: [
-      {
-        label: 'STEP 1 — PERCENTAGE UNCERTAINTY',
-        question: 'Convert the absolute uncertainty to a percentage uncertainty.',
-        answer: ['2%', '2.0%', '2', '2.0'],
-        exact: '2%',
-        unit: '%',
-        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
-        hint2: '(5 / 250) × 100% = 2%',
-        worked: '% uncertainty = (5 / 250) × 100% = 2.0%',
-      }
-    ]
-  },
-  {
-    id: 7, skill: 'convert', difficulty: 'easy',
-    skillLabel: 'Converting: Absolute ↔ Percentage',
-    context: `A time period is measured as 1.80 s with a percentage uncertainty of 3%.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'Convert the percentage uncertainty to an absolute uncertainty.',
-        answer: ['0.05', '0.05 s', '±0.05 s', '±0.05', '0.054', '0.054 s', '±0.054 s', '±0.054'],
-        exact: '±0.05 s',
-        unit: 's',
-        hint1: 'Absolute uncertainty = (% uncertainty / 100) × value.',
-        hint2: '(3 / 100) × 1.80 = 0.054 s, then round the uncertainty to 1 significant figure.',
-        worked: 'Δt = (3% / 100) × 1.80 s = 0.054 s ≈ 0.05 s. Give an absolute uncertainty to 1 significant figure and the value to the same decimal places: T = (1.80 ± 0.05) s.',
-      }
-    ]
-  },
-  {
-    id: 8, skill: 'convert', difficulty: 'medium',
-    skillLabel: 'Converting: Absolute ↔ Percentage',
-    context: `A resistance is measured as 470 Ω. The absolute uncertainty is ±15 Ω.`,
-    steps: [
-      {
-        label: 'STEP 1 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in the resistance.',
-        answer: ['3.2%', '3.19%', '3.2', '3.19', '3%'],
-        exact: '3.2%',
-        unit: '%',
-        hint1: '% uncertainty = (Δ R / R) × 100%.',
-        hint2: '(15 / 470) × 100% = 3.19% ≈ 3.2%',
-        worked: '% uncertainty = (15 / 470) × 100% = 3.19% ≈ 3.2%',
-      }
-    ]
-  },
-  {
-    id: 9, skill: 'convert', difficulty: 'medium',
-    skillLabel: 'Converting: Absolute ↔ Percentage',
-    context: `The refractive index of glass is measured as 1.52 with a percentage uncertainty of 1.5%.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'Convert the percentage uncertainty to an absolute uncertainty in the refractive index.',
-        answer: ['0.02', '±0.02', '0.0228', '±0.0228', '0.023', '±0.023'],
-        exact: '±0.02',
-        unit: '',
-        hint1: 'Absolute uncertainty = (% / 100) × value. Refractive index has no units.',
-        hint2: '(1.5 / 100) × 1.52 = 0.0228, then round the uncertainty to 1 significant figure.',
-        worked: 'Δn = (1.5 / 100) × 1.52 = 0.0228 ≈ 0.02. n = 1.52 ± 0.02 (no units).',
-      }
-    ]
-  },
-
-  // ── ADDITION / SUBTRACTION ──────────────────────────────────────
-  {
-    id: 10, skill: 'add-sub', difficulty: 'easy',
-    skillLabel: 'Combining: Addition & Subtraction',
-    context: `A student measures two lengths: L₁ = (45.0 ± 0.5) cm and L₂ = (12.0 ± 0.5) cm. They calculate the total length L = L₁ + L₂.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN SUM',
-        question: 'What is the absolute uncertainty in the total length L?',
-        answer: ['1', '1 cm', '±1 cm', '±1', '1.0', '1.0 cm'],
-        exact: '±1.0 cm',
-        unit: 'cm',
-        hint1: 'For addition: ΔL = ΔL₁ + ΔL₂.',
-        hint2: 'ΔL = 0.5 + 0.5 = 1.0 cm.',
-        worked: 'ΔL = ΔL₁ + ΔL₂ = 0.5 + 0.5 = 1.0 cm. L = (57.0 ± 1.0) cm.',
-      }
-    ]
-  },
-  {
-    id: 11, skill: 'add-sub', difficulty: 'easy',
-    skillLabel: 'Combining: Addition & Subtraction',
-    context: `Two temperatures are recorded: T₁ = (100.0 ± 0.5) °C and T₂ = (20.0 ± 0.5) °C. The temperature change ΔT = T₁ − T₂.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY',
-        question: 'What is the absolute uncertainty in ΔT?',
-        answer: ['1', '1 °C', '±1 °C', '±1', '1.0 °C'],
-        exact: '±1.0 °C',
-        unit: '°C',
-        hint1: 'For subtraction: uncertainty adds — ΔT_err = ΔT₁ + ΔT₂.',
-        hint2: 'ΔT_err = 0.5 + 0.5 = 1.0 °C.',
-        worked: 'Uncertainties always add for both + and −. ΔT_err = 0.5 + 0.5 = 1.0 °C. ΔT = (80.0 ± 1.0) °C.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in ΔT.',
-        answer: ['1.25%', '1.3%', '1.25', '1.3'],
-        exact: '1.25%',
-        unit: '%',
-        hint1: '% uncertainty = (absolute uncertainty / value) × 100%.',
-        hint2: '(1.0 / 80.0) × 100% = 1.25%',
-        worked: '(1.0 / 80.0) × 100% = 1.25%',
-      }
-    ]
-  },
-  {
-    id: 12, skill: 'add-sub', difficulty: 'medium',
-    skillLabel: 'Combining: Addition & Subtraction',
-    context: `A student measures the extension of a spring. Initial length: (12.0 ± 0.1) cm. Final length: (14.5 ± 0.1) cm.`,
-    steps: [
-      {
-        label: 'STEP 1 — EXTENSION AND UNCERTAINTY',
-        question: 'Calculate the extension and its absolute uncertainty.',
-        answer: ['0.2', '0.2 cm', '±0.2 cm', '±0.2'],
-        exact: '±0.2 cm',
-        unit: 'cm',
-        hint1: 'Extension = final − initial. Uncertainty in a subtraction: add the two absolute uncertainties.',
-        hint2: 'Δextension = 0.1 + 0.1 = 0.2 cm. Extension = (2.5 ± 0.2) cm.',
-        worked: 'Extension = 14.5 − 12.0 = 2.5 cm. Δextension = 0.1 + 0.1 = 0.2 cm.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the percentage uncertainty in the extension.',
-        answer: ['8%', '8.0%', '8', '8.0'],
-        exact: '8%',
-        unit: '%',
-        hint1: '% uncertainty = (0.2 / 2.5) × 100%.',
-        hint2: '(0.2 / 2.5) × 100% = 8%',
-        worked: '% uncertainty = (0.2 / 2.5) × 100% = 8.0%',
-      }
-    ]
-  },
-  {
-    id: 13, skill: 'add-sub', difficulty: 'hard',
-    skillLabel: 'Combining: Addition & Subtraction',
-    context: `A student measures the time for 20 oscillations as (28.4 ± 0.2) s. They divide by 20 to find the period T. (Note: dividing by a pure number does not affect % uncertainty.)`,
-    steps: [
-      {
-        label: 'STEP 1 — PERIOD AND UNCERTAINTY',
-        question: 'What is the absolute uncertainty in the period T?',
-        answer: ['0.01', '0.01 s', '±0.01 s', '±0.01'],
-        exact: '±0.01 s',
-        unit: 's',
-        hint1: 'T = total time / 20. A pure number (constant) does not contribute uncertainty, but it scales the absolute uncertainty.',
-        hint2: 'ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.',
-        worked: 'T = 28.4 / 20 = 1.42 s. ΔT = 0.2 / 20 = 0.01 s. T = (1.42 ± 0.01) s.',
-      },
-      {
-        label: 'STEP 2 — PERCENTAGE UNCERTAINTY',
-        question: 'Calculate the % uncertainty in T.',
-        answer: ['0.70%', '0.7%', '0.704%', '0.70', '0.7'],
-        exact: '0.70%',
-        unit: '%',
-        hint1: '% uncertainty = (ΔT / T) × 100%.',
-        hint2: '(0.01 / 1.42) × 100% = 0.704% ≈ 0.70%',
-        worked: '% uncertainty = (0.01 / 1.42) × 100% = 0.704% ≈ 0.70%. Timing 20 oscillations instead of one divides the absolute uncertainty in T by 20, which is why timing many oscillations is worth the effort.',
-      }
-    ]
-  },
-
-  // ── MULTIPLICATION / DIVISION ───────────────────────────────────
-  {
-    id: 14, skill: 'mul-div', difficulty: 'easy',
-    skillLabel: 'Combining: Multiplication & Division',
-    context: `A student calculates voltage using V = IR. Current I = (2.0 ± 0.1) A. Resistance R = (15.0 ± 0.5) Ω.`,
-    steps: [
-      {
-        label: 'STEP 1 — PERCENTAGE UNCERTAINTIES',
-        question: 'Calculate the percentage uncertainty in V. State your answer as a % value.',
-        answer: ['8.3%', '8.33%', '8.3', '8.33', '8%'],
-        exact: '8.3%',
-        unit: '%',
-        hint1: 'For multiplication: % ΔV = % ΔI + % ΔR.',
-        hint2: '% ΔI = (0.1/2.0)×100 = 5%. % ΔR = (0.5/15.0)×100 = 3.33%. Total = 8.33% ≈ 8.3%.',
-        worked: '%ΔI = 5.0%, %ΔR = 3.33%. %ΔV = 5.0 + 3.33 = 8.33% ≈ 8.3%.',
-      },
-      {
-        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN V',
-        question: 'If V = 30.0 V, what is the absolute uncertainty in V?',
-        answer: ['2.5', '2.5 V', '±2.5 V', '±2.5', '2.49', '2.49 V', '2.4 V', '2.4'],
-        exact: '2.5 V',
-        unit: 'V',
-        hint1: 'Absolute uncertainty = (% uncertainty / 100) × value.',
-        hint2: '(8.33 / 100) × 30.0 = 2.5 V.',
-        worked: 'ΔV = (8.33% / 100) × 30.0 V = 2.5 V. V = (30.0 ± 2.5) V.',
-      }
-    ]
-  },
-  {
-    id: 15, skill: 'mul-div', difficulty: 'easy',
-    skillLabel: 'Combining: Multiplication & Division',
-    context: `Density ρ = m / V. Mass m = (125 ± 2) g. Volume V = (50.0 ± 1.5) cm³.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTY IN DENSITY',
-        question: 'Calculate the percentage uncertainty in ρ.',
-        answer: ['4.6%', '4.60%', '4.6', '4.60', '5%'],
-        exact: '4.6%',
-        unit: '%',
-        hint1: 'For division: %Δρ = %Δm + %ΔV.',
-        hint2: '%Δm = (2/125)×100 = 1.6%. %ΔV = (1.5/50.0)×100 = 3.0%. Total = 4.6%.',
-        worked: '%Δm = 1.6%, %ΔV = 3.0%, %Δρ = 1.6 + 3.0 = 4.6%.',
-      },
-      {
-        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN ρ',
-        question: 'ρ = 2.50 g/cm³. What is the absolute uncertainty?',
-        answer: ['0.1', '0.1 g/cm³', '±0.1', '±0.1 g/cm³', '0.115', '0.115 g/cm³', '0.12', '0.12 g/cm³', '±0.115', '±0.12'],
-        exact: '±0.1 g/cm³',
-        unit: 'g/cm³',
-        hint1: 'Absolute uncertainty = (% / 100) × value.',
-        hint2: '(4.6 / 100) × 2.50 = 0.115 g/cm³, then round the uncertainty to 1 significant figure.',
-        worked: 'Δρ = (4.6/100) × 2.50 = 0.115 ≈ 0.1 g/cm³. The value takes the same number of decimal places as the uncertainty: ρ = (2.5 ± 0.1) g/cm³.',
-      }
-    ]
-  },
-  {
-    id: 16, skill: 'mul-div', difficulty: 'medium',
-    skillLabel: 'Combining: Multiplication & Division',
-    context: `Young modulus E = (F × L) / (A × e), where F = force, L = original length, A = cross-sectional area, e = extension. Percentage uncertainties: F = 2%, L = 0.5%, A = 4%, e = 6%.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTY IN E',
-        question: 'Calculate the total percentage uncertainty in E.',
-        answer: ['12.5%', '12.5', '13%', '12%'],
-        exact: '12.5%',
-        unit: '%',
-        hint1: 'E involves both multiplication and division. Add all percentage uncertainties.',
-        hint2: '%ΔE = %ΔF + %ΔL + %ΔA + %Δe = 2 + 0.5 + 4 + 6 = 12.5%.',
-        worked: 'All terms multiply or divide in E, so: %ΔE = 2 + 0.5 + 4 + 6 = 12.5%.',
-      }
-    ]
-  },
-  {
-    id: 17, skill: 'mul-div', difficulty: 'hard',
-    skillLabel: 'Combining: Multiplication & Division',
-    context: `Refractive index n = sin(θ₁) / sin(θ₂). The angles are measured as θ₁ = (45.0 ± 1.0)° and θ₂ = (28.0 ± 1.0)°. The % uncertainty in an angle is not the % uncertainty in its sine, so use the max/min method. Keep 4 significant figures in your working.`,
-    steps: [
-      {
-        label: 'STEP 1 — BEST VALUE OF n',
-        question: 'Calculate n from the measured angles.',
-        answer: ['1.506', '1.51', '1.5062', '1.5'],
-        exact: '1.506',
-        unit: '',
-        hint1: 'n = sin 45.0° / sin 28.0°. Check your calculator is in degrees.',
-        hint2: 'sin 45.0° = 0.7071, sin 28.0° = 0.4695. n = 0.7071 / 0.4695 = 1.506.',
-        worked: 'n = sin 45.0° / sin 28.0° = 0.7071 / 0.4695 = 1.506.',
-      },
-      {
-        label: 'STEP 2 — LARGEST POSSIBLE n',
-        question: 'Which angle values give the largest possible n? Calculate n_max.',
-        answer: ['1.584', '1.58', '1.585', '1.5845'],
-        exact: '1.584',
-        unit: '',
-        hint1: 'To make a fraction as large as possible, make the top as large as possible and the bottom as small as possible.',
-        hint2: 'Use θ₁ = 46.0° and θ₂ = 27.0°: n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540.',
-        worked: 'n_max = sin 46.0° / sin 27.0° = 0.7193 / 0.4540 = 1.584.',
-      },
-      {
-        label: 'STEP 3 — % UNCERTAINTY IN n',
-        question: 'Calculate the % uncertainty in n from n_max and n.',
-        answer: ['5.2%', '5.2', '5.18%', '5.18', '5.20%', '5%'],
-        exact: '5.2%',
-        unit: '%',
-        hint1: 'Δn = n_max − n. Then % uncertainty = (Δn / n) × 100%.',
-        hint2: 'Δn = 1.584 − 1.506 = 0.078. (0.078 / 1.506) × 100% = 5.2%.',
-        worked: 'Δn = 1.584 − 1.506 = 0.078, so %Δn = (0.078 / 1.506) × 100% = 5.2%. Adding the angle percentages (2.2% + 3.6% = 5.8%) would overstate it: near 45° a 1° change alters sin θ by about 1.7%, not 2.2%, because sin θ changes more slowly than θ.',
-      }
-    ]
-  },
-
-  // ── POWERS ─────────────────────────────────────────────────────
-  {
-    id: 18, skill: 'power', difficulty: 'easy',
-    skillLabel: 'Powers & Roots',
-    context: `The volume of a sphere is V = (4/3)πr³. The radius r = (5.00 ± 0.05) cm.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTY IN r',
-        question: 'What is the percentage uncertainty in r?',
-        answer: ['1%', '1.0%', '1', '1.0'],
-        exact: '1%',
-        unit: '%',
-        hint1: '% uncertainty = (0.05 / 5.00) × 100%.',
-        hint2: '(0.05 / 5.00) × 100% = 1.0%.',
-        worked: '%Δr = (0.05 / 5.00) × 100% = 1.0%.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN V',
-        question: 'What is the percentage uncertainty in V? (Note: 4/3 and π are constants.)',
-        answer: ['3%', '3.0%', '3', '3.0'],
-        exact: '3%',
-        unit: '%',
-        hint1: 'For V = r³ (ignoring constants): %ΔV = 3 × %Δr.',
-        hint2: '%ΔV = 3 × 1.0% = 3.0%.',
-        worked: 'Constants (4/3 and π) contribute no uncertainty. %ΔV = 3 × %Δr = 3 × 1.0% = 3.0%.',
-      }
-    ]
-  },
-  {
-    id: 19, skill: 'power', difficulty: 'easy',
-    skillLabel: 'Powers & Roots',
-    context: `The period of a simple pendulum T = 2π√(L/g). The length L = (0.800 ± 0.004) m. Take g as exact.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTY IN L',
-        question: 'What is the percentage uncertainty in L?',
-        answer: ['0.5%', '0.5', '0.50%', '0.50'],
-        exact: '0.5%',
-        unit: '%',
-        hint1: '% uncertainty = (0.004 / 0.800) × 100%.',
-        hint2: '(0.004 / 0.800) × 100% = 0.5%.',
-        worked: '%ΔL = (0.004 / 0.800) × 100% = 0.5%.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN T',
-        question: 'What is the percentage uncertainty in T? (Note: 2π is a constant; √ means power of ½.)',
-        answer: ['0.25%', '0.25', '0.3%', '0.3'],
-        exact: '0.25%',
-        unit: '%',
-        hint1: 'T ∝ L^(½), so %ΔT = ½ × %ΔL.',
-        hint2: '%ΔT = ½ × 0.5% = 0.25%.',
-        worked: 'T ∝ √L = L^(½). %ΔT = ½ × %ΔL = ½ × 0.5% = 0.25%.',
-      }
-    ]
-  },
-  {
-    id: 20, skill: 'power', difficulty: 'medium',
-    skillLabel: 'Powers & Roots',
-    context: `Kinetic energy E = ½mv². Mass m = (0.200 ± 0.002) kg. Speed v = (3.0 ± 0.1) m/s.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTIES',
-        question: 'Calculate %Δm and %Δ(v²). Give both values.',
-        answer: ['1% and 6.7%', '1%, 6.7%', '1, 6.7', '1% and 6.67%', '1 and 6.7'],
-        exact: '1% and 6.7%',
-        unit: '%',
-        hint1: '%Δm = (0.002/0.200)×100%. For v²: %Δ(v²) = 2 × %Δv.',
-        hint2: '%Δm = 1%. %Δv = (0.1/3.0)×100 = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.',
-        worked: '%Δm = 1.0%. %Δv = 3.33%. %Δ(v²) = 2 × 3.33 = 6.67% ≈ 6.7%.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN E',
-        question: 'Calculate the total % uncertainty in E.',
-        answer: ['7.7%', '7.67%', '7.7', '7.67', '8%'],
-        exact: '7.7%',
-        unit: '%',
-        hint1: '%ΔE = %Δm + %Δ(v²). The ½ is a constant.',
-        hint2: '%ΔE = 1.0 + 6.67 = 7.67% ≈ 7.7%.',
-        worked: '%ΔE = %Δm + %Δ(v²) = 1.0 + 6.67 = 7.67% ≈ 7.7%.',
-      }
-    ]
-  },
-  {
-    id: 21, skill: 'power', difficulty: 'hard',
-    skillLabel: 'Powers & Roots',
-    context: `The speed of sound is found using v = fλ. Frequency f = (512 ± 5) Hz. Wavelength λ = (0.680 ± 0.010) m.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTY IN v',
-        question: 'Calculate the percentage uncertainty in v.',
-        answer: ['2.45%', '2.4%', '2.5%', '2.45', '2.4', '2.5'],
-        exact: '2.45%',
-        unit: '%',
-        hint1: 'v = f × λ, so %Δv = %Δf + %Δλ.',
-        hint2: '%Δf = (5/512)×100 = 0.977%. %Δλ = (0.010/0.680)×100 = 1.47%. Total = 2.45%.',
-        worked: '%Δf = 0.977%, %Δλ = 1.47%, %Δv = 0.977 + 1.47 = 2.45%.',
-      },
-      {
-        label: 'STEP 2 — ABSOLUTE UNCERTAINTY IN v',
-        question: 'v = 348.2 m/s. What is the absolute uncertainty in v?',
-        answer: ['8.5', '8.5 m/s', '±8.5', '±8.5 m/s', '8.53', '8.53 m/s', '8 m/s', '8'],
-        exact: '8.5 m/s',
-        unit: 'm/s',
-        hint1: 'Absolute uncertainty = (% / 100) × v.',
-        hint2: '(2.45 / 100) × 348.2 = 8.53 ≈ 8.5 m/s.',
-        worked: 'Δv = (2.45/100) × 348.2 = 8.53 m/s ≈ 8.5 m/s.',
-      }
-    ]
-  },
-  {
-    id: 22, skill: 'power', difficulty: 'hard',
-    skillLabel: 'Powers & Roots',
-    context: `Specific heat capacity: c = Q / (mΔT). Q = energy supplied = (4500 ± 50) J. m = (0.500 ± 0.005) kg. ΔT = (18.0 ± 0.5) °C.`,
-    steps: [
-      {
-        label: 'STEP 1 — ALL % UNCERTAINTIES',
-        question: 'Calculate %ΔQ, %Δm, and %ΔT. Give all three values.',
-        answer: ['1.1%, 1.0%, 2.8%', '1.11%, 1.0%, 2.78%', '1.1, 1.0, 2.8'],
-        exact: '1.1%, 1.0%, 2.8%',
-        unit: '%',
-        hint1: '%ΔQ = (50/4500)×100%. %Δm = (0.005/0.500)×100%. %ΔT = (0.5/18.0)×100%.',
-        hint2: '%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.',
-        worked: '%ΔQ = 1.11%, %Δm = 1.0%, %ΔT = 2.78%.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN c',
-        question: 'Calculate the total % uncertainty in c.',
-        answer: ['4.9%', '4.89%', '4.9', '4.89', '5%'],
-        exact: '4.9%',
-        unit: '%',
-        hint1: '%Δc = %ΔQ + %Δm + %ΔT.',
-        hint2: '1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.',
-        worked: '%Δc = %ΔQ + %Δm + %ΔT = 1.11 + 1.0 + 2.78 = 4.89% ≈ 4.9%.',
-      }
-    ]
-  },
-
-  // ── LARGEST SOURCE ─────────────────────────────────────────────
-  {
-    id: 23, skill: 'largest', difficulty: 'easy',
-    skillLabel: 'Identifying the Largest Uncertainty Source',
-    context: `Power P = IV. Current I = (0.50 ± 0.05) A (% uncertainty = 10%). Voltage V = (12.0 ± 0.2) V (% uncertainty = 1.7%).`,
-    steps: [
-      {
-        label: 'STEP 1 — DOMINANT SOURCE',
-        question: 'Which measurement contributes the largest uncertainty to P, and what is the total % uncertainty in P?',
-        answer: ['current, 11.7%', 'current; 11.7%', 'I, 11.7%', 'current 11.7%', 'I; 11.7%', 'current, 12%'],
-        exact: 'current; 11.7%',
-        unit: '',
-        hint1: 'Compare the % uncertainties: %ΔI vs %ΔV. The dominant source is the larger one.',
-        hint2: '%ΔI = 10%, %ΔV = 1.7%. Current dominates. Total %ΔP = 10 + 1.7 = 11.7%.',
-        worked: 'Current has %ΔI = 10%, far larger than %ΔV = 1.7%. Current is the dominant source. %ΔP = 11.7%.',
-      }
-    ]
-  },
-  {
-    id: 24, skill: 'largest', difficulty: 'medium',
-    skillLabel: 'Identifying the Largest Uncertainty Source',
-    context: `Resistivity ρ = RA/L, where R = (15.0 ± 0.3) Ω, A = (2.5 × 10⁻⁷ ± 1.0 × 10⁻⁸) m², L = (1.200 ± 0.002) m.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTIES IN EACH QUANTITY',
-        question: 'Calculate the % uncertainty in each of R, A and L.',
-        answer: ['2%, 4%, 0.17%', '2.0%, 4.0%, 0.17%', '2, 4, 0.17', '2%, 4%, 0.2%'],
-        exact: '2%, 4%, 0.17%',
-        unit: '%',
-        hint1: 'Apply % uncertainty = (abs uncertainty / value) × 100% to each.',
-        hint2: '%ΔR = 2.0%, %ΔA = 4.0%, %ΔL = 0.167%.',
-        worked: '%ΔR = (0.3/15.0)×100 = 2.0%. %ΔA = (1.0×10⁻⁸/2.5×10⁻⁷)×100 = 4.0%. %ΔL = (0.002/1.200)×100 = 0.167%.',
-      },
-      {
-        label: 'STEP 2 — DOMINANT SOURCE & TOTAL',
-        question: 'Which is the dominant source of uncertainty? What is the total % uncertainty in ρ?',
-        answer: ['A, 6.17%', 'area, 6.17%', 'A; 6.17%', 'A, 6.2%', 'area, 6.2%', 'A 6.2%'],
-        exact: 'A; 6.2%',
-        unit: '%',
-        hint1: 'A has the largest % uncertainty. Total = %ΔR + %ΔA + %ΔL.',
-        hint2: 'Total = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%. A is dominant.',
-        worked: 'A dominates with 4.0%. Total %Δρ = 2.0 + 4.0 + 0.167 = 6.17% ≈ 6.2%.',
-      }
-    ]
-  },
-  {
-    id: 25, skill: 'largest', difficulty: 'medium',
-    skillLabel: 'Identifying the Largest Uncertainty Source',
-    context: `Terminal velocity v of a ball bearing: v = (2r²g(ρ−ρ_f)) / (9η), where r = radius (% uncertainty 3%), g = exact, the density difference (ρ − ρ_f) has a % uncertainty of 2.5%, and η = viscosity (% uncertainty 4%).`,
-    steps: [
-      {
-        label: 'STEP 1 — CONTRIBUTIONS TO % UNCERTAINTY IN v',
-        question: 'What is the contribution of r² to the % uncertainty in v?',
-        answer: ['6%', '6.0%', '6'],
-        exact: '6%',
-        unit: '%',
-        hint1: 'r² is a power of 2. %Δ(r²) = 2 × %Δr.',
-        hint2: '2 × 3% = 6%.',
-        worked: '%Δ(r²) = 2 × 3% = 6%.',
-      },
-      {
-        label: 'STEP 2 — DOMINANT SOURCE',
-        question: 'Which single source contributes the largest % uncertainty to v?',
-        answer: ['r', 'r²', 'radius', 'r squared', 'r (6%)'],
-        exact: 'r² (radius)',
-        unit: '',
-        hint1: 'Compare each contribution: r² = 6%, (ρ − ρ_f) = 2.5%, η = 4%. A difference gets its % uncertainty from the absolute uncertainties of both terms, which is why it is given to you here.',
-        hint2: 'r² contributes 6%, η 4%, (ρ − ρ_f) 2.5%. r² is the dominant source.',
-        worked: 'r² contributes 6%, η 4% and (ρ − ρ_f) 2.5%. The radius (through the r² term) is the dominant source of uncertainty.',
-      }
-    ]
-  },
-  {
-    id: 26, skill: 'largest', difficulty: 'hard',
-    skillLabel: 'Identifying the Largest Uncertainty Source',
-    context: `A student measures g using g = 4π²L/T². L = (1.000 ± 0.005) m. T = (2.006 ± 0.012) s.`,
-    steps: [
-      {
-        label: 'STEP 1 — % UNCERTAINTIES',
-        question: 'Calculate %ΔL and the contribution of T² to the % uncertainty.',
-        answer: ['0.5% and 1.2%', '0.5%, 1.2%', '0.5 and 1.2', '0.5%, 1.20%'],
-        exact: '0.5% and 1.2%',
-        unit: '%',
-        hint1: '%ΔL = (0.005/1.000)×100%. For T²: contribution = 2 × %ΔT.',
-        hint2: '%ΔL = 0.5%. %ΔT = (0.012/2.006)×100 = 0.598%. 2 × 0.598 = 1.196% ≈ 1.2%.',
-        worked: '%ΔL = 0.5%. %ΔT = 0.598%. T² contribution = 2 × 0.598 = 1.196% ≈ 1.2%.',
-      },
-      {
-        label: 'STEP 2 — TOTAL & DOMINANT SOURCE',
-        question: 'What is the total % uncertainty in g, and which is the dominant source?',
-        answer: ['1.7%, T', '1.7% T', '1.70%, T²', '1.7%; T', '1.7% and T'],
-        exact: '1.7%; T is dominant',
-        unit: '%',
-        hint1: '%Δg = %ΔL + 2×%ΔT. Compare the two contributions.',
-        hint2: '%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2% vs L contributing 0.5%, so T dominates.',
-        worked: '%Δg = 0.5 + 1.2 = 1.7%. T² contributes 1.2%, L contributes 0.5%. T is the dominant source.',
-      }
-    ]
-  },
-
-  // ── GRAPH GRADIENT / INTERCEPT ──────────────────────────────────
-  {
-    id: 27, skill: 'graph', difficulty: 'easy',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A student draws a graph of F vs x (extension). The best-fit line has gradient 25.0 N/m. The steepest acceptable line has gradient 27.5 N/m and the shallowest has gradient 22.5 N/m.`,
-    svgType: 'graph',
-    svgData: { bestGrad: 25.0, worstGrad: 27.5, worstGrad2: 22.5, xLabel: 'x / m', yLabel: 'F / N', title: 'Force vs Extension' },
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
-        question: 'Calculate the absolute uncertainty in the gradient.',
-        answer: ['2.5', '2.5 N/m', '±2.5', '±2.5 N/m'],
-        exact: '±2.5 N/m',
-        unit: 'N/m',
-        hint1: 'Uncertainty = |gradient(best) − gradient(worst)|.',
-        hint2: 'Take the larger difference: |25.0 − 22.5| = 2.5 N/m or |27.5 − 25.0| = 2.5 N/m.',
-        worked: 'Uncertainty in gradient = |25.0 − 22.5| = 2.5 N/m. (or |27.5 − 25.0| = 2.5 N/m). Gradient = (25.0 ± 2.5) N/m.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
-        question: 'Calculate the percentage uncertainty in the gradient.',
-        answer: ['10%', '10.0%', '10'],
-        exact: '10%',
-        unit: '%',
-        hint1: '% uncertainty = (2.5 / 25.0) × 100%.',
-        hint2: '(2.5 / 25.0) × 100% = 10%.',
-        worked: '% uncertainty = (2.5 / 25.0) × 100% = 10%.',
-      }
-    ]
-  },
-  {
-    id: 28, skill: 'graph', difficulty: 'medium',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A graph of ln(I) vs time t gives a best-fit gradient of −0.0350 s⁻¹. The steepest worst-case line gives −0.0380 s⁻¹ and the shallowest gives −0.0325 s⁻¹.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
-        question: 'Calculate the absolute uncertainty in the gradient. Take the larger of the two possible differences.',
-        answer: ['0.0030', '0.003', '0.003 s⁻¹', '0.0030 s⁻¹', '±0.003', '±0.003 s⁻¹', '±0.0030 s⁻¹'],
-        exact: '0.0030 s⁻¹',
-        unit: 's⁻¹',
-        hint1: 'Compare |best − worst1| and |best − worst2|, take the larger.',
-        hint2: '|−0.0350 − (−0.0380)| = 0.0030. |−0.0350 − (−0.0325)| = 0.0025. Larger = 0.0030.',
-        worked: 'Difference 1: |−0.0350 + 0.0380| = 0.0030. Difference 2: |−0.0350 + 0.0325| = 0.0025. Take larger: Δm = 0.0030 s⁻¹.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
-        question: 'Calculate the % uncertainty in the gradient.',
-        answer: ['8.6%', '8.57%', '8.6', '8.57', '9%'],
-        exact: '8.6%',
-        unit: '%',
-        hint1: '% uncertainty = (0.0030 / 0.0350) × 100%.',
-        hint2: '(0.003 / 0.035) × 100% = 8.57% ≈ 8.6%.',
-        worked: '% uncertainty = (0.0030 / 0.0350) × 100% = 8.57% ≈ 8.6%.',
-      }
-    ]
-  },
-  {
-    id: 29, skill: 'graph', difficulty: 'medium',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A graph of V (y-axis) against I (x-axis) gives: best-fit intercept = 6.00 V. Worst-line intercepts: 5.60 V and 6.40 V.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN INTERCEPT',
-        question: 'Calculate the absolute uncertainty in the y-intercept.',
-        answer: ['0.40', '0.40 V', '0.4', '0.4 V', '±0.40 V', '±0.4 V'],
-        exact: '±0.40 V',
-        unit: 'V',
-        hint1: 'Uncertainty = |intercept(best) − intercept(worst)|.',
-        hint2: '|6.00 − 5.60| = 0.40 V. Both worst-lines give 0.40 V difference.',
-        worked: 'Δintercept = |6.00 − 5.60| = 0.40 V. EMF = (6.00 ± 0.40) V.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN INTERCEPT',
-        question: 'Calculate the % uncertainty in the intercept (EMF).',
-        answer: ['6.7%', '6.67%', '6.7', '6.67', '7%'],
-        exact: '6.7%',
-        unit: '%',
-        hint1: '% uncertainty = (0.40 / 6.00) × 100%.',
-        hint2: '(0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.',
-        worked: '% uncertainty = (0.40 / 6.00) × 100% = 6.67% ≈ 6.7%.',
-      }
-    ]
-  },
-  {
-    id: 30, skill: 'graph', difficulty: 'hard',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A student plots T² (y-axis, s²) vs L (x-axis, m) to find g. The best-fit gradient = 4.03 s²/m. Worst-case gradients: 3.89 s²/m and 4.19 s²/m.`,
-    steps: [
-      {
-        label: 'STEP 1 — GRADIENT UNCERTAINTY',
-        question: 'Calculate the absolute and % uncertainty in the gradient.',
-        answer: ['0.16 s²/m, 4.0%', '0.16, 4.0%', '±0.16 s²/m, 4.0%', '0.16 s²/m and 4.0%'],
-        exact: '0.16 s²/m; 4.0%',
-        unit: '',
-        hint1: '|4.03 − 3.89| = 0.14. |4.03 − 4.19| = 0.16. Take the larger. Then % = (Δm/m)×100.',
-        hint2: 'Δm = 0.16 s²/m. % = (0.16/4.03)×100 = 3.97% ≈ 4.0%.',
-        worked: 'Largest difference: |4.03 − 4.19| = 0.16 s²/m. % uncertainty = (0.16/4.03)×100 = 3.97% ≈ 4.0%.',
-      },
-      {
-        label: 'STEP 2 — VALUE AND UNCERTAINTY OF g',
-        question: 'T² = (4π²/g)L, so g = 4π²/gradient. Using gradient = (4.03 ± 4.0%), calculate g and its absolute uncertainty.',
-        answer: ['9.80 m/s², 0.39 m/s²', '9.80, 0.39', '9.8 m/s², 0.4 m/s²', '9.80 m/s² ± 0.39', '9.8 ± 0.4 m/s²', '9.8, 0.4', '9.80 ± 0.39 m/s²', '9.79 m/s², 0.39 m/s²', '9.79, 0.39'],
-        exact: '9.80 m/s²; ±0.39 m/s²',
-        unit: 'm/s²',
-        hint1: 'g = 4π²/4.03. Then %Δg = %Δ(gradient) = 4.0%. Δg = (4.0/100) × g.',
-        hint2: 'g = 39.478/4.03 = 9.797 ≈ 9.80 m/s². Δg = 0.040 × 9.80 = 0.39 m/s².',
-        worked: 'g = 4π²/4.03 = 9.797 m/s². %Δg = %Δm = 4.0% (since g ∝ 1/m). Δg = 0.040 × 9.797 = 0.39 m/s². g = (9.80 ± 0.39) m/s².',
-      }
-    ]
-  },
-  {
-    id: 31, skill: 'graph', difficulty: 'hard',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A straight-line graph of ln(N) vs t gives: best-fit gradient = −0.0693 s⁻¹ and best-fit intercept = 8.52. Worst-case gradient = −0.0750 s⁻¹ and worst-case intercept = 8.70.`,
-    steps: [
-      {
-        label: 'STEP 1 — UNCERTAINTIES IN BOTH GRADIENT AND INTERCEPT',
-        question: 'Calculate the absolute uncertainty in the gradient and in the intercept.',
-        answer: ['0.0057 s⁻¹, 0.18', '0.0057, 0.18', '±0.0057 s⁻¹ and ±0.18', '0.006 s⁻¹, 0.18'],
-        exact: '0.0057 s⁻¹; 0.18',
-        unit: '',
-        hint1: 'Δ gradient = |−0.0693 − (−0.0750)|. Δ intercept = |8.52 − 8.70|.',
-        hint2: 'Δ gradient = 0.0057 s⁻¹. Δ intercept = 0.18.',
-        worked: 'Δm = |−0.0693 + 0.0750| = 0.0057 s⁻¹. Δc = |8.52 − 8.70| = 0.18.',
-      },
-      {
-        label: 'STEP 2 — HALF-LIFE AND ITS UNCERTAINTY',
-        question: 'Half-life t₁/₂ = −ln(2)/gradient = −0.693/gradient. If t₁/₂ = 10.0 s and %Δ(gradient) = 8.2%, state the absolute uncertainty in t₁/₂.',
-        answer: ['0.82 s', '0.82', '±0.82 s', '±0.82', '0.8 s', '0.8'],
-        exact: '0.82 s',
-        unit: 's',
-        hint1: 'Since t₁/₂ = constant / gradient, %Δt₁/₂ = %Δgradient = 8.2%.',
-        hint2: 'Δt₁/₂ = (8.2/100) × 10.0 = 0.82 s.',
-        worked: 't₁/₂ ∝ 1/gradient, so %Δt₁/₂ = %Δm = 8.2%. Δt₁/₂ = 0.082 × 10.0 = 0.82 s.',
-      }
-    ]
-  },
-  {
-    id: 32, skill: 'graph', difficulty: 'hard',
-    skillLabel: 'Graph: Gradient & Intercept Uncertainty',
-    context: `A P5-style question: a student plots lg(R / Ω) (y-axis) against temperature θ / °C (x-axis) for a thermistor. Best-fit gradient = −0.0420 °C⁻¹. Worst acceptable lines give gradients of −0.0380 °C⁻¹ and −0.0455 °C⁻¹.`,
-    steps: [
-      {
-        label: 'STEP 1 — ABSOLUTE UNCERTAINTY IN GRADIENT',
-        question: 'Calculate the absolute uncertainty in the gradient. Take the larger difference.',
-        answer: ['0.0040', '0.0040 °C⁻¹', '±0.0040 °C⁻¹', '±0.0040', '0.004', '0.004 °C⁻¹', '±0.004'],
-        exact: '±0.0040 °C⁻¹',
-        unit: '°C⁻¹',
-        hint1: 'Compare both differences: |−0.0420 − (−0.0380)| and |−0.0420 − (−0.0455)|.',
-        hint2: '|−0.0420 + 0.0380| = 0.0040. |−0.0420 + 0.0455| = 0.0035. Take the larger: 0.0040.',
-        worked: '|−0.0420 − (−0.0380)| = 0.0040. |−0.0420 − (−0.0455)| = 0.0035. Larger difference = 0.0040 °C⁻¹. On a real Paper 5 you draw one worst acceptable line, the steepest or the shallowest that still passes through all the error bars, and the scheme credits the difference from either.',
-      },
-      {
-        label: 'STEP 2 — % UNCERTAINTY IN GRADIENT',
-        question: 'Using Δm = 0.0040 °C⁻¹, calculate the % uncertainty in the gradient.',
-        answer: ['9.5%', '9.52%', '9.5', '9.52', '10%'],
-        exact: '9.5%',
-        unit: '%',
-        hint1: '% uncertainty = (Δm / |m_best|) × 100%.',
-        hint2: '(0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.',
-        worked: '% uncertainty = (0.0040 / 0.0420) × 100% = 9.52% ≈ 9.5%.',
-      }
-    ]
-  }
-];
+const QUESTIONS = fromDOM(document.getElementById("xs-QUESTIONS"));
 
 // ══════════════════════════════════════════════
 // STATE
