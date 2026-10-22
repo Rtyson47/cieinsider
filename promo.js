@@ -9,17 +9,8 @@
     if (iso > dated[d].getAttribute('data-until')) dated[d].parentNode.removeChild(dated[d]);
   }
 
-  // until = last day shown (viewer's local date). 0625 P6: Tue 20 Oct 2026 (Mon 19 Oct in Zone 1).
+  // until = last day shown (viewer's local date).
   var PROMOS = [
-    {
-      path: '/0625/', until: '2026-10-20',
-      eyebrow: 'November offer &middot; IGCSE Paper 6',
-      title: 'Do a proper dry run before your exam. <em>Fix what it shows in time for the real one.</em>',
-      body: 'Sit a 0625 Paper 6 past paper, timed, and send me photos of your attempt. It comes back marked within two days: every mark placed where you earned or lost it, and a note on each lost mark saying what the mark scheme needed. Send it at least two days before your exam and you&rsquo;ll have the fixes in hand before you sit the real paper.',
-      was: '&pound;25', now: '&pound;15', priceNote: 'Paper 6, until your exam',
-      cta: 'Get my Paper 6 marked &rarr;', href: '/marked/paper-6/',
-      note: 'The offer is for Paper 6. Multiple-choice papers mark themselves, free, in the <a href="/mcq/">MCQ trainer</a>, and I mark 0625 Papers 3 to 6 and 9702 Papers 2 to 5, from &pound;25. <a href="/marked/">See prices &rarr;</a>'
-    },
     // 9702 P1: Tue 10 Nov 2026 in all six zones. P2/P5 (14 Oct) are too close to market marking for.
     {
       path: '/9702/', until: '2026-11-10',
