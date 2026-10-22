@@ -1256,6 +1256,18 @@
         })(window, document, "clarity", "script", "y8nr84sy0c");
     </script>
     <!-- End Microsoft Clarity -->
+<style>
+.js .guide-static{display:none}
+.guide-static{max-width:880px;margin:32px auto;padding:0 20px;color:#3a3127;font-size:15px;line-height:1.6}
+.guide-static h2{font-family:'Fraunces',serif;font-size:24px;color:#1f1a14;margin:32px 0 8px}
+.guide-static h3{font-size:16px;font-weight:600;color:#1f1a14;margin:0 0 6px}
+.guide-static .xg-list{list-style:none;padding:0;margin:0}
+.guide-static .xg-list .xg-list{padding-left:16px;border-left:2px solid #e6dcc6;margin:8px 0}
+.guide-static .xg-list[data-arr="m"]{border:0;padding:0;margin:0}
+.guide-static .xg-list[data-arr="m"] li{display:inline}.guide-static .xg-list[data-arr="m"] li+li::before{content:" · "}
+.guide-static .xg-o,.guide-static .xg-list[data-arr="a"]>li{padding:8px 0;border-bottom:1px solid #e6dcc6}.guide-static .xg-p{margin:4px 0}
+</style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -1675,6 +1687,417 @@
   ]}
   </script>
 
+<script>
+function fromDOM(el){
+  const own=(o,k)=>[...o.querySelectorAll('[data-f="'+k+'"]')].find(n=>n.parentElement.closest(".xg-o,.xg-root")===o);
+  const val=n=>n.dataset.arr?list(n):n.dataset.keys!==undefined?obj(n):n.textContent;
+  const list=u=>[...u.children].map(li=>{const k=u.dataset.arr;return k==="s"?li.textContent:k==="o"?obj(li):k==="a"?list(li.firstElementChild):(li.hasAttribute("data-num")?Number(li.textContent):li.textContent);});
+  const obj=o=>{const j=o.dataset.j?JSON.parse(o.dataset.j):{},r={};
+    for(const k of o.dataset.keys.split(",")){ if(k in j) r[k]=j[k]; else r[k]=val(own(o,k)); }
+    return r;};
+  return list(el.querySelector(":scope > ul"));
+}
+</script>
+<div class="guide-static">
+<section class="xg-root xg-RULES" id="xs-RULES">
+<h2>Every rule, every common error, every examiner quote.</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="id,cat,section,sectionTitle,sectionNum,title,body,quote,quoteSource,rule,compare" data-j='{"id":"1.1","cat":"measurement","section":"sec-1","sectionTitle":"Measurement &amp; Recording","sectionNum":"01"}'><h3 data-f="title">Precision — always record to the nearest millimetre</h3><p class="xg-p"><span data-f="body">Linear measurements must be recorded to the nearest millimetre — one decimal place in centimetres. Criticised in 9 of the 17 Paper 5 reports, March 2021 to June 2026. Recording to the nearest centimetre shows the ruler was not read properly.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Record all lengths to the nearest mm. In cm: always one decimal place (e.g. 15.0 cm, not 15 cm).</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">15.0 cm — to the nearest mm</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">15 cm — only to the nearest cm</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">2.0 cm — shows measurement was 20 mm</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">2 cm — implies only measured to nearest cm</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Record h as e.g. 4.7 cm</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Round to 5 cm</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"1.2","cat":"measurement","section":"sec-1"}'><h3 data-f="title">Significant figures in calculated values</h3><p class="xg-p"><span data-f="body">Calculated answers should be given to 2 or 3 significant figures. Quoting a derived result to 5 or 6 sig figs (e.g. a density as 0.934721 g/cm³) is wrong — raw measurements from a ruler or balance cannot justify that precision.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Numerical answers should be expressed clearly, to the appropriate number of significant figures and with a correct unit, where applicable.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021 — all variants</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Aim for 2–3 significant figures in calculated answers unless the question specifies otherwise.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"1.3","cat":"measurement","section":"sec-1"}'><h3 data-f="title">Units in table headings</h3><p class="xg-p"><span data-f="body">Every column heading in a results table must include the quantity name and its unit. Common failures: weight in g or kg (must be in N); density units wrong (correct: g/cm³ or kg/m³); T² written as s instead of s²; ratios (e.g. b/a) given a unit (ratios are dimensionless); heading missing the unit entirely.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Common errors were not including units in the headings, incorrect units, e.g. weight in g and not N.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Every table column: quantity name / unit. No unit = mark lost. Ratios have no unit.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"1.4","cat":"measurement","section":"sec-1"}'><h3 data-f="title">Never overwrite measurements</h3><p class="xg-p"><span data-f="body">Cross out the wrong measurement clearly with a single line and rewrite it next to the original. Overwriting creates ambiguity and the examiner cannot award a mark for an unreadable answer.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Candidates should be encouraged to cross out completely and to re-write their answers so that there is no ambiguity.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Never overwrite a measurement. Cross it out clearly with a single line and rewrite next to it.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"1.5","cat":"measurement","section":"sec-1"}'><h3 data-f="title">Cooling rate = temperature change, not final temperature</h3><p class="xg-p"><span data-f="body">If two containers start at different temperatures, comparing final temperatures is not valid. The fair comparison is the temperature drop (ΔT) over the same fixed time period. The March 2021 report credited final temperatures only where the initial temperatures were equal.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Stronger candidates were aware that it is the temperature difference rather than the final temperature of the water which is the indicator of cooling rate.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, March 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Cooling rate = temperature drop over a fixed time, not the final temperature reached.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,sectionTitle,sectionNum,title,body,quote,quoteSource,rule" data-j='{"id":"2.1","cat":"graph","section":"sec-2","sectionTitle":"Graph Work","sectionNum":"02"}'><h3 data-f="title">Scale selection — fill the grid</h3><p class="xg-p"><span data-f="body">Awkward or too-small scales are criticised in 13 of the 17 Paper 5 reports. Use sensible scale increments: 1, 2, 4, 5, or 10 per division. Avoid 3 or 7 per division — these make accurate reading impossible. Start the axis at a value close to the lowest data point, not necessarily at the origin (unless instructed).</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">A choice of scales which meant that the plotted points did not occupy at least half of the grid.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Plotted points must fill at least half the grid in both the x and y directions.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,compare" data-j='{"id":"2.2","cat":"graph","section":"sec-2"}'><h3 data-f="title">Plotting points — small and neat</h3><p class="xg-p"><span data-f="body">A plot too large makes the centre impossible to judge. Use a small neat cross, or a dot inside a small circle — no larger than half a small grid square.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">However, some candidates’ plots were too large and they produced blobs. They should be no larger than half of a small square on the graph.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Small, neat cross or circled dot — no larger than half a small grid square</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Large blobs or filled circles — the centre cannot be judged</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Mark the centre of each point with a small clear symbol</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Smudged or very thick pencil marks</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"2.3","cat":"graph","section":"sec-2"}'><h3 data-f="title">Best-fit line — balance the points, never join them</h3><p class="xg-p"><span data-f="body">A best-fit line must have roughly equal numbers of points on either side along its full length. The line passes through the origin only if the physics guarantees it AND the data support it. A straight line not through the origin shows a linear relationship — not proportionality. The Paper 5 reports criticise dot-to-dot lines in 11 of the 17 series and lines forced through the origin in 8.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">There were many graphs where the attempt at a best-fit line was forced through the origin.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Do NOT draw the best-fit line as a dot-to-dot. Do NOT force it through the origin unless the physics demands it.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule" data-j='{"id":"2.4","cat":"graph","section":"sec-2"}'><h3 data-f="title">Axis labels — quantity / unit, both axes</h3><p class="xg-p"><span data-f="body">Both axes must show the quantity label and the unit: quantity / unit — for example, length / cm or resistance / Ω. Missing labels or units cost one mark per axis.</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Every axis: quantity name / unit. Missing either = mark lost.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"2.5","cat":"graph","section":"sec-2"}'><h3 data-f="title">Gradient calculation — large triangle, axis values</h3><p class="xg-p"><span data-f="body">Use a large triangle spanning at least half the line. Choose two coordinates that lie on the line (not plotted data points) and read precisely from the scale. gradient = Δy ÷ Δx — not Δx ÷ Δy. Always draw the construction lines so the examiner can see your method. Do NOT count grid squares — use the axis scale.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">A small but significant number of candidates tried to calculate a gradient by referring to the number of 2 mm squares on the graph paper rather than using their axis scale.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, November 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Large triangle, coordinates from the line, Δy ÷ Δx using the axis scale.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule,compare" data-j='{"id":"2.6","cat":"graph","section":"sec-2"}'><h3 data-f="title">Proportionality — the origin test</h3><p class="xg-p"><span data-f="body">A straight line on its own does not prove proportionality. To claim direct proportion, the line must pass through the origin AND you should confirm the ratio y/x is constant, or doubling x doubles y.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Very few candidates realised that the line must pass through the origin to show a proportional relationship.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Proportional = straight line through the origin. Linear = straight line. These are not the same.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Straight line through origin → y is proportional to x</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Straight line NOT through origin → linear, not proportional</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Confirm: ratio y/x constant, or doubling x doubles y</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"There is a straight line" without checking the origin</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,sectionTitle,sectionNum,title,body,quote,quoteSource,rule,compare" data-j='{"id":"3.1","cat":"conclusions","section":"sec-3","sectionTitle":"Conclusions &amp; The Tolerance Rule","sectionNum":"03"}'><h3 data-f="title">The experimental tolerance rule</h3><p class="xg-p"><span data-f="body">Whenever a question asks whether two experimental values can be considered equal within the limits of experimental accuracy, decide with a calculation, not by eye. Older reports (June 2021 to June 2022) described a grey zone: 5% or less equal, more than 10% different, and either answer accepted in between if you qualified it. Mark schemes from 2022 onwards use 10%, and recent questions state it.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The idea of experimental tolerances, and whether two measured quantities are close enough to be considered equal was not well understood by the majority of candidates.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Use the limit the question gives (recent papers say "within 10 per cent of each other"; mark schemes since 2022 use 10% even when it is not stated). Quickest check, from the June 2025 report: smaller ÷ larger. 0.90 or more means equal; below 0.90 means not equal. Show the numbers, then write a yes or no that matches them, not the theory.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Ratio 0.94 → "Yes, they are equal within the limits of experimental accuracy", with the calculation shown</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Just stating "they look close"</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Ratio 0.86 → "No, they are too far apart to be considered equal"</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Writing what the theory predicts when your numbers say otherwise</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule,compare" data-j='{"id":"3.2","cat":"conclusions","section":"sec-3"}'><h3 data-f="title">Conclusion methods are not predictions</h3><p class="xg-p"><span data-f="body">A conclusion method states HOW you will use your data to decide. A prediction just states what you expect. Only the method scores. Writing a prediction instead of a method is named in 15 of the 17 series.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The question did not ask for a prediction. Some candidates wrote a prediction, but no explanation of how to reach a conclusion.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A conclusion method states how you will USE your data. A prediction states what you expect. Only the method scores.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">"Plot initial temperature vs rate of cooling. If a straight line through the origin: cooling rate ∝ initial temperature."</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"The temperature would decrease more slowly." — prediction, not method</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">"Compare the time for each heater to reach boiling. Shortest time = most efficient."</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"I think the copper heater will be fastest."</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"3.3","cat":"conclusions","section":"sec-3"}'><h3 data-f="title">Direct proportion — ratio or doubling, not just "increases with"</h3><p class="xg-p"><span data-f="body">"As θ increases, r increases" only proves positive correlation. To claim direct proportion you must show either: r/θ is constant for all values, or doubling θ doubles r.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The most common incorrect answer was that r is directly proportional to θ because as θ increases r increases.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, November 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Constant ratio OR doubling argument. "Increases with" alone is not enough.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,sectionTitle,sectionNum,title,body,quote,quoteSource,rule,compare" data-j='{"id":"4.1","cat":"errors","section":"sec-4","sectionTitle":"Sources of Error &amp; Limitations","sectionNum":"04"}'><h3 data-f="title">Generic answers never score</h3><p class="xg-p"><span data-f="body">A source of error must name a specific feature of THIS experiment. If your answer could apply to any experiment, it won't score. "Parallax error", "human error", "experimental error", "the ruler wasn't accurate" — all rejected.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Most candidates gave generic examples of poor experimental technique, such as parallax error and not reading the ruler correctly, despite the wording of the question.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Sources of error must name a specific feature of this experiment. If it could apply to any experiment, it will not score.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Pins have width — exact position of the ray is uncertain (ray-tracing)</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Parallax error — too vague: parallax in what?</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">The mirror has thickness — reflecting surface is behind the glass</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Human error — never credited</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">The clay block has irregular faces — dimensions vary along the block</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">The ruler was not accurate</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Fixed resistor prevents the test wire heating up and changing R</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Experimental error</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"4.2","cat":"errors","section":"sec-4"}'><h3 data-f="title">"Carefully carried out" → equipment limitations only</h3><p class="xg-p"><span data-f="body">If the question states the experiment was carefully carried out, you cannot cite technique errors. Only equipment limitations score: inaccurate test load, non-uniform metre rule, non-uniform spring, and so on.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">It was expected that these would refer to sources which the experimenter would have no control over, such as an inaccurate value of the test load or a non-uniform metre rule or spring.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, March 2022</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">If the question says "experiment was carefully carried out": only cite equipment limitations, not technique errors.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule" data-j='{"id":"4.3","cat":"errors","section":"sec-4"}'><h3 data-f="title">Ray tracing — view the bases of the pins</h3><p class="xg-p"><span data-f="body">View the BASES of the pins when aligning them, not the tops. For the pin experiment, "carry out in a darkened room" earns nothing (June 2021, November 2021, November 2024). It is credited only when the question asks how to see an image clearly, such as finding the sharpest image from a lens (June 2024, November 2023). It was not credited when the question asked how to set up a lens experiment (March 2024). Place the pins well over 5 cm apart: pins drawn exactly 5.0 cm apart risked being just too short (November 2021). Angles are measured from the normal, not the surface. n = sin i / sin r is dimensionless — no unit.</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Ray tracing with pins: "view the bases of the pins" (also thin pins, thin lines, pins well over 5 cm apart). Only write "darkened room" when the question is about seeing an image clearly.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"4.4","cat":"errors","section":"sec-4"}'><h3 data-f="title">Percentage uncertainty grows for small measurements</h3><p class="xg-p"><span data-f="body">A reaction-time error of 0.2 s is 20% of a 1 s period — but only 2% of a 10 s total. This is why we time 10 oscillations, not 1. The same principle applies to length: measuring a 5 cm object has higher % uncertainty than a 50 cm object with the same ruler.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The correct answer focused on the fact that when taking smaller measurements, the effect of the uncertainty in the measurement (due to the resolution of the measuring device) is greater. There is a larger percentage uncertainty in smaller measurements.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, November 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Smaller measurement = larger % uncertainty. Measure more, not less.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule,compare" data-j='{"id":"4.5","cat":"errors","section":"sec-4"}'><h3 data-f="title">Timing oscillations — 10 in one go, divide by 10</h3><p class="xg-p"><span data-f="body">Time 10 complete oscillations as ONE continuous measurement, then divide by 10. Do NOT time 10 individual oscillations and average them — that compounds the reaction-time error.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Some candidates appeared to refer to 10 separate timings of one oscillation giving an average result, not realising that a single time for 10 oscillations is the technique involved.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Time 10 complete oscillations as ONE continuous measurement. Divide by 10. Do NOT time 10 individual oscillations and average them.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Start at equilibrium. Count 10 complete oscillations. Stop. T = total ÷ 10.</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Time one oscillation, reset, repeat 10 times, average. — WRONG.</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Use 5 or 10 oscillations to reduce the proportional reaction-time error</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">Use 1 oscillation and claim it is accurate</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,sectionTitle,sectionNum,title,body,quote,quoteSource,rule" data-j='{"id":"5.1","cat":"planning","section":"sec-5","sectionTitle":"Planning Investigations (Q4)","sectionNum":"05"}'><h3 data-f="title">Do not copy apparatus from the question</h3><p class="xg-p"><span data-f="body">List only ADDITIONAL apparatus that you are bringing in. Copying out the list the question already provided wastes time and scores nothing.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary and often introduced a vague explanation of the investigation.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, June 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Only list ADDITIONAL apparatus not already named in the question. Copying given information scores nothing.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule,compare" data-j='{"id":"5.2","cat":"planning","section":"sec-5"}'><h3 data-f="title">Variables — the exact language required</h3><p class="xg-p"><span data-f="body">State the IV explicitly in words. State the DV explicitly with the instrument used to measure it. Name at least 2 control variables with the method of control. Implying through method or table does not score.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">The variable needed to be clearly stated to obtain credit, and not just implied in the method, table or analysis.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, November 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">State the IV, DV and control variables EXPLICITLY in text — naming, units, and how each is varied / measured / controlled.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">IV: wire diameter d / mm, varied by using wires of different diameters.</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"Change the wire" — too vague: what property?</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">DV: resistance R / Ω, measured using a voltmeter and ammeter.</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"Measure the resistance" — no instrument named</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Controls: temperature T (room temperature); wire material (same type).</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">"Keep everything else the same"</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule" data-j='{"id":"5.3","cat":"planning","section":"sec-5"}'><h3 data-f="title">Minimum 5 values, repeated and averaged</h3><p class="xg-p"><span data-f="body">The method must include measurements for at least five values of the IV. For each value, repeat the measurement and take the mean. "Repeat the experiment" is weaker than stating you will repeat each measurement at each IV value.</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">At least 5 values of the IV. Repeat each measurement. Calculate the mean. All three must be stated.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,quote,quoteSource,rule" data-j='{"id":"5.4","cat":"planning","section":"sec-5"}'><h3 data-f="title">Table of results — quantity / unit, never instrument names</h3><p class="xg-p"><span data-f="body">Column headings: quantity name / unit — e.g. current / A, not "ammeter reading" or "I" alone. Include a column for the IV. Derived quantities (e.g. rate of cooling) need their own column and unit. Weight in N, not g or kg.</span></p><p class="xg-p"><b>Examiner report:</b> <span data-f="quote">Most candidates completed the table successfully, but a significant number did not fill in the column headings.</span></p><p class="xg-p"><b>Source:</b> <span data-f="quoteSource">CIE Examiner Report, November 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Table headings: quantity / unit, never instrument names.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule" data-j='{"id":"5.5","cat":"planning","section":"sec-5"}'><h3 data-f="title">Graph — confirming the relationship</h3><p class="xg-p"><span data-f="body">State explicitly which graph confirms the relationship. Proportional (y ∝ x): plot y vs x, straight line through origin. Linear (y = mx + c): straight line, any intercept. Where the relationship involves a square, plot that quantity directly (for example T² against d).</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Always state: which graph, what shape confirms which relationship.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule,compare" data-j='{"id":"5.6","cat":"planning","section":"sec-5"}'><h3 data-f="title">Conclusion method — not a prediction</h3><p class="xg-p"><span data-f="body">State how you will USE your data to reach a conclusion. Do not state what you expect to find. Writing a prediction instead of a method is named in 15 of the 17 series.</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Conclusion method = how you use the data. Prediction = what you expect. Only the method scores.</span></p><ul class="xg-list" data-f="compare" data-arr="o">
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">If the graph of cooling rate vs initial temperature gives a straight line through origin, cooling rate ∝ initial temperature.</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">I predict the cooling rate will increase with temperature.</span></p></li>
+<li class="xg-o" data-keys="good,bad"><p class="xg-p"><b>Scores marks:</b> <span data-f="good">Compare the time for each heater to reach boiling. Shortest = most efficient.</span></p><p class="xg-p"><b>Does NOT score:</b> <span data-f="bad">The electric heater will be more efficient.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="id,cat,section,title,body,rule" data-j='{"id":"5.7","cat":"planning","section":"sec-5"}'><h3 data-f="title">Circuit diagrams — voltmeter parallel, ammeter series</h3><p class="xg-p"><span data-f="body">Voltmeter: always in parallel with the component being measured. Ammeter: always in series. Variable resistor: rectangle with arrow — not the thermistor symbol. Voltmeter must span the full series combination, not just one component within it. Include a switch.</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">V in parallel. A in series. Include the switch. Variable resistor ≠ thermistor symbol.</span></p></li>
+<li class="xg-o" data-keys="id,cat,section,title,body" data-j='{"id":"5.8","cat":"planning","section":"sec-5"}'><h3 data-f="title">Routinely-omitted practical details</h3><p class="xg-p"><span data-f="body">Spring: record initial unloaded length so extensions can be calculated. Cooling: state a fixed cooling time (e.g. 5 min), not "until room temperature". Refraction: list BOTH protractor AND ruler. Lens: move the screen, not the lens or object. Diagrams: springs must be shown hanging from a clamp stand, not in mid-air.</span></p></li>
+</ul>
+</section>
+<section class="xg-root xg-QUIZ_QUESTIONS" id="xs-QUIZ_QUESTIONS">
+<h2>Test yourself on the things examiners actually mark.</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Measurement","ans":1}'><h3 data-f="q">You measure a length with a ruler. Which is correctly recorded?</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>12 cm</li>
+<li>12.0 cm</li>
+<li>12.04 cm</li>
+<li>0.12 m</li>
+</ul><p class="xg-p"><span data-f="fb">Linear measurements must be recorded to the nearest mm — one decimal place in cm. "12 cm" is only to the nearest cm.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Graph work","ans":2}'><h3 data-f="q">A scale of "3 units per division" is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Fine — as long as the plots fill the grid</li>
+<li>Wrong — should never be used</li>
+<li>Risky — examiners flag 3 or 7 per division as awkward</li>
+<li>Acceptable only on the x-axis</li>
+</ul><p class="xg-p"><span data-f="fb">Use 1, 2, 4, 5 or 10 per division. 3 and 7 make accurate reading hard and were explicitly flagged in multiple series.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Graph work","ans":2}'><h3 data-f="q">A best-fit line should be:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Drawn dot-to-dot through every point</li>
+<li>Forced through the origin</li>
+<li>A single straight line with roughly equal points on each side</li>
+<li>The line connecting the first and last point</li>
+</ul><p class="xg-p"><span data-f="fb">Roughly equal points on either side, along the full length. Dot-to-dot lines and lines forced through the origin are the two best-fit faults the reports name again and again.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Conclusions","ans":1}'><h3 data-f="q">Two values differ by 3%. The correct conclusion is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>"They are too different to be equal"</li>
+<li>"They agree within experimental accuracy"</li>
+<li>"More data is needed"</li>
+<li>"The experiment failed"</li>
+</ul><p class="xg-p"><span data-f="fb">A 3% difference is well within 10% (ratio about 0.97), so the values agree within experimental accuracy. Show the calculation.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Conclusions","ans":1}'><h3 data-f="q">Two values differ by 14%. The correct conclusion is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>"They agree within experimental accuracy"</li>
+<li>"They are too far apart to be considered equal"</li>
+<li>"Close enough to be equal"</li>
+<li>Either — it depends</li>
+</ul><p class="xg-p"><span data-f="fb">A 14% difference is more than 10% (ratio about 0.86), so the values are too far apart to be considered equal.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Sources of error","ans":1}'><h3 data-f="q">In ray-tracing, the BEST precaution is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Carry out in a darkened room</li>
+<li>View the bases of the pins, not the tops</li>
+<li>Use thicker pins</li>
+<li>Use a thicker pencil for the ray</li>
+</ul><p class="xg-p"><span data-f="fb">For the pin experiment, "darkened room" earns nothing (June 2021, November 2021). The credited precaution is viewing the BASES of the pins. A darkened room only earns credit when the question is about seeing an image clearly, as in the lens experiment.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Sources of error","ans":2}'><h3 data-f="q">For a pendulum, you should time:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>One oscillation, repeat 10 times, average</li>
+<li>Half an oscillation and double it</li>
+<li>10 complete oscillations as one continuous measurement, then divide by 10</li>
+<li>As many as you can in 60 seconds</li>
+</ul><p class="xg-p"><span data-f="fb">10 oscillations timed in one continuous go reduces the proportional reaction-time error. Timing individually and averaging compounds the error.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Sources of error","ans":2}'><h3 data-f="q">A weak source of error is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>"Pins have width — the ray's position is uncertain"</li>
+<li>"The mirror has thickness — reflecting surface is behind glass"</li>
+<li>"Parallax error"</li>
+<li>"The clay block has irregular faces"</li>
+</ul><p class="xg-p"><span data-f="fb">"Parallax error" is generic. Examiners want a feature specific to THIS experiment. Any answer that could apply to any experiment fails.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Planning","ans":2}'><h3 data-f="q">Which is the strongest statement of an independent variable?</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>"Change the wire"</li>
+<li>"Use different wires"</li>
+<li>"The independent variable is the wire diameter d / mm, varied by using wires of different diameters"</li>
+<li>"Measure the wire"</li>
+</ul><p class="xg-p"><span data-f="fb">State the IV explicitly: named, with unit, with how it is varied. Implying it through the method does not score.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Planning","ans":1}'><h3 data-f="q">How many values of the IV should be measured?</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>At least 3</li>
+<li>At least 5, each repeated and averaged</li>
+<li>Exactly 10</li>
+<li>As many as the apparatus allows</li>
+</ul><p class="xg-p"><span data-f="fb">At least 5 values, each measurement repeated, and the mean calculated. State all three.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Planning","ans":1}'><h3 data-f="q">"I predict the spring will stretch more with heavier loads" — this is:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>A valid conclusion method</li>
+<li>A prediction — does not score for the conclusion mark</li>
+<li>Acceptable if backed by data</li>
+<li>Required to introduce the method</li>
+</ul><p class="xg-p"><span data-f="fb">A prediction states what you expect. A conclusion method states how you will USE the data. Only the method scores — the reports name it in 15 of the 17 series.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Measurement","ans":1}'><h3 data-f="q">A calculated density of "0.934721 g/cm³" should be:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Left as is — more digits = more accurate</li>
+<li>Rounded to 2 or 3 significant figures</li>
+<li>Quoted to 4 decimal places</li>
+<li>Converted to kg/m³</li>
+</ul><p class="xg-p"><span data-f="fb">Raw measurements from a ruler/balance cannot justify 6 sig figs. Aim for 2–3 sig figs in calculated answers.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Graph work","ans":1}'><h3 data-f="q">To claim direct proportionality from a graph, you need:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Any straight line</li>
+<li>A straight line passing through the origin</li>
+<li>A curve through the origin</li>
+<li>A straight line on log axes</li>
+</ul><p class="xg-p"><span data-f="fb">Straight line alone = linear. Straight line through origin (with ratio y/x constant) = proportional. The two are not the same.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Planning","ans":1}'><h3 data-f="q">The voltmeter in a circuit measuring a resistor should be:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>In series with the resistor</li>
+<li>In parallel with the resistor</li>
+<li>In parallel with the ammeter</li>
+<li>Either works</li>
+</ul><p class="xg-p"><span data-f="fb">Voltmeter ALWAYS in parallel with the component. Ammeter ALWAYS in series. Common circuit error to lose easy marks on.</span></p></li>
+<li class="xg-o" data-keys="cat,q,opts,ans,fb" data-j='{"cat":"Measurement","ans":1}'><h3 data-f="q">A column heading of "Mass / g" is used for weight readings. This:</h3><ul class="xg-list" data-f="opts" data-arr="s">
+<li>Scores — mass and weight are interchangeable in everyday use</li>
+<li>Loses a mark — weight must be in N</li>
+<li>Is fine if the experiment is on Earth</li>
+<li>Only matters in Q4</li>
+</ul><p class="xg-p"><span data-f="fb">Weight is a force — must be in newtons (N). Recording it in g or kg loses the unit mark. Flagged in multiple series.</span></p></li>
+</ul>
+</section>
+<section class="xg-root xg-CHECKLIST" id="xs-CHECKLIST">
+<h2>After every practice paper, tick off what you got right.</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="title,section,items" data-j='{"section":"sec-1"}'><h3 data-f="title">Measurement and Recording</h3><ul class="xg-list" data-f="items" data-arr="s">
+<li>Every length is recorded to the nearest mm (one decimal place in cm)</li>
+<li>All table column headings have a quantity name and a unit</li>
+<li>Weight is in N. Density is in g/cm³ or kg/m³</li>
+<li>T² is labelled in s² (not s). Ratios have no unit</li>
+<li>Calculated values are given to 2–3 significant figures</li>
+<li>No overwriting — any changes are crossed out and rewritten clearly</li>
+<li>Cooling rate = temperature drop over a fixed time, not the final temperature</li>
+</ul></li>
+<li class="xg-o" data-keys="title,section,items" data-j='{"section":"sec-2"}'><h3 data-f="title">Graph Work</h3><ul class="xg-list" data-f="items" data-arr="s">
+<li>Plotted points occupy more than half the grid in both directions</li>
+<li>Scale increments are 1, 2, 4, 5, or 10 per division (not 3 or 7)</li>
+<li>Both axes have a label and a unit</li>
+<li>Plotted points are small, neat crosses or circled dots — no blobs</li>
+<li>Best-fit line is a single straight line, not dot-to-dot</li>
+<li>Best-fit line is NOT forced through the origin unless physics requires it</li>
+<li>Gradient triangle is large; construction lines drawn; coordinates read from the line</li>
+<li>If proportionality is claimed: line passes through origin AND ratio y/x is constant</li>
+<li>Gradient calculated as Δy/Δx using axis scale values, not grid square counts</li>
+</ul></li>
+<li class="xg-o" data-keys="title,section,items" data-j='{"section":"sec-3"}'><h3 data-f="title">Conclusions</h3><ul class="xg-list" data-f="items" data-arr="s">
+<li>When comparing two values: percentage difference is calculated and stated</li>
+<li>Equal-or-not judged with a calculation: smaller ÷ larger, 0.90 or more → "equal within the limits of experimental accuracy"</li>
+<li>The yes or no matches your numbers, not what the theory predicts</li>
+<li>Conclusion method states how to USE the data (not a prediction)</li>
+<li>Direct proportion justified using ratio or doubling argument — not just "increases with"</li>
+</ul></li>
+<li class="xg-o" data-keys="title,section,items" data-j='{"section":"sec-4"}'><h3 data-f="title">Sources of Error</h3><ul class="xg-list" data-f="items" data-arr="s">
+<li>Sources of error are specific to this experiment (not "parallax" or "human error" alone)</li>
+<li>If question says "experiment was carefully done": only equipment limitations cited</li>
+<li>Ray tracing with pins: "view the bases of the pins"; "darkened room" only when the question is about seeing an image clearly</li>
+<li>Ray tracing: pins well over 5 cm apart (exactly 5.0 cm risks being just too short)</li>
+<li>Timing: 10 oscillations timed as one continuous measurement, then divided by 10</li>
+</ul></li>
+<li class="xg-o" data-keys="title,section,items" data-j='{"section":"sec-5"}'><h3 data-f="title">Planning (Q4)</h3><ul class="xg-list" data-f="items" data-arr="s">
+<li>No apparatus copied from the question — only additional items listed</li>
+<li>IV stated explicitly: named, with unit, with how it is varied</li>
+<li>DV stated explicitly: named, with unit, with how it is measured</li>
+<li>At least 2 control variables named with method of control</li>
+<li>At least 5 values of the IV specified in the method</li>
+<li>Repeat readings at each IV value stated; mean to be calculated</li>
+<li>Table headings: quantity / unit (not instrument names)</li>
+<li>Graph axes stated; conclusion method stated (not a prediction)</li>
+<li>Circuit diagrams: voltmeter in parallel, ammeter in series, switch included</li>
+<li>Essential setup detail included (initial spring length, fixed cooling time, etc.)</li>
+</ul></li>
+</ul>
+</section>
+<section class="xg-root xg-RANKED" id="xs-RANKED">
+<h2>23 recurring mistakes, ranked.</h2>
+<ul class="xg-list" data-arr="a">
+<li><ul class="xg-list" data-arr="m">
+<li data-num>1</li>
+<li>Planning</li>
+<li>Conclusion method missing: a prediction written instead</li>
+<li data-num>15</li>
+<li>Mar 2021</li>
+<li>Mar 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>2</li>
+<li>Graph work</li>
+<li>Awkward scale (steps of 3 or 7) or points filling less than half the grid</li>
+<li data-num>13</li>
+<li>Mar 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>3</li>
+<li>Recording</li>
+<li>Calculated values to the wrong or an inconsistent number of significant figures</li>
+<li data-num>12</li>
+<li>Mar 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>4</li>
+<li>Graph work</li>
+<li>Best-fit line drawn dot-to-dot (points joined)</li>
+<li data-num>11</li>
+<li>Mar 2021</li>
+<li>Nov 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>5</li>
+<li>Graph work</li>
+<li>Plotted points too large (blobs), not small crosses</li>
+<li data-num>10</li>
+<li>Mar 2021</li>
+<li>Mar 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>5</li>
+<li>Sources of error</li>
+<li>Generic error ("parallax", "poor practice") instead of one specific to the experiment</li>
+<li data-num>10</li>
+<li>Jun 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>7</li>
+<li>Recording</li>
+<li>Table column heading left blank or missing its unit</li>
+<li data-num>9</li>
+<li>Mar 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>7</li>
+<li>Recording</li>
+<li>Length not recorded to the nearest millimetre</li>
+<li data-num>9</li>
+<li>Nov 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>7</li>
+<li>Planning</li>
+<li>"Repeat the experiment" without saying what is repeated</li>
+<li data-num>9</li>
+<li>Jun 2021</li>
+<li>Nov 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>7</li>
+<li>Planning</li>
+<li>Apparatus list copied from the question</li>
+<li data-num>9</li>
+<li>Nov 2021</li>
+<li>Nov 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>11</li>
+<li>Graph work</li>
+<li>Best-fit line forced through the origin</li>
+<li data-num>8</li>
+<li>Mar 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>12</li>
+<li>Recording</li>
+<li>Wrong unit for a calculated quantity (e.g. density as cm³/g)</li>
+<li data-num>7</li>
+<li>Jun 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>13</li>
+<li>Planning</li>
+<li>Circuit diagram errors: voltmeter in series, wrong symbol</li>
+<li data-num>6</li>
+<li>Mar 2021</li>
+<li>Jun 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>13</li>
+<li>Practical technique</li>
+<li>Ray tracing: pins too close together</li>
+<li data-num>6</li>
+<li>Jun 2021</li>
+<li>Mar 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>15</li>
+<li>Conclusions</li>
+<li>"Equal within experimental accuracy" not judged with a calculation</li>
+<li data-num>5</li>
+<li>Mar 2021</li>
+<li>Mar 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>15</li>
+<li>Planning</li>
+<li>Control variable missing, unclear or irrelevant</li>
+<li data-num>5</li>
+<li>Nov 2021</li>
+<li>Mar 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>17</li>
+<li>Graph work</li>
+<li>Gradient: small triangle, grid squares counted, or working not shown</li>
+<li data-num>4</li>
+<li>Nov 2023</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>17</li>
+<li>Planning</li>
+<li>No instrument named for measuring a variable</li>
+<li data-num>4</li>
+<li>Nov 2021</li>
+<li>Nov 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>19</li>
+<li>Conclusions</li>
+<li>Proportionality claimed because "both increase", not tested</li>
+<li data-num>3</li>
+<li>Jun 2021</li>
+<li>Nov 2025</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>19</li>
+<li>Conclusions</li>
+<li>Conclusion not supported with values from the results</li>
+<li data-num>3</li>
+<li>Mar 2021</li>
+<li>Jun 2026</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>19</li>
+<li>Graph work</li>
+<li>Best-fit line drawn too thick</li>
+<li data-num>3</li>
+<li>Mar 2023</li>
+<li>Nov 2024</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>19</li>
+<li>Practical technique</li>
+<li>"Darkened room" given where it earns nothing (pin experiment, setting up)</li>
+<li data-num>3</li>
+<li>Jun 2021</li>
+<li>Nov 2024</li>
+</ul></li>
+<li><ul class="xg-list" data-arr="m">
+<li data-num>19</li>
+<li>Recording</li>
+<li>Readings overwritten instead of crossed out and rewritten</li>
+<li data-num>3</li>
+<li>Jun 2021</li>
+<li>Jun 2023</li>
+</ul></li>
+</ul>
+</section>
+</div>
   <footer>
     <div class="foot-inner">
       <div class="disclaimer">
@@ -1699,399 +2122,17 @@
      DATA
      ============================================================ */
 
-  const RULES = [
-    // SECTION 1 - MEASUREMENT
-    {
-      id: '1.1', cat: 'measurement', section: 'sec-1', sectionTitle: 'Measurement & Recording', sectionNum: '01',
-      title: 'Precision — always record to the nearest millimetre',
-      body: 'Linear measurements must be recorded to the nearest millimetre — one decimal place in centimetres. Criticised in 9 of the 17 Paper 5 reports, March 2021 to June 2026. Recording to the nearest centimetre shows the ruler was not read properly.',
-      quote: 'The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.',
-      quoteSource: 'CIE Examiner Report, June 2025',
-      rule: 'Record all lengths to the nearest mm. In cm: always one decimal place (e.g. 15.0 cm, not 15 cm).',
-      compare: [
-        { good: '15.0 cm — to the nearest mm', bad: '15 cm — only to the nearest cm' },
-        { good: '2.0 cm — shows measurement was 20 mm', bad: '2 cm — implies only measured to nearest cm' },
-        { good: 'Record h as e.g. 4.7 cm', bad: 'Round to 5 cm' }
-      ]
-    },
-    {
-      id: '1.2', cat: 'measurement', section: 'sec-1',
-      title: 'Significant figures in calculated values',
-      body: 'Calculated answers should be given to 2 or 3 significant figures. Quoting a derived result to 5 or 6 sig figs (e.g. a density as 0.934721 g/cm³) is wrong — raw measurements from a ruler or balance cannot justify that precision.',
-      quote: 'Numerical answers should be expressed clearly, to the appropriate number of significant figures and with a correct unit, where applicable.',
-      quoteSource: 'CIE Examiner Report, June 2021 — all variants',
-      rule: 'Aim for 2–3 significant figures in calculated answers unless the question specifies otherwise.'
-    },
-    {
-      id: '1.3', cat: 'measurement', section: 'sec-1',
-      title: 'Units in table headings',
-      body: 'Every column heading in a results table must include the quantity name and its unit. Common failures: weight in g or kg (must be in N); density units wrong (correct: g/cm³ or kg/m³); T² written as s instead of s²; ratios (e.g. b/a) given a unit (ratios are dimensionless); heading missing the unit entirely.',
-      quote: 'Common errors were not including units in the headings, incorrect units, e.g. weight in g and not N.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Every table column: quantity name / unit. No unit = mark lost. Ratios have no unit.'
-    },
-    {
-      id: '1.4', cat: 'measurement', section: 'sec-1',
-      title: 'Never overwrite measurements',
-      body: 'Cross out the wrong measurement clearly with a single line and rewrite it next to the original. Overwriting creates ambiguity and the examiner cannot award a mark for an unreadable answer.',
-      quote: 'Candidates should be encouraged to cross out completely and to re-write their answers so that there is no ambiguity.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Never overwrite a measurement. Cross it out clearly with a single line and rewrite next to it.'
-    },
-    {
-      id: '1.5', cat: 'measurement', section: 'sec-1',
-      title: 'Cooling rate = temperature change, not final temperature',
-      body: 'If two containers start at different temperatures, comparing final temperatures is not valid. The fair comparison is the temperature drop (ΔT) over the same fixed time period. The March 2021 report credited final temperatures only where the initial temperatures were equal.',
-      quote: 'Stronger candidates were aware that it is the temperature difference rather than the final temperature of the water which is the indicator of cooling rate.',
-      quoteSource: 'CIE Examiner Report, March 2021',
-      rule: 'Cooling rate = temperature drop over a fixed time, not the final temperature reached.'
-    },
-
-    // SECTION 2 - GRAPH
-    {
-      id: '2.1', cat: 'graph', section: 'sec-2', sectionTitle: 'Graph Work', sectionNum: '02',
-      title: 'Scale selection — fill the grid',
-      body: 'Awkward or too-small scales are criticised in 13 of the 17 Paper 5 reports. Use sensible scale increments: 1, 2, 4, 5, or 10 per division. Avoid 3 or 7 per division — these make accurate reading impossible. Start the axis at a value close to the lowest data point, not necessarily at the origin (unless instructed).',
-      quote: 'A choice of scales which meant that the plotted points did not occupy at least half of the grid.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Plotted points must fill at least half the grid in both the x and y directions.'
-    },
-    {
-      id: '2.2', cat: 'graph', section: 'sec-2',
-      title: 'Plotting points — small and neat',
-      body: 'A plot too large makes the centre impossible to judge. Use a small neat cross, or a dot inside a small circle — no larger than half a small grid square.',
-      quote: 'However, some candidates’ plots were too large and they produced blobs. They should be no larger than half of a small square on the graph.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      compare: [
-        { good: 'Small, neat cross or circled dot — no larger than half a small grid square', bad: 'Large blobs or filled circles — the centre cannot be judged' },
-        { good: 'Mark the centre of each point with a small clear symbol', bad: 'Smudged or very thick pencil marks' }
-      ]
-    },
-    {
-      id: '2.3', cat: 'graph', section: 'sec-2',
-      title: 'Best-fit line — balance the points, never join them',
-      body: 'A best-fit line must have roughly equal numbers of points on either side along its full length. The line passes through the origin only if the physics guarantees it AND the data support it. A straight line not through the origin shows a linear relationship — not proportionality. The Paper 5 reports criticise dot-to-dot lines in 11 of the 17 series and lines forced through the origin in 8.',
-      quote: 'There were many graphs where the attempt at a best-fit line was forced through the origin.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Do NOT draw the best-fit line as a dot-to-dot. Do NOT force it through the origin unless the physics demands it.'
-    },
-    {
-      id: '2.4', cat: 'graph', section: 'sec-2',
-      title: 'Axis labels — quantity / unit, both axes',
-      body: 'Both axes must show the quantity label and the unit: quantity / unit — for example, length / cm or resistance / Ω. Missing labels or units cost one mark per axis.',
-      rule: 'Every axis: quantity name / unit. Missing either = mark lost.'
-    },
-    {
-      id: '2.5', cat: 'graph', section: 'sec-2',
-      title: 'Gradient calculation — large triangle, axis values',
-      body: 'Use a large triangle spanning at least half the line. Choose two coordinates that lie on the line (not plotted data points) and read precisely from the scale. gradient = Δy ÷ Δx — not Δx ÷ Δy. Always draw the construction lines so the examiner can see your method. Do NOT count grid squares — use the axis scale.',
-      quote: 'A small but significant number of candidates tried to calculate a gradient by referring to the number of 2 mm squares on the graph paper rather than using their axis scale.',
-      quoteSource: 'CIE Examiner Report, November 2025',
-      rule: 'Large triangle, coordinates from the line, Δy ÷ Δx using the axis scale.'
-    },
-    {
-      id: '2.6', cat: 'graph', section: 'sec-2',
-      title: 'Proportionality — the origin test',
-      body: 'A straight line on its own does not prove proportionality. To claim direct proportion, the line must pass through the origin AND you should confirm the ratio y/x is constant, or doubling x doubles y.',
-      quote: 'Very few candidates realised that the line must pass through the origin to show a proportional relationship.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Proportional = straight line through the origin. Linear = straight line. These are not the same.',
-      compare: [
-        { good: 'Straight line through origin → y is proportional to x', bad: 'Straight line NOT through origin → linear, not proportional' },
-        { good: 'Confirm: ratio y/x constant, or doubling x doubles y', bad: '"There is a straight line" without checking the origin' }
-      ]
-    },
-
-    // SECTION 3 - CONCLUSIONS
-    {
-      id: '3.1', cat: 'conclusions', section: 'sec-3', sectionTitle: 'Conclusions & The Tolerance Rule', sectionNum: '03',
-      title: 'The experimental tolerance rule',
-      body: 'Whenever a question asks whether two experimental values can be considered equal within the limits of experimental accuracy, decide with a calculation, not by eye. Older reports (June 2021 to June 2022) described a grey zone: 5% or less equal, more than 10% different, and either answer accepted in between if you qualified it. Mark schemes from 2022 onwards use 10%, and recent questions state it.',
-      quote: 'The idea of experimental tolerances, and whether two measured quantities are close enough to be considered equal was not well understood by the majority of candidates.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Use the limit the question gives (recent papers say "within 10 per cent of each other"; mark schemes since 2022 use 10% even when it is not stated). Quickest check, from the June 2025 report: smaller ÷ larger. 0.90 or more means equal; below 0.90 means not equal. Show the numbers, then write a yes or no that matches them, not the theory.',
-      compare: [
-        { good: 'Ratio 0.94 → "Yes, they are equal within the limits of experimental accuracy", with the calculation shown', bad: 'Just stating "they look close"' },
-        { good: 'Ratio 0.86 → "No, they are too far apart to be considered equal"', bad: 'Writing what the theory predicts when your numbers say otherwise' }
-      ]
-    },
-    {
-      id: '3.2', cat: 'conclusions', section: 'sec-3',
-      title: 'Conclusion methods are not predictions',
-      body: 'A conclusion method states HOW you will use your data to decide. A prediction just states what you expect. Only the method scores. Writing a prediction instead of a method is named in 15 of the 17 series.',
-      quote: 'The question did not ask for a prediction. Some candidates wrote a prediction, but no explanation of how to reach a conclusion.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'A conclusion method states how you will USE your data. A prediction states what you expect. Only the method scores.',
-      compare: [
-        { good: '"Plot initial temperature vs rate of cooling. If a straight line through the origin: cooling rate ∝ initial temperature."', bad: '"The temperature would decrease more slowly." — prediction, not method' },
-        { good: '"Compare the time for each heater to reach boiling. Shortest time = most efficient."', bad: '"I think the copper heater will be fastest."' }
-      ]
-    },
-    {
-      id: '3.3', cat: 'conclusions', section: 'sec-3',
-      title: 'Direct proportion — ratio or doubling, not just "increases with"',
-      body: '"As θ increases, r increases" only proves positive correlation. To claim direct proportion you must show either: r/θ is constant for all values, or doubling θ doubles r.',
-      quote: 'The most common incorrect answer was that r is directly proportional to θ because as θ increases r increases.',
-      quoteSource: 'CIE Examiner Report, November 2025',
-      rule: 'Constant ratio OR doubling argument. "Increases with" alone is not enough.'
-    },
-
-    // SECTION 4 - SOURCES OF ERROR
-    {
-      id: '4.1', cat: 'errors', section: 'sec-4', sectionTitle: 'Sources of Error & Limitations', sectionNum: '04',
-      title: 'Generic answers never score',
-      body: 'A source of error must name a specific feature of THIS experiment. If your answer could apply to any experiment, it won\'t score. "Parallax error", "human error", "experimental error", "the ruler wasn\'t accurate" — all rejected.',
-      quote: 'Most candidates gave generic examples of poor experimental technique, such as parallax error and not reading the ruler correctly, despite the wording of the question.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Sources of error must name a specific feature of this experiment. If it could apply to any experiment, it will not score.',
-      compare: [
-        { good: 'Pins have width — exact position of the ray is uncertain (ray-tracing)', bad: 'Parallax error — too vague: parallax in what?' },
-        { good: 'The mirror has thickness — reflecting surface is behind the glass', bad: 'Human error — never credited' },
-        { good: 'The clay block has irregular faces — dimensions vary along the block', bad: 'The ruler was not accurate' },
-        { good: 'Fixed resistor prevents the test wire heating up and changing R', bad: 'Experimental error' }
-      ]
-    },
-    {
-      id: '4.2', cat: 'errors', section: 'sec-4',
-      title: '"Carefully carried out" → equipment limitations only',
-      body: 'If the question states the experiment was carefully carried out, you cannot cite technique errors. Only equipment limitations score: inaccurate test load, non-uniform metre rule, non-uniform spring, and so on.',
-      quote: 'It was expected that these would refer to sources which the experimenter would have no control over, such as an inaccurate value of the test load or a non-uniform metre rule or spring.',
-      quoteSource: 'CIE Examiner Report, March 2022',
-      rule: 'If the question says "experiment was carefully carried out": only cite equipment limitations, not technique errors.'
-    },
-    {
-      id: '4.3', cat: 'errors', section: 'sec-4',
-      title: 'Ray tracing — view the bases of the pins',
-      body: 'View the BASES of the pins when aligning them, not the tops. For the pin experiment, "carry out in a darkened room" earns nothing (June 2021, November 2021, November 2024). It is credited only when the question asks how to see an image clearly, such as finding the sharpest image from a lens (June 2024, November 2023). It was not credited when the question asked how to set up a lens experiment (March 2024). Place the pins well over 5 cm apart: pins drawn exactly 5.0 cm apart risked being just too short (November 2021). Angles are measured from the normal, not the surface. n = sin i / sin r is dimensionless — no unit.',
-      rule: 'Ray tracing with pins: "view the bases of the pins" (also thin pins, thin lines, pins well over 5 cm apart). Only write "darkened room" when the question is about seeing an image clearly.'
-    },
-    {
-      id: '4.4', cat: 'errors', section: 'sec-4',
-      title: 'Percentage uncertainty grows for small measurements',
-      body: 'A reaction-time error of 0.2 s is 20% of a 1 s period — but only 2% of a 10 s total. This is why we time 10 oscillations, not 1. The same principle applies to length: measuring a 5 cm object has higher % uncertainty than a 50 cm object with the same ruler.',
-      quote: 'The correct answer focused on the fact that when taking smaller measurements, the effect of the uncertainty in the measurement (due to the resolution of the measuring device) is greater. There is a larger percentage uncertainty in smaller measurements.',
-      quoteSource: 'CIE Examiner Report, November 2025',
-      rule: 'Smaller measurement = larger % uncertainty. Measure more, not less.'
-    },
-    {
-      id: '4.5', cat: 'errors', section: 'sec-4',
-      title: 'Timing oscillations — 10 in one go, divide by 10',
-      body: 'Time 10 complete oscillations as ONE continuous measurement, then divide by 10. Do NOT time 10 individual oscillations and average them — that compounds the reaction-time error.',
-      quote: 'Some candidates appeared to refer to 10 separate timings of one oscillation giving an average result, not realising that a single time for 10 oscillations is the technique involved.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Time 10 complete oscillations as ONE continuous measurement. Divide by 10. Do NOT time 10 individual oscillations and average them.',
-      compare: [
-        { good: 'Start at equilibrium. Count 10 complete oscillations. Stop. T = total ÷ 10.', bad: 'Time one oscillation, reset, repeat 10 times, average. — WRONG.' },
-        { good: 'Use 5 or 10 oscillations to reduce the proportional reaction-time error', bad: 'Use 1 oscillation and claim it is accurate' }
-      ]
-    },
-
-    // SECTION 5 - PLANNING
-    {
-      id: '5.1', cat: 'planning', section: 'sec-5', sectionTitle: 'Planning Investigations (Q4)', sectionNum: '05',
-      title: 'Do not copy apparatus from the question',
-      body: 'List only ADDITIONAL apparatus that you are bringing in. Copying out the list the question already provided wastes time and scores nothing.',
-      quote: 'A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary and often introduced a vague explanation of the investigation.',
-      quoteSource: 'CIE Examiner Report, June 2021',
-      rule: 'Only list ADDITIONAL apparatus not already named in the question. Copying given information scores nothing.'
-    },
-    {
-      id: '5.2', cat: 'planning', section: 'sec-5',
-      title: 'Variables — the exact language required',
-      body: 'State the IV explicitly in words. State the DV explicitly with the instrument used to measure it. Name at least 2 control variables with the method of control. Implying through method or table does not score.',
-      quote: 'The variable needed to be clearly stated to obtain credit, and not just implied in the method, table or analysis.',
-      quoteSource: 'CIE Examiner Report, November 2025',
-      rule: 'State the IV, DV and control variables EXPLICITLY in text — naming, units, and how each is varied / measured / controlled.',
-      compare: [
-        { good: 'IV: wire diameter d / mm, varied by using wires of different diameters.', bad: '"Change the wire" — too vague: what property?' },
-        { good: 'DV: resistance R / Ω, measured using a voltmeter and ammeter.', bad: '"Measure the resistance" — no instrument named' },
-        { good: 'Controls: temperature T (room temperature); wire material (same type).', bad: '"Keep everything else the same"' }
-      ]
-    },
-    {
-      id: '5.3', cat: 'planning', section: 'sec-5',
-      title: 'Minimum 5 values, repeated and averaged',
-      body: 'The method must include measurements for at least five values of the IV. For each value, repeat the measurement and take the mean. "Repeat the experiment" is weaker than stating you will repeat each measurement at each IV value.',
-      rule: 'At least 5 values of the IV. Repeat each measurement. Calculate the mean. All three must be stated.'
-    },
-    {
-      id: '5.4', cat: 'planning', section: 'sec-5',
-      title: 'Table of results — quantity / unit, never instrument names',
-      body: 'Column headings: quantity name / unit — e.g. current / A, not "ammeter reading" or "I" alone. Include a column for the IV. Derived quantities (e.g. rate of cooling) need their own column and unit. Weight in N, not g or kg.',
-      quote: 'Most candidates completed the table successfully, but a significant number did not fill in the column headings.',
-      quoteSource: 'CIE Examiner Report, November 2025',
-      rule: 'Table headings: quantity / unit, never instrument names.'
-    },
-    {
-      id: '5.5', cat: 'planning', section: 'sec-5',
-      title: 'Graph — confirming the relationship',
-      body: 'State explicitly which graph confirms the relationship. Proportional (y ∝ x): plot y vs x, straight line through origin. Linear (y = mx + c): straight line, any intercept. Where the relationship involves a square, plot that quantity directly (for example T² against d).',
-      rule: 'Always state: which graph, what shape confirms which relationship.'
-    },
-    {
-      id: '5.6', cat: 'planning', section: 'sec-5',
-      title: 'Conclusion method — not a prediction',
-      body: 'State how you will USE your data to reach a conclusion. Do not state what you expect to find. Writing a prediction instead of a method is named in 15 of the 17 series.',
-      rule: 'Conclusion method = how you use the data. Prediction = what you expect. Only the method scores.',
-      compare: [
-        { good: 'If the graph of cooling rate vs initial temperature gives a straight line through origin, cooling rate ∝ initial temperature.', bad: 'I predict the cooling rate will increase with temperature.' },
-        { good: 'Compare the time for each heater to reach boiling. Shortest = most efficient.', bad: 'The electric heater will be more efficient.' }
-      ]
-    },
-    {
-      id: '5.7', cat: 'planning', section: 'sec-5',
-      title: 'Circuit diagrams — voltmeter parallel, ammeter series',
-      body: 'Voltmeter: always in parallel with the component being measured. Ammeter: always in series. Variable resistor: rectangle with arrow — not the thermistor symbol. Voltmeter must span the full series combination, not just one component within it. Include a switch.',
-      rule: 'V in parallel. A in series. Include the switch. Variable resistor ≠ thermistor symbol.'
-    },
-    {
-      id: '5.8', cat: 'planning', section: 'sec-5',
-      title: 'Routinely-omitted practical details',
-      body: 'Spring: record initial unloaded length so extensions can be calculated. Cooling: state a fixed cooling time (e.g. 5 min), not "until room temperature". Refraction: list BOTH protractor AND ruler. Lens: move the screen, not the lens or object. Diagrams: springs must be shown hanging from a clamp stand, not in mid-air.'
-    }
-  ];
+  const RULES = fromDOM(document.getElementById("xs-RULES"));
 
   // CHECKLIST (after-paper)
-  const CHECKLIST = [
-    {
-      title: 'Measurement and Recording', section: 'sec-1',
-      items: [
-        'Every length is recorded to the nearest mm (one decimal place in cm)',
-        'All table column headings have a quantity name and a unit',
-        'Weight is in N. Density is in g/cm³ or kg/m³',
-        'T² is labelled in s² (not s). Ratios have no unit',
-        'Calculated values are given to 2–3 significant figures',
-        'No overwriting — any changes are crossed out and rewritten clearly',
-        'Cooling rate = temperature drop over a fixed time, not the final temperature'
-      ]
-    },
-    {
-      title: 'Graph Work', section: 'sec-2',
-      items: [
-        'Plotted points occupy more than half the grid in both directions',
-        'Scale increments are 1, 2, 4, 5, or 10 per division (not 3 or 7)',
-        'Both axes have a label and a unit',
-        'Plotted points are small, neat crosses or circled dots — no blobs',
-        'Best-fit line is a single straight line, not dot-to-dot',
-        'Best-fit line is NOT forced through the origin unless physics requires it',
-        'Gradient triangle is large; construction lines drawn; coordinates read from the line',
-        'If proportionality is claimed: line passes through origin AND ratio y/x is constant',
-        'Gradient calculated as Δy/Δx using axis scale values, not grid square counts'
-      ]
-    },
-    {
-      title: 'Conclusions', section: 'sec-3',
-      items: [
-        'When comparing two values: percentage difference is calculated and stated',
-        'Equal-or-not judged with a calculation: smaller ÷ larger, 0.90 or more → "equal within the limits of experimental accuracy"',
-        'The yes or no matches your numbers, not what the theory predicts',
-        'Conclusion method states how to USE the data (not a prediction)',
-        'Direct proportion justified using ratio or doubling argument — not just "increases with"'
-      ]
-    },
-    {
-      title: 'Sources of Error', section: 'sec-4',
-      items: [
-        'Sources of error are specific to this experiment (not "parallax" or "human error" alone)',
-        'If question says "experiment was carefully done": only equipment limitations cited',
-        'Ray tracing with pins: "view the bases of the pins"; "darkened room" only when the question is about seeing an image clearly',
-        'Ray tracing: pins well over 5 cm apart (exactly 5.0 cm risks being just too short)',
-        'Timing: 10 oscillations timed as one continuous measurement, then divided by 10'
-      ]
-    },
-    {
-      title: 'Planning (Q4)', section: 'sec-5',
-      items: [
-        'No apparatus copied from the question — only additional items listed',
-        'IV stated explicitly: named, with unit, with how it is varied',
-        'DV stated explicitly: named, with unit, with how it is measured',
-        'At least 2 control variables named with method of control',
-        'At least 5 values of the IV specified in the method',
-        'Repeat readings at each IV value stated; mean to be calculated',
-        'Table headings: quantity / unit (not instrument names)',
-        'Graph axes stated; conclusion method stated (not a prediction)',
-        'Circuit diagrams: voltmeter in parallel, ammeter in series, switch included',
-        'Essential setup detail included (initial spring length, fixed cooling time, etc.)'
-      ]
-    }
-  ];
+  const CHECKLIST = fromDOM(document.getElementById("xs-CHECKLIST"));
 
   // RANKED: every error the Paper 5 sections of the 17 reports (March 2021 to June 2026) criticise in 3 or more series.
   // Count = series where the report says candidates made the mistake (read by hand; expectations and boilerplate excluded).
-  const RANKED = [
-    [1, 'Planning', 'Conclusion method missing: a prediction written instead', 15, 'Mar 2021', 'Mar 2026'],
-    [2, 'Graph work', 'Awkward scale (steps of 3 or 7) or points filling less than half the grid', 13, 'Mar 2021', 'Jun 2026'],
-    [3, 'Recording', 'Calculated values to the wrong or an inconsistent number of significant figures', 12, 'Mar 2021', 'Jun 2026'],
-    [4, 'Graph work', 'Best-fit line drawn dot-to-dot (points joined)', 11, 'Mar 2021', 'Nov 2025'],
-    [5, 'Graph work', 'Plotted points too large (blobs), not small crosses', 10, 'Mar 2021', 'Mar 2026'],
-    [5, 'Sources of error', 'Generic error ("parallax", "poor practice") instead of one specific to the experiment', 10, 'Jun 2021', 'Jun 2026'],
-    [7, 'Recording', 'Table column heading left blank or missing its unit', 9, 'Mar 2021', 'Jun 2026'],
-    [7, 'Recording', 'Length not recorded to the nearest millimetre', 9, 'Nov 2021', 'Jun 2026'],
-    [7, 'Planning', '"Repeat the experiment" without saying what is repeated', 9, 'Jun 2021', 'Nov 2025'],
-    [7, 'Planning', 'Apparatus list copied from the question', 9, 'Nov 2021', 'Nov 2025'],
-    [11, 'Graph work', 'Best-fit line forced through the origin', 8, 'Mar 2021', 'Jun 2026'],
-    [12, 'Recording', 'Wrong unit for a calculated quantity (e.g. density as cm³/g)', 7, 'Jun 2021', 'Jun 2026'],
-    [13, 'Planning', 'Circuit diagram errors: voltmeter in series, wrong symbol', 6, 'Mar 2021', 'Jun 2025'],
-    [13, 'Practical technique', 'Ray tracing: pins too close together', 6, 'Jun 2021', 'Mar 2025'],
-    [15, 'Conclusions', '"Equal within experimental accuracy" not judged with a calculation', 5, 'Mar 2021', 'Mar 2026'],
-    [15, 'Planning', 'Control variable missing, unclear or irrelevant', 5, 'Nov 2021', 'Mar 2026'],
-    [17, 'Graph work', 'Gradient: small triangle, grid squares counted, or working not shown', 4, 'Nov 2023', 'Jun 2026'],
-    [17, 'Planning', 'No instrument named for measuring a variable', 4, 'Nov 2021', 'Nov 2025'],
-    [19, 'Conclusions', 'Proportionality claimed because "both increase", not tested', 3, 'Jun 2021', 'Nov 2025'],
-    [19, 'Conclusions', 'Conclusion not supported with values from the results', 3, 'Mar 2021', 'Jun 2026'],
-    [19, 'Graph work', 'Best-fit line drawn too thick', 3, 'Mar 2023', 'Nov 2024'],
-    [19, 'Practical technique', '"Darkened room" given where it earns nothing (pin experiment, setting up)', 3, 'Jun 2021', 'Nov 2024'],
-    [19, 'Recording', 'Readings overwritten instead of crossed out and rewritten', 3, 'Jun 2021', 'Jun 2023']
-  ];
+  const RANKED = fromDOM(document.getElementById("xs-RANKED"));
 
   // QUIZ QUESTIONS
-  const QUIZ_QUESTIONS = [
-    { cat: 'Measurement', q: 'You measure a length with a ruler. Which is correctly recorded?',
-      opts: ['12 cm', '12.0 cm', '12.04 cm', '0.12 m'], ans: 1,
-      fb: 'Linear measurements must be recorded to the nearest mm — one decimal place in cm. "12 cm" is only to the nearest cm.' },
-    { cat: 'Graph work', q: 'A scale of "3 units per division" is:',
-      opts: ['Fine — as long as the plots fill the grid', 'Wrong — should never be used', 'Risky — examiners flag 3 or 7 per division as awkward', 'Acceptable only on the x-axis'], ans: 2,
-      fb: 'Use 1, 2, 4, 5 or 10 per division. 3 and 7 make accurate reading hard and were explicitly flagged in multiple series.' },
-    { cat: 'Graph work', q: 'A best-fit line should be:',
-      opts: ['Drawn dot-to-dot through every point', 'Forced through the origin', 'A single straight line with roughly equal points on each side', 'The line connecting the first and last point'], ans: 2,
-      fb: 'Roughly equal points on either side, along the full length. Dot-to-dot lines and lines forced through the origin are the two best-fit faults the reports name again and again.' },
-    { cat: 'Conclusions', q: 'Two values differ by 3%. The correct conclusion is:',
-      opts: ['"They are too different to be equal"', '"They agree within experimental accuracy"', '"More data is needed"', '"The experiment failed"'], ans: 1,
-      fb: 'A 3% difference is well within 10% (ratio about 0.97), so the values agree within experimental accuracy. Show the calculation.' },
-    { cat: 'Conclusions', q: 'Two values differ by 14%. The correct conclusion is:',
-      opts: ['"They agree within experimental accuracy"', '"They are too far apart to be considered equal"', '"Close enough to be equal"', 'Either — it depends'], ans: 1,
-      fb: 'A 14% difference is more than 10% (ratio about 0.86), so the values are too far apart to be considered equal.' },
-    { cat: 'Sources of error', q: 'In ray-tracing, the BEST precaution is:',
-      opts: ['Carry out in a darkened room', 'View the bases of the pins, not the tops', 'Use thicker pins', 'Use a thicker pencil for the ray'], ans: 1,
-      fb: 'For the pin experiment, "darkened room" earns nothing (June 2021, November 2021). The credited precaution is viewing the BASES of the pins. A darkened room only earns credit when the question is about seeing an image clearly, as in the lens experiment.' },
-    { cat: 'Sources of error', q: 'For a pendulum, you should time:',
-      opts: ['One oscillation, repeat 10 times, average', 'Half an oscillation and double it', '10 complete oscillations as one continuous measurement, then divide by 10', 'As many as you can in 60 seconds'], ans: 2,
-      fb: '10 oscillations timed in one continuous go reduces the proportional reaction-time error. Timing individually and averaging compounds the error.' },
-    { cat: 'Sources of error', q: 'A weak source of error is:',
-      opts: ['"Pins have width — the ray\'s position is uncertain"', '"The mirror has thickness — reflecting surface is behind glass"', '"Parallax error"', '"The clay block has irregular faces"'], ans: 2,
-      fb: '"Parallax error" is generic. Examiners want a feature specific to THIS experiment. Any answer that could apply to any experiment fails.' },
-    { cat: 'Planning', q: 'Which is the strongest statement of an independent variable?',
-      opts: ['"Change the wire"', '"Use different wires"', '"The independent variable is the wire diameter d / mm, varied by using wires of different diameters"', '"Measure the wire"'], ans: 2,
-      fb: 'State the IV explicitly: named, with unit, with how it is varied. Implying it through the method does not score.' },
-    { cat: 'Planning', q: 'How many values of the IV should be measured?',
-      opts: ['At least 3', 'At least 5, each repeated and averaged', 'Exactly 10', 'As many as the apparatus allows'], ans: 1,
-      fb: 'At least 5 values, each measurement repeated, and the mean calculated. State all three.' },
-    { cat: 'Planning', q: '"I predict the spring will stretch more with heavier loads" — this is:',
-      opts: ['A valid conclusion method', 'A prediction — does not score for the conclusion mark', 'Acceptable if backed by data', 'Required to introduce the method'], ans: 1,
-      fb: 'A prediction states what you expect. A conclusion method states how you will USE the data. Only the method scores — the reports name it in 15 of the 17 series.' },
-    { cat: 'Measurement', q: 'A calculated density of "0.934721 g/cm³" should be:',
-      opts: ['Left as is — more digits = more accurate', 'Rounded to 2 or 3 significant figures', 'Quoted to 4 decimal places', 'Converted to kg/m³'], ans: 1,
-      fb: 'Raw measurements from a ruler/balance cannot justify 6 sig figs. Aim for 2–3 sig figs in calculated answers.' },
-    { cat: 'Graph work', q: 'To claim direct proportionality from a graph, you need:',
-      opts: ['Any straight line', 'A straight line passing through the origin', 'A curve through the origin', 'A straight line on log axes'], ans: 1,
-      fb: 'Straight line alone = linear. Straight line through origin (with ratio y/x constant) = proportional. The two are not the same.' },
-    { cat: 'Planning', q: 'The voltmeter in a circuit measuring a resistor should be:',
-      opts: ['In series with the resistor', 'In parallel with the resistor', 'In parallel with the ammeter', 'Either works'], ans: 1,
-      fb: 'Voltmeter ALWAYS in parallel with the component. Ammeter ALWAYS in series. Common circuit error to lose easy marks on.' },
-    { cat: 'Measurement', q: 'A column heading of "Mass / g" is used for weight readings. This:',
-      opts: ['Scores — mass and weight are interchangeable in everyday use', 'Loses a mark — weight must be in N', 'Is fine if the experiment is on Earth', 'Only matters in Q4'], ans: 1,
-      fb: 'Weight is a force — must be in newtons (N). Recording it in g or kg loses the unit mark. Flagged in multiple series.' }
-  ];
+  const QUIZ_QUESTIONS = fromDOM(document.getElementById("xs-QUIZ_QUESTIONS"));
 
   /* ============================================================
      STATE & PERSISTENCE
