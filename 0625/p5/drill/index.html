@@ -1136,6 +1136,17 @@ h1.cie-page-title em {
         })(window, document, "clarity", "script", "y8nr84sy0c");
     </script>
     <!-- End Microsoft Clarity -->
+<style>
+.js .drill-static{display:none}
+.drill-static{max-width:880px;margin:32px auto;padding:0 20px;color:#3a3127;font-size:15px;line-height:1.6}
+.drill-static h2{font-family:'Fraunces',serif;font-size:24px;color:#1f1a14;margin:32px 0 8px}
+.drill-static h3{font-size:16px;font-weight:600;color:#1f1a14;margin:0 0 6px}
+.drill-static .xg-list{list-style:none;padding:0;margin:0}
+.drill-static .xg-list .xg-list{padding-left:16px;border-left:2px solid #e6dcc6;margin:8px 0}
+.drill-static .xg-o{padding:10px 0;border-bottom:1px solid #e6dcc6}
+.drill-static .xg-p{margin:4px 0}.drill-static .xg-ok{font-weight:700;color:#436438}
+</style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="cie-wrap">
 <div class="cie-topbar">
@@ -1273,6 +1284,172 @@ h1.cie-page-title em {
   </section>
 </main>
 
+<script>
+function fromDOM(el){
+  const own=(o,k)=>[...o.querySelectorAll('[data-f="'+k+'"]')].find(n=>n.parentElement.closest(".xg-o,.xg-root")===o);
+  const val=n=>n.dataset.arr?list(n):n.dataset.keys!==undefined?obj(n):n.textContent;
+  const list=u=>[...u.children].map(li=>{const k=u.dataset.arr;return k==="s"?li.textContent:k==="o"?obj(li):k==="a"?list(li.firstElementChild):(li.hasAttribute("data-num")?Number(li.textContent):li.textContent);});
+  const obj=o=>{const j=o.dataset.j?JSON.parse(o.dataset.j):{},r={};
+    for(const k of o.dataset.keys.split(",")){ if(k in j) r[k]=j[k]; else r[k]=val(own(o,k)); }
+    return r;};
+  return list(el.querySelector(":scope > ul"));
+}
+</script>
+<div class="drill-static">
+<section class="xg-root xg-DRILLS" id="xs-DRILLS">
+<h2>Skill-by-skill rules</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Graph work</span></p><h3 data-f="prompt">Your data shows resistance increasing with wire length. What's the correct way to prove it's a directly proportional relationship?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Show that as length increases, resistance also increases</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Both quantities increasing only proves positive correlation, not direct proportion.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Plot R against L and check the line is straight AND passes through the origin</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Take the average of all R values and divide by the average of all L values</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">An average is just one value — you can't show proportionality without the full data pattern.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Show that the line through the data is straight</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Very few candidates realised that the line must pass through the origin to show a proportional relationship.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Straight line = LINEAR. Straight line through ORIGIN = PROPORTIONAL.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Tolerance rule</span></p><h3 data-f="prompt">You calculate two values: f₁ = 12.4 cm and f₂ = 14.2 cm. The question says they are equal if they are within 10% of each other. Are they?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">No — they are obviously different numbers</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Most candidates were able to state whether or not their results supported the statement given. However, not all candidates were able to go on and give a convincing justification for their statements.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">You must calculate the percentage difference, not eyeball it.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Yes — because the difference is only 1.8 cm</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">'Only 1.8 cm' isn't a test. Compare the values as a ratio or a percentage against the 10% the question gives.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Smaller ÷ larger = 12.4 ÷ 14.2 = 0.87. That is below 0.90, so no: they are more than 10% apart.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Yes — because all experiments have errors</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Show the calculation and let it decide: smaller ÷ larger of 0.90 or more means equal within experimental accuracy. Mark schemes since 2022 use 10%, and recent questions state it.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Timing technique</span></p><h3 data-f="prompt">You're asked to find the period of a pendulum. Which technique should you use?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Time one swing 10 times and take the average</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Some candidates appeared to refer to 10 separate timings of one oscillation giving an average result, not realising that a single time for 10 oscillations is the technique involved.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Time 10 oscillations as ONE continuous measurement, then divide by 10.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Time 10 oscillations in one go, then divide the time by 10</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Time one swing carefully using a digital stopwatch</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Reaction time error is spread over 10 oscillations / a longer time.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Nov 2023</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Timing one oscillation gives a much larger percentage error than timing ten.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Time 10 oscillations to eliminate reaction time error</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Reaction time is REDUCED as a percentage, NEVER eliminated.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Best-fit line</span></p><h3 data-f="prompt">Your plotted data forms a clear pattern, but none of the points pass through the origin. Where should your line of best fit go?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Through the origin and the average of the data points</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">There were many graphs where the attempt at a best-fit line was forced through the origin.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Don't force the line through the origin — the line follows YOUR data.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Connecting each data point in order (dot-to-dot)</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A best-fit line is smooth and straight (if data is linear) — never dot-to-dot.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">A smooth straight line with an even distribution of points on each side</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">From the first point to the last point</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A best-fit line balances ALL points, not just the endpoints.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Measurement precision</span></p><h3 data-f="prompt">You measure a length with a ruler. It looks exactly 5 cm. How should you record it?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">5 cm</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Writing '5 cm' implies precision only to the nearest cm. A ruler gives mm precision.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">5.0 cm</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">5 cm exactly</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Precision is shown by the decimal places — write 5.0 cm, not '5 cm exactly'.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">0.05 m</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Match the unit the question specified. cm to the nearest mm means 5.0 cm.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Sources of error</span></p><h3 data-f="prompt">In a careful experiment with a marble and measuring cylinder, what's a valid source of inaccuracy?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Parallax error when reading the scale</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">'Parallax' alone is a technique error — not credited when the experiment was 'carefully' performed.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Measuring cylinder scale divisions are too large relative to the marble volume</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Human error in reading the level</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">'Human error' is never credited. Be specific about what makes the reading uncertain.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The marble wasn't fully submerged</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">If the question specifies careful technique, only inherent apparatus limits count.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Conclusions</span></p><h3 data-f="prompt">In a planning question, you're asked how you'd reach a conclusion from your results. Which is correct?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The temperature will decrease faster with smaller volumes</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Some candidates wrote a prediction but no explanation of how to reach a conclusion.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2022</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">That's a PREDICTION — what you expect. A CONCLUSION method is HOW you'd use the data.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">I will use my physics knowledge to interpret the results</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Theory doesn't replace data. State how the RESULTS will tell you the answer.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Plot a graph of cooling rate against volume. If a straight line through the origin is obtained, cooling rate is proportional to volume.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Compare my results to the expected value from textbook data</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Your conclusion uses YOUR experimental data — not a textbook value.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Circuit diagrams</span></p><h3 data-f="prompt">You have a resistor and a lamp in series. You need to measure the p.d. across BOTH together. Where does the voltmeter go?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">In parallel with just the resistor</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">If the question asks for p.d. across both, the voltmeter must span both.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">In parallel across both the resistor and lamp together</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">In series with the resistor</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Voltmeter is ALWAYS in parallel. Ammeter is always in series.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Across the battery terminals</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Across the battery measures the e.m.f., not the p.d. across your test components.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Planning</span></p><h3 data-f="prompt">You're planning an investigation. The question asks for additional apparatus needed. What should you include?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Only equipment that isn't already shown in the question diagram</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">A complete list of all apparatus used in the experiment</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Don't copy what's already in the question — only add NEW equipment.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Only basic items like ruler and stopwatch</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Many candidates did not state that both a protractor and a ruler were needed as extra apparatus.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2025</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Name every measuring instrument required — including the 'obvious' ones.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Just the apparatus you'd use to take the key measurement</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Candidates needed to include a stop-watch (or other timing device) for initial credit to be awarded.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">List ALL additional instruments — for IV, DV, AND control variables.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,prompt,options"><p class="xg-p"><span data-f="skill">Ray tracing</span></p><h3 data-f="prompt">You're doing a ray-tracing experiment with pins. What's the correct precaution?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Work in a darkened room</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">A significant number of candidates incorrectly suggested carrying out the experiment in a darkened room. Successful candidates made valid suggestions such as viewing the bases of the pins.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A darkened room earns nothing in the pin experiment (June 2021, November 2021). It is credited only when the question is about seeing an image clearly, such as the sharpest image from a lens (June 2024).</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Use thick pins so they're easy to see</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Thin pins are what the mark scheme credits (June 2025, March 2025). Thick pins blur the position of the ray.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">View the bases of the pins when aligning them</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Place the pins close together so they are easy to line up</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Mark schemes credit pins far apart, at least 5 cm (June 2025, June 2023). Go well beyond 5 cm: in November 2021, pins drawn exactly 5.0 cm apart risked being just too short.</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section class="xg-root xg-SPOTTER" id="xs-SPOTTER">
+<h2>What's wrong here?</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Graph work</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">On a question asking what 1 small division on the speed axis represents.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">The student's graph has axes labelled 'speed' and 'time' with no units, and the y-axis goes from 0 to 100 in increments of 7.</span></p><h3 data-f="prompt">What is wrong with this answer?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The graph should be plotted on log-log paper</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Log paper is never the answer for IGCSE Paper 5.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Two errors: missing units on axes, and awkward scale (increments of 7)</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The line of best fit was forced through the origin</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Read the question carefully — it asks about a specific student error.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The plot points are too small to see</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The issue here is axis labels and scale choice, not plot size.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Tolerance</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">A question asked whether two refractive index values (1.42 and 1.51) are 'equal within experimental accuracy'.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">Yes, both values are close to 1.5 so they're approximately equal.</span></p><h3 data-f="prompt">What is missing from this answer?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">The candidate should have written the calculation: (0.09 ÷ 1.42) × 100 = 6.3%, which is within 10%, so 'yes, equal within experimental accuracy'.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have said 'no, they're different'</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">6.3% is within 10%, so 'no, they're different' contradicts the numbers. The calculation is what earns the mark.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have given the values to more decimal places</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The tolerance rule requires SHOWING the percentage difference.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have averaged the two values</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Use percentage difference — that's what proves agreement or disagreement.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Sources of error</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">After a 'carefully carried out' density experiment using a marble and measuring cylinder.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">There was parallax error when reading the measuring cylinder.</span></p><h3 data-f="prompt">Why didn't this answer score?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Parallax isn't a real source of error in physics</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Parallax is real, but it's a technique issue — not credited when the experiment is 'carefully done'.</span></p></li>
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">The question specified the experiment was 'carefully carried out', so technique errors don't apply</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Parallax should have been spelled 'paralax'</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Focus on the physics: technique vs inherent limits.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have said 'paral­lax in the meniscus reading'</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">When the experiment is 'carefully done', the answer must be an INHERENT apparatus limit.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Cooling rate</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">Two beakers of water are cooling. Beaker A starts at 80°C and ends at 60°C. Beaker B starts at 70°C and ends at 55°C. Same time elapsed.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">Beaker A cooled faster because it ended at a higher temperature than B.</span></p><h3 data-f="prompt">What's wrong with this conclusion?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Cooling rate isn't measured by final temperature — it's measured by temperature CHANGE per unit time</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Beaker A actually cooled slower because it lost more heat</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The conclusion might be correct but the reasoning given is wrong.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The starting temperatures should have been equal</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The student's logic was wrong — they used the wrong quantity to judge cooling rate.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have used Newton's law of cooling</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Keep it simple: cooling rate = temperature change ÷ time.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Planning</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">Planning question: investigating how angle of launch affects horizontal range of a projectile.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">Method: 1) Set up the apparatus. 2) Measure the range. 3) Change the angle. 4) Repeat.</span></p><h3 data-f="prompt">What's missing from this plan?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Multiple things: no number of values specified, 'repeat' is vague, no instruments named, no conclusion method</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have included a labelled diagram</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A diagram is a nice-to-have. The missing essentials are the bigger problem.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have stated the expected result</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A prediction is not what's needed — the method itself has gaps.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have used a different angle</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The plan needs structure: instruments, number of values, repeats, conclusion.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Technique</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">A focal length experiment. The student is asked how to obtain a sharp image on the screen.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">Move the screen slowly until the image is clearest.</span></p><h3 data-f="prompt">Why didn't this score full marks?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">The screen position is fixed once the object-to-screen distance is set — you must move the LENS</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have said 'use a brighter lamp'</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The error is procedural: which component to move.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have specified a particular screen position</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">When the screen-object distance is fixed, only the LENS can adjust.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have said 'work in a darkened room'</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Darkened room is for image visibility — moving the lens is for sharpness.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,candidateAnswer,prompt,options"><p class="xg-p"><span data-f="skill">Measurement</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">After taking a reading of 23.4 cm³, the student noticed they'd misread and the actual reading was 24.1 cm³.</span></p><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">The student wrote '24.1' on top of the '23.4' in the table.</span></p><h3 data-f="prompt">Why does the examiner take issue with this?</h3><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Overwriting makes the original answer ambiguous — the examiner can't tell which value was intended</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The new value is wrong</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The complaint is about how the change was made, not the value itself.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The student should have used pen, not pencil</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Overwriting is the problem regardless of pen or pencil.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The student should have used a different colour</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">The fix is: one clean line through the old value, write new value next to it.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="skill,context,prompt,candidateAnswer,options"><p class="xg-p"><span data-f="skill">Conclusion</span></p><p class="xg-p"><b>Context:</b> <span data-f="context">Planning question. The candidate ended their plan with: 'I predict that as the temperature of the water increases, it will boil faster.'</span></p><h3 data-f="prompt">Why does this final sentence score zero?</h3><p class="xg-p"><b>Student's answer:</b> <span data-f="candidateAnswer">I predict that as the temperature of the water increases, it will boil faster.</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">It's a PREDICTION — the question asked how to reach a conclusion from the data, not what you expect to find</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The prediction is wrong — hotter water boils slower</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">A prediction is what you expect; a conclusion is HOW you use the data.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have written it in past tense</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Whether predicted or past, this isn't a conclusion method.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The candidate should have included specific temperatures</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Add: 'Plot temperature against boil time. If a clear pattern is seen, this shows the relationship.'</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section class="xg-root xg-PLANNING" id="xs-PLANNING">
+<h2>Q4 planning simulator</h2>
+<ul class="xg-list" data-arr="o">
+<li class="xg-o" data-keys="stage,title,scenario,skill,prompt,options" data-j='{"stage":1}'><h3 data-f="title">Stage 1: Apparatus</h3><p class="xg-p"><b>Scenario:</b> <span data-f="scenario">You're asked to investigate how the diameter of a wire affects its resistance. The question provides a power supply, a length of wire, and crocodile clips.</span></p><p class="xg-p"><span data-f="skill">Naming instruments</span></p><p class="xg-p"><span data-f="prompt">What additional apparatus do you need to name?</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Voltmeter, ammeter, ruler, and micrometer (or vernier callipers)</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Voltmeter and ammeter only — the rest is provided</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">You need to MEASURE the diameter — and the wire length. Name those instruments.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Just a voltmeter — current can be calculated</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Every measurement needs an instrument. Don't omit measuring tools.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">A complete list of everything mentioned in the question</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Only ADDITIONAL apparatus — don't copy what's already provided.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="stage,title,scenario,skill,prompt,options" data-j='{"stage":2}'><h3 data-f="title">Stage 2: Variables</h3><p class="xg-p"><b>Scenario:</b> <span data-f="scenario">Your investigation: diameter of wire (the independent variable) vs resistance (dependent variable).</span></p><p class="xg-p"><span data-f="skill">Control variables</span></p><p class="xg-p"><span data-f="prompt">Which is a VALID control variable for this experiment?</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Length of wire</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The same beaker (apparatus)</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Apparatus is not a control variable. Use measurable physical quantities.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Keep current constant</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Current is the dependent variable being measured. You can't 'keep it constant'.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">View the meter perpendicularly</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Viewing perpendicularly is a PRECAUTION, not a control variable.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="stage,title,scenario,skill,prompt,options" data-j='{"stage":3}'><h3 data-f="title">Stage 3: Method</h3><p class="xg-p"><b>Scenario:</b> <span data-f="scenario">You've named the apparatus and identified control variables. Now describe the experimental procedure.</span></p><p class="xg-p"><span data-f="skill">Method structure</span></p><p class="xg-p"><span data-f="prompt">What's the minimum your method must include?</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Measure 5+ values of diameter; for each, measure V and I; repeat each and average; calculate R = V/I</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Try different diameters and record the resistance</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">It was necessary for the method to include measurements for a minimum of five values of the independent variable, to repeat each value and to then take averages.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">≥ 5 values, with repeats and averages — not just 'different diameters'.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Measure 3 diameters very accurately</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Minimum of five values of the independent variable.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Three is not enough — five values minimum.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Repeat the experiment many times</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">'Repeat' alone is vague. Be specific about WHAT you're varying.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="stage,title,scenario,skill,prompt,options" data-j='{"stage":4}'><h3 data-f="title">Stage 4: Sources of error</h3><p class="xg-p"><b>Scenario:</b> <span data-f="scenario">The question states the experiment was 'carefully carried out'. You're asked for a source of inaccuracy.</span></p><p class="xg-p"><span data-f="skill">Sources of error</span></p><p class="xg-p"><span data-f="prompt">Which is a valid answer?</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">The wire diameter may not be perfectly uniform along its length</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Parallax error when reading the meters</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Parallax is a TECHNIQUE error — not credited for 'careful' experiments.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Human error in connecting the circuit</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">'Human error' is never credited. It's a non-answer.</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">The wire might break during the experiment</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Inaccuracy is about how reliably you can MEASURE — not whether something might go wrong.</span></p></li>
+</ul></li>
+<li class="xg-o" data-keys="stage,title,scenario,skill,prompt,options" data-j='{"stage":5}'><h3 data-f="title">Stage 5: Conclusion</h3><p class="xg-p"><b>Scenario:</b> <span data-f="scenario">You've described your method. Now state how you'd reach a conclusion from your results.</span></p><p class="xg-p"><span data-f="skill">Conclusion method</span></p><p class="xg-p"><span data-f="prompt">Which is the best conclusion statement?</span></p><ul class="xg-list" data-f="options" data-arr="o">
+<li class="xg-o" data-keys="text,correct" data-j='{"correct":true}'><span class="xg-ok">Correct answer</span> <p class="xg-p"><span data-f="text">Plot a graph of resistance against 1/diameter². If a straight line through the origin is obtained, R is proportional to 1/d².</span></p></li>
+<li class="xg-o" data-keys="text,correct,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">If the resistance increases with smaller diameter, this confirms the theory</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Conclude from the data pattern, not from comparison to expected theory.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">I predict that thinner wires will have higher resistance</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Some candidates wrote a prediction but no explanation of how to reach a conclusion.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">That's a prediction. The question asks HOW you'd reach a conclusion from your data.</span></p></li>
+<li class="xg-o" data-keys="text,correct,quote,source,rule" data-j='{"correct":false}'><p class="xg-p"><span data-f="text">Compare the values to find a pattern</span></p><p class="xg-p"><b>Examiner Report:</b> <span data-f="quote">Not many candidates explained how they would use their results.</span></p><p class="xg-p"><b>Source:</b> <span data-f="source">Jun 2021</span></p><p class="xg-p"><b>The rule:</b> <span data-f="rule">Be specific: graph what against what, and what pattern shows what conclusion.</span></p></li>
+</ul></li>
+</ul>
+</section>
+</div>
 <footer class="site-footer">
   Built by <em>CIE Insider</em> · Examiner-led preparation for Cambridge IGCSE Physics 0625
 </footer>
@@ -1282,376 +1459,11 @@ h1.cie-page-title em {
 // QUESTION BANKS
 // ============================================================
 
-const DRILLS = [
-  {
-    skill: "Graph work",
-    prompt: "Your data shows resistance increasing with wire length. What's the correct way to prove it's a directly proportional relationship?",
-    options: [
-      { text: "Show that as length increases, resistance also increases", correct: false,
-        rule: "Both quantities increasing only proves positive correlation, not direct proportion." },
-      { text: "Plot R against L and check the line is straight AND passes through the origin", correct: true },
-      { text: "Take the average of all R values and divide by the average of all L values", correct: false,
-        rule: "An average is just one value — you can't show proportionality without the full data pattern." },
-      { text: "Show that the line through the data is straight", correct: false,
-        quote: "Very few candidates realised that the line must pass through the origin to show a proportional relationship.",
-        source: "Jun 2021",
-        rule: "Straight line = LINEAR. Straight line through ORIGIN = PROPORTIONAL." }
-    ]
-  },
-  {
-    skill: "Tolerance rule",
-    prompt: "You calculate two values: f₁ = 12.4 cm and f₂ = 14.2 cm. The question says they are equal if they are within 10% of each other. Are they?",
-    options: [
-      { text: "No — they are obviously different numbers", correct: false,
-        quote: "Most candidates were able to state whether or not their results supported the statement given. However, not all candidates were able to go on and give a convincing justification for their statements.",
-        source: "Jun 2021",
-        rule: "You must calculate the percentage difference, not eyeball it." },
-      { text: "Yes — because the difference is only 1.8 cm", correct: false,
-        rule: "'Only 1.8 cm' isn't a test. Compare the values as a ratio or a percentage against the 10% the question gives." },
-      { text: "Smaller ÷ larger = 12.4 ÷ 14.2 = 0.87. That is below 0.90, so no: they are more than 10% apart.", correct: true },
-      { text: "Yes — because all experiments have errors", correct: false,
-        rule: "Show the calculation and let it decide: smaller ÷ larger of 0.90 or more means equal within experimental accuracy. Mark schemes since 2022 use 10%, and recent questions state it." }
-    ]
-  },
-  {
-    skill: "Timing technique",
-    prompt: "You're asked to find the period of a pendulum. Which technique should you use?",
-    options: [
-      { text: "Time one swing 10 times and take the average", correct: false,
-        quote: "Some candidates appeared to refer to 10 separate timings of one oscillation giving an average result, not realising that a single time for 10 oscillations is the technique involved.",
-        source: "Jun 2021",
-        rule: "Time 10 oscillations as ONE continuous measurement, then divide by 10." },
-      { text: "Time 10 oscillations in one go, then divide the time by 10", correct: true },
-      { text: "Time one swing carefully using a digital stopwatch", correct: false,
-        quote: "Reaction time error is spread over 10 oscillations / a longer time.",
-        source: "Nov 2023",
-        rule: "Timing one oscillation gives a much larger percentage error than timing ten." },
-      { text: "Time 10 oscillations to eliminate reaction time error", correct: false,
-        rule: "Reaction time is REDUCED as a percentage, NEVER eliminated." }
-    ]
-  },
-  {
-    skill: "Best-fit line",
-    prompt: "Your plotted data forms a clear pattern, but none of the points pass through the origin. Where should your line of best fit go?",
-    options: [
-      { text: "Through the origin and the average of the data points", correct: false,
-        quote: "There were many graphs where the attempt at a best-fit line was forced through the origin.",
-        source: "Jun 2021",
-        rule: "Don't force the line through the origin — the line follows YOUR data." },
-      { text: "Connecting each data point in order (dot-to-dot)", correct: false,
-        rule: "A best-fit line is smooth and straight (if data is linear) — never dot-to-dot." },
-      { text: "A smooth straight line with an even distribution of points on each side", correct: true },
-      { text: "From the first point to the last point", correct: false,
-        rule: "A best-fit line balances ALL points, not just the endpoints." }
-    ]
-  },
-  {
-    skill: "Measurement precision",
-    prompt: "You measure a length with a ruler. It looks exactly 5 cm. How should you record it?",
-    options: [
-      { text: "5 cm", correct: false,
-        rule: "Writing '5 cm' implies precision only to the nearest cm. A ruler gives mm precision." },
-      { text: "5.0 cm", correct: true },
-      { text: "5 cm exactly", correct: false,
-        rule: "Precision is shown by the decimal places — write 5.0 cm, not '5 cm exactly'." },
-      { text: "0.05 m", correct: false,
-        quote: "The instruction to measure h in centimetres to the nearest millimetre was sometimes not followed.",
-        source: "Jun 2025",
-        rule: "Match the unit the question specified. cm to the nearest mm means 5.0 cm." }
-    ]
-  },
-  {
-    skill: "Sources of error",
-    prompt: "In a careful experiment with a marble and measuring cylinder, what's a valid source of inaccuracy?",
-    options: [
-      { text: "Parallax error when reading the scale", correct: false,
-        rule: "'Parallax' alone is a technique error — not credited when the experiment was 'carefully' performed." },
-      { text: "Measuring cylinder scale divisions are too large relative to the marble volume", correct: true },
-      { text: "Human error in reading the level", correct: false,
-        rule: "'Human error' is never credited. Be specific about what makes the reading uncertain." },
-      { text: "The marble wasn't fully submerged", correct: false,
-        rule: "If the question specifies careful technique, only inherent apparatus limits count." }
-    ]
-  },
-  {
-    skill: "Conclusions",
-    prompt: "In a planning question, you're asked how you'd reach a conclusion from your results. Which is correct?",
-    options: [
-      { text: "The temperature will decrease faster with smaller volumes", correct: false,
-        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
-        source: "Jun 2022",
-        rule: "That's a PREDICTION — what you expect. A CONCLUSION method is HOW you'd use the data." },
-      { text: "I will use my physics knowledge to interpret the results", correct: false,
-        rule: "Theory doesn't replace data. State how the RESULTS will tell you the answer." },
-      { text: "Plot a graph of cooling rate against volume. If a straight line through the origin is obtained, cooling rate is proportional to volume.", correct: true },
-      { text: "Compare my results to the expected value from textbook data", correct: false,
-        rule: "Your conclusion uses YOUR experimental data — not a textbook value." }
-    ]
-  },
-  {
-    skill: "Circuit diagrams",
-    prompt: "You have a resistor and a lamp in series. You need to measure the p.d. across BOTH together. Where does the voltmeter go?",
-    options: [
-      { text: "In parallel with just the resistor", correct: false,
-        rule: "If the question asks for p.d. across both, the voltmeter must span both." },
-      { text: "In parallel across both the resistor and lamp together", correct: true },
-      { text: "In series with the resistor", correct: false,
-        rule: "Voltmeter is ALWAYS in parallel. Ammeter is always in series." },
-      { text: "Across the battery terminals", correct: false,
-        rule: "Across the battery measures the e.m.f., not the p.d. across your test components." }
-    ]
-  },
-  {
-    skill: "Planning",
-    prompt: "You're planning an investigation. The question asks for additional apparatus needed. What should you include?",
-    options: [
-      { text: "Only equipment that isn't already shown in the question diagram", correct: true },
-      { text: "A complete list of all apparatus used in the experiment", correct: false,
-        quote: "A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.",
-        source: "Jun 2021",
-        rule: "Don't copy what's already in the question — only add NEW equipment." },
-      { text: "Only basic items like ruler and stopwatch", correct: false,
-        quote: "Many candidates did not state that both a protractor and a ruler were needed as extra apparatus.",
-        source: "Jun 2025",
-        rule: "Name every measuring instrument required — including the 'obvious' ones." },
-      { text: "Just the apparatus you'd use to take the key measurement", correct: false,
-        quote: "Candidates needed to include a stop-watch (or other timing device) for initial credit to be awarded.",
-        source: "Jun 2021",
-        rule: "List ALL additional instruments — for IV, DV, AND control variables." }
-    ]
-  },
-  {
-    skill: "Ray tracing",
-    prompt: "You're doing a ray-tracing experiment with pins. What's the correct precaution?",
-    options: [
-      { text: "Work in a darkened room", correct: false,
-        quote: "A significant number of candidates incorrectly suggested carrying out the experiment in a darkened room. Successful candidates made valid suggestions such as viewing the bases of the pins.",
-        source: "Jun 2021",
-        rule: "A darkened room earns nothing in the pin experiment (June 2021, November 2021). It is credited only when the question is about seeing an image clearly, such as the sharpest image from a lens (June 2024)." },
-      { text: "Use thick pins so they're easy to see", correct: false,
-        rule: "Thin pins are what the mark scheme credits (June 2025, March 2025). Thick pins blur the position of the ray." },
-      { text: "View the bases of the pins when aligning them", correct: true },
-      { text: "Place the pins close together so they are easy to line up", correct: false,
-        rule: "Mark schemes credit pins far apart, at least 5 cm (June 2025, June 2023). Go well beyond 5 cm: in November 2021, pins drawn exactly 5.0 cm apart risked being just too short." }
-    ]
-  }
-];
+const DRILLS = fromDOM(document.getElementById("xs-DRILLS"));
 
-const SPOTTER = [
-  {
-    skill: "Graph work",
-    context: "On a question asking what 1 small division on the speed axis represents.",
-    candidateAnswer: "The student's graph has axes labelled 'speed' and 'time' with no units, and the y-axis goes from 0 to 100 in increments of 7.",
-    prompt: "What is wrong with this answer?",
-    options: [
-      { text: "The graph should be plotted on log-log paper", correct: false,
-        rule: "Log paper is never the answer for IGCSE Paper 5." },
-      { text: "Two errors: missing units on axes, and awkward scale (increments of 7)", correct: true },
-      { text: "The line of best fit was forced through the origin", correct: false,
-        rule: "Read the question carefully — it asks about a specific student error." },
-      { text: "The plot points are too small to see", correct: false,
-        rule: "The issue here is axis labels and scale choice, not plot size." }
-    ]
-  },
-  {
-    skill: "Tolerance",
-    context: "A question asked whether two refractive index values (1.42 and 1.51) are 'equal within experimental accuracy'.",
-    candidateAnswer: "Yes, both values are close to 1.5 so they're approximately equal.",
-    prompt: "What is missing from this answer?",
-    options: [
-      { text: "The candidate should have written the calculation: (0.09 ÷ 1.42) × 100 = 6.3%, which is within 10%, so 'yes, equal within experimental accuracy'.", correct: true },
-      { text: "The candidate should have said 'no, they're different'", correct: false,
-        rule: "6.3% is within 10%, so 'no, they're different' contradicts the numbers. The calculation is what earns the mark." },
-      { text: "The candidate should have given the values to more decimal places", correct: false,
-        rule: "The tolerance rule requires SHOWING the percentage difference." },
-      { text: "The candidate should have averaged the two values", correct: false,
-        rule: "Use percentage difference — that's what proves agreement or disagreement." }
-    ]
-  },
-  {
-    skill: "Sources of error",
-    context: "After a 'carefully carried out' density experiment using a marble and measuring cylinder.",
-    candidateAnswer: "There was parallax error when reading the measuring cylinder.",
-    prompt: "Why didn't this answer score?",
-    options: [
-      { text: "Parallax isn't a real source of error in physics", correct: false,
-        rule: "Parallax is real, but it's a technique issue — not credited when the experiment is 'carefully done'." },
-      { text: "The question specified the experiment was 'carefully carried out', so technique errors don't apply", correct: true },
-      { text: "Parallax should have been spelled 'paralax'", correct: false,
-        rule: "Focus on the physics: technique vs inherent limits." },
-      { text: "The candidate should have said 'paral­lax in the meniscus reading'", correct: false,
-        rule: "When the experiment is 'carefully done', the answer must be an INHERENT apparatus limit." }
-    ]
-  },
-  {
-    skill: "Cooling rate",
-    context: "Two beakers of water are cooling. Beaker A starts at 80°C and ends at 60°C. Beaker B starts at 70°C and ends at 55°C. Same time elapsed.",
-    candidateAnswer: "Beaker A cooled faster because it ended at a higher temperature than B.",
-    prompt: "What's wrong with this conclusion?",
-    options: [
-      { text: "Cooling rate isn't measured by final temperature — it's measured by temperature CHANGE per unit time", correct: true },
-      { text: "Beaker A actually cooled slower because it lost more heat", correct: false,
-        rule: "The conclusion might be correct but the reasoning given is wrong." },
-      { text: "The starting temperatures should have been equal", correct: false,
-        rule: "The student's logic was wrong — they used the wrong quantity to judge cooling rate." },
-      { text: "The candidate should have used Newton's law of cooling", correct: false,
-        rule: "Keep it simple: cooling rate = temperature change ÷ time." }
-    ]
-  },
-  {
-    skill: "Planning",
-    context: "Planning question: investigating how angle of launch affects horizontal range of a projectile.",
-    candidateAnswer: "Method: 1) Set up the apparatus. 2) Measure the range. 3) Change the angle. 4) Repeat.",
-    prompt: "What's missing from this plan?",
-    options: [
-      { text: "Multiple things: no number of values specified, 'repeat' is vague, no instruments named, no conclusion method", correct: true },
-      { text: "The candidate should have included a labelled diagram", correct: false,
-        rule: "A diagram is a nice-to-have. The missing essentials are the bigger problem." },
-      { text: "The candidate should have stated the expected result", correct: false,
-        rule: "A prediction is not what's needed — the method itself has gaps." },
-      { text: "The candidate should have used a different angle", correct: false,
-        rule: "The plan needs structure: instruments, number of values, repeats, conclusion." }
-    ]
-  },
-  {
-    skill: "Technique",
-    context: "A focal length experiment. The student is asked how to obtain a sharp image on the screen.",
-    candidateAnswer: "Move the screen slowly until the image is clearest.",
-    prompt: "Why didn't this score full marks?",
-    options: [
-      { text: "The screen position is fixed once the object-to-screen distance is set — you must move the LENS", correct: true },
-      { text: "The candidate should have said 'use a brighter lamp'", correct: false,
-        rule: "The error is procedural: which component to move." },
-      { text: "The candidate should have specified a particular screen position", correct: false,
-        rule: "When the screen-object distance is fixed, only the LENS can adjust." },
-      { text: "The candidate should have said 'work in a darkened room'", correct: false,
-        rule: "Darkened room is for image visibility — moving the lens is for sharpness." }
-    ]
-  },
-  {
-    skill: "Measurement",
-    context: "After taking a reading of 23.4 cm³, the student noticed they'd misread and the actual reading was 24.1 cm³.",
-    candidateAnswer: "The student wrote '24.1' on top of the '23.4' in the table.",
-    prompt: "Why does the examiner take issue with this?",
-    options: [
-      { text: "Overwriting makes the original answer ambiguous — the examiner can't tell which value was intended", correct: true },
-      { text: "The new value is wrong", correct: false,
-        rule: "The complaint is about how the change was made, not the value itself." },
-      { text: "The student should have used pen, not pencil", correct: false,
-        rule: "Overwriting is the problem regardless of pen or pencil." },
-      { text: "The student should have used a different colour", correct: false,
-        rule: "The fix is: one clean line through the old value, write new value next to it." }
-    ]
-  },
-  {
-    skill: "Conclusion",
-    context: "Planning question. The candidate ended their plan with: 'I predict that as the temperature of the water increases, it will boil faster.'",
-    prompt: "Why does this final sentence score zero?",
-    candidateAnswer: "I predict that as the temperature of the water increases, it will boil faster.",
-    options: [
-      { text: "It's a PREDICTION — the question asked how to reach a conclusion from the data, not what you expect to find", correct: true },
-      { text: "The prediction is wrong — hotter water boils slower", correct: false,
-        rule: "A prediction is what you expect; a conclusion is HOW you use the data." },
-      { text: "The candidate should have written it in past tense", correct: false,
-        rule: "Whether predicted or past, this isn't a conclusion method." },
-      { text: "The candidate should have included specific temperatures", correct: false,
-        rule: "Add: 'Plot temperature against boil time. If a clear pattern is seen, this shows the relationship.'" }
-    ]
-  }
-];
+const SPOTTER = fromDOM(document.getElementById("xs-SPOTTER"));
 
-const PLANNING = [
-  {
-    stage: 1,
-    title: "Stage 1: Apparatus",
-    scenario: "You're asked to investigate how the diameter of a wire affects its resistance. The question provides a power supply, a length of wire, and crocodile clips.",
-    skill: "Naming instruments",
-    prompt: "What additional apparatus do you need to name?",
-    options: [
-      { text: "Voltmeter, ammeter, ruler, and micrometer (or vernier callipers)", correct: true },
-      { text: "Voltmeter and ammeter only — the rest is provided", correct: false,
-        rule: "You need to MEASURE the diameter — and the wire length. Name those instruments." },
-      { text: "Just a voltmeter — current can be calculated", correct: false,
-        rule: "Every measurement needs an instrument. Don't omit measuring tools." },
-      { text: "A complete list of everything mentioned in the question", correct: false,
-        quote: "A significant number of candidates copied the list of apparatus and other information given in the question. This was unnecessary.",
-        source: "Jun 2021",
-        rule: "Only ADDITIONAL apparatus — don't copy what's already provided." }
-    ]
-  },
-  {
-    stage: 2,
-    title: "Stage 2: Variables",
-    scenario: "Your investigation: diameter of wire (the independent variable) vs resistance (dependent variable).",
-    skill: "Control variables",
-    prompt: "Which is a VALID control variable for this experiment?",
-    options: [
-      { text: "Length of wire", correct: true },
-      { text: "The same beaker (apparatus)", correct: false,
-        rule: "Apparatus is not a control variable. Use measurable physical quantities." },
-      { text: "Keep current constant", correct: false,
-        rule: "Current is the dependent variable being measured. You can't 'keep it constant'." },
-      { text: "View the meter perpendicularly", correct: false,
-        rule: "Viewing perpendicularly is a PRECAUTION, not a control variable." }
-    ]
-  },
-  {
-    stage: 3,
-    title: "Stage 3: Method",
-    scenario: "You've named the apparatus and identified control variables. Now describe the experimental procedure.",
-    skill: "Method structure",
-    prompt: "What's the minimum your method must include?",
-    options: [
-      { text: "Measure 5+ values of diameter; for each, measure V and I; repeat each and average; calculate R = V/I", correct: true },
-      { text: "Try different diameters and record the resistance", correct: false,
-        quote: "It was necessary for the method to include measurements for a minimum of five values of the independent variable, to repeat each value and to then take averages.",
-        source: "Jun 2021",
-        rule: "≥ 5 values, with repeats and averages — not just 'different diameters'." },
-      { text: "Measure 3 diameters very accurately", correct: false,
-        quote: "Minimum of five values of the independent variable.",
-        source: "Jun 2021",
-        rule: "Three is not enough — five values minimum." },
-      { text: "Repeat the experiment many times", correct: false,
-        rule: "'Repeat' alone is vague. Be specific about WHAT you're varying." }
-    ]
-  },
-  {
-    stage: 4,
-    title: "Stage 4: Sources of error",
-    scenario: "The question states the experiment was 'carefully carried out'. You're asked for a source of inaccuracy.",
-    skill: "Sources of error",
-    prompt: "Which is a valid answer?",
-    options: [
-      { text: "The wire diameter may not be perfectly uniform along its length", correct: true },
-      { text: "Parallax error when reading the meters", correct: false,
-        rule: "Parallax is a TECHNIQUE error — not credited for 'careful' experiments." },
-      { text: "Human error in connecting the circuit", correct: false,
-        rule: "'Human error' is never credited. It's a non-answer." },
-      { text: "The wire might break during the experiment", correct: false,
-        rule: "Inaccuracy is about how reliably you can MEASURE — not whether something might go wrong." }
-    ]
-  },
-  {
-    stage: 5,
-    title: "Stage 5: Conclusion",
-    scenario: "You've described your method. Now state how you'd reach a conclusion from your results.",
-    skill: "Conclusion method",
-    prompt: "Which is the best conclusion statement?",
-    options: [
-      { text: "Plot a graph of resistance against 1/diameter². If a straight line through the origin is obtained, R is proportional to 1/d².", correct: true },
-      { text: "If the resistance increases with smaller diameter, this confirms the theory", correct: false,
-        rule: "Conclude from the data pattern, not from comparison to expected theory." },
-      { text: "I predict that thinner wires will have higher resistance", correct: false,
-        quote: "Some candidates wrote a prediction but no explanation of how to reach a conclusion.",
-        source: "Jun 2021",
-        rule: "That's a prediction. The question asks HOW you'd reach a conclusion from your data." },
-      { text: "Compare the values to find a pattern", correct: false,
-        quote: "Not many candidates explained how they would use their results.",
-        source: "Jun 2021",
-        rule: "Be specific: graph what against what, and what pattern shows what conclusion." }
-    ]
-  }
-];
+const PLANNING = fromDOM(document.getElementById("xs-PLANNING"));
 
 // ============================================================
 // STATE
