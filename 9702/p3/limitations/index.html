@@ -505,7 +505,18 @@ h1.cie-page-title em {
 .seo-intro li { margin-bottom: 4px; }
 .seo-intro a { color: #a83b1f; }
 @media (max-width: 600px) { .seo-intro details { padding: 0 20px; } }
+.js .exp-static { display: none; }
+.xs { border-top: 1px solid var(--cie-rule); padding: 24px 0 8px; color: var(--cie-ink-soft); font-size: 15px; line-height: 1.65; }
+.xs h2 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--cie-ink); margin: 0 0 4px; }
+.xs .xs-label { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--cie-accent); margin-right: 6px; }
+.xs h3 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cie-ink-mute); margin: 20px 0 8px; }
+.xs h4 { font-size: 14px; font-weight: 600; color: var(--cie-ink); margin: 14px 0 4px; }
+.xs p, .xs ul { margin: 0 0 10px; }
+.xs .xs-paper { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--cie-ink-mute); }
+.xs li { margin-bottom: 6px; }
+.xs .xs-lbl { font-weight: 600; color: var(--cie-ink); }
 </style>
+<script>document.documentElement.classList.add("js");</script>
 <script src="/gate.js"></script>
 <script src="/report.js" defer></script>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26a2f061d2b54fddaf66dabf1ebd0cfe"}'></script><!-- End Cloudflare Web Analytics -->
@@ -559,429 +570,429 @@ h1.cie-page-title em {
 </div>
 <div class="container">
   <div class="exp-tabs" id="expTabs"></div>
-  <div id="mainContent"></div>
+  <div id="mainContent">
+<div class="exp-static">
+<article class="xs" data-id="w20_35_q2">
+  <h2><span class="xs-label">W20/35 Q2</span> <span class="xs-title">Equilibrium of an L-shaped card</span></h2>
+  <p class="xs-paper">9702/35 · Oct/Nov 2020</p>
+  <p class="xs-summary">An L-shaped card is suspended from a paper clip hooked over a horizontal pin. The paper clip position is adjusted until the top edge of the card is exactly horizontal. The distance d from the paper clip centre to the right-hand edge is measured. Repeated after cutting card to halve dimension q. Only two readings taken to test a proposed relationship.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A pin is fixed horizontally in a cork held in a clamp stand. A paper clip is hooked over the pin and clipped to the upper edge of an L-shaped card. The card hangs freely.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure dimensions p, q and w of the card to the nearest mm.</li><li>Adjust the paper clip until the top edge of the card is horizontal.</li><li>Measure d — the distance from the centre of the paper clip to the right-hand edge of the card.</li><li>Estimate the percentage uncertainty in d.</li><li>Remove card, cut so that q is halved, reattach and repeat.</li><li>Calculate k from (w – d) = k[1 + (2q / p+q)] for both readings and compare.</li></ul>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings taken — far too few to establish a relationship. The paper clip is large and imprecise, making it hard to locate its centre. Judging 'horizontal' by eye introduces systematic error. Touching the card to measure d disturbs equilibrium. Card is flexible and may bend; corners may not be exactly 90°. The paper clip may not grip reliably.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to judge when the top edge of the card is exactly horizontal.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Use a spirit level to check when the top edge is horizontal.</span></li>
+    <li data-id="C"><span class="xs-t">Difficult to locate the centre of the paper clip accurately — clip too wide / clip not vertical / skewed.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Use calipers to measure the width of the paper clip and locate its centre.</span></li>
+    <li data-id="D"><span class="xs-t">Difficulty with the attachment — paper clip does not grip the card / card tends to fall.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Push a pin through a hole in the card / add adhesive to secure the clip to the card.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to measure d without disturbing the equilibrium — touching the card moves it.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Clamp the ruler in position before measuring / mark position on card then remove and measure on bench.</span></li>
+    <li data-id="F"><span class="xs-t">Card bends easily / corners of card may not be at right angles.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Use a named rigid material (e.g. acrylic) / use a set square to check corners.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The ruler used to measure d may not be accurate enough.</li>
+    <li data-id="D2">There may be air currents in the room affecting the card.</li>
+    <li data-id="D3">The card may not hang perfectly vertically.</li>
+    <li data-id="D4">The pin may not be exactly horizontal.</li>
+    <li data-id="D5">It is difficult to cut the card accurately in half.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a spirit level.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state what is being checked as horizontal.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a more accurate ruler to measure d.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the disturbance to equilibrium.</span></li>
+    <li data-id="IX4"><span class="xs-t">Be more careful when adjusting the paper clip position.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Too vague — no specific method given.</span></li>
+    <li data-id="IX5"><span class="xs-t">Use a more rigid material for the card.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — a named material is required (e.g. acrylic sheet).</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="m22_33_q2">
+  <h2><span class="xs-label">M22/33 Q2</span> <span class="xs-title">Clay sphere on a spring — oscillation</span></h2>
+  <p class="xs-paper">9702/33 · Feb/Mar 2022</p>
+  <p class="xs-summary">A ball of clay is rolled into a sphere and pressed onto the lower coils of a vertically clamped spring. Diameter d is measured and time period T of vertical oscillations recorded. Number of coils covered by clay (n) varied between two values. Only two sets of readings taken to test a proposed relationship involving constant k.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A spring is clamped vertically. A ball of clay is rolled into a sphere by hand and pressed onto the lower coils. The sphere hangs and can be set oscillating vertically.</p>
+    <h4>Procedure</h4>
+    <ul><li>Roll clay into a sphere. Measure diameter d at several points with repeats.</li><li>Set n = 1 (clay covers one coil). Displace and release. Measure time for at least 5 oscillations; calculate T.</li><li>Reshape clay to cover more coils (n = 2 or 3). Repeat measurements of d and T.</li><li>Calculate k for both readings using the suggested relationship and compare.</li></ul>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two k values cannot validate a relationship. Rolling clay into a perfect sphere is extremely difficult — diameter varies at different points. Time period is short, making it hard to count oscillations and judge the start/end of each one. Clay covers some coils and the joint between coils, making n ambiguous. Horizontal motion contaminates the vertical oscillation.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two k values — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to roll the clay into a perfect sphere — diameter varies at different points across the sphere.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Use an improved method to make the clay into a perfect sphere.</span></li>
+    <li data-id="C"><span class="xs-t">Parallax error when measuring the diameter d of the clay sphere.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Use calipers to measure d / measure between two flat parallel blocks.</span></li>
+    <li data-id="D"><span class="xs-t">Clay covers some coils as well as the joint — difficult to determine the exact value of n.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a denser/different material or improved mounting to prevent clay covering coils.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to judge the start and/or end of an oscillation accurately.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Use a fiducial marker placed at the centre (equilibrium position) of the oscillation.</span></li>
+    <li data-id="F"><span class="xs-t">Time period is short — difficult to count the oscillations accurately.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Use video recording with a timer in view, then review footage frame by frame.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The spring may not obey Hooke's law over the full range used.</li>
+    <li data-id="D2">The clamp stand may vibrate, affecting the oscillation.</li>
+    <li data-id="D3">The mass of the clay changes slightly each time it is reshaped.</li>
+    <li data-id="D4">There is friction between the clay and the spring coils.</li>
+    <li data-id="D5">It is difficult to keep the clay at the same temperature between readings.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Measure the diameter more carefully.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits a better way to make the sphere, or a named way to measure d (calipers, or measuring between two blocks).</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a fiducial marker.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must specify it is placed at the centre/equilibrium position.</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a more accurate stopwatch.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the difficulty of counting short-period oscillations.</span></li>
+    <li data-id="IX5"><span class="xs-t">Use calipers.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state what is being measured or why calipers help (parallax).</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="m23_33_q2">
+  <h2><span class="xs-label">M23/33 Q2</span> <span class="xs-title">Sugar solution — refractive index via lens</span></h2>
+  <p class="xs-paper">9702/33 · Feb/Mar 2023</p>
+  <p class="xs-summary">A torch shines through a converging lens submerged in sugar solution inside a transparent container. The distance u from torch to lens and v from lens to screen are measured to find focal length f, then refractive index n. Two different sugar concentrations (0.18 and 0.33) give two values of k to test a proposed relationship. Only two readings are taken.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A transparent container holds sugar solution. A lens is positioned in the container. A torch is placed in front of the container and a screen behind it. The torch is moved until the sharpest possible image of the LEDs appears on the screen.</p>
+    <h4>Procedure</h4>
+    <ul><li>Set v ≈ 40 cm. Record v and find u₀ (torch position for sharpest image without solution)</li><li>Pour Sugar Concentration 0.18 into container until lens is just covered.</li><li>Adjust torch position until sharpest image is obtained. Measure u and v.</li><li>Calculate f = vu/(v+u) then n = 0.553f / (1 + 0.333f).</li><li>Pour solution back. Repeat with Sugar Concentration 0.33.</li><li>Calculate k = (n – 1.31)/C for both concentrations and compare.</li></ul>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two k values cannot validate a relationship. It is difficult to judge when the image is at its sharpest. The torch is handheld and difficult to keep in line with the lens axis. Parallax error arises when measuring u or v, and it is difficult to define the exact lens position. The second solution may be diluted by traces of the first remaining on the lens or container. The LEDs are not at the front of the torch, introducing systematic error in u.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two k values — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to judge when the image of the LEDs is at its sharpest.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Use screens around the image area / carry out in a darkened room to reduce stray light and make judging sharpness easier.</span></li>
+    <li data-id="C"><span class="xs-t">Difficult to hold the torch in line with the lens axis — torch not mounted.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Mount the torch on a block or stand / use an optical bench to keep torch aligned.</span></li>
+    <li data-id="D"><span class="xs-t">Parallax error when measuring u or v / difficult to decide the exact position of the lens.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a set square next to ruler as pointer / mark lens position on container to reduce parallax.</span></li>
+    <li data-id="E"><span class="xs-t">Second solution may be diluted by traces of the first solution remaining on the lens or container.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Clean the lens and container between readings / use a new container for the second solution.</span></li>
+    <li data-id="F"><span class="xs-t">LEDs are not at the front of the torch — introduces a systematic error in u.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Remove the glass from the front of the torch so LEDs are at the front.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The lens may move slightly when the solution is poured in.</li>
+    <li data-id="D2">The screen may not be exactly perpendicular to the axis of the lens.</li>
+    <li data-id="D3">The sugar solution may not be perfectly transparent.</li>
+    <li data-id="D4">The torch batteries may run down during the experiment.</li>
+    <li data-id="D5">The temperature of the solution affects its refractive index.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Make it darker so the image is easier to see.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits a way to cut out unwanted light: screens around the image, or a darkroom.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a ruler more carefully to measure u.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Too vague. The scheme wants a method: a set square next to the rule as a pointer, or a mark on the container at the lens position.</span></li>
+    <li data-id="IX4"><span class="xs-t">Make sure the two solutions do not mix.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits cleaning the lens or the container, or using a new container.</span></li>
+    <li data-id="IX5"><span class="xs-t">Hold the torch more steadily.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits mounting the torch on a block or stand, or using an optical bench.</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="m20_33_q2">
+  <h2><span class="xs-label">M20/33 Q2</span> <span class="xs-title">Compass deflection in a solenoid coil</span></h2>
+  <p class="xs-paper">9702/33 · Feb/Mar 2020</p>
+  <p class="xs-summary">A compass is placed inside a plastic channel wound with wire to form a solenoid-like coil. When current I flows, the compass deflects through angle θ. The wire is re-wound in a different configuration (adjacent grooves instead of every other groove) to give a second reading. Only two readings are taken to test the relationship tanθ = B/k.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A length of wire is wound through every other groove of a plastic channel to form a coil. A compass is placed inside at the centre. The channel is rotated until the compass arrow is perpendicular to the channel before current flows.</p>
+    <h4>Procedure</h4>
+    <ul><li>Count and record N (number of turns). Measure L (distance between first and last turns).</li><li>Close the switch. Measure deflection angle θ and ammeter reading I. Open the switch.</li><li>Estimate percentage uncertainty in θ.</li><li>Calculate B = μ₀(N−1)I / L. Calculate k = B / tanθ.</li><li>Disconnect, re-wind wire in adjacent grooves (every groove). Repeat all measurements.</li><li>Compare the two k values to test the suggested relationship.</li></ul>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings cannot validate a relationship. The ammeter reading is unsteady, making it difficult to determine I accurately. Parallax error arises when reading the compass angle θ. The percentage uncertainty in θ is large because angles are small. Re-winding the wire is difficult — wires may touch or the wire may be kinked. The channel may move on the bench, changing the orientation.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to determine I accurately — ammeter reading is not steady.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Clean the crocodile clips / contacts to ensure steady current / use a more stable power supply.</span></li>
+    <li data-id="C"><span class="xs-t">Parallax error when measuring the deflection angle θ on the compass.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Measure change of angle by turning channel on bench / photograph compass and measure angle / use angle markings at 'before' and 'after' positions.</span></li>
+    <li data-id="D"><span class="xs-t">Large percentage uncertainty in θ because the angle is small.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a larger current / voltage to increase the deflection angle and reduce percentage uncertainty.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to re-wind and fix the wire — wires may touch / wire is kinked.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Use two ready-wound channels (one for each winding configuration) / use new wire to avoid kinking.</span></li>
+    <li data-id="F"><span class="xs-t">Channel moves on the bench, changing the orientation of the compass relative to the coil.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Fix / tape the channel to the bench to prevent it moving.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The compass needle may not settle completely between readings.</li>
+    <li data-id="D2">The resistance of the wire changes as it heats up.</li>
+    <li data-id="D3">The Earth's magnetic field may affect the compass reading.</li>
+    <li data-id="D4">It is difficult to count the number of turns of wire accurately.</li>
+    <li data-id="D5">The crocodile clips may not make good electrical contact.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate ammeter.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the unsteady reading — the issue is fluctuation, not instrument precision.</span></li>
+    <li data-id="IX3"><span class="xs-t">Measure the angle more carefully.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Too vague — must specify a method to overcome parallax (e.g. photograph, angle markings).</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a larger current.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state this increases θ and therefore reduces the percentage uncertainty.</span></li>
+    <li data-id="IX5"><span class="xs-t">Tape the channel to the bench.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state this prevents the channel from moving / changing orientation.</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="w22_34_q2">
+  <h2><span class="xs-label">W22/34 Q2</span> <span class="xs-title">Force on a magnet in a coil</span></h2>
+  <p class="xs-paper">9702/34 · Oct/Nov 2022</p>
+  <p class="xs-summary">A small magnet is attached to a nut hanging from a spring pointer. The deflection of the pointer (dm) caused by the magnet's weight is measured. A coil of wire is positioned around the magnet and current I passed through it, pulling the magnet down further. The pointer height H is recorded at two different currents (~0.3 A and ~0.7 A) to calculate a constant k via S(h – H) = kI. Only two readings are taken.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A spring pointer is clamped to a stand. A nut hangs from the end of the spring pointer. A small magnet is attached to the nut, causing a downward deflection dm = h₀ – h. A coil is positioned so that the magnet hangs just above the coil inside a tube.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure h₀ (pointer height, no magnet). Attach magnet and measure h. Calculate dm = h₀ – h. Estimate % uncertainty in dm.</li><li>Calculate spring stiffness proxy S = mg/dm.</li><li>Connect coil to power supply via variable resistor and ammeter. Set I ≈ 0.3 A. Measure pointer height H and record I.</li><li>Repeat at I ≈ 0.7 A. Second H should be smaller than first.</li><li>Calculate k = S(h – H)/I for both readings and compare within 20% to test relationship.</li></ul>
+    <h4>Key relationship</h4>
+    <p>S(h – H) = kI, where S = mg/dm is the spring constant proxy, h is height with magnet only, H is height with magnet and current, and I is the current.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>The core problem is that only two (I, H) readings are taken — too few to validate any relationship. The pointer oscillates when the switch is closed, making H hard to read. The pointer is thick and the ruler is hand-held, creating difficulty measuring height. The deflection dm and the change (h – H) are both small, so their percentage uncertainties are large. The current fluctuates. The magnet may touch the tube wall.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings taken — cannot draw a valid conclusion. Pointer oscillates when current flows, making H difficult to read. Difficult to measure height accurately — pointer is thick, ruler moves. Deflection dm is small, so its percentage uncertainty is large. Change in height (h – H) is very small. Current/ammeter reading fluctuates. Magnet may hit the side of the tube.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings at different currents and plot a graph of H against I (or calculate more k values and compare).</span></li>
+    <li data-id="B"><span class="xs-t">Pointer oscillates when current flows — difficult to read a steady value of H.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Take a video with a scale/ruler in view to estimate the mean position, or use a wind shield / damping to reduce oscillation.</span></li>
+    <li data-id="C"><span class="xs-t">Difficult to measure the height of the pointer accurately — pointer is thick / ruler not vertical / ruler moves.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Use a pointed/thinner pointer or pin, or clamp the ruler to prevent it moving.</span></li>
+    <li data-id="D"><span class="xs-t">The deflection dm is small, so the percentage uncertainty in dm is large.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a heavier magnet, a less stiff spring, or a longer spring to increase the deflection dm.</span></li>
+    <li data-id="E"><span class="xs-t">The change in height (h – H) caused by the current is very small.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Use a larger current, more turns on the coil, or a stronger magnet to increase (h – H).</span></li>
+    <li data-id="F"><span class="xs-t">Current/ammeter reading fluctuates — difficult to record a reliable value of I.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Clean the connections/crocodile clips (e.g. with wire wool) or use soldered connections to stabilise the current.</span></li>
+    <li data-id="G"><span class="xs-t">Magnet hits the side of the tube during measurement.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IG">Use a wider tube so the magnet does not touch the sides.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The mass of the magnet is difficult to measure accurately.</li>
+    <li data-id="D2">The spring may not obey Hooke's law over the deflection range used.</li>
+    <li data-id="D3">The coil may heat up and change resistance during the experiment.</li>
+    <li data-id="D4">It is difficult to ensure the pointer is exactly horizontal before taking readings.</li>
+    <li data-id="D5">Parallax error when reading the ammeter scale.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate ammeter.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the fluctuating reading — the issue is instability, not instrument precision.</span></li>
+    <li data-id="IX3"><span class="xs-t">Read the pointer at eye level.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but too vague. The November 2021 Paper 35 report names ‘keep eye level’ as an improvement that cannot be credited. The scheme wants a pointed or thinner pointer, a pin, or a clamped rule.</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a stiffer spring.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Wrong direction. A stiffer spring makes the deflection smaller. The scheme credits a less stiff or longer spring, or a heavier magnet.</span></li>
+    <li data-id="IX5"><span class="xs-t">Use a larger tube.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">The scheme says “Use wider tube (not ‘larger’)”.</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="s23_34_q2">
+  <h2><span class="xs-label">S23/34 Q2</span> <span class="xs-title">Thermal expansion of plastic pipe</span></h2>
+  <p class="xs-paper">9702/34 · May/Jun 2023</p>
+  <p class="xs-summary">A plastic pipe is suspended vertically on a wooden rod pivoting on a pin, with a mass hanger at the bottom. The rod's height x₁ above the bench is measured at room temperature T₀. Boiling water is poured into a measuring cylinder to heat the pipe; the rod drops to x₂ as the pipe expands. The change (x₁ – x₂) and water temperature T are recorded. Repeated with a shorter pipe. Only two readings taken to test k(x₁ – x₂) = L(T – T₀).</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>Two plastic pipes are provided, each with string loops at each end. The longer pipe is hung vertically from a horizontal wooden rod (pivoting on a pin through a cork/clamp). A mass hanger rests at the bottom. The end of the rod on the other side of the pivot indicates height x₁.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure pipe length L and record room temperature T₀.</li><li>Record x₁ (rod height at room temperature).</li><li>Pour boiling water into the measuring cylinder to cover the pipe. Record water temperature T.</li><li>As the pipe expands, the end of the rod drops — measure new height x₂.</li><li>Calculate (x₁ – x₂). Estimate percentage uncertainty.</li><li>Repeat with the shorter pipe. Calculate k = L(T – T₀)/(x₁ – x₂) for both. Compare within 20%.</li></ul>
+    <h4>Key relationship</h4>
+    <p>k(x₁ – x₂) = L(T – T₀), where L is pipe length, T is water temperature, T₀ is room temperature, and (x₁ – x₂) is the downward movement of the rod end.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>Only two readings are taken — insufficient to validate a relationship. The rod/rule is difficult to hold steady, making x values hard to measure. The change (x₁ – x₂) is small so percentage uncertainty is large. The water temperature T varies with position in the measuring cylinder and drops rapidly, so x₂ and T cannot be measured simultaneously. Room temperature T₀ may change during the experiment. The curved pipe makes L difficult to measure accurately. The string may change length when wet.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings taken — cannot draw a valid conclusion. Difficult to measure x (rod height) because the rod moves/rule not vertical. (x₁ – x₂) is small so large percentage uncertainty. Difficult to measure T accurately — temperature varies with position in cylinder, or T decreases rapidly before x₂ can be measured. Room temperature T₀ may change during the experiment. Difficult to measure L because the pipe is curved. String changes length when wet.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings with pipes of different lengths and plot a graph (or calculate more k values and compare).</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to measure x (rod height) accurately — rod moves / ruler not vertical / ruler moves.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Clamp the ruler in position / use a plumb line to ensure the ruler is vertical.</span></li>
+    <li data-id="C"><span class="xs-t">(x₁ – x₂) is small, so the percentage uncertainty in (x₁ – x₂) is large.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Use a longer pipe / rod to increase (x₁ – x₂) and reduce the percentage uncertainty.</span></li>
+    <li data-id="D"><span class="xs-t">Difficult to measure T accurately — temperature varies with position in the measuring cylinder, or T decreases rapidly so x₂ and T cannot be measured at the same time.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a stirrer for the water / clamp the thermometer in the water / use a thermostatically controlled water bath.</span></li>
+    <li data-id="E"><span class="xs-t">Room temperature T₀ may change during the experiment.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Measure T₀ just before the water is added so that any change in room temperature is accounted for.</span></li>
+    <li data-id="F"><span class="xs-t">Difficult to measure L because the pipe is curved / the pipe does not expand uniformly / difficult to measure the distance between the string attachment holes.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Use a tape measure or string and ruler to measure L along the pipe, or define L as the distance between the holes where the string is attached.</span></li>
+    <li data-id="G"><span class="xs-t">String changes length when wet, affecting the measurement.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IG">Use a waterproof string such as nylon, plastic-coated wire, or metal wire.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The boiling water may not be at exactly 100 °C.</li>
+    <li data-id="D2">It is difficult to pour the boiling water without disturbing the apparatus.</li>
+    <li data-id="D3">The mass hanger may swing during the measurement.</li>
+    <li data-id="D4">Heat loss from the water to the air means the pipe is not uniformly heated.</li>
+    <li data-id="D5">The measuring cylinder may not be positioned directly under the pipe.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate thermometer.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the temperature varying with position or the timing problem.</span></li>
+    <li data-id="IX3"><span class="xs-t">Make (x₁ – x₂) bigger.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Right goal, but no method. The scheme credits how: increase the length of the rod or pipe.</span></li>
+    <li data-id="IX4"><span class="xs-t">Measure T₀ at the start.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state this is done just before the water is added, to account for any drift in room temperature.</span></li>
+    <li data-id="IX5"><span class="xs-t">Use waterproof string.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must name a specific waterproof material (e.g. nylon, metal wire).</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="s25_35_q2">
+  <h2><span class="xs-label">S25/35 Q2</span> <span class="xs-title">Centre of gravity shift in a suspended cardboard sheet</span></h2>
+  <p class="xs-paper">9702/35 · May/Jun 2025</p>
+  <p class="xs-summary">Two cardboard sheets (A and B) are hung from a nail through holes in their corners. A plumb line marks the vertical through each hole; the crossing point gives the centre of gravity P (without added mass). Adhesive putty plus two 10 g masses (total m) are attached at distance x from the top edge, shifting the centre of gravity to Q. The displacement y between P and Q is measured. Sheet B repeats with m = 10 g and x ≈ 5 cm. Two values of k are calculated via y²/m² = k/xt. Only two readings are taken.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A cardboard sheet hangs freely from a nail passed through a hole in one corner. A plumb line over the same nail marks the vertical. The process is repeated from the second hole. The two plumb lines cross at the original centre of gravity P.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure sheet thickness t with a micrometer.</li><li>Make holes in two corners of sheet A. Hang from each hole in turn; draw a plumb line each time. The crossing point is the original centre of gravity P.</li><li>Attach adhesive putty and two 10 g masses (total mass m) at distance x ≈ 10 cm from the top edge.</li><li>Repeat the plumb-line process to find the new centre of gravity Q. Measure y = distance PQ.</li><li>Estimate percentage uncertainty in y.</li><li>Repeat with sheet B using m = 10 g and x ≈ 5 cm. Calculate k = y²·x·t / m² for both readings and compare within 20%.</li></ul>
+    <h4>Key relationship</h4>
+    <p>y²/m² = k/(xt), where y is the displacement of the centre of gravity, m is the added mass, x is the distance from the top edge to the mass, and t is the sheet thickness.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>Only two readings are taken — insufficient to validate a relationship. Drawing lines along the plumb line is difficult because the card is hanging and may move during drawing; the rule may not be vertical. The mass of the putty is not included in m, introducing a systematic error. Measuring x to the centre of the mass is difficult to judge because the mass covers the mark on the card. Locating the centre of gravity accurately is difficult because the string may be too thick or the nail too thick, meaning the card does not swing freely.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings — cannot draw a valid conclusion. Difficult to draw the plumb-line on the card while it is hanging — card or string moves when drawing / card not vertical. Mass of putty not included in m. Difficult to measure x accurately — judging centre of mass / mass covers the mark. Difficult to locate centre of gravity accurately — string too thick / card sticks on nail / nail too thick.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings (different values of x or different masses) and plot a graph, or calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to draw a line along the plumb line with a reason — card is hanging / card or string moves when drawing / card not vertical.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Take the card off the nail, lay it flat on the bench and draw the line there / clamp a rule vertically alongside the string to draw the line accurately.</span></li>
+    <li data-id="C"><span class="xs-t">Mass of putty is not taken into account in m — introduces a systematic error.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Measure the mass of the putty and add it to m, or use a specified lighter adhesive such as tape or glue instead of putty.</span></li>
+    <li data-id="D"><span class="xs-t">Difficult to measure x accurately — hard to judge the centre of the mass / the mass covers up the mark made for x.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Measure x to both the near and far side of the mass and average, or define x to a fixed reference mark on the card.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to locate the centre of gravity accurately — string too thick / card sticks on nail / nail is too thick so card does not swing freely.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Use thinner string / a thinner nail / a pin, or enlarge and smooth the hole so the card swings freely.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The sheet may not be perfectly rectangular, making x difficult to define.</li>
+    <li data-id="D2">The plumb line may be affected by draughts in the room, making the line inaccurate.</li>
+    <li data-id="D3">The two cardboard sheets may have different densities, affecting the results.</li>
+    <li data-id="D4">The cardboard may absorb moisture from the air during the experiment.</li>
+    <li data-id="D5">The nail hole may stretch with use, changing the position from which the card hangs.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a spirit level to check the card is vertical.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the core difficulty of drawing on a hanging card — the card should be taken down and placed flat.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a more accurate ruler to measure y.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Too vague — does not address the specific difficulty of locating the centre of gravity accurately.</span></li>
+    <li data-id="IX4"><span class="xs-t">Weigh the putty.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state that the putty mass is added to m (or that a lighter adhesive replaces putty).</span></li>
+    <li data-id="IX5"><span class="xs-t">Reduce the friction at the nail.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits thinner string, a thinner nail, a pin, or a bigger or smoother hole.</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="s23_31_q2">
+  <h2><span class="xs-label">S23/31 Q2</span> <span class="xs-title">Oscillations of a wooden strip and pendulum</span></h2>
+  <p class="xs-paper">9702/31 · May/Jun 2023</p>
+  <p class="xs-summary">A wooden strip with two holes (G and H) is balanced on a pivot. When hung from a nail through hole G (then H), the strip oscillates like a physical pendulum. A simple pendulum is adjusted until its period matches the strip's. The distance a (hole to pivot) and pendulum length l are measured. The relationship (l – a) = C/a is tested with only two readings — one for each hole.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A wooden strip is placed on a pivot and balanced. A nail through hole G (or H) is clamped horizontally. The strip hangs and is pulled slightly then released to oscillate. A simple pendulum is set up next to it.</p>
+    <h4>Procedure</h4>
+    <ul><li>Balance the strip on a pivot; measure a = distance from G to the pivot.</li><li>Hang strip from nail through G; measure time t for 10 oscillations.</li><li>Set up a pendulum and adjust length l until its period matches t.</li><li>Record l; calculate (l – a). Estimate percentage uncertainty in (l – a).</li><li>Repeat the entire procedure using hole H.</li><li>Calculate C = a(l – a) for both readings; compare within 5%. Calculate g using the formula provided.</li></ul>
+    <h4>Key relationship</h4>
+    <p>(l – a) = C/a, where l is the pendulum length giving the same period as the strip, a is the distance from the hole to the balance point, and C is a constant related to the moment of inertia of the strip.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>Only two readings are taken — insufficient to validate a relationship. Synchronising the two oscillations to judge when t (strip) equals t (pendulum) is very difficult. Measuring a is tricky because the pivot is a point and the strip moves on it; the strip may move during measurement. Measuring l involves parallax when locating the centre of the bob. The times for holes G and H may be very close together, giving little variation in the data. The strip may oscillate in more than one plane, or may wobble on the nail.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings taken — cannot draw a valid conclusion. Hard to ensure the pendulum period equals the strip period. Hard to measure a — strip moves on pivot. Hard to measure l — parallax/bob moves when touched. Hard to measure t — judging start and end of oscillation. Times for G and H are close/small difference. Difficult to balance the strip.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings (different holes or additional masses) and plot a graph / calculate more C values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to ensure the pendulum period equals the strip period — hard to judge when they oscillate together.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Use two stands so that the strip and the pendulum can oscillate at the same time and be compared directly.</span></li>
+    <li data-id="C"><span class="xs-t">Difficult to measure a — the strip moves on the pivot / finding the centre of the hole / strip moves when the ruler touches it.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Draw a scale on the strip / mark the pivot position on both sides of the strip / roughen the lower surface to prevent slipping.</span></li>
+    <li data-id="D"><span class="xs-t">Difficult to measure l — parallax error when locating the centre of the bob / bob moves when touched by the ruler / ruler moves.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a rule with pointers / clamp the ruler in position / measure the diameter of the bob and halve it to find the radius.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to measure t — hard to judge the start/end of a complete oscillation / strip wobbles or oscillates in different planes.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Use a fiducial marker placed at the centre/equilibrium position of the oscillation / use video recording with a timer in view.</span></li>
+    <li data-id="F"><span class="xs-t">Times for holes G and H are very close together — small difference makes comparison unreliable.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Place the holes further apart so that t values for G and H differ more.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The nail may not be perfectly horizontal, causing the strip to hang at an angle.</li>
+    <li data-id="D2">Air resistance affects the oscillation and damps it quickly.</li>
+    <li data-id="D3">The wooden strip may not have uniform density, affecting the balance point.</li>
+    <li data-id="D4">The stopwatch reaction time introduces error in t.</li>
+    <li data-id="D5">The length of the string used for the pendulum may stretch over time.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more C values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate stopwatch.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the difficulty of judging the start/end of an oscillation.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a plumb line to check the nail is horizontal.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Nail orientation is not a mark-scheme limitation for this experiment.</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a video camera.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must specify what is being measured (e.g. timing oscillations) and how (e.g. timer in view, frame-by-frame review).</span></li>
+    <li data-id="IX5"><span class="xs-t">Measure l from the top of the bob.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address parallax or the bob moving when touched — and measuring from the top rather than the centre is less accurate.</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="s24_31_q2">
+  <h2><span class="xs-label">S24/31 Q2</span> <span class="xs-title">Torsional oscillations of a rod with masses</span></h2>
+  <p class="xs-paper">9702/31 · May/Jun 2024</p>
+  <p class="xs-summary">A thin rod has a copper wire wrapped around its centre and is suspended horizontally by a rubber band. Two slotted masses (one on each end) are placed symmetrically at distance a from the wire. The rod is rotated 90° and released, oscillating torsionally. Period T is measured. The arrangement is repeated with different masses (50 g then 10 g), giving a different a and T. Two values of k are calculated from T² = k(S + a²m). Only two readings taken.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A rod of length L and mass M has S = ML²/12 calculated. Copper wire is wrapped three times around the rod's centre and the wire is hooked onto a rubber band (clamped above). Two slotted masses at distance a from the wire are held with adhesive putty. The rod is rotated 90° in the horizontal plane and released.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure L and M; calculate S = ML²/12.</li><li>Place 50 g masses ≈ 3 cm apart; record m and a.</li><li>Estimate percentage uncertainty in a.</li><li>Rotate rod 90° and release; measure period T from at least two timings of ≥ 3 oscillations.</li><li>Repeat with 10 g masses ≈ 9 cm apart; record new m and a.</li><li>Calculate k = T²/(S + a²m) for both readings; compare within 10%.</li></ul>
+    <h4>Key relationship</h4>
+    <p>T² = k(S + a²m), where T is the period, S = ML²/12 is the rotational inertia of the bare rod, m is the mass on one end, a is the distance from each mass to the wire, and k is a constant related to the torsional stiffness.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>Only two readings are taken — insufficient to validate a relationship. The masses are not exactly parallel to each other, making it hard to judge a (the distance from the centre of each mass to the wire). The rod oscillates in other planes (vertically or sideways) as well as torsionally. The 90° release angle is difficult to judge consistently. The wire may move in the clip during oscillation, altering the effective length and hence the stiffness. The adhesive putty mass is not included in m; its mass on each side may differ. Judging the start/end of an oscillation is difficult.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings — cannot draw a valid conclusion. Hard to measure a — masses not parallel / masses too wide / parallax. Oscillations occur in other planes (vertical/sideways). Difficult to judge start/end of oscillation. Wire or masses move on rod during oscillation. Putty mass not taken into account / different on each side. Hard to judge/set the 90° release angle consistently.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings at different values of L or m and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to measure a — masses not parallel to each other / masses too wide / hard to judge the centre of each mass / parallax error / rod not straight.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Use thinner masses / use calipers to measure a / take readings from both sides of each mass and average.</span></li>
+    <li data-id="D"><span class="xs-t">Difficult to measure T — hard to judge the start and/or end of an oscillation / amplitude decreases quickly / oscillations are heavily damped.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a fiducial marker placed at the equilibrium position / use video recording with a timer in view and review frame by frame.</span></li>
+    <li data-id="E"><span class="xs-t">Wire or masses move on the rod during oscillation / rod is unbalanced or difficult to make horizontal / difficult to position wire at the centre of rod.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Make a notch or groove in the rod to locate the wire / glue or tape the wire to the rod to prevent it moving.</span></li>
+    <li data-id="F"><span class="xs-t">Mass of adhesive putty not taken into account in m / putty mass different on each side of the rod.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Measure the mass of the adhesive putty and add it to m / measure the putty mass on each side separately and correct m accordingly.</span></li>
+    <li data-id="G"><span class="xs-t">Difficult to set or judge the 90° release angle consistently each time.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IG">Use a clamped protractor or set square to set the 90° release angle / use a marker or pointer to indicate the initial position.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The rubber band may stretch and change stiffness during the experiment.</li>
+    <li data-id="D2">Air currents in the room affect the oscillation.</li>
+    <li data-id="D3">The wire is not uniform, so the torsional stiffness varies along its length.</li>
+    <li data-id="D4">Parallax error when reading the length L of the rod.</li>
+    <li data-id="D5">The slotted masses may not have exactly the stated mass.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate ruler.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the specific difficulty of locating the centre of the masses or parallax when they are not parallel.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use a fiducial marker.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state it is placed at the centre/equilibrium position of the oscillation.</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a protractor to set the angle.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must specify the protractor is clamped in position, or that a pointer/marker is used to indicate the initial angle.</span></li>
+    <li data-id="IX5"><span class="xs-t">Weigh the putty.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state the measured putty mass is added to m (or measured separately on each side).</span></li>
+  </ul>
+</article>
+<article class="xs" data-id="s25_32_q2">
+  <h2><span class="xs-label">S25/32 Q2</span> <span class="xs-title">Torsional oscillations of a rubber cord</span></h2>
+  <p class="xs-paper">9702/32 · May/Jun 2025</p>
+  <p class="xs-summary">A wire with a clip and two slotted masses is suspended from a rubber cord. The separation between the mass centres (B) is measured. The cord diameter d, cord length L between clips, and torsional oscillation period T are recorded. The experiment is repeated with a shorter cord. Two k values are calculated from T² = B²L/(kd⁴) and compared within 20%. Only two readings are taken.</p>
+  <div class="xs-full">
+    <h4>Setup</h4>
+    <p>A rubber cord is gripped between two clips. The upper clip is fixed in a clamp; the lower clip holds a wire with two slotted masses. The assembly can be twisted and released to oscillate torsionally.</p>
+    <h4>Procedure</h4>
+    <ul><li>Measure B = distance between the centres of the two slotted masses. Estimate percentage uncertainty in B.</li><li>Select the longer cord. Measure diameter d and length L between the clips.</li><li>Rotate the lower clip ≈ 180° and release; measure period T from at least two timings.</li><li>Repeat with the shorter cord, recording new d, L and T.</li><li>Calculate k = B²L/(T²d⁴) for both readings; compare within 20%.</li></ul>
+    <h4>Key relationship</h4>
+    <p>T² = B²L/(kd⁴), where T is the period, B is the mass separation, L is the cord length, d is the cord diameter, and k is a constant related to the shear modulus of the rubber.</p>
+    <h4>Examiner analysis of flaws</h4>
+    <p>Only two readings are taken — insufficient to validate a relationship. The mass separation B is difficult to measure because the masses may not be parallel to each other and B changes when the clip and masses are suspended. The cord length L is hard to measure accurately because of parallax or because the rubber cord moves when touched by the ruler. The cord diameter d is difficult to measure because the calipers' jaws compress the soft rubber. The oscillations die away quickly (heavily damped), making it hard to count complete oscillations or judge the start/end. Additional oscillation modes (vertical, side-to-side) contaminate the period. Attaching the cord to the centre of the lower clip is difficult to achieve consistently.</p>
+  </div>
+  <h3>Examiner analysis — flaws in this method</h3>
+  <p class="xs-flaws">Only two readings — cannot draw a valid conclusion. Hard to measure B — masses not parallel / B changes when suspended. Hard to measure L — parallax / cord moves when touched. Hard to measure d — calipers compress rubber. Hard to measure T — oscillations die away quickly / multi-mode oscillations. Difficult to attach cord to centre of lower clip consistently.</p>
+  <h3>Valid limitations</h3>
+  <ul class="xs-valid">
+    <li data-id="A"><span class="xs-t">Only two readings — not enough to draw a valid conclusion.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IA">Take more readings (different cord lengths or diameters) and plot a graph / calculate more k values and compare.</span></li>
+    <li data-id="B"><span class="xs-t">Difficult to measure B — masses not parallel to each other / B changes when the clip and masses are suspended.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IB">Measure B from the left (or right) edge of one mass to the same edge of the other / measure B when the clip is suspended.</span></li>
+    <li data-id="C"><span class="xs-t">Difficult to measure L — parallax error / rubber cord moves when touched by the ruler / clip moves when touched.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IC">Clamp the rule in position to measure L / use pointers attached to the rule or edges of the clips to reduce parallax.</span></li>
+    <li data-id="D"><span class="xs-t">Difficult to measure d — jaws of calipers compress the soft rubber cord, giving an underestimate.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="ID">Use a micrometer to measure d / use a travelling microscope (non-contact) to measure d.</span></li>
+    <li data-id="E"><span class="xs-t">Difficult to measure T — oscillations die away (damp) very quickly / hard to judge the start and/or end of an oscillation.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IE">Twist the masses through a larger angle before releasing to increase amplitude and period / use a fiducial marker at the equilibrium position / record the oscillation with a timer in view and review frame by frame.</span></li>
+    <li data-id="F"><span class="xs-t">Oscillations occur in more than one mode — vertical or side-to-side oscillations / rubber cord not attached at the centre of the lower clip.</span><br><span class="xs-lbl">Paired improvement:</span> <span class="xs-imp" data-id="IF">Mark the centre of the lower clip before attaching the cord / use a marker or pointer to ensure the cord is at the midpoint / ensure the cord is attached symmetrically.</span></li>
+  </ul>
+  <h3>Not on the mark scheme</h3>
+  <ul class="xs-dist">
+    <li data-id="D1">The clamp stand may topple if the masses are too heavy.</li>
+    <li data-id="D2">The slotted masses may not have exactly the stated mass.</li>
+    <li data-id="D3">The temperature of the rubber cord affects its elastic properties, altering k.</li>
+    <li data-id="D4">Parallax error when reading the ammeter.</li>
+    <li data-id="D5">The upper clip may slip in the clamp, shortening L during oscillation.</li>
+  </ul>
+  <h3>Improvements that don't score</h3>
+  <ul class="xs-noscore">
+    <li data-id="IX1"><span class="xs-t">Repeat the experiment and take an average.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Vague — must specify plotting a graph or comparing more k values.</span></li>
+    <li data-id="IX2"><span class="xs-t">Use a more accurate ruler.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Does not address the parallax or the cord moving when touched — clamping the ruler is the targeted improvement.</span></li>
+    <li data-id="IX3"><span class="xs-t">Use calipers to measure d.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Calipers are the instrument causing the problem — the improvement must specify a non-compressing method such as a micrometer or travelling microscope.</span></li>
+    <li data-id="IX4"><span class="xs-t">Use a video camera.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">Incomplete — must state a timer is in view and that the footage is reviewed frame by frame, or specify a fiducial marker at the equilibrium point.</span></li>
+    <li data-id="IX5"><span class="xs-t">Make the oscillations last longer.</span><br><span class="xs-lbl">Why this doesn't score:</span> <span class="xs-note">On the right lines, but no method. The scheme credits twisting the masses through a larger angle before release, a marker at the equilibrium point, or a video with a timer in view.</span></li>
+  </ul>
+</article>
+</div>
+</div>
 </div>
 <script>
-const EXP = [
-{
-  id:"w20_35_q2", label:"W20/35 Q2", title:"Equilibrium of an L-shaped card", paper:"9702/35 · Oct/Nov 2020",
-  summary:"An L-shaped card is suspended from a paper clip hooked over a horizontal pin. The paper clip position is adjusted until the top edge of the card is exactly horizontal. The distance d from the paper clip centre to the right-hand edge is measured. Repeated after cutting card to halve dimension q. Only two readings taken to test a proposed relationship.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A pin is fixed horizontally in a cork held in a clamp stand. A paper clip is hooked over the pin and clipped to the upper edge of an L-shaped card. The card hangs freely."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Measure dimensions p, q and w of the card to the nearest mm.","Adjust the paper clip until the top edge of the card is horizontal.","Measure d — the distance from the centre of the paper clip to the right-hand edge of the card.","Estimate the percentage uncertainty in d.","Remove card, cut so that q is halved, reattach and repeat.","Calculate k from (w – d) = k[1 + (2q / p+q)] for both readings and compare."]}
-  ],
-  flaws:"Only two readings taken — far too few to establish a relationship. The paper clip is large and imprecise, making it hard to locate its centre. Judging 'horizontal' by eye introduces systematic error. Touching the card to measure d disturbs equilibrium. Card is flexible and may bend; corners may not be exactly 90°. The paper clip may not grip reliably.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to judge when the top edge of the card is exactly horizontal."},
-    {id:"C",text:"Difficult to locate the centre of the paper clip accurately — clip too wide / clip not vertical / skewed."},
-    {id:"D",text:"Difficulty with the attachment — paper clip does not grip the card / card tends to fall."},
-    {id:"E",text:"Difficult to measure d without disturbing the equilibrium — touching the card moves it."},
-    {id:"F",text:"Card bends easily / corners of card may not be at right angles."}
-  ],
-  dist:[
-    {id:"D1",text:"The ruler used to measure d may not be accurate enough."},
-    {id:"D2",text:"There may be air currents in the room affecting the card."},
-    {id:"D3",text:"The card may not hang perfectly vertically."},
-    {id:"D4",text:"The pin may not be exactly horizontal."},
-    {id:"D5",text:"It is difficult to cut the card accurately in half."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Use a spirit level to check when the top edge is horizontal.",cor:"B"},
-    {id:"IC",text:"Use calipers to measure the width of the paper clip and locate its centre.",cor:"C"},
-    {id:"ID",text:"Push a pin through a hole in the card / add adhesive to secure the clip to the card.",cor:"D"},
-    {id:"IE",text:"Clamp the ruler in position before measuring / mark position on card then remove and measure on bench.",cor:"E"},
-    {id:"IF",text:"Use a named rigid material (e.g. acrylic) / use a set square to check corners.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Use a spirit level.",cor:null,note:"Incomplete — must state what is being checked as horizontal."},
-    {id:"IX3",text:"Use a more accurate ruler to measure d.",cor:null,note:"Does not address the disturbance to equilibrium."},
-    {id:"IX4",text:"Be more careful when adjusting the paper clip position.",cor:null,note:"Too vague — no specific method given."},
-    {id:"IX5",text:"Use a more rigid material for the card.",cor:null,note:"Incomplete — a named material is required (e.g. acrylic sheet)."}
-  ]
-},
-{
-  id:"m22_33_q2", label:"M22/33 Q2", title:"Clay sphere on a spring — oscillation", paper:"9702/33 · Feb/Mar 2022",
-  summary:"A ball of clay is rolled into a sphere and pressed onto the lower coils of a vertically clamped spring. Diameter d is measured and time period T of vertical oscillations recorded. Number of coils covered by clay (n) varied between two values. Only two sets of readings taken to test a proposed relationship involving constant k.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A spring is clamped vertically. A ball of clay is rolled into a sphere by hand and pressed onto the lower coils. The sphere hangs and can be set oscillating vertically."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Roll clay into a sphere. Measure diameter d at several points with repeats.","Set n = 1 (clay covers one coil). Displace and release. Measure time for at least 5 oscillations; calculate T.","Reshape clay to cover more coils (n = 2 or 3). Repeat measurements of d and T.","Calculate k for both readings using the suggested relationship and compare."]}
-  ],
-  flaws:"Only two k values cannot validate a relationship. Rolling clay into a perfect sphere is extremely difficult — diameter varies at different points. Time period is short, making it hard to count oscillations and judge the start/end of each one. Clay covers some coils and the joint between coils, making n ambiguous. Horizontal motion contaminates the vertical oscillation.",
-  valid:[
-    {id:"A",text:"Only two k values — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to roll the clay into a perfect sphere — diameter varies at different points across the sphere."},
-    {id:"C",text:"Parallax error when measuring the diameter d of the clay sphere."},
-    {id:"D",text:"Clay covers some coils as well as the joint — difficult to determine the exact value of n."},
-    {id:"E",text:"Difficult to judge the start and/or end of an oscillation accurately."},
-    {id:"F",text:"Time period is short — difficult to count the oscillations accurately."}
-  ],
-  dist:[
-    {id:"D1",text:"The spring may not obey Hooke's law over the full range used."},
-    {id:"D2",text:"The clamp stand may vibrate, affecting the oscillation."},
-    {id:"D3",text:"The mass of the clay changes slightly each time it is reshaped."},
-    {id:"D4",text:"There is friction between the clay and the spring coils."},
-    {id:"D5",text:"It is difficult to keep the clay at the same temperature between readings."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Use an improved method to make the clay into a perfect sphere.",cor:"B"},
-    {id:"IC",text:"Use calipers to measure d / measure between two flat parallel blocks.",cor:"C"},
-    {id:"ID",text:"Use a denser/different material or improved mounting to prevent clay covering coils.",cor:"D"},
-    {id:"IE",text:"Use a fiducial marker placed at the centre (equilibrium position) of the oscillation.",cor:"E"},
-    {id:"IF",text:"Use video recording with a timer in view, then review footage frame by frame.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Measure the diameter more carefully.",cor:null,note:"On the right lines, but no method. The scheme credits a better way to make the sphere, or a named way to measure d (calipers, or measuring between two blocks)."},
-    {id:"IX3",text:"Use a fiducial marker.",cor:null,note:"Incomplete — must specify it is placed at the centre/equilibrium position."},
-    {id:"IX4",text:"Use a more accurate stopwatch.",cor:null,note:"Does not address the difficulty of counting short-period oscillations."},
-    {id:"IX5",text:"Use calipers.",cor:null,note:"Incomplete — must state what is being measured or why calipers help (parallax)."}
-  ]
-},
-{
-  id:"m23_33_q2", label:"M23/33 Q2", title:"Sugar solution — refractive index via lens", paper:"9702/33 · Feb/Mar 2023",
-  summary:"A torch shines through a converging lens submerged in sugar solution inside a transparent container. The distance u from torch to lens and v from lens to screen are measured to find focal length f, then refractive index n. Two different sugar concentrations (0.18 and 0.33) give two values of k to test a proposed relationship. Only two readings are taken.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A transparent container holds sugar solution. A lens is positioned in the container. A torch is placed in front of the container and a screen behind it. The torch is moved until the sharpest possible image of the LEDs appears on the screen."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Set v ≈ 40 cm. Record v and find u₀ (torch position for sharpest image without solution)","Pour Sugar Concentration 0.18 into container until lens is just covered.","Adjust torch position until sharpest image is obtained. Measure u and v.","Calculate f = vu/(v+u) then n = 0.553f / (1 + 0.333f).","Pour solution back. Repeat with Sugar Concentration 0.33.","Calculate k = (n – 1.31)/C for both concentrations and compare."]}
-  ],
-  flaws:"Only two k values cannot validate a relationship. It is difficult to judge when the image is at its sharpest. The torch is handheld and difficult to keep in line with the lens axis. Parallax error arises when measuring u or v, and it is difficult to define the exact lens position. The second solution may be diluted by traces of the first remaining on the lens or container. The LEDs are not at the front of the torch, introducing systematic error in u.",
-  valid:[
-    {id:"A",text:"Only two k values — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to judge when the image of the LEDs is at its sharpest."},
-    {id:"C",text:"Difficult to hold the torch in line with the lens axis — torch not mounted."},
-    {id:"D",text:"Parallax error when measuring u or v / difficult to decide the exact position of the lens."},
-    {id:"E",text:"Second solution may be diluted by traces of the first solution remaining on the lens or container."},
-    {id:"F",text:"LEDs are not at the front of the torch — introduces a systematic error in u."}
-  ],
-  dist:[
-    {id:"D1",text:"The lens may move slightly when the solution is poured in."},
-    {id:"D2",text:"The screen may not be exactly perpendicular to the axis of the lens."},
-    {id:"D3",text:"The sugar solution may not be perfectly transparent."},
-    {id:"D4",text:"The torch batteries may run down during the experiment."},
-    {id:"D5",text:"The temperature of the solution affects its refractive index."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Use screens around the image area / carry out in a darkened room to reduce stray light and make judging sharpness easier.",cor:"B"},
-    {id:"IC",text:"Mount the torch on a block or stand / use an optical bench to keep torch aligned.",cor:"C"},
-    {id:"ID",text:"Use a set square next to ruler as pointer / mark lens position on container to reduce parallax.",cor:"D"},
-    {id:"IE",text:"Clean the lens and container between readings / use a new container for the second solution.",cor:"E"},
-    {id:"IF",text:"Remove the glass from the front of the torch so LEDs are at the front.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Make it darker so the image is easier to see.",cor:null,note:"On the right lines, but no method. The scheme credits a way to cut out unwanted light: screens around the image, or a darkroom."},
-    {id:"IX3",text:"Use a ruler more carefully to measure u.",cor:null,note:"Too vague. The scheme wants a method: a set square next to the rule as a pointer, or a mark on the container at the lens position."},
-    {id:"IX4",text:"Make sure the two solutions do not mix.",cor:null,note:"On the right lines, but no method. The scheme credits cleaning the lens or the container, or using a new container."},
-    {id:"IX5",text:"Hold the torch more steadily.",cor:null,note:"On the right lines, but no method. The scheme credits mounting the torch on a block or stand, or using an optical bench."}
-  ]
-},
-{
-  id:"m20_33_q2", label:"M20/33 Q2", title:"Compass deflection in a solenoid coil", paper:"9702/33 · Feb/Mar 2020",
-  summary:"A compass is placed inside a plastic channel wound with wire to form a solenoid-like coil. When current I flows, the compass deflects through angle θ. The wire is re-wound in a different configuration (adjacent grooves instead of every other groove) to give a second reading. Only two readings are taken to test the relationship tanθ = B/k.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A length of wire is wound through every other groove of a plastic channel to form a coil. A compass is placed inside at the centre. The channel is rotated until the compass arrow is perpendicular to the channel before current flows."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Count and record N (number of turns). Measure L (distance between first and last turns).","Close the switch. Measure deflection angle θ and ammeter reading I. Open the switch.","Estimate percentage uncertainty in θ.","Calculate B = μ₀(N−1)I / L. Calculate k = B / tanθ.","Disconnect, re-wind wire in adjacent grooves (every groove). Repeat all measurements.","Compare the two k values to test the suggested relationship."]}
-  ],
-  flaws:"Only two readings cannot validate a relationship. The ammeter reading is unsteady, making it difficult to determine I accurately. Parallax error arises when reading the compass angle θ. The percentage uncertainty in θ is large because angles are small. Re-winding the wire is difficult — wires may touch or the wire may be kinked. The channel may move on the bench, changing the orientation.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to determine I accurately — ammeter reading is not steady."},
-    {id:"C",text:"Parallax error when measuring the deflection angle θ on the compass."},
-    {id:"D",text:"Large percentage uncertainty in θ because the angle is small."},
-    {id:"E",text:"Difficult to re-wind and fix the wire — wires may touch / wire is kinked."},
-    {id:"F",text:"Channel moves on the bench, changing the orientation of the compass relative to the coil."}
-  ],
-  dist:[
-    {id:"D1",text:"The compass needle may not settle completely between readings."},
-    {id:"D2",text:"The resistance of the wire changes as it heats up."},
-    {id:"D3",text:"The Earth's magnetic field may affect the compass reading."},
-    {id:"D4",text:"It is difficult to count the number of turns of wire accurately."},
-    {id:"D5",text:"The crocodile clips may not make good electrical contact."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Clean the crocodile clips / contacts to ensure steady current / use a more stable power supply.",cor:"B"},
-    {id:"IC",text:"Measure change of angle by turning channel on bench / photograph compass and measure angle / use angle markings at 'before' and 'after' positions.",cor:"C"},
-    {id:"ID",text:"Use a larger current / voltage to increase the deflection angle and reduce percentage uncertainty.",cor:"D"},
-    {id:"IE",text:"Use two ready-wound channels (one for each winding configuration) / use new wire to avoid kinking.",cor:"E"},
-    {id:"IF",text:"Fix / tape the channel to the bench to prevent it moving.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing k values."},
-    {id:"IX2",text:"Use a more accurate ammeter.",cor:null,note:"Does not address the unsteady reading — the issue is fluctuation, not instrument precision."},
-    {id:"IX3",text:"Measure the angle more carefully.",cor:null,note:"Too vague — must specify a method to overcome parallax (e.g. photograph, angle markings)."},
-    {id:"IX4",text:"Use a larger current.",cor:null,note:"Incomplete — must state this increases θ and therefore reduces the percentage uncertainty."},
-    {id:"IX5",text:"Tape the channel to the bench.",cor:null,note:"Incomplete — must state this prevents the channel from moving / changing orientation."}
-  ]
-},
-{
-  id:"w22_34_q2", label:"W22/34 Q2", title:"Force on a magnet in a coil", paper:"9702/34 · Oct/Nov 2022",
-  summary:"A small magnet is attached to a nut hanging from a spring pointer. The deflection of the pointer (dm) caused by the magnet's weight is measured. A coil of wire is positioned around the magnet and current I passed through it, pulling the magnet down further. The pointer height H is recorded at two different currents (~0.3 A and ~0.7 A) to calculate a constant k via S(h – H) = kI. Only two readings are taken.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A spring pointer is clamped to a stand. A nut hangs from the end of the spring pointer. A small magnet is attached to the nut, causing a downward deflection dm = h₀ – h. A coil is positioned so that the magnet hangs just above the coil inside a tube."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Measure h₀ (pointer height, no magnet). Attach magnet and measure h. Calculate dm = h₀ – h. Estimate % uncertainty in dm.","Calculate spring stiffness proxy S = mg/dm.","Connect coil to power supply via variable resistor and ammeter. Set I ≈ 0.3 A. Measure pointer height H and record I.","Repeat at I ≈ 0.7 A. Second H should be smaller than first.","Calculate k = S(h – H)/I for both readings and compare within 20% to test relationship."]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"S(h – H) = kI, where S = mg/dm is the spring constant proxy, h is height with magnet only, H is height with magnet and current, and I is the current."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"The core problem is that only two (I, H) readings are taken — too few to validate any relationship. The pointer oscillates when the switch is closed, making H hard to read. The pointer is thick and the ruler is hand-held, creating difficulty measuring height. The deflection dm and the change (h – H) are both small, so their percentage uncertainties are large. The current fluctuates. The magnet may touch the tube wall."}
-  ],
-  flaws:"Only two readings taken — cannot draw a valid conclusion. Pointer oscillates when current flows, making H difficult to read. Difficult to measure height accurately — pointer is thick, ruler moves. Deflection dm is small, so its percentage uncertainty is large. Change in height (h – H) is very small. Current/ammeter reading fluctuates. Magnet may hit the side of the tube.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Pointer oscillates when current flows — difficult to read a steady value of H."},
-    {id:"C",text:"Difficult to measure the height of the pointer accurately — pointer is thick / ruler not vertical / ruler moves."},
-    {id:"D",text:"The deflection dm is small, so the percentage uncertainty in dm is large."},
-    {id:"E",text:"The change in height (h – H) caused by the current is very small."},
-    {id:"F",text:"Current/ammeter reading fluctuates — difficult to record a reliable value of I."},
-    {id:"G",text:"Magnet hits the side of the tube during measurement."}
-  ],
-  dist:[
-    {id:"D1",text:"The mass of the magnet is difficult to measure accurately."},
-    {id:"D2",text:"The spring may not obey Hooke's law over the deflection range used."},
-    {id:"D3",text:"The coil may heat up and change resistance during the experiment."},
-    {id:"D4",text:"It is difficult to ensure the pointer is exactly horizontal before taking readings."},
-    {id:"D5",text:"Parallax error when reading the ammeter scale."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings at different currents and plot a graph of H against I (or calculate more k values and compare).",cor:"A"},
-    {id:"IB",text:"Take a video with a scale/ruler in view to estimate the mean position, or use a wind shield / damping to reduce oscillation.",cor:"B"},
-    {id:"IC",text:"Use a pointed/thinner pointer or pin, or clamp the ruler to prevent it moving.",cor:"C"},
-    {id:"ID",text:"Use a heavier magnet, a less stiff spring, or a longer spring to increase the deflection dm.",cor:"D"},
-    {id:"IE",text:"Use a larger current, more turns on the coil, or a stronger magnet to increase (h – H).",cor:"E"},
-    {id:"IF",text:"Clean the connections/crocodile clips (e.g. with wire wool) or use soldered connections to stabilise the current.",cor:"F"},
-    {id:"IG",text:"Use a wider tube so the magnet does not touch the sides.",cor:"G"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
-    {id:"IX2",text:"Use a more accurate ammeter.",cor:null,note:"Does not address the fluctuating reading — the issue is instability, not instrument precision."},
-    {id:"IX3",text:"Read the pointer at eye level.",cor:null,note:"On the right lines, but too vague. The November 2021 Paper 35 report names \u2018keep eye level\u2019 as an improvement that cannot be credited. The scheme wants a pointed or thinner pointer, a pin, or a clamped rule."},
-    {id:"IX4",text:"Use a stiffer spring.",cor:null,note:"Wrong direction. A stiffer spring makes the deflection smaller. The scheme credits a less stiff or longer spring, or a heavier magnet."},
-    {id:"IX5",text:"Use a larger tube.",cor:null,note:"The scheme says \u201cUse wider tube (not \u2018larger\u2019)\u201d."}
-  ]
-},
-{
-  id:"s23_34_q2", label:"S23/34 Q2", title:"Thermal expansion of plastic pipe", paper:"9702/34 · May/Jun 2023",
-  summary:"A plastic pipe is suspended vertically on a wooden rod pivoting on a pin, with a mass hanger at the bottom. The rod's height x₁ above the bench is measured at room temperature T₀. Boiling water is poured into a measuring cylinder to heat the pipe; the rod drops to x₂ as the pipe expands. The change (x₁ – x₂) and water temperature T are recorded. Repeated with a shorter pipe. Only two readings taken to test k(x₁ – x₂) = L(T – T₀).",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"Two plastic pipes are provided, each with string loops at each end. The longer pipe is hung vertically from a horizontal wooden rod (pivoting on a pin through a cork/clamp). A mass hanger rests at the bottom. The end of the rod on the other side of the pivot indicates height x₁."},
-    {t:"h3",v:"Procedure"},{t:"list",v:["Measure pipe length L and record room temperature T₀.","Record x₁ (rod height at room temperature).","Pour boiling water into the measuring cylinder to cover the pipe. Record water temperature T.","As the pipe expands, the end of the rod drops — measure new height x₂.","Calculate (x₁ – x₂). Estimate percentage uncertainty.","Repeat with the shorter pipe. Calculate k = L(T – T₀)/(x₁ – x₂) for both. Compare within 20%."]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"k(x₁ – x₂) = L(T – T₀), where L is pipe length, T is water temperature, T₀ is room temperature, and (x₁ – x₂) is the downward movement of the rod end."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The rod/rule is difficult to hold steady, making x values hard to measure. The change (x₁ – x₂) is small so percentage uncertainty is large. The water temperature T varies with position in the measuring cylinder and drops rapidly, so x₂ and T cannot be measured simultaneously. Room temperature T₀ may change during the experiment. The curved pipe makes L difficult to measure accurately. The string may change length when wet."}
-  ],
-  flaws:"Only two readings taken — cannot draw a valid conclusion. Difficult to measure x (rod height) because the rod moves/rule not vertical. (x₁ – x₂) is small so large percentage uncertainty. Difficult to measure T accurately — temperature varies with position in cylinder, or T decreases rapidly before x₂ can be measured. Room temperature T₀ may change during the experiment. Difficult to measure L because the pipe is curved. String changes length when wet.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to measure x (rod height) accurately — rod moves / ruler not vertical / ruler moves."},
-    {id:"C",text:"(x₁ – x₂) is small, so the percentage uncertainty in (x₁ – x₂) is large."},
-    {id:"D",text:"Difficult to measure T accurately — temperature varies with position in the measuring cylinder, or T decreases rapidly so x₂ and T cannot be measured at the same time."},
-    {id:"E",text:"Room temperature T₀ may change during the experiment."},
-    {id:"F",text:"Difficult to measure L because the pipe is curved / the pipe does not expand uniformly / difficult to measure the distance between the string attachment holes."},
-    {id:"G",text:"String changes length when wet, affecting the measurement."}
-  ],
-  dist:[
-    {id:"D1",text:"The boiling water may not be at exactly 100 °C."},
-    {id:"D2",text:"It is difficult to pour the boiling water without disturbing the apparatus."},
-    {id:"D3",text:"The mass hanger may swing during the measurement."},
-    {id:"D4",text:"Heat loss from the water to the air means the pipe is not uniformly heated."},
-    {id:"D5",text:"The measuring cylinder may not be positioned directly under the pipe."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings with pipes of different lengths and plot a graph (or calculate more k values and compare).",cor:"A"},
-    {id:"IB",text:"Clamp the ruler in position / use a plumb line to ensure the ruler is vertical.",cor:"B"},
-    {id:"IC",text:"Use a longer pipe / rod to increase (x₁ – x₂) and reduce the percentage uncertainty.",cor:"C"},
-    {id:"ID",text:"Use a stirrer for the water / clamp the thermometer in the water / use a thermostatically controlled water bath.",cor:"D"},
-    {id:"IE",text:"Measure T₀ just before the water is added so that any change in room temperature is accounted for.",cor:"E"},
-    {id:"IF",text:"Use a tape measure or string and ruler to measure L along the pipe, or define L as the distance between the holes where the string is attached.",cor:"F"},
-    {id:"IG",text:"Use a waterproof string such as nylon, plastic-coated wire, or metal wire.",cor:"G"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
-    {id:"IX2",text:"Use a more accurate thermometer.",cor:null,note:"Does not address the temperature varying with position or the timing problem."},
-    {id:"IX3",text:"Make (x₁ – x₂) bigger.",cor:null,note:"Right goal, but no method. The scheme credits how: increase the length of the rod or pipe."},
-    {id:"IX4",text:"Measure T₀ at the start.",cor:null,note:"Incomplete — must state this is done just before the water is added, to account for any drift in room temperature."},
-    {id:"IX5",text:"Use waterproof string.",cor:null,note:"Incomplete — must name a specific waterproof material (e.g. nylon, metal wire)."}
-  ]
-},
-{
-  id:"s25_35_q2", label:"S25/35 Q2", title:"Centre of gravity shift in a suspended cardboard sheet", paper:"9702/35 · May/Jun 2025",
-  summary:"Two cardboard sheets (A and B) are hung from a nail through holes in their corners. A plumb line marks the vertical through each hole; the crossing point gives the centre of gravity P (without added mass). Adhesive putty plus two 10 g masses (total m) are attached at distance x from the top edge, shifting the centre of gravity to Q. The displacement y between P and Q is measured. Sheet B repeats with m = 10 g and x ≈ 5 cm. Two values of k are calculated via y²/m² = k/xt. Only two readings are taken.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A cardboard sheet hangs freely from a nail passed through a hole in one corner. A plumb line over the same nail marks the vertical. The process is repeated from the second hole. The two plumb lines cross at the original centre of gravity P."},
-    {t:"h3",v:"Procedure"},{t:"list",v:[
-      "Measure sheet thickness t with a micrometer.",
-      "Make holes in two corners of sheet A. Hang from each hole in turn; draw a plumb line each time. The crossing point is the original centre of gravity P.",
-      "Attach adhesive putty and two 10 g masses (total mass m) at distance x ≈ 10 cm from the top edge.",
-      "Repeat the plumb-line process to find the new centre of gravity Q. Measure y = distance PQ.",
-      "Estimate percentage uncertainty in y.",
-      "Repeat with sheet B using m = 10 g and x ≈ 5 cm. Calculate k = y²·x·t / m² for both readings and compare within 20%."
-    ]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"y²/m² = k/(xt), where y is the displacement of the centre of gravity, m is the added mass, x is the distance from the top edge to the mass, and t is the sheet thickness."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. Drawing lines along the plumb line is difficult because the card is hanging and may move during drawing; the rule may not be vertical. The mass of the putty is not included in m, introducing a systematic error. Measuring x to the centre of the mass is difficult to judge because the mass covers the mark on the card. Locating the centre of gravity accurately is difficult because the string may be too thick or the nail too thick, meaning the card does not swing freely."}
-  ],
-  flaws:"Only two readings — cannot draw a valid conclusion. Difficult to draw the plumb-line on the card while it is hanging — card or string moves when drawing / card not vertical. Mass of putty not included in m. Difficult to measure x accurately — judging centre of mass / mass covers the mark. Difficult to locate centre of gravity accurately — string too thick / card sticks on nail / nail too thick.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to draw a line along the plumb line with a reason — card is hanging / card or string moves when drawing / card not vertical."},
-    {id:"C",text:"Mass of putty is not taken into account in m — introduces a systematic error."},
-    {id:"D",text:"Difficult to measure x accurately — hard to judge the centre of the mass / the mass covers up the mark made for x."},
-    {id:"E",text:"Difficult to locate the centre of gravity accurately — string too thick / card sticks on nail / nail is too thick so card does not swing freely."}
-  ],
-  dist:[
-    {id:"D1",text:"The sheet may not be perfectly rectangular, making x difficult to define."},
-    {id:"D2",text:"The plumb line may be affected by draughts in the room, making the line inaccurate."},
-    {id:"D3",text:"The two cardboard sheets may have different densities, affecting the results."},
-    {id:"D4",text:"The cardboard may absorb moisture from the air during the experiment."},
-    {id:"D5",text:"The nail hole may stretch with use, changing the position from which the card hangs."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings (different values of x or different masses) and plot a graph, or calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Take the card off the nail, lay it flat on the bench and draw the line there / clamp a rule vertically alongside the string to draw the line accurately.",cor:"B"},
-    {id:"IC",text:"Measure the mass of the putty and add it to m, or use a specified lighter adhesive such as tape or glue instead of putty.",cor:"C"},
-    {id:"ID",text:"Measure x to both the near and far side of the mass and average, or define x to a fixed reference mark on the card.",cor:"D"},
-    {id:"IE",text:"Use thinner string / a thinner nail / a pin, or enlarge and smooth the hole so the card swings freely.",cor:"E"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
-    {id:"IX2",text:"Use a spirit level to check the card is vertical.",cor:null,note:"Does not address the core difficulty of drawing on a hanging card — the card should be taken down and placed flat."},
-    {id:"IX3",text:"Use a more accurate ruler to measure y.",cor:null,note:"Too vague — does not address the specific difficulty of locating the centre of gravity accurately."},
-    {id:"IX4",text:"Weigh the putty.",cor:null,note:"Incomplete — must state that the putty mass is added to m (or that a lighter adhesive replaces putty)."},
-    {id:"IX5",text:"Reduce the friction at the nail.",cor:null,note:"On the right lines, but no method. The scheme credits thinner string, a thinner nail, a pin, or a bigger or smoother hole."}
-  ]
-}
-,
-{
-  id:"s23_31_q2", label:"S23/31 Q2", title:"Oscillations of a wooden strip and pendulum", paper:"9702/31 · May/Jun 2023",
-  summary:"A wooden strip with two holes (G and H) is balanced on a pivot. When hung from a nail through hole G (then H), the strip oscillates like a physical pendulum. A simple pendulum is adjusted until its period matches the strip's. The distance a (hole to pivot) and pendulum length l are measured. The relationship (l – a) = C/a is tested with only two readings — one for each hole.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A wooden strip is placed on a pivot and balanced. A nail through hole G (or H) is clamped horizontally. The strip hangs and is pulled slightly then released to oscillate. A simple pendulum is set up next to it."},
-    {t:"h3",v:"Procedure"},{t:"list",v:[
-      "Balance the strip on a pivot; measure a = distance from G to the pivot.",
-      "Hang strip from nail through G; measure time t for 10 oscillations.",
-      "Set up a pendulum and adjust length l until its period matches t.",
-      "Record l; calculate (l – a). Estimate percentage uncertainty in (l – a).",
-      "Repeat the entire procedure using hole H.",
-      "Calculate C = a(l – a) for both readings; compare within 5%. Calculate g using the formula provided."
-    ]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"(l – a) = C/a, where l is the pendulum length giving the same period as the strip, a is the distance from the hole to the balance point, and C is a constant related to the moment of inertia of the strip."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. Synchronising the two oscillations to judge when t (strip) equals t (pendulum) is very difficult. Measuring a is tricky because the pivot is a point and the strip moves on it; the strip may move during measurement. Measuring l involves parallax when locating the centre of the bob. The times for holes G and H may be very close together, giving little variation in the data. The strip may oscillate in more than one plane, or may wobble on the nail."}
-  ],
-  flaws:"Only two readings taken — cannot draw a valid conclusion. Hard to ensure the pendulum period equals the strip period. Hard to measure a — strip moves on pivot. Hard to measure l — parallax/bob moves when touched. Hard to measure t — judging start and end of oscillation. Times for G and H are close/small difference. Difficult to balance the strip.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to ensure the pendulum period equals the strip period — hard to judge when they oscillate together."},
-    {id:"C",text:"Difficult to measure a — the strip moves on the pivot / finding the centre of the hole / strip moves when the ruler touches it."},
-    {id:"D",text:"Difficult to measure l — parallax error when locating the centre of the bob / bob moves when touched by the ruler / ruler moves."},
-    {id:"E",text:"Difficult to measure t — hard to judge the start/end of a complete oscillation / strip wobbles or oscillates in different planes."},
-    {id:"F",text:"Times for holes G and H are very close together — small difference makes comparison unreliable."}
-  ],
-  dist:[
-    {id:"D1",text:"The nail may not be perfectly horizontal, causing the strip to hang at an angle."},
-    {id:"D2",text:"Air resistance affects the oscillation and damps it quickly."},
-    {id:"D3",text:"The wooden strip may not have uniform density, affecting the balance point."},
-    {id:"D4",text:"The stopwatch reaction time introduces error in t."},
-    {id:"D5",text:"The length of the string used for the pendulum may stretch over time."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings (different holes or additional masses) and plot a graph / calculate more C values and compare.",cor:"A"},
-    {id:"IB",text:"Use two stands so that the strip and the pendulum can oscillate at the same time and be compared directly.",cor:"B"},
-    {id:"IC",text:"Draw a scale on the strip / mark the pivot position on both sides of the strip / roughen the lower surface to prevent slipping.",cor:"C"},
-    {id:"ID",text:"Use a rule with pointers / clamp the ruler in position / measure the diameter of the bob and halve it to find the radius.",cor:"D"},
-    {id:"IE",text:"Use a fiducial marker placed at the centre/equilibrium position of the oscillation / use video recording with a timer in view.",cor:"E"},
-    {id:"IF",text:"Place the holes further apart so that t values for G and H differ more.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more C values."},
-    {id:"IX2",text:"Use a more accurate stopwatch.",cor:null,note:"Does not address the difficulty of judging the start/end of an oscillation."},
-    {id:"IX3",text:"Use a plumb line to check the nail is horizontal.",cor:null,note:"Nail orientation is not a mark-scheme limitation for this experiment."},
-    {id:"IX4",text:"Use a video camera.",cor:null,note:"Incomplete — must specify what is being measured (e.g. timing oscillations) and how (e.g. timer in view, frame-by-frame review)."},
-    {id:"IX5",text:"Measure l from the top of the bob.",cor:null,note:"Does not address parallax or the bob moving when touched — and measuring from the top rather than the centre is less accurate."}
-  ]
-},
-{
-  id:"s24_31_q2", label:"S24/31 Q2", title:"Torsional oscillations of a rod with masses", paper:"9702/31 · May/Jun 2024",
-  summary:"A thin rod has a copper wire wrapped around its centre and is suspended horizontally by a rubber band. Two slotted masses (one on each end) are placed symmetrically at distance a from the wire. The rod is rotated 90° and released, oscillating torsionally. Period T is measured. The arrangement is repeated with different masses (50 g then 10 g), giving a different a and T. Two values of k are calculated from T² = k(S + a²m). Only two readings taken.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A rod of length L and mass M has S = ML²/12 calculated. Copper wire is wrapped three times around the rod's centre and the wire is hooked onto a rubber band (clamped above). Two slotted masses at distance a from the wire are held with adhesive putty. The rod is rotated 90° in the horizontal plane and released."},
-    {t:"h3",v:"Procedure"},{t:"list",v:[
-      "Measure L and M; calculate S = ML²/12.",
-      "Place 50 g masses ≈ 3 cm apart; record m and a.",
-      "Estimate percentage uncertainty in a.",
-      "Rotate rod 90° and release; measure period T from at least two timings of ≥ 3 oscillations.",
-      "Repeat with 10 g masses ≈ 9 cm apart; record new m and a.",
-      "Calculate k = T²/(S + a²m) for both readings; compare within 10%."
-    ]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"T² = k(S + a²m), where T is the period, S = ML²/12 is the rotational inertia of the bare rod, m is the mass on one end, a is the distance from each mass to the wire, and k is a constant related to the torsional stiffness."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The masses are not exactly parallel to each other, making it hard to judge a (the distance from the centre of each mass to the wire). The rod oscillates in other planes (vertically or sideways) as well as torsionally. The 90° release angle is difficult to judge consistently. The wire may move in the clip during oscillation, altering the effective length and hence the stiffness. The adhesive putty mass is not included in m; its mass on each side may differ. Judging the start/end of an oscillation is difficult."}
-  ],
-  flaws:"Only two readings — cannot draw a valid conclusion. Hard to measure a — masses not parallel / masses too wide / parallax. Oscillations occur in other planes (vertical/sideways). Difficult to judge start/end of oscillation. Wire or masses move on rod during oscillation. Putty mass not taken into account / different on each side. Hard to judge/set the 90° release angle consistently.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to measure a — masses not parallel to each other / masses too wide / hard to judge the centre of each mass / parallax error / rod not straight."},
-    {id:"D",text:"Difficult to measure T — hard to judge the start and/or end of an oscillation / amplitude decreases quickly / oscillations are heavily damped."},
-    {id:"E",text:"Wire or masses move on the rod during oscillation / rod is unbalanced or difficult to make horizontal / difficult to position wire at the centre of rod."},
-    {id:"F",text:"Mass of adhesive putty not taken into account in m / putty mass different on each side of the rod."},
-    {id:"G",text:"Difficult to set or judge the 90° release angle consistently each time."}
-  ],
-  dist:[
-    {id:"D1",text:"The rubber band may stretch and change stiffness during the experiment."},
-    {id:"D2",text:"Air currents in the room affect the oscillation."},
-    {id:"D3",text:"The wire is not uniform, so the torsional stiffness varies along its length."},
-    {id:"D4",text:"Parallax error when reading the length L of the rod."},
-    {id:"D5",text:"The slotted masses may not have exactly the stated mass."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings at different values of L or m and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Use thinner masses / use calipers to measure a / take readings from both sides of each mass and average.",cor:"B"},
-    {id:"ID",text:"Use a fiducial marker placed at the equilibrium position / use video recording with a timer in view and review frame by frame.",cor:"D"},
-    {id:"IE",text:"Make a notch or groove in the rod to locate the wire / glue or tape the wire to the rod to prevent it moving.",cor:"E"},
-    {id:"IF",text:"Measure the mass of the adhesive putty and add it to m / measure the putty mass on each side separately and correct m accordingly.",cor:"F"},
-    {id:"IG",text:"Use a clamped protractor or set square to set the 90° release angle / use a marker or pointer to indicate the initial position.",cor:"G"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
-    {id:"IX2",text:"Use a more accurate ruler.",cor:null,note:"Does not address the specific difficulty of locating the centre of the masses or parallax when they are not parallel."},
-    {id:"IX3",text:"Use a fiducial marker.",cor:null,note:"Incomplete — must state it is placed at the centre/equilibrium position of the oscillation."},
-    {id:"IX4",text:"Use a protractor to set the angle.",cor:null,note:"Incomplete — must specify the protractor is clamped in position, or that a pointer/marker is used to indicate the initial angle."},
-    {id:"IX5",text:"Weigh the putty.",cor:null,note:"Incomplete — must state the measured putty mass is added to m (or measured separately on each side)."}
-  ]
-},
-{
-  id:"s25_32_q2", label:"S25/32 Q2", title:"Torsional oscillations of a rubber cord", paper:"9702/32 · May/Jun 2025",
-  summary:"A wire with a clip and two slotted masses is suspended from a rubber cord. The separation between the mass centres (B) is measured. The cord diameter d, cord length L between clips, and torsional oscillation period T are recorded. The experiment is repeated with a shorter cord. Two k values are calculated from T² = B²L/(kd⁴) and compared within 20%. Only two readings are taken.",
-  fullText:[
-    {t:"h3",v:"Setup"},{t:"p",v:"A rubber cord is gripped between two clips. The upper clip is fixed in a clamp; the lower clip holds a wire with two slotted masses. The assembly can be twisted and released to oscillate torsionally."},
-    {t:"h3",v:"Procedure"},{t:"list",v:[
-      "Measure B = distance between the centres of the two slotted masses. Estimate percentage uncertainty in B.",
-      "Select the longer cord. Measure diameter d and length L between the clips.",
-      "Rotate the lower clip ≈ 180° and release; measure period T from at least two timings.",
-      "Repeat with the shorter cord, recording new d, L and T.",
-      "Calculate k = B²L/(T²d⁴) for both readings; compare within 20%."
-    ]},
-    {t:"h3",v:"Key relationship"},{t:"p",v:"T² = B²L/(kd⁴), where T is the period, B is the mass separation, L is the cord length, d is the cord diameter, and k is a constant related to the shear modulus of the rubber."},
-    {t:"h3",v:"Examiner analysis of flaws"},
-    {t:"p",v:"Only two readings are taken — insufficient to validate a relationship. The mass separation B is difficult to measure because the masses may not be parallel to each other and B changes when the clip and masses are suspended. The cord length L is hard to measure accurately because of parallax or because the rubber cord moves when touched by the ruler. The cord diameter d is difficult to measure because the calipers' jaws compress the soft rubber. The oscillations die away quickly (heavily damped), making it hard to count complete oscillations or judge the start/end. Additional oscillation modes (vertical, side-to-side) contaminate the period. Attaching the cord to the centre of the lower clip is difficult to achieve consistently."}
-  ],
-  flaws:"Only two readings — cannot draw a valid conclusion. Hard to measure B — masses not parallel / B changes when suspended. Hard to measure L — parallax / cord moves when touched. Hard to measure d — calipers compress rubber. Hard to measure T — oscillations die away quickly / multi-mode oscillations. Difficult to attach cord to centre of lower clip consistently.",
-  valid:[
-    {id:"A",text:"Only two readings — not enough to draw a valid conclusion."},
-    {id:"B",text:"Difficult to measure B — masses not parallel to each other / B changes when the clip and masses are suspended."},
-    {id:"C",text:"Difficult to measure L — parallax error / rubber cord moves when touched by the ruler / clip moves when touched."},
-    {id:"D",text:"Difficult to measure d — jaws of calipers compress the soft rubber cord, giving an underestimate."},
-    {id:"E",text:"Difficult to measure T — oscillations die away (damp) very quickly / hard to judge the start and/or end of an oscillation."},
-    {id:"F",text:"Oscillations occur in more than one mode — vertical or side-to-side oscillations / rubber cord not attached at the centre of the lower clip."}
-  ],
-  dist:[
-    {id:"D1",text:"The clamp stand may topple if the masses are too heavy."},
-    {id:"D2",text:"The slotted masses may not have exactly the stated mass."},
-    {id:"D3",text:"The temperature of the rubber cord affects its elastic properties, altering k."},
-    {id:"D4",text:"Parallax error when reading the ammeter."},
-    {id:"D5",text:"The upper clip may slip in the clamp, shortening L during oscillation."}
-  ],
-  imp:[
-    {id:"IA",text:"Take more readings (different cord lengths or diameters) and plot a graph / calculate more k values and compare.",cor:"A"},
-    {id:"IB",text:"Measure B from the left (or right) edge of one mass to the same edge of the other / measure B when the clip is suspended.",cor:"B"},
-    {id:"IC",text:"Clamp the rule in position to measure L / use pointers attached to the rule or edges of the clips to reduce parallax.",cor:"C"},
-    {id:"ID",text:"Use a micrometer to measure d / use a travelling microscope (non-contact) to measure d.",cor:"D"},
-    {id:"IE",text:"Twist the masses through a larger angle before releasing to increase amplitude and period / use a fiducial marker at the equilibrium position / record the oscillation with a timer in view and review frame by frame.",cor:"E"},
-    {id:"IF",text:"Mark the centre of the lower clip before attaching the cord / use a marker or pointer to ensure the cord is at the midpoint / ensure the cord is attached symmetrically.",cor:"F"},
-    {id:"IX1",text:"Repeat the experiment and take an average.",cor:null,note:"Vague — must specify plotting a graph or comparing more k values."},
-    {id:"IX2",text:"Use a more accurate ruler.",cor:null,note:"Does not address the parallax or the cord moving when touched — clamping the ruler is the targeted improvement."},
-    {id:"IX3",text:"Use calipers to measure d.",cor:null,note:"Calipers are the instrument causing the problem — the improvement must specify a non-compressing method such as a micrometer or travelling microscope."},
-    {id:"IX4",text:"Use a video camera.",cor:null,note:"Incomplete — must state a timer is in view and that the footage is reviewed frame by frame, or specify a fiducial marker at the equilibrium point."},
-    {id:"IX5",text:"Make the oscillations last longer.",cor:null,note:"On the right lines, but no method. The scheme credits twisting the masses through a larger angle before release, a marker at the equilibrium point, or a video with a timer in view."}
-  ]
-}
-];
+// the card text lives once, in the HTML inside #mainContent (readable without JS); render() replaces it
+const EXP=[...document.querySelectorAll("#mainContent .xs")].map(a=>{
+  const t=el=>el.textContent, q=s=>a.querySelector(s), qa=s=>[...a.querySelectorAll(s)];
+  const valid=[], imp=[];
+  qa(".xs-valid > li").forEach(li=>{const p=li.querySelector(".xs-imp");valid.push({id:li.dataset.id,text:t(li.querySelector(".xs-t"))});imp.push({id:p.dataset.id,text:t(p),cor:li.dataset.id});});
+  qa(".xs-noscore > li").forEach(li=>imp.push({id:li.dataset.id,text:t(li.querySelector(".xs-t")),cor:null,note:t(li.querySelector(".xs-note"))}));
+  return {
+    id:a.dataset.id, label:t(q(".xs-label")), title:t(q(".xs-title")), paper:t(q(".xs-paper")), summary:t(q(".xs-summary")),
+    fullText:[...q(".xs-full").children].map(c=>c.tagName==="H4"?{t:"h3",v:t(c)}:c.tagName==="P"?{t:"p",v:t(c)}:{t:"list",v:[...c.children].map(t)}),
+    flaws:t(q(".xs-flaws")), valid, dist:qa(".xs-dist > li").map(li=>({id:li.dataset.id,text:t(li)})), imp
+  };
+});
 
 let S={expIdx:0,phase:"select",selLims:[],drops:{},dragImp:null,armed:null,impOrder:null,showFull:false,limOpts:null};
 // wording only - the tap path itself is always live, so a wrong guess here never breaks the interaction
