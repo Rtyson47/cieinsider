@@ -435,6 +435,10 @@
     transform: translateY(-1px);
     border-radius: 1px;
   }
+  @media (max-width: 640px) {
+    .top-list li { grid-template-columns: 40px 1fr; gap: 6px 14px; }
+    .top-list .area { grid-column: 2; white-space: normal; }
+  }
 
   /* Quick-jump grid */
   .quick-jump {
