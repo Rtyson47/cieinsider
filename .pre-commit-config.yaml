@@ -10,3 +10,8 @@ repos:
         entry: python3 .pre-commit-hooks/no-html-notes.py
         language: system
         files: \.html$
+      - id: clarity-beacon
+        name: Indexable pages carry the Clarity tag
+        entry: python3 .pre-commit-hooks/clarity-beacon.py
+        language: system
+        files: (^|/)index\.html$
