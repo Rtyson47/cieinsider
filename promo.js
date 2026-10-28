@@ -18,7 +18,7 @@
       title: 'Paper 1 on Tue 10 November? <em>Sit a real one now, while there&rsquo;s time to fix what it shows.</em>',
       body: 'The MCQ trainer has real 9702 Paper 1 past papers from 2023 to 2026: 40 questions in 75 minutes, the paper beside the answer panel, marked the moment you submit. Do one under exam conditions and you&rsquo;ll see where the marks are going.',
       now: 'Free', priceNote: 'Real past papers, marked instantly',
-      cta: 'Sit a Paper 1 now &rarr;', href: '/mcq/?paper=9702_w25_qp_11&type=AS',
+      cta: 'Sit a Paper 1 now &rarr;', href: '/mcq/?type=AS',
       note: 'Want a paper marked? Paper 1 marks itself, free, in the <a href="/mcq/">MCQ trainer</a>. I mark Papers 2 to 5 myself, mark by mark against the scheme, from &pound;25. <a href="/marked/">See how it works &rarr;</a>'
     }
   ];
