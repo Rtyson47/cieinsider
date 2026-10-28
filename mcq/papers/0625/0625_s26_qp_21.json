@@ -22,7 +22,7 @@
     { "n": 11, "answer": "B", "topic": "thermal_matter", "subtopic": "gas_laws", "difficulty": null, "explanation": null },
     { "n": 12, "answer": "B", "topic": "thermal_matter", "subtopic": "gas_laws", "difficulty": null, "explanation": null },
     { "n": 13, "answer": "A", "topic": "energy", "subtopic": "energy_stores", "difficulty": null, "explanation": null },
-    { "n": 14, "answer": "B", "topic": "thermal_matter", "subtopic": "heat_transfer", "difficulty": null, "explanation": null },
+    { "n": 14, "answer": "B", "topic": "thermal_matter", "subtopic": "heat_transfer", "difficulty": null, "explanation": "Option C was the common wrong answer. Its statement is true, but it does not explain the observation: nothing is being radiated at your hand. A rod feels cold when it conducts thermal energy away from your skin quickly. Metal is a better thermal conductor than plastic: B." },
     { "n": 15, "answer": "A", "topic": "thermal_matter", "subtopic": "heat_transfer", "difficulty": null, "explanation": null },
     { "n": 16, "answer": "D", "topic": "thermal_matter", "subtopic": "heat_transfer", "difficulty": null, "explanation": null },
     { "n": 17, "answer": "B", "topic": "waves_general", "subtopic": "wave_basics", "difficulty": null, "explanation": null },
