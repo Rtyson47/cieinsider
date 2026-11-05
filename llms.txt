@@ -1,10 +1,10 @@
 # CIE Insider
 
-> Free revision tools and paid script marking for Cambridge IGCSE Physics (0625, and the 9-1 graded 0972) and Cambridge International AS & A Level Physics (9702). Built by Rich Tyson, a physics teacher who marked 0625 and 9702 for Cambridge, from every examiner report Cambridge published for both syllabuses from 2021 to 2026. Independent: not affiliated with or endorsed by Cambridge International.
+> Free revision tools and paid script marking for Cambridge IGCSE Physics (0625, and the 9-1 graded 0972) and Cambridge International AS & A Level Physics (9702). Built by Rich Tyson, a physics teacher trained by Cambridge examiners, working from every examiner report Cambridge published for both syllabuses from 2021 to 2026. Independent: not affiliated with or endorsed by Cambridge International.
 
 ## Who runs it
 - Rich Tyson, sole trader, UK. BSc Physics (Hons); PGCE Physics with Mathematics.
-- Former Cambridge examiner for 0625 and 9702. Not currently contracted as an examiner.
+- Trained by Cambridge examiners. Not a Cambridge examiner.
 - Contact: rich@cieinsider.com
 
 ## The papers (from the Cambridge syllabuses)
@@ -41,6 +41,6 @@
 - For teachers: https://cieinsider.com/teachers/
 
 ## Paid
-- Script marking: a full past paper you have attempted, marked against the published mark scheme by a former examiner, with what the examiner report said where it commented on your question. GBP 25 to 35 depending on the paper, or five for GBP 109. Back within a week or your money back. https://cieinsider.com/marked/
+- Script marking: a full past paper you have attempted, marked against the published mark scheme by a teacher trained by Cambridge examiners, with what the examiner report said where it commented on your question. GBP 25 to 35 depending on the paper, or five for GBP 109. Back within a week or your money back. https://cieinsider.com/marked/
 - The Maths Behind A Level Physics (9702): self-paced course on the numerical and unit skills 9702 assumes. GBP 39, one payment, 14-day refund. https://cieinsider.com/bridge/
 - Terms, refunds and privacy: https://cieinsider.com/terms/
